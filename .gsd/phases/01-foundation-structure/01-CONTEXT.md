@@ -55,6 +55,13 @@ Creating the directory and file scaffolding for the 6-section learning pathway w
 - **Link style:** Buttons/badges using markdown emphasis - `**[← Previous: Ecosystem](link)**`
 - **Back to main:** Not included - rely on browser back button / GitHub breadcrumbs
 
+### Resource Curation Policy
+
+- **All resources must be free** - No paid courses, premium content, or paywalls
+- **Free blogs and articles** - Community content, official documentation, free tutorials
+- **Exception:** Anthropic Skillshare course allowed (specific inclusion)
+- **Quality over quantity** - Still maintain 5-7 max per topic, but all must be freely accessible
+
 ### Copilot's Discretion
 
 None - all structural decisions captured above.
