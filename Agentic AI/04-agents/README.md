@@ -741,11 +741,396 @@ Similarly, even "trusted" agents need appropriate guardrails.
 
 ### Effective Task Assignment
 
-Teach how to delegate tasks to agents effectively: defining clear goals, providing necessary context and constraints, specifying success criteria, and setting up appropriate guardrails. The art of the agent prompt.
+**Delegation to AI agents** requires a different mindset than delegating to humans. Agents need explicit structure where humans infer context.
+
+**The Delegation Framework:**
+
+```
+Effective Delegation =
+  Clear Goal +
+  Sufficient Context +
+  Defined Constraints +
+  Success Criteria +
+  Appropriate Guardrails
+```
+
+---
+
+**1. Defining Clear Goals**
+
+**Bad (Vague):**
+```
+❌ "Make the app better"
+❌ "Fix the bugs"
+❌ "Add some features"
+```
+
+**Good (Specific):**
+```
+✅ "Reduce page load time from 5s to under 2s"
+✅ "Fix authentication redirect loop on logout"
+✅ "Add email notification when order ships"
+```
+
+**SMART Goals for Agents:**
+- **Specific:** Exactly what to build/fix
+- **Measurable:** How to verify success
+- **Achievable:** Within agent's capabilities
+- **Relevant:** Aligns with project goals
+- **Time-bound:** Reasonable completion estimate
+
+---
+
+**2. Providing Necessary Context**
+
+**Context Types:**
+
+**Project Context:**
+```markdown
+Project: E-commerce platform
+Stack: Next.js 15 + PostgreSQL + Prisma
+Hosting: Vercel
+Current Phase: MVP (launch in 2 weeks)
+```
+
+**Technical Context:**
+```markdown
+Authentication: JWT (jose library)
+State Management: React Context
+Styling: Tailwind CSS
+Testing: Jest + React Testing Library
+```
+
+**Task-Specific Context:**
+```markdown
+Relevant Files:
+- src/components/Checkout.tsx (current implementation)
+- src/services/stripe.ts (payment integration)
+- lib/db/orders.ts (database operations)
+
+Related Issues:
+- Payment succeeds but order not created
+- Happens only on mobile Safari
+- Started after Stripe SDK update
+```
+
+**Example Delegation:**
+```markdown
+**Task:** Fix mobile Safari checkout bug
+
+**Context:**
+- E-commerce app (Next.js + Stripe)
+- Recent Stripe SDK update from v3.2 → v3.5
+- Payment Intent succeeds, but database order not created
+- Only affects  iOS Safari (Chrome works fine)
+- Error logs show: "TypeError: Cannot read 'metadata'"
+
+**Goal:**
+Payment completion should create order in all browsers
+
+[... continue with constraints and success criteria]
+```
+
+---
+
+**3. Specifying Success Criteria**
+
+**Functional Criteria:**
+```markdown
+✅ Feature works as specified
+✅ Handles expected inputs correctly
+✅ Fails gracefully on invalid inputs
+✅ Integrates with existing code
+```
+
+**Non-Functional Criteria:**
+```markdown
+✅ Performance: Response time < 200ms
+✅ Security: Input sanitized, SQL injection prevented
+✅ Accessibility: Keyboard navigable, screen reader friendly
+✅ Maintainability: Follows project conventions
+```
+
+**Verification Criteria:**
+```markdown
+✅ All tests pass
+✅ Manual testing checklist complete
+✅ No console errors
+✅ Code reviewed (by you or another agent)
+```
+
+---
+
+**4. Setting Up Appropriate Guardrails**
+
+**Scope Guardrails:**
+```markdown
+"Do NOT:
+- Modify database schema (out of scope)
+- Change API contracts (other code depends on them)
+- Install new dependencies without approval
+- Refactor unrelated code"
+```
+
+**Technical Guardrails:**
+```markdown
+"Must: 
+- Use existing authentication middleware
+- Follow our error handling pattern (AppError class)
+- Maintain backward compatibility
+- Add tests for new code"
+```
+
+**Quality Guardrails:**
+```markdown
+"Requirements:
+- TypeScript strict mode (no `any` types)
+- ESLint must pass with no warnings
+- Test coverage > 80%
+- Lighthouse accessibility score > 90"
+```
 
 ### Agent Prompting Best Practices
 
-Share proven patterns for agent prompts: stating objectives clearly, providing environmental context, anticipating failure modes, specifying acceptable vs unacceptable approaches, and structuring for agent decision-making.
+**Agents think differently than humans.** Structure prompts for how agents process information.
+
+---
+
+**Pattern 1: Objective-First Structure**
+
+**Human-Style (Context-heavy):**
+```
+"So we have this app, and it's been running for a while,
+and users have been complaining about the search being slow,
+maybe it's the database or maybe the algorithm, not sure,
+but anyway we need to make it faster somehow..."
+
+→ Agent struggles to find the objective
+```
+
+**Agent-Optimized:**
+```
+**Objective:** Reduce search response time from 3s to under 500ms
+
+**Context:** Product search in e-commerce app...
+
+→ Agent knows the goal immediately
+```
+
+**Template:**
+```markdown
+1. **Objective:** [One sentence - what success looks like]
+2. **Context:** [Background information]
+3. **Approach:** [How to achieve it, if you have preferences]
+4. **Constraints:** [What NOT to do]
+5. **Verification:** [How to test]
+```
+
+---
+
+**Pattern 2: Anticipate Failure Modes**
+
+**Basic Prompt:**
+```
+"Add user profile editing"
+```
+
+**Failure-Aware Prompt:**
+```
+"Add user profile editing
+
+Anticipate these failure modes:
+- User edits another user's profile → Verify ownership
+- Concurrent edits → Handle optimistic concurrency
+- Invalid data → Validate before saving
+- File upload fails → Rollback other changes"
+```
+
+**Common Failure Modes by Feature Type:**
+
+**Authentication:**
+- Session expiry
+- Simultaneous logins
+- Brute force attacks
+- Password reset token expiry
+
+**Forms:**
+- Invalid input
+- Network failure mid-submit
+- Duplicate submissions
+- Required fields missing
+
+**API Calls:**
+- Timeout
+- Rate limiting
+- Invalid responses
+- Authorization failures
+
+**File Operations:**
+- Permission errors
+- Disk space
+- Invalid file types
+- Size limits exceeded
+
+---
+
+**Pattern 3: Specify Acceptable vs Unacceptable Approaches**
+
+**Without Specification:**
+```
+"Implement caching"
+
+→ Agent might choose:
+  - In-memory (lost on restart)
+  - Redis (requires new infrastructure)
+  - Browser localStorage (privacy concerns)
+  - Service Worker (complex)
+```
+
+**With Specification:**
+```
+"Implement caching
+
+**Acceptable Approaches:**
+- Browser sessionStorage (for current session)
+- React Query caching (already in project)
+- Simple Map() in memory for current page
+
+**Unacceptable:**
+- Do NOT use Redis (not in our stack)
+- Do NOT use localStorage (privacy implications)
+- Do NOT implement service worker (too complex for MVP)
+
+**Preferred:** React Query since we already use it"
+```
+
+---
+
+**Pattern 4: Environmental Context**
+
+**Include:**
+```markdown
+**Environment:**
+- Dev: local machine, hot reload, verbose logging
+- Staging: Vercel preview, mirrors production, test data
+- Production: real users, real money, zero downtime required
+
+**Current Stage:** MVP pre-launch
+
+**Implications:**
+- Prioritize shipping over perfection
+- OK to have technical debt (document it)
+- NOT OK to skip security
+- Performance nice-to-have (can optimize post-launch)
+```
+
+---
+
+**Pattern 5: Decision-Making Authority**
+
+**Specify what agent can decide:**
+
+```markdown
+**Agent Can Decide:**
+- Variable names, function names
+- Which utility library to use (lodash vs ramda)
+- Code organization within files
+- Specific validation messages
+
+**Agent Cannot Decide (Ask First):**
+- Database schema changes
+- New npm dependencies
+- API contract changes
+- Architecture patterns
+
+**Example Requiring Approval:**
+"If you think this requires a database migration,
+propose the migration but don't implement until I approve."
+```
+
+---
+
+**Prompt Quality Checklist:**
+
+Before sending prompt, verify:
+
+- [ ] **Objective stated clearly** in first sentence
+- [ ] **Context provided** (tech stack, files, current state)
+- [ ] **Success criteria listed** (testable)
+- [ ] **Constraints explicit** (what NOT to do)
+- [ ] **Failure modes anticipated** (error handling)
+- [ ] **Approaches specified** (acceptable solutions)
+- [ ] **Decision authority** defined (what agent can decide)
+- [ ] **Verification plan** included (how you'll test)
+
+---
+
+**Example: Complete Agent Prompt**
+
+```markdown
+**Objective:** Implement password reset flow for users who forget password
+
+**Context:**
+- Node.js + Express backend
+- Email sending: Configured (Resend library, see lib/email.js)
+- Database: PostgreSQL + Prisma
+- Auth: JWT tokens (see utils/jwt.js)
+- Frontend: React (password reset form exists at /reset-password)
+
+**Requirements:**
+1. POST /auth/forgot-password endpoint
+   - Accepts { email }
+   - Generates secure reset token (crypto.randomBytes)
+   - Stores token in database with 1-hour expiry
+   - Sends email with reset link
+   - Returns 200 even if email doesn't exist (security)
+
+2. POST /auth/reset-password endpoint
+   - Accepts { token, newPassword }
+   - Validates token not expired
+   - Updates password (bcrypt hash)
+   - Invalidates all existing sessions (for security)
+   - Returns success
+
+**Acceptable Approaches:**
+- Use our existing User model (add reset_token, reset_token_expiry fields)
+- Use bcrypt for password hashing (already in package.json)
+- Use Prisma transactions for atomic updates
+
+**Unacceptable:**
+- Do NOT use new dependencies
+- Do NOT send token in email body (send link instead)
+- Do NOT skip token expiry check
+- Do NOT allow weak passwords (min 8 chars enforced)
+
+**Failure Modes to Handle:**
+- Email service down → Log error, return 500
+- Token expired → Return 400 "Token expired"
+- Token invalid → Return 400 "Invalid token"
+- Same token used twice → Invalidate after use
+
+**Constraints:**
+- Must follow our error handling pattern (throw AppError)
+- Add to existing auth.js routes file
+- Follow code style (async/await, JSDoc comments)
+- No schema changes without approval (propose migration)
+
+**Verification:**
+I'll test by:
+1. Requesting reset for valid email
+2. Checking email received with link
+3. Using link to reset password
+4. Verifying old password no longer works
+5. Verifying new password works
+6. Trying expired token (should fail)
+7. Trying same token twice (should fail second time)
+
+**Decision Authority:**
+- You decide: Token length, email subject line, error messages
+- Ask me: Database migration (if schema changes needed)
+
+**Time Estimate:** 2-3 hours
+```
 
 ### Context Provisioning
 
