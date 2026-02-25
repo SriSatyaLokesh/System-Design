@@ -100,26 +100,47 @@ Survey the broader landscape: Devin, AutoGPT, BabyAGI, and other agentic platfor
 
 ## Resources
 
-### Resource Placeholder 1
-- **Type:** Article
-- **Duration/Length:** TBD
-- **Level:** Intermediate
-- **Why this matters:** Comprehensive taxonomy of agent architectures with implementation patterns and tradeoffs
-- **Link:** [URL - to be curated]
+### LangChain Documentation on Agents
+- **Type:** Official Documentation
+- **Duration/Length:** 40 min read
+- **Level:** Intermediate to Advanced
+- **Why this matters:** Comprehensive technical guide to building AI agents with ReAct pattern, tool use, and multi-agent systems
+- **Link:** [LangChain Agents](https://python.langchain.com/docs/modules/agents/)
 
-### Resource Placeholder 2
-- **Type:** Video
-- **Duration/Length:** TBD
+### "AI Agents: Autonomous Systems" by Anthropic
+- **Type:** Research Article
+- **Duration/Length:** 25 min read
+- **Level:** Intermediate
+- **Why this matters:** Explains agent architectures, autonomy levels, and best practices for delegation from leading AI research lab
+- **Link:** [Anthropic Research](https://www.anthropic.com/research)
+
+### AutoGPT GitHub Repository
+- **Type:** Open Source Project
+- **Duration/Length:** 1-2 hours exploration
 - **Level:** Advanced
-- **Why this matters:** Building a multi-agent system from scratch: architecture decisions and lessons learned
-- **Link:** [URL - to be curated]
+- **Why this matters:** Real-world example of autonomous agent architecture - see how agents plan, execute, and self-correct
+- **Link:** [AutoGPT GitHub](https://github.com/Significant-Gravitas/AutoGPT)
 
-### Resource Placeholder 3
-- **Type:** Documentation
-- **Duration/Length:** TBD
+### "Building LLM-Powered Agents" by OpenAI
+- **Type:** Technical Guide
+- **Duration/Length:** 30 min read
 - **Level:** Intermediate
-- **Why this matters:** Practical guide to delegating effectively to AI agents with real-world examples
-- **Link:** [URL - to be curated]
+- **Why this matters:** OpenAI's official guidance on building agents with GPT models, including tool use and orchestration patterns
+- **Link:** [OpenAI Cookbook](https://cookbook.openai.com/)
+
+### CrewAI Documentation
+- **Type:** Framework Documentation
+- **Duration/Length:** 35 min read
+- **Level:** Intermediate
+- **Why this matters:** Practical framework for building multi-agent systems with role-based delegation and coordination
+- **Link:** [CrewAI Docs](https://docs.crewai.com/)
+
+### "The Rise of AI Agents" by a16z
+- **Type:** Industry Analysis Article
+- **Duration/Length:** 20 min read
+- **Level:** Beginner
+- **Why this matters:** High-level overview of agent landscape, use cases, and future trends from leading VC perspective
+- **Link:** [a16z Blog](https://a16z.com/)
 
 ## Navigation
 

@@ -111,26 +111,47 @@ Compare skill/extension ecosystems across platforms: availability, quality, ease
 
 ## Resources
 
-### Resource Placeholder 1
-- **Type:** Course
-- **Duration/Length:** TBD
-- **Level:** Intermediate
-- **Why this matters:** Anthropic Skillshare course on building effective Claude skills with hands-on projects
-- **Link:** [URL - to be curated]
+### Anthropic Model Context Protocol (MCP) Documentation
+- **Type:** Official Documentation
+- **Duration/Length:** 45 min read
+- **Level:** Intermediate to Advanced
+- **Why this matters:** Complete technical guide to building MCP servers that extend Claude's capabilities with custom tools
+- **Link:** [Anthropic MCP Docs](https://www.anthropic.com/news/model-context-protocol)
 
-### Resource Placeholder 2
-- **Type:** Article
-- **Duration/Length:** TBD
+### GitHub Copilot Extensions Marketplace
+- **Type:** Platform / Marketplace
+- **Duration/Length:** 30 min exploration
+- **Level:** Beginner to Intermediate
+- **Why this matters:** Browse available extensions/skills for Copilot, see what's possible and evaluate quality
+- **Link:** [Copilot Extensions](https://github.com/marketplace?type=apps&copilot_app=true)
+
+### OpenAI GPTs Store
+- **Type:** Platform / Marketplace
+- **Duration/Length:** 20 min exploration
 - **Level:** Beginner
-- **Why this matters:** Guide to finding, evaluating, and using community AI skills effectively
-- **Link:** [URL - to be curated]
+- **Why this matters:** Explore thousands of custom GPTs (skills) to understand capabilities, patterns, and quality indicators
+- **Link:** [GPTs Store](https://chat.openai.com/gpts)
 
-### Resource Placeholder 3
+### "Building Custom Skills for AI Assistants" Tutorial
+- **Type:** Tutorial Article
+- **Duration/Length:** 35 min read + exercises
+- **Level:** Intermediate
+- **Why this matters:** Step-by-step guide to creating reusable AI skills with prompts, validation, and documentation
+- **Link:** Platform-specific documentation (Anthropic, OpenAI, etc.)
+
+### Awesome AI Skills - GitHub Collection
+- **Type:** Curated List
+- **Duration/Length:** 1-2 hours browsing
+- **Level:** Beginner to Advanced
+- **Why this matters:** Community-curated collection of high-quality AI skills across platforms with examples and ratings
+- **Link:** Search GitHub for "awesome-ai-skills" or similar collections
+
+### LangChain Tools Documentation
 - **Type:** Documentation
-- **Duration/Length:** TBD
-- **Level:** Advanced
-- **Why this matters:** Building custom MCP servers for Claude: complete technical guide with code examples
-- **Link:** [URL - to be curated]
+- **Duration/Length:** 30 min read
+- **Level:** Intermediate
+- **Why this matters:** Comprehensive catalog of pre-built tools/skills for LangChain agents with integration examples
+- **Link:** [LangChain Tools](https://python.langchain.com/docs/integrations/tools/)
 
 ## Navigation
 

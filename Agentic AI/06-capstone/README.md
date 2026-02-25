@@ -119,26 +119,47 @@ Provide a checklist for validating your PRD before implementation: completeness 
 
 ## Resources
 
-### Resource Placeholder 1
-- **Type:** Video
-- **Duration/Length:** TBD
-- **Level:** Intermediate
-- **Why this matters:** Complete capstone project walkthrough from blank page to deployed app with commentary
-- **Link:** [URL - to be curated]
+### "Building in Public" Guide by Indie Hackers
+- **Type:** Article + Community
+- **Duration/Length:** 25 min read
+- **Level:** Beginner
+- **Why this matters:** Learn to document your capstone project journey, creating compelling portfolio narrative
+- **Link:** [Indie Hackers](https://www.indiehackers.com/)
 
-### Resource Placeholder 2
+### GitHub Project Showcase Best Practices
+- **Type:** Documentation Guide
+- **Duration/Length:** 15 min read
+- **Level:** Beginner to Intermediate
+- **Why this matters:** How to present your capstone project on GitHub with README, demos, and documentation that impresses
+- **Link:** [GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+
+### PRD Template from Atlassian
+- **Type:** Template + Guide
+- **Duration/Length:** 20 min read
+- **Level:** Beginner
+- **Why this matters:** Downloadable PRD template you can adapt for capstone planning phase
+- **Link:** [Atlassian Templates](https://www.atlassian.com/software/confluence/templates)
+
+### "Show Your Work" by Austin Kleon
+- **Type:** Book Summary
+- **Duration/Length:** 30 min read
+- **Level:** Beginner
+- **Why this matters:** Principles for documenting creative process - directly applicable to capstone portfolio documentation
+- **Link:** Available at major book retailers
+
+### Vercel/Netlify Deployment Guides
 - **Type:** Documentation
-- **Duration/Length:** TBD
-- **Level:** All levels
-- **Why this matters:** Downloadable PRD template and checklist for the capstone project
-- **Link:** [URL - to be curated]
+- **Duration/Length:** 20 min read
+- **Level:** Beginner
+- **Why this matters:** Step-by-step guides for deploying capstone projects with free hosting
+- **Link:** [Vercel Docs](https://vercel.com/docs) | [Netlify Docs](https://docs.netlify.com/)
 
-### Resource Placeholder 3
-- **Type:** Article
-- **Duration/Length:** TBD
-- **Level:** Intermediate
-- **Why this matters:** Collection of capstone project variations with different tech stacks and scopes
-- **Link:** [URL - to be curated]
+### Dev.to Portfolio Project Showcases
+- **Type:** Community Examples
+- **Duration/Length:** 1+ hour browsing
+- **Level:** All levels
+- **Why this matters:** See how other developers present their portfolio projects - learn from great examples
+- **Link:** [Dev.to #showdev tag](https://dev.to/t/showdev)
 
 ## Navigation
 
