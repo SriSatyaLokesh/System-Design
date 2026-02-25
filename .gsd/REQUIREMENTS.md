@@ -89,11 +89,53 @@
 
 ## Traceability
 
-Requirements will be mapped to roadmap phases after roadmap creation.
+All v1 requirements mapped to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TBD | TBD | Pending |
+| STRUCT-01 | Phase 1: Foundation & Structure | ⬜ Not Started |
+| STRUCT-02 | Phase 1: Foundation & Structure | ⬜ Not Started |
+| STRUCT-03 | Phase 1: Foundation & Structure | ⬜ Not Started |
+| ECO-01 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| ECO-02 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| ECO-03 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| ECO-04 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| ECO-05 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| TOOL-01 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| TOOL-02 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| TOOL-03 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| TOOL-04 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| TOOL-05 | Phase 2: Foundational Learning Content | ⬜ Not Started |
+| GSD-01 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| GSD-02 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| GSD-03 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| GSD-04 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| GSD-05 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| AGENT-01 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| AGENT-02 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| AGENT-03 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| AGENT-04 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| SKILL-01 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| SKILL-02 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| SKILL-03 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| SKILL-04 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| SKILL-05 | Phase 3: Advanced Concepts & Frameworks | ⬜ Not Started |
+| CAP-01 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| CAP-02 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| CAP-03 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| CAP-04 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| CAP-05 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| CAP-06 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| NAV-01 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| NAV-02 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| NAV-03 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| NAV-04 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| NAV-05 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| QUAL-01 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| QUAL-02 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| QUAL-03 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| QUAL-04 | Phase 4: Capstone & Polish | ⬜ Not Started |
+| QUAL-05 | Phase 4: Capstone & Polish | ⬜ Not Started |
 
 ---
 
