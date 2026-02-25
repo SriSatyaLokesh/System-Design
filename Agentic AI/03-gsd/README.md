@@ -529,15 +529,702 @@ Describe how to navigate transitions between phases: when a goal is "ready" to s
 
 ### What is a PRD in GSD Context
 
-Explain Product Requirements Documents adapted for AI-agent execution: living documents that act as single source of truth, bridge human strategic thinking with agent tactical execution, and maintain project coherence.
+**PRD = Product Requirements Document**
+
+In traditional software development, PRDs document what to build for stakeholders and teams. In GSD/Agentic AI context, PRDs serve a dual purpose:
+
+**1. Single Source of Truth**
+
+The PRD becomes the canonical reference that:
+- Documents decisions so they don't need to be remade
+- Persists across AI sessions (solves context loss)
+- Aligns all contributors (human and AI)
+- Prevents scope creep with explicit boundaries
+
+**2. AI Agent Instruction Manual**
+
+AI agents use PRDs to:
+- Understand the complete project vision
+- Generate code that aligns with requirements
+- Make micro-decisions within defined constraints
+- Self-verify implementation against criteria
+
+**The Shift:**
+
+**Traditional PRD:**
+```
+Audience: Human developers
+Purpose: Communicate what stakeholders want
+Format: Business-focused, user stories
+Detail Level: High-level, devs fill in technical gaps
+```
+
+**GSD/AI PRD:**
+```
+Audience: AI agents (+ humans)
+Purpose: Enable autonomous execution
+Format: Technical + business context
+Detail Level: Specific enough AI doesn't guess wrong
+```
+
+**Example Difference:**
+
+**Traditional:**
+> "Users should be able to log in to the system."
+
+**GSD/AI:**
+> "Users authenticate via email/password using JWT tokens.
+> - POST /auth/login endpoint accepts email + password
+> - Returns JWT valid for 7 days
+> - Invalid credentials return 401 with error message
+> - Successful login redirects to /dashboard
+> - No social auth in MVP (explicit non-goal)"
+
+The AI version eliminates ambiguity that would cause AI to over-engineer or guess incorrectly.
+
+**Why PRDs Matter for AI:**
+
+**Without PRD:**
+```
+Session 1: AI builds login (guesses at implementation)
+Session 2: AI forgets session 1 approach
+Session 3: AI uses different patterns
+→ Inconsistent codebase
+```
+
+**With PRD:**
+```
+Session 1: AI reads PRD, implements per spec
+Session 2: AI reads PRD, stays consistent
+Session 3: AI reads PRD, follows same patterns
+→ Coherent codebase
+```
+
+**Mental Model:**
+
+Think of PRD as:
+- **Contract** between you and AI agent
+- **Blueprint** AI executes from
+- **Reference manual** AI consults repeatedly
+- **Quality checklist** for verifying outcomes
 
 ### PRD Structure & Components
 
-Detail effective PRD structure: executive summary, goals and non-goals, user stories or use cases, technical requirements, success criteria, and constraints. Show how each section guides different aspects of development.
+**Best-in-Class PRD Template:**
+
+For a comprehensive, battle-tested PRD structure, see:
+
+📄 **[Best PRD Template](https://github.com/SriSatyaLokesh/best-prd-template)**
+
+This template has been refined through real-world usage and provides a complete framework for both human and AI collaboration.
+
+**Core Sections of an Effective AI-Ready PRD:**
+
+---
+
+**1. Executive Summary**
+
+**Purpose:** 2-3 sentence project overview
+
+**What to Include:**
+- What are you building?
+- Who is it for?
+- Why does it matter?
+
+**Example:**
+```markdown
+## Executive Summary
+
+A developer portfolio website that showcases projects, skills, and
+contact information. Targeted at software engineers seeking employment
+or freelance opportunities. Differentiates through clean design and
+fast load times (< 2 seconds).
+```
+
+**Why AI Needs This:**
+- Provides context for all micro-decisions
+- Helps AI prioritize (e.g., "fast load times" → optimize assets)
+
+---
+
+**2. Goals & Non-Goals**
+
+**Purpose:** Crystal clear boundaries
+
+**Goals (What you WILL build):**
+```markdown
+## Goals
+
+### Primary Goals
+- Display 6-10 featured projects with descriptions
+- Contact form with email integration
+- Mobile-responsive design
+- Deployed to production with custom domain
+
+### Secondary Goals (Nice-to-have)
+- Dark mode toggle
+- Animated section transitions
+- Blog integration (if time permits)
+```
+
+**Non-Goals (What you WILL NOT build):**
+```markdown
+## Non-Goals
+
+- ❌ User authentication (not needed)
+- ❌ Backend database (static site)
+- ❌ Content management system
+- ❌ E-commerce functionality
+- ❌ Multi-language support
+- ❌ Native mobile apps
+
+Rationale: Keeping scope minimal for MVP launch in 2 weeks.
+```
+
+**Why This Section is Critical:**
+- Prevents AI from over-engineering
+- Stops feature creep before it starts
+- AI can say "that's out of scope" when you request extras
+
+---
+
+**3. User Stories / Use Cases**
+
+**Purpose:** Define user interactions
+
+**Format:**
+```markdown
+## User Stories
+
+**As a** [user type]
+**I want** [goal]
+**So that** [benefit]
+
+**Acceptance Criteria:**
+- [ ] Specific testable condition 1
+- [ ] Specific testable condition 2
+```
+
+**Example:**
+```markdown
+### User Story 1: View Projects
+
+**As a** potential employer
+**I want** to browse developer's featured projects
+**So that** I can assess their skills and experience
+
+**Acceptance Criteria:**
+- [ ] Projects displayed in grid layout (3 columns desktop, 1 mobile)
+- [ ] Each project shows: title, description, tech stack, links
+- [ ] Clicking thumbnail opens project details
+- [ ] "View Code" button links to GitHub repo
+- [ ] "Live Demo" button links to deployed project
+- [ ] Projects load in < 1 second
+```
+
+**Why AI Needs This:**
+- Provides clear implementation targets
+- Acceptance criteria = verification checklist
+- AI knows when feature is "done"
+
+---
+
+**4. Technical Requirements**
+
+**Purpose:** Specify architecture and tech stack
+
+**What to Include:**
+- Technology choices (languages, frameworks, libraries)
+- Architecture decisions (SPA vs MPA, REST vs GraphQL)
+- External dependencies (APIs, services)
+- Performance requirements
+- Browser/device support
+- Security considerations
+
+**Example:**
+```markdown
+## Technical Requirements
+
+### Tech Stack
+- **Frontend:** React 18 + TypeScript + Vite
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+- **Forms:** Formspree (email handling)
+- **Analytics:** Plausible (privacy-focused)
+
+### Architecture Decisions
+- Single-page application (SPA) with client-side routing
+- No backend server (serverless functions for contact form only)
+- Static generation for fast initial load
+- Code-splitting for optimal bundle size
+
+### Performance Targets
+- First Contentful Paint: < 1.5s
+- Lighthouse score: > 90
+- Bundle size: < 200KB gzipped
+
+### Browser Support
+- Chrome, Firefox, Safari, Edge (latest 2 versions)
+- Mobile: iOS Safari 14+, Chrome Android
+
+### Security
+- HTTPS only (Vercel provides)
+- Form spam protection (Formspree built-in)
+- No sensitive data stored client-side
+```
+
+**Why This Matters:**
+- AI understands constraints ("must use React")
+- Prevents architectural drift
+- Performance requirements guide optimization decisions
+
+---
+
+**5. Success Criteria**
+
+**Purpose:** Define "done"
+
+**Functional Success:**
+```markdown
+## Success Criteria
+
+### Functional Requirements
+- [ ] All 6 sections render correctly
+- [ ] Navigation works (smooth scroll to sections)
+- [ ] Contact form submits and shows confirmation
+- [ ] All external links open in new tabs
+- [ ] Responsive on mobile, tablet, desktop
+- [ ] Works without JavaScript (progressive enhancement)
+```
+
+**Quality bar:**
+```markdown
+### Quality Requirements
+- [ ] No console errors or warnings
+- [ ] All images optimized (WebP format)
+- [ ] Accessibility: WCAG AA compliant
+- [ ] SEO: Meta tags, Open Graph, Twitter Card
+- [ ] Performance: Lighthouse score > 90
+```
+
+**Launch Criteria:**
+```markdown
+### Launch Readiness
+- [ ] Custom domain configured
+- [ ] SSL certificate active
+- [ ] Analytics tracking verified
+- [ ] Tested on 5 different devices
+- [ ] All placeholder content replaced
+- [ ] Resume PDF uploaded and linked
+```
+
+---
+
+**6. Constraints**
+
+**Purpose:** Document limitations
+
+```markdown
+## Constraints
+
+### Time
+- MVP must ship within 2 weeks
+- Daily time budget: 2-3 hours
+
+### Budget
+- $0/month (free tier services only)
+- Vercel free tier, Formspree free tier
+
+### Technical
+- No backend server (static hosting only)
+- Must work offline after initial load (PWA optional)
+- Accessibility is required, not optional
+
+### Scope
+- Focus on quality over quantity of features
+- 6-8 projects maximum (curated, not comprehensive)
+```
+
+**Why AI Needs Constraints:**
+- Makes practical trade-offs ("no server" → client-side only)
+- Respects time budget (chooses simpler implementations)
+- Prioritizes correctly (accessibility required → include from start)
+
+---
+
+**7. Open Questions / Risks**
+
+```markdown
+## Open Questions
+
+- Should projects filter by technology?
+  - Decision: Not in MVP, add if user feedback requests
+
+- Dark mode: auto-detect or toggle?
+  - Decision: Toggle in header, respect system preference as default
+
+## Risks
+
+| Risk | Mitigation |
+|------|------------|
+| Contact form spam | Use Formspree's built-in spam protection |
+| Slow image loading | Lazy load below fold, optimize all images |
+| Browser compatibility | Test on BrowserStack early |
+```
+
+**Using the PRD:**
+
+Every AI prompt should reference the PRD:
+```
+"According to our PRD (see PROJECT.md), implement the contact
+form section following the technical requirements (React + TypeScript)
+and meeting the success criteria (form validation, confirmation message)."
+```
 
 ### Writing PRDs for AI Agents
 
-Provide guidelines for writing PRDs that AI can execute effectively: level of detail sweet spot, structuring for sequential reading, calling out ambiguities explicitly, and providing examples of desired outcomes.
+**AI-Assisted PRD Creation:**
+
+You don't have to write PRDs alone! Modern AI tools have built-in skills for PRD generation:
+
+**🤖 GitHub Copilot + Awesome-Copilot Extension:**
+- Install: [awesome-copilot VS Code extension](https://marketplace.visualstudio.com/items?itemName=mohitmishra.awesome-copilot)
+- Includes PRD writing templates and patterns
+- Helps structure requirements and technical specs
+- Suggests acceptance criteria based on user stories
+
+**🧠 Claude Code (Claude Sonnet 4.5):**
+- Has deep understanding of PRD best practices
+- Can critique and improve your PRD drafts
+- Excellent at identifying gaps or ambiguities
+- Helps break down high-level goals into detailed specs
+
+**Prompt Pattern for PRD Generation:**
+
+```markdown
+**To Claude/Copilot:**
+
+I need to create a PRD for [project brief].
+
+Follow this structure:
+1. Executive Summary
+2. Goals & Non-Goals
+3. User Stories with Acceptance Criteria
+4. Technical Requirements
+5. Success Criteria
+6. Constraints
+
+My project: [describe in 2-3 sentences]
+
+Key requirements:
+- [Requirement 1]
+- [Requirement 2]
+- [Requirement 3]
+
+Generate a comprehensive PRD following best practices.
+```
+
+**Guidelines for Effective AI-Ready PRDs:**
+
+**1. The Detail Sweet Spot**
+
+**Too Vague:**
+```markdown
+❌ "Build a good user experience"
+```
+
+**Too Specific:**
+```markdown
+❌ "Use #3B82F6 for the primary button background with
+    2px border radius and 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+    transition on the transform property when hovering"
+```
+
+**Just Right:**
+```markdown
+✅ "Primary buttons use blue color scheme (Tailwind blue-500)
+    with subtle hover animation. Maintain accessibility contrast
+    standards (WCAG AA minimum)."
+```
+
+**The Rule:**
+- Specify **what** and **why**
+- Let AI determine **how** (within constraints)
+- Provide examples when patterns matter
+
+---
+
+**2. Structure for Sequential Reading**
+
+AI reads PRDs top-to-bottom. Structure accordingly:
+
+**Good Order:**
+```
+1. Executive Summary (context)
+2. Goals & Non-Goals (boundaries)
+3. User Stories (what to build)
+4. Technical Requirements (how to build)
+5. Success Criteria (definition of done)
+6. Constraints (limitations)
+```
+
+Each section builds on previous ones.
+
+**In Practice:**
+- AI reads "Goals" → understands scope
+- AI reads "Non-Goals" → won't over-engineer
+- AI reads "Technical Requirements" → uses right tools
+- AI reads "Success Criteria" → knows when done
+
+---
+
+**3. Call Out Ambiguities Explicitly**
+
+**Instead of leaving AI to guess:**
+```markdown
+❌ "Implement user authentication"
+```
+
+**Be explicit about what's decided vs open:**
+```markdown
+✅ "Implement user authentication:
+    
+    Decided:
+    - Email + password (no social auth in MVP)
+    - JWT tokens with 7-day expiry
+    - Bcrypt for password hashing
+    
+    Open (AI choose):
+    - Which JWT library (jose, jsonwebtoken, etc.)
+    - Database table structure (optimize as needed)
+    - Specific field validation patterns"
+```
+
+**Pattern:**
+```markdown
+### [Feature Name]
+
+**Hard Requirements:**
+- [Must-have 1]
+- [Must-have 2]
+
+**Preferences:**
+- [Nice-to-have 1]
+- [Nice-to-have 2]
+
+**Open to AI:**
+- [Decision AI can make]
+- [Implementation detail AI chooses]
+
+**Explicitly Out:**
+- [Thing not to include]
+```
+
+---
+
+**4. Provide Examples of Desired Outcomes**
+
+**Abstract Requirements:**
+```markdown
+✗ "Create a clean, modern card layout"
+```
+
+**Concrete Examples:**
+```markdown
+✓ "Create card components similar to GitHub repository cards:
+   - Title + description + metadata row
+   - Subtle border, shadow on hover
+   - Consistent spacing (padding: 1.5rem)
+   
+   Reference: https://github.com/explore
+   
+   Or provide design mockup: see design/cards.png"
+```
+
+**Types of Examples:**
+
+**Code Examples:**
+```markdown
+"Folder structure should follow this pattern:
+
+src/
+├── components/
+│   ├── Button/
+│   │   ├── Button.tsx
+│   │   ├── Button.test.tsx
+│   │   └── index.ts
+│   └── Card/
+└── ...
+
+Each component in own folder with test and index."
+```
+
+**Data Examples:**
+```markdown
+"API should return this shape:
+
+{
+  "user": {
+    "id": "usr_abc123",
+    "email": "user@example.com",
+    "name": "John Doe",
+    "created_at": "2026-01-15T10:30:00Z"
+  },
+  "token": "eyJhbG..."
+}"
+```
+
+**Visual Examples:**
+```markdown
+"UI layout:
+
+┌─────────────────────────────┐
+│ Header (Logo + Nav)         │
+├─────────────────────────────┤
+│                             │
+│  Content Area               │
+│  (centered, max-width 1200) │
+│                             │
+├─────────────────────────────┤
+│ Footer                      │
+└─────────────────────────────┘"
+```
+
+---
+
+**5. Use Consistent Terminology**
+
+Pick terms and stick with them:
+
+**Inconsistent:**
+```markdown
+❌ Section 1: "User accounts"
+❌ Section 2: "User profiles"
+❌ Section 3: "Member data"
+```
+
+**Consistent:**
+```markdown
+✅ Throughout PRD: "users" and "user accounts"
+```
+
+**Create a glossary in complex PRDs:**
+```markdown
+## Terminology
+
+- **User:** Anyone with an account (authenticated)
+- **Visitor:** Browsing without account (anonymous)
+- **Admin:** User with elevated permissions
+- **Project:** User's work portfolio entry
+- **Skill:** Technology or capability tag
+```
+
+---
+
+**6. Version Your PRD**
+
+```markdown
+# Project: Developer Portfolio
+
+**Version:** 1.2
+**Last Updated:** 2026-02-25
+**Status:** In Development
+
+## Changelog
+
+### v1.2 (2026-02-25)
+- Added dark mode requirement
+- Removed blog integration (deferred to v2)
+- Updated tech stack (Vite → Next.js)
+
+### v1.1 (2026-02-20)
+- Clarified performance targets
+- Added accessibility requirements
+
+### v1.0 (2026-02-15)
+- Initial PRD
+```
+
+**Why Versioning Matters:**
+- AI references specific version
+- You track evolution of requirements
+- Team stays aligned on current spec
+
+---
+
+**PRD Writing Workflow with AI:**
+
+**Step 1: Brain Dump**
+```markdown
+You: "I want to build [project]. Here are my rough ideas:
+- [Idea 1]
+- [Idea 2]
+- [Idea 3]
+
+Help me structure this into a PRD."
+```
+
+**Step 2: AI Generates Draft**
+Claude/Copilot creates structured PRD.
+
+**Step 3: You Refine**
+- Add domain knowledge AI lacks
+- Delete over-engineered suggestions
+- Clarify ambiguities
+- Add constraints (time, budget)
+
+**Step 4: AI Reviews**
+```markdown
+You: "Review this PRD. Identify:
+- Gaps or missing information
+- Ambiguities that could cause issues
+- Over-scoped features to cut
+- Technical risks to address"
+```
+
+**Step 5: Iterate**
+Refine based on AI feedback.
+
+**Step 6: Finalize**
+When PRD feels complete, start implementation.
+
+---
+
+**Common Pitfalls:**
+
+**1. PRD Too Long**
+- If PRD > 2000 words, probably too detailed
+- Break into phases or modules
+
+**2. PRD Too Short**
+- If PRD < 500 words, probably too vague
+- AI will guess and guess wrong
+
+**3. Requirements Hidden in Prose**
+```markdown
+❌ "We think it would be nice if users could maybe
+    filter projects, and it might be good to have
+    some kind of search functionality..."
+
+✅ **Feature: Project Filtering**
+    - Filter by technology (dropdown)
+    - Filter by year (range slider)
+    - Filters combine (AND logic)
+```
+
+**4. No Acceptance Criteria**
+Every feature needs testable criteria.
+
+**5. Forgetting Non-Goals**
+Not saying what you WON'T build = scope  creep.
+
+---
+
+**Golden Rule:**
+
+> Write PRDs for your future self (or AI agent) who joins the project cold in 3 weeks and needs to understand everything quickly.
+
+If the PRD confuses you after you've slept on it, it will confuse AI even more.
 
 ### Maintaining PRD Relevance
 
