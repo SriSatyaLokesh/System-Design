@@ -21,11 +21,143 @@ By completing the capstone, you'll have both a tangible outcome (a deployed proj
 
 ## Project Brief
 
-### The Capstone Project
+### Choose Your Capstone
 
-**Project:** **Personal Developer Dashboard**
+Pick one project that aligns with your interests and learning goals. All three exercise the complete Agentic AI workflow while producing portfolio-worthy results.
 
-A web application that aggregates your development activity and provides insights.
+| Project | Tech Stack | Difficulty | Time | Best For |
+|---------|------------|------------|------|----------|
+| **[Option A](#option-a-dynamic-developer-portfolio)** | HTML/CSS/Vanilla JS | ⭐⭐ Beginner | 12-16 hours | Frontend focus, no backend needed |
+| **[Option B](#option-b-personal-developer-dashboard)** | React + Node + PostgreSQL | ⭐⭐⭐ Intermediate | 18-24 hours | Full-stack experience |
+| **[Option C](#option-c-n8n-mcp-automation-project)** | n8n + MCP Protocol | ⭐⭐⭐⭐ Advanced | 20-28 hours | Workflow automation, AI integration |
+
+---
+
+### Option A: Dynamic Developer Portfolio
+
+**Project:** Build a modern, interactive portfolio website using vanilla JavaScript and public libraries.
+
+**Reference Example:** [SriSatyaLokesh Portfolio](https://srisatyalokesh.github.io/) ([GitHub](https://github.com/SriSatyaLokesh/SriSatyaLokesh.github.io))
+
+**Why This Project:**
+
+✅ **Beginner-Friendly:**
+- No framework complexity (React, Vue, etc.)
+- Pure HTML/CSS/JavaScript fundamentals
+- Free hosting on GitHub Pages
+- Immediate visual results
+
+✅ **Portfolio Essential:**
+- Every developer needs a portfolio
+- Showcases your work effectively
+- Demonstrates design + code skills
+- Actually useful after completion
+
+✅ **AI-Assisted Learning:**
+- Practice prompt engineering for UI/UX
+- Learn to iterate on design with AI
+- Experience AI handling vanilla JS (often trickier than frameworks)
+- Build confidence without framework overhead
+
+**Core Features:**
+
+**MVP (Minimum Viable Product):**
+1. **Hero Section:** Name, title, brief intro, social links
+2. **About Section:** Bio, skills, technologies
+3. **Projects Showcase:** Cards with images, descriptions, links
+4. **Contact Section:** Email, social media, contact form
+5. **Responsive Design:** Mobile-first, works on all devices
+6. **Smooth Animations:** Scroll effects, hover states, transitions
+
+**What You'll Build:**
+```
+Tech Stack:
+- HTML5 (semantic markup)
+- CSS3 (Grid, Flexbox, animations)
+- Vanilla JavaScript (DOM manipulation, events)
+- Optional libraries: AOS (animations), Typed.js (typing effect)
+- GitHub Pages (hosting)
+
+Features:
+- Dynamic content loading from JSON
+- Smooth scroll navigation
+- Animated skill progress bars
+- Project filtering by category
+- Contact form with validation
+- Dark/light theme toggle
+- Responsive hamburger menu
+```
+
+**Scope Boundaries:**
+
+**In Scope:**
++ Single-page responsive design
++ Dynamic content (JSON-driven)
++ Smooth animations and interactions
++ GitHub Pages deployment
++ SEO basics (meta tags, semantic HTML)
++ Performance optimization
+
+**Out of Scope:**
+- Backend/database (static site)
+- User authentication
+- Content management system
+- Blog functionality (keep it simple)
+- Complex state management
+
+**Why Vanilla JS Instead of React?**
+
+1. **Fundamentals First:** Understand DOM, events, async before frameworks
+2. **AI Practice:** AI must think more carefully without framework abstractions
+3. **Performance:** Faster load times, no bundle overhead
+4. **Simplicity:** Deploy straight to GitHub Pages, no build process (or simple one)
+5. **Interview Prep:** Many coding interviews test vanilla JS
+
+**Time Estimate:**
+```
+Phase 1: Goal & Spec (1-2 hours)
+Phase 2: HTML Structure & Content (2-3 hours)
+Phase 3: CSS Styling & Responsive (3-4 hours)
+Phase 4: JavaScript Interactivity (3-4 hours)
+Phase 5: Polish & Deploy (2-3 hours)
+
+Total: 12-16 hours over 1 week
+```
+
+**Success Criteria:**
+
+✓ **Functional:**
+- All sections display correctly
+- Navigation works smoothly
+- Contact form validates input
+- Responsive on mobile/tablet/desktop
+- Fast load time (<2 seconds)
+
+✓ **Visual:**
+- Professional, clean design
+- Consistent color scheme
+- Readable typography
+- Smooth animations (not overdone)
+- No layout shifts or bugs
+
+✓ **Portfolio-Ready:**
+- Showcases your best projects
+- Clear call-to-action (hire me, contact)
+- Professional presentation
+- Live on public URL
+
+**Sample Projects to Feature:**
+- This portfolio itself (meta!)
+- Projects from earlier in the pathway
+- Contributions to open source
+- Personal experiments
+- Coursework highlights (if impressive)
+
+---
+
+### Option B: Personal Developer Dashboard
+
+**Project:** A web application that aggregates your development activity and provides insights.
 
 **Why This Project:**
 
@@ -96,9 +228,255 @@ Phase 5: Documentation (2-3 hours)
 Total: 18-24 hours over 1-2 weeks
 ```
 
+---
+
+### Option C: n8n-MCP Automation Project
+
+**Project:** Build an intelligent workflow automation system using n8n and Model Context Protocol (MCP).
+
+**Why This Project:**
+
+✅ **Cutting-Edge Technology:**
+- MCP is the emerging standard for AI-tool integration
+- n8n is a powerful no-code/low-code automation platform
+- Combines AI agents with real-world automation
+- Future-focused skill set
+
+✅ **Real-World Impact:**
+- Automate actual workflows you use daily
+- Integrate multiple services (GitHub, Slack, Google, etc.)
+- Add AI intelligence to business processes
+- Practical productivity enhancement
+
+✅ **Advanced AI Skills:**
+- Implement MCP servers for custom functionality
+- Design multi-step AI-powered workflows
+- Handle complex data transformations
+- Practice agent orchestration patterns
+
+**Core Features:**
+
+**MVP (Minimum Viable Product):**
+1. **MCP Server:** Custom protocol server exposing tools/resources
+2. **n8n Workflows:** 2-3 automation workflows using your MCP server
+3. **AI Integration:** Claude/GPT connected via MCP
+4. **Real Service Integration:** Connect to GitHub, Slack, or email
+5. **Error Handling:** Graceful failures and retry logic
+
+**What You'll Build:**
+
+**Example Project Ideas:**
+
+**Option C1: Developer Workflow Assistant**
+```
+MCP Server Provides:
+- Code review summaries from GitHub PRs
+- Commit pattern analysis
+- Documentation generation from code
+- Automated changelog creation
+
+n8n Workflows:
+1. PR Review Bot: When PR opened → analyze code → post summary
+2. Daily Digest: Aggregate commits → generate report → send email
+3. Documentation Sync: Code changes → update docs → commit to repo
+
+Tech Stack:
+- TypeScript for MCP server
+- n8n (self-hosted or cloud)
+- GitHub API integration
+- Claude API for analysis
+- PostgreSQL for state storage
+```
+
+**Option C2: Smart Content Pipeline**
+```
+MCP Server Provides:
+- Content analysis and summarization
+- SEO optimization suggestions
+- Image processing and generation
+- Multi-platform formatting
+
+n8n Workflows:
+1. Blog Publisher: Draft → AI review → optimize → publish (WordPress, DEV.to)
+2. Social Media Automation: Content → generate variations → schedule posts
+3. Content Repurposing: Long-form → extract highlights → create threads
+
+Tech Stack:
+- Python for MCP server
+- n8n workflows
+- OpenAI API for content generation
+- Image APIs (Unsplash, DALL-E)
+- Multiple platform APIs
+```
+
+**Option C3: Personal Data Assistant**
+```
+MCP Server Provides:
+- Cross-app data aggregation
+- Natural language query interface
+- Automated insights and reports
+- Smart notifications
+
+n8n Workflows:
+1. Weekly Review: Aggregate data → AI analysis → formatted report
+2. Smart Alerts: Monitor conditions → intelligent filtering → notify
+3. Data Sync: Bidirectional sync between apps with transformations
+
+Tech Stack:
+- Node.js for MCP server
+- n8n for orchestration
+- Multiple APIs (Notion, Todoist, Calendar, Email)
+- Claude for natural language processing
+- Redis for caching
+```
+
+**What You'll Learn:**
+
+**Technical Skills:**
+- MCP protocol implementation
+- n8n workflow design patterns
+- API integration best practices
+- Error handling and retry logic
+- Async/event-driven architecture
+- AI prompt orchestration
+
+**Agentic AI Skills:**
+- Designing tool interfaces for AI
+- Context management across long workflows
+- Reasoning about when AI adds value vs adds complexity
+- Delegating workflow design to AI assistants
+- Debugging AI-integrated systems
+
+**Scope Boundaries:**
+
+**In Scope:**
++ Implement MCP server with 3-5 tools
++ Build 2-3 n8n workflows using MCP server
++ Integrate with at least 2 external services
++ Basic UI for monitoring (n8n dashboard)
++ Documentation for MCP tools
++ Deployment (local or cloud)
+
+**Out of Scope:**
+- Building a full SaaS product
+- User authentication/multi-tenancy
+- Complex UI frontend
+- Mobile app
+- Real-time streaming (polling is fine)
+- Production-scale reliability (learning project)
+
+**Prerequisites:**
+
+**Required:**
+- Understanding of APIs and webhooks
+- Basic TypeScript or Python knowledge
+- Comfort with async programming
+- Have n8n running (cloud or self-hosted)
+
+**Helpful:**
+- Experience with one automation platform
+- Familiarity with Docker
+- Understanding of OAuth flows
+
+**Time Estimate:**
+```
+Phase 1: Goal & Research (3-4 hours)
+  - Understand MCP protocol
+  - Design custom tools
+  - Plan workflows
+
+Phase 2: MCP Server Development (6-8 hours)
+  - Implement MCP server
+  - Create 3-5 tools
+  - Test with MCP inspector
+
+Phase 3: n8n Workflow Creation (4-6 hours)
+  - Build 2-3 workflows
+  - Integrate MCP server
+  - Connect external services
+
+Phase 4: Integration & Testing (4-6 hours)
+  - End-to-end testing
+  - Error handling
+  - Performance optimization
+
+Phase 5: Documentation & Deployment (3-4 hours)
+  - Document MCP tools
+  - Write workflow guides
+  - Deploy and demo
+
+Total: 20-28 hours over 2-3 weeks
+```
+
+**Success Criteria:**
+
+✓ **MCP Server:**
+- Implements MCP protocol spec correctly
+- Exposes 3-5 useful tools
+- Handles errors gracefully
+- Can be tested with MCP Inspector
+- Documentation for each tool
+
+✓ **n8n Workflows:**
+- 2-3 workflows fully functional
+- Integrate with MCP server
+- Handle real external services
+- Include error handling
+- Process runs end-to-end successfully
+
+✓ **AI Integration:**
+- Claude/GPT successfully uses MCP tools
+- AI makes intelligent tool choices
+- Responses are accurate and useful
+- Context maintained across workflow steps
+
+✓ **Documentation:**
+- MCP server setup instructions
+- Tool documentation (inputs/outputs)
+- Workflow diagrams
+- Example use cases
+- Demo video or screenshots
+
+**Why This Project is Advanced:**
+
+**Complexity Factors:**
+1. **Protocol Implementation:** Must follow MCP spec precisely
+2. **Async Orchestration:** Managing long-running workflows
+3. **Multiple Integrations:** Various APIs with different patterns
+4. **AI Unpredictability:** Handling non-deterministic AI responses
+5. **Debugging:** Harder to debug distributed async systems
+
+**Learning Curve:**
+- MCP is newer (less documentation)
+- n8n has unique mental model
+- Workflow debugging is different from app debugging
+- Must reason about system-level behavior
+
+**Recommended For:**
+- Developers comfortable with async/event patterns
+- Those interested in AI automation
+- Learners who want cutting-edge experience
+- Candidates targeting AI infrastructure roles
+
+---
+
 ### Learning Objectives
 
-By completing the capstone, you'll practice and reinforce:
+**All three capstone options practice these core skills. The emphasis varies:**
+
+| Learning Objective | Option A<br>(Portfolio) | Option B<br>(Dashboard) | Option C<br>(n8n-MCP) |
+|-------------------|------------------------|------------------------|-----------------------|
+| Goal Setting & Scoping | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Technical Planning | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| AI Delegation | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+| Quality Verification | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| Iteration & Polish | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| Shipping to Production | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ |
+| Frontend Skills | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐ |
+| Backend Skills | — | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| AI/Automation | ⭐ | ⭐⭐ | ⭐⭐⭐⭐ |
+
+By completing your chosen capstone, you'll practice and reinforce:
 
 **1. Goal Setting & Scoping**
 - Translating vague idea into clear requirements
@@ -429,6 +807,13 @@ Offer prompts for quality assurance phase: code review requests, refactoring sug
 Explain how to sequence prompts for maximum effectiveness: what to tackle first, when to parallelize vs serialize, how to handle dependencies, and adapting the sequence when you hit roadblocks.
 
 ## Step-by-Step Guide
+
+> **Note:** This detailed walkthrough uses **Option B (Personal Developer Dashboard)** as the example. The same GSD framework (Goal → Spec → Deliver) applies to all three options, but the specific technologies and tasks will differ.
+>
+> **For Option A (Portfolio):** The phases are similar but simpler (no backend, no OAuth, pure HTML/CSS/JS).  
+> **For Option C (n8n-MCP):** Replace frontend/backend tasks with MCP server implementation and n8n workflow creation.
+>
+> The prompting patterns, verification techniques, and deployment strategies are universal—adapt them to your chosen project.
 
 ### Phase 1: Goal Setting
 
@@ -1976,6 +2361,106 @@ You now have:
 **Congratulations!** 🎉 You've shipped a complete project using Agentic AI development practices.
 
 **Final Step:** Reflect on your journey and capture learnings in a blog post or personal notes.
+
+---
+
+### Adapting This Guide to Your Chosen Option
+
+**If you chose Option A (Dynamic Portfolio):**
+
+The phases map directly, but tasks are simpler:
+
+**Phase 1 (Goal Setting):**
+- Same process, but research vanilla JS libraries instead of React/Node
+- Prompt: "What are the best lightweight JavaScript libraries for portfolios in 2026?"
+
+**Phase 2 (Specification):**
+- No backend/database tasks
+- Focus on content structure (sections, projects to feature)
+- Prompt: "Break down building a portfolio site into HTML/CSS/JS tasks"
+
+**Phase 3 (Implementation):**
+Replace OAuth/API tasks with:
+- Structure HTML semantic markup
+- Style with CSS Grid/Flexbox
+- Add JS interactivity (smooth scroll, menu toggle, form validation)
+- Integrate animations (AOS, Typed.js)
+
+**Phase 4 (Iteration):**
+- Test across browsers and devices
+- Optimize images and load time
+- Refine animations and transitions
+- Get feedback on design
+
+**Phase 5 (Deployment):**
+- Deploy to GitHub Pages instead of Vercel/Railway
+- No environment variables or backend deployment
+- Prompt: "How do I deploy a static site to GitHub Pages with custom domain?"
+
+**If you chose Option C (n8n-MCP):**
+
+The framework is the same, but focus shifts:
+
+**Phase 1 (Goal Setting):**
+- Define which workflow problem you're solving
+- Research MCP protocol and n8n capabilities
+- Decide on MCP tools to implement
+
+**Phase 2 (Specification):**
+- Design MCP tool interfaces (inputs/outputs)
+- Map out n8n workflow steps
+- Plan integration points with external services
+
+**Phase 3 (Implementation):**
+Replace frontend/backend with:
+- Implement MCP server in TypeScript/Python
+- Create individual MCP tools following protocol spec
+- Build n8n workflows connecting to your MCP server
+- Integrate external APIs (GitHub, Slack, etc.)
+
+**Phase 4 (Iteration):**
+- Test MCP server with MCP Inspector
+- Test workflows end-to-end
+- Add error handling and retry logic
+- Optimize for reliability
+
+**Phase 5 (Deployment):**
+- Deploy MCP server (Docker container or cloud function)
+- Configure n8n to connect to your MCP server
+- Set up workflow triggers (webhooks, schedules)
+- Document tool usage for future reference
+
+**Universal Prompting Patterns:**
+
+These prompts work for ALL options:
+
+```
+**Starting a phase:**
+"I'm on [Phase X] of my [Option] project. My goal is [specific goal].
+What are the key tasks I should complete in this phase?"
+
+**Task breakdown:**
+"Break down [feature] into specific implementable tasks with acceptance criteria."
+
+**When stuck:**
+"I'm trying to [goal] but encountering [issue].
+What are potential solutions, and which would you recommend?"
+
+**Code generation:**
+"Implement [feature] with these requirements:
+- [Requirement 1]
+- [Requirement 2]
+Use [tech stack] following best practices."
+
+**Review/debug:**
+"Review this code for [feature]. Check for:
+- Bugs or edge cases
+- Security issues
+- Performance problems
+- Best practice violations"
+```
+
+---
 
 ### Phase 6: Portfolio Documentation
 
