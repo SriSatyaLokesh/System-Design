@@ -57,9 +57,14 @@ None
 
 ### Pending Todos
 
-**Total:** 1
+**Total:** 2
 
 1. **Fill out remaining Agentic AI section READMEs with comprehensive content** (docs)
    - Created: 2026-02-25
    - Files: 5 sections (02-tools through 06-capstone)
+   - Status: Pending
+
+2. **Complete remaining content in GSD, Agents, and Skills sections** (docs)
+   - Created: 2026-02-25
+   - Files: Sections 03, 04, 05
    - Status: Pending
