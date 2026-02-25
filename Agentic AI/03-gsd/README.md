@@ -1228,29 +1228,1348 @@ If the PRD confuses you after you've slept on it, it will confuse AI even more.
 
 ### Maintaining PRD Relevance
 
-Discuss strategies for keeping PRDs current as projects evolve: when to update vs when to create addendums, versioning approaches, and using PRDs as learning artifacts that improve over time.
+**PRDs are living documents** that evolve as you learn more about the problem and solution. The key is knowing when to update vs when to track changes separately.
+
+**When to Update the PRD Directly:**
+
+✅ **Correcting Mistakes:**
+```
+Original: "Use PostgreSQL for database"
+Discovery: Project already uses MySQL
+Action: Update PRD directly, note in changelog
+```
+
+✅ **Clarifying Ambiguities:**
+```
+Original: "Implement user authentication"
+Clarification needed: Which strategy?
+Action: Update with specific approach (JWT), keep focused
+```
+
+✅ **Small Scope Adjustments:**
+```
+Original: Support 10 file formats
+Reality: Start with 3 most common
+Action: Update goals, move rest to "Phase 2" section
+```
+
+**When to Create Addendums:**
+
+📄 **Significant Scope Changes:**
+```
+Create: PRD-v1-addendum-01-realtime.md
+
+"After MVP launch, user feedback highlighted need for
+real-time collaboration features. This addendum spec
 
 ## Task Decomposition
 
 ### Principles of Effective Decomposition
 
-Explain core principles: breaking large problems into independently valuable chunks, ordering tasks by dependencies, sizing tasks for single-session execution, and creating clear success criteria per task.
+**Effective task decomposition** is the bridge between high-level goals and executable work. AI agents excel when tasks are properly broken down.
+
+**Core Principles:**
+
+**1. Independence: Minimize Dependencies**
+
+**Bad Decomposition:**
+```
+Task 1: Build entire authentication system
+Task 2: Build entire user profile system
+Task 3: Build entire settings system
+
+→ Massive tasks with hidden dependencies
+→ Can't start Task 2 until Task 1 complete
+→ Hard to verify or troubleshoot
+```
+
+**Good Decomposition:**
+```
+Task 1: Create User model and database schema
+Task 2: Implement registration endpoint
+Task 3: Implement login endpoint
+Task 4: Add JWT generation utility
+Task 5: Create auth middleware
+Task 6: Add password reset flow
+
+→ Each task stands alone
+→ Can work on 2, 3, 4 in parallel after Task 1
+→ Easy to verify each piece
+```
+
+**The Independence Test:**
+> "Could I hand this task to a developer who knows nothing
+> about the other tasks and they could complete it?"
+
+If yes → Good decomposition
+If no → Task has hidden dependencies, break down further
+
+---
+
+**2. Value: Each Task Should Deliver Something Testable**
+
+**Bad:**
+```
+Task 1: Write some helper functions
+Task 2: Set up configuration
+
+→ Nothing to test or demo
+→ No visible progress
+```
+
+**Good:**
+```
+Task 1: Create user registration API endpoint
+         - Accepts email/password
+         - Returns success/error
+         - ** Testable: Can POST and get response **
+
+Task 2: Add email validation to registration
+         - Rejects invalid emails
+         - ** Testable: Try invalid emails, should fail **
+```
+
+**Every Task Should Have:**
+- Clear input and output
+- Something you can run/see/test
+- Acceptance criteria you can verify
+
+---
+
+**3. Ordering: Dependencies Before Dependents**
+
+**Dependency Graph Example:**
+```
+       Database Schema
+            |
+            v
+       User Model ──────┐
+            |           |
+            v           v
+    Register API    Login API
+            |           |
+            v           v
+         Tests      Tests
+```
+
+**Task Order:**
+```
+1. Database Schema (nothing depends on it being last)
+2. User Model (needs schema)
+3. Register API + Login API (parallel - both need User Model)
+4. Tests (need APIs)
+```
+
+**The Ordering Question:**
+> "What's the earliest this task can start?"
+
+Schedule tasks as early as their dependencies allow.
+
+---
+
+**4. Clarity: Success Criteria Are Non-Negotiable**
+
+**Vague Task:**
+```
+Task: Improve performance
+
+→ How do you know when it's done?
+→ What counts as "improved"?
+→ AI will guess, probably wrong
+```
+
+**Clear Task:**
+```
+Task: Optimize image loading performance
+
+Acceptance Criteria:
+- [ ] Images lazy-load (load only when scrolled into view)
+- [ ] Use WebP format with JPEG fallback
+- [ ] Lighthouse performance score improves from 65 → 85+
+- [ ] First Contentful Paint < 2 seconds
+
+→ Objectively testable
+→ AI knows exactly what success looks like
+```
+
+**Acceptance Criteria Template:**
+```markdown
+**Task:** [Specific task name]
+
+**What:** [1-2 sentence description]
+
+**Acceptance Criteria:**
+- [ ] Functional: [What it must do]
+- [ ] Technical: [How it should be built]
+- [ ] Quality: [Performance/security/accessibility requirements]
+- [ ] Test: [How to verify it works]
+
+**Definition of Done:**
+- [ ] Code written and reviewed
+- [ ] Tests pass
+- [ ] Acceptance criteria met
+- [ ] No breaking changes
+```
+
+---
+
+**5. Consistency: Maintain Patterns Across Similar Tasks**
+
+**Inconsistent:**
+```
+Task 1: "createuser endpoint"
+Task 2: "Making a products list view"
+Task 3: "Order Module - Implementation"
+
+→ Random formats confuse AI
+```
+
+**Consistent:**
+```
+Task 1: "API: Create user endpoint (POST /users)"
+Task 2: "API: List products endpoint (GET /products)"
+Task 3: "API: Create order endpoint (POST /orders)"
+
+→ Clear pattern AI can follow
+```
 
 ### Granularity: Finding the Right Size
 
-Discuss task sizing tradeoffs: too large means overwhelming context and difficulty troubleshooting failures; too small means overhead and fragmentation. Heuristics for right-sizing tasks for AI execution.
+**The Goldilocks Principle:** Tasks should be not too big, not too small, but just right.
+
+**Too Large (> 4 hours):**
+
+**Problems:**
+```
+❌ Overwhelming context (AI loses track)
+❌ Hard to estimate
+❌ Failures waste lots of time
+❌ Difficult to review
+❌ Unclear when you're "done"
+```
+
+**Example:**
+```
+❌ "Build entire dashboard with all features"
+   → Too vague, too big
+```
+
+**How to Fix:**
+Break into feature-level tasks:
+```
+✅ "Dashboard: Create layout component"
+✅ "Dashboard: Add activity feed widget"
+✅ "Dashboard: Add stats summary widget"
+✅ "Dashboard: Implement responsive breakpoints"
+```
+
+---
+
+**Too Small (< 15 minutes):**
+
+**Problems:**
+```
+❌ Overhead of context-switching
+❌ Fragmented code
+❌ Too many tasks to track
+❌ Micro-management of AI
+```
+
+**Example:**
+```
+❌ task 1: Import React
+❌ Task 2: Create component file
+❌ Task 3: Write component skeleton
+❌ Task 4: Add props interface
+❌ Task 5: Style component
+   → Just let AI do the whole thing!
+```
+
+**How to Fix:**
+Combine into meaningful units:
+```
+✅ "Create Button component with variants (primary, secondary, disabled) and hover states"
+   → Complete, testable component
+```
+
+---
+
+**Just Right (30 min - 3 hours):**
+
+**Sweet Spot Characteristics:**
+```
+✅ Single clear goal
+✅ Completable in one session
+✅ Testable outcome
+✅ Doesn't require AI to juggle too many concepts
+✅ Meaningful progress when done
+```
+
+**Examples by Domain:**
+
+**Frontend:**
+```
+✅ "Create login form component with validation" (45 min)
+✅ "Implement dark mode toggle with persistence" (1 hour)
+✅ "Add infinite scroll to projects list" (2 hours)
+```
+
+**Backend:**
+```
+✅ "Create user authentication endpoint" (1 hour)
+✅ "Add file upload with S3 integration" (2.5 hours)
+✅ "Implement rate limiting middleware" (1.5 hours)
+```
+
+**Full-Stack:**
+```
+✅ "Add comment system (API + UI)" (3 hours)
+✅ "Implement search with filtering" (2.5 hours)
+```
+
+---
+
+**Sizing Heuristics:**
+
+**"Could I explain this task to Junior in 2 minutes?"**
+- Yes → Good size
+- No, too complex → Break it down
+- It's trivial → Combine with related task
+
+**"If AI fails, how much time do I waste?"**
+- 30 min → Acceptable risk
+- 4 hours → Break into smaller tasks
+
+**"Can I test this independently?"**
+- Yes → Good isolation
+- No, depends on 5 other things → Too large or wrong boundaries
+
+**"Does this task have a single verb?"**
+- "Create X" → Good
+- "Create X and refactor Y and add Z" → Three tasks hiding
+
+---
+
+**Adaptive Sizing:**
+
+Size tasks based on complexity:
+
+**Simple (Boilerplate):**
+```
+✅ Larger tasks OK
+"scaffold CRUD endpoints for 3 resources" (2 hours)
+→ AI is great at patterns
+```
+
+**Complex (Novel Logic):**
+```
+✅ Smaller tasks safer
+"implement conflict resolution algorithm" (1 hour max)
+→ Break into: design algorithm (30 min) + implement (1 hr) + test edge cases (30 min)
+```
+
+**Unfamiliar Territory:**
+```
+✅ Smaller tasks + research
+"First time using WebRTC" → Multiple small exploratory tasks
+```
+
+---
+
+**Practical Sizing Formula:**
+
+```
+Task Size = Base Complexity × Risk Multiplier
+
+Base Complexity:
+- Boilerplate: 2-3 hours
+- Standard feature: 1-2 hours
+- Novel algorithm: 30-60 min
+
+Risk Multipliers:
+- Unfamiliar tech: × 0.5 (smaller tasks)
+- Business critical: × 0.5 (smaller tasks)
+- Well-understood: × 1.5 (can be larger)
+```
+
+**Example:**
+```
+Task: "Add payment processing with Stripe"
+
+- Base: Standard feature (1-2 hours)
+- Multipliers:
+  - Never used Stripe before: × 0.5
+  - Handling money (critical): × 0.5
+  
+Sized: 0.5-1 hour per task
+
+→ Break into:
+  1. Set up Stripe SDK and test keys (30 min)
+  2. Create checkout session endpoint (45 min)
+  3. Handle webhook for successful payments (45 min)
+  4. Add error handling and failure states (45 min)
+```
 
 ### Dependency Mapping
 
-Teach how to identify and document task dependencies: which tasks must happen first, which can be parallelized, and how to sequence work to maximize progress while minimizing rework.
+**Dependencies** determine what order tasks must happen. Mapping them prevents blocked work and wasted effort.
+
+**Types of Dependencies:**
+
+**1. Hard Dependencies (Must Have)**
+
+```
+Task A must complete before Task B can start
+
+Example:
+"Database schema" → "User model" → "Registration API"
+         (A)              (B)              (C)
+```
+
+You **cannot** start B until A is done.
+
+**2. Soft Dependencies (Should Have)**
+
+```
+Task B is easier if Task A is done, but not required
+
+Example:
+"Design system" → "Button component"
+
+Could build button without design system,
+but would have to refactor later.
+```
+
+**3. No Dependencies (Parallel)**
+
+```
+Tasks can happen simultaneously
+
+Example:
+"Frontend auth UI" and "Backend auth API"
+can be built in parallel if interface is defined.
+```
+
+---
+
+**Dependency Mapping Process:**
+
+**Step 1: List All Tasks**
+
+```
+1. Create database schema
+2. Set up API server
+3. Create User model
+4. Build registration endpoint
+5. Build login endpoint
+6. Create JWT utility
+7. Add auth middleware
+8. Build frontend login form
+9. Connect form to API
+10. Write tests
+```
+
+**Step 2: Identify Dependencies**
+
+For each task, ask: "What must exist before I can do this?"
+
+```
+1. Create database schema → [no dependencies]
+2. Set up API server → [no dependencies]
+3. Create User model → [needs: 1]
+4. Build registration endpoint → [needs: 2, 3, 6]
+5. Build login endpoint → [needs: 2, 3, 6]
+6. Create JWT utility → [needs: 2]
+7. Add auth middleware → [needs: 6]
+8. Build frontend login form → [no dependencies]
+9. Connect form to API → [needs: 5, 8]
+10. Write tests → [needs: 4, 5, 9]
+```
+
+**Step 3: Draw Dependency Graph**
+
+```
+[1. DB Schema]    [2. API Server]           [8. Frontend Form]
+      |                 |──────┐
+      |                 |        |
+      v                 v        v
+[3. User Model]   [6. JWT Util]
+      |────────────| |
+      |              |  |
+      v              v  v
+      |        [7. Auth Middleware]
+      |
+      |─────────────────┐
+      |                |
+      v                v
+[4. Register API] [5. Login API]
+                       |
+                       v (with 8)
+                  [9. Connect Form]
+                       |
+                       v
+                  [10. Tests]
+```
+
+**Step 4: Order Into Waves**
+
+**Wave 1** (no dependencies - START HERE):
+```
+- 1. Database schema
+- 2. API server setup
+- 8. Frontend form (UI only)
+```
+
+**Wave 2** (needs Wave 1):
+```
+- 3. User model
+- 6. JWT util
+```
+
+**Wave 3** (needs Wave 2):
+```
+- 4. Registration endpoint
+- 5. Login endpoint
+- 7. Auth middleware
+```
+
+**Wave 4** (needs Wave 3):
+```
+- 9. Connect form to API
+```
+
+**Wave 5** (needs everything):
+```
+- 10. Tests
+```
+
+---
+
+**Parallelization Opportunities:**
+
+Within each wave, tasks can run in parallel:
+
+**Wave 1:** Could have 3 different AI agents/sessions working simultaneously
+**Wave 2:** 2 parallel tracks
+**Wave 3:** 3 parallel tracks
+
+This is where AI delegation really shines - compress timeline by parallel work.
+
+---
+
+**Dependency Documentation Format:**
+
+**In Your Plan/PRD:**
+
+```markdown
+## Task 4: Build Registration Endpoint
+
+**Dependencies:**
+- HARD: Task 2 (API server must be running)
+- HARD: Task 3 (User model must exist)
+- HARD: Task 6 (Need JWT generation)
+
+**Blocks:**
+- Task 9 (Frontend needs this endpoint)
+- Task 10 (Tests need complete flow)
+
+**Acceptance Criteria:**
+- [ ] POST /auth/register accepts email + password
+- [ ] Creates user in database
+- [ ] Returns JWT token
+- [ ] Returns 400 for invalid input
+- [ ] Returns 409 if user exists
+
+**Estimated Time:** 1 hour
+**Can Start After:** Wave 2 complete
+```
+
+---
+
+**Handling Circular Dependencies:**
+
+**Problem:**
+```
+Task A needs Task B
+Task B needs Task A
+→ Deadlock!
+```
+
+**Solution: Break the Cycle**
+
+**Example:**
+```
+Bad:
+"User needs Groups" → "Groups need Users"
+
+Good:
+1. Create User model (without groups)
+2. Create Group model (without users)
+3. Add User-Group relationship (junction table)
+4. Update User to include groups
+5. Update Group to include users
+```
+
+**General Strategy:**
+- Build core entities first
+- Add relationships second
+- Update with references third
+
+---
+
+**Minimizing Dependencies:**
+
+**Technique: Interface First**
+
+```
+Instead of:
+"Build API" → "Build frontend" (frontend blocked)
+
+Do:
+1. Define API interface (OpenAPI spec) - 30 min
+2. Build API (backend team)
+3. Build frontend with mock API (frontend team)
+4. Connect real API
+
+→ Parallel work, minimal blocking
+```
+
+**Technique: Stub External Dependencies**
+
+```
+Task needs Payment API:
+
+1. Create payment service interface
+2. Use stub (returns success always)
+3. Build feature with stub
+4. Integrate real payment API
+5. Test with real API
+
+→ Don't block on external services
+```
+
+---
+
+**Tools for Dependency Mapping:**
+
+**Simple (Recommended to Start):**
+- Markdown checklist with notes
+- ASCII diagram in PRD
+
+**Visual (For Complex Projects):**
+- Mermaid diagrams in markdown
+- Excalidraw for sketching
+- @TODO lists with indentation
+
+**Example Mermaid:**
+````markdown
+```mermaid
+graph TD
+    A[DB Schema] --> B[User Model]
+    C[API Server] --> D[JWT Util]
+    B --> E[Register API]
+    D --> E
+    E --> F[Tests]
+```
+````
+
+**The Critical Path:**
+
+Longest sequence of dependent tasks = your minimum project duration
+
+```
+Critical Path:
+DB Schema (1h) → User Model (1h) → Register API (1h) → Tests (1h)
+= 4 hours minimum
+
+Even if you parallelize everything else,
+this chain determines timeline.
+```
+
+Focus AI effort on critical path tasks first.
 
 ### Task Templates
 
-Provide reusable patterns for common task types: "implement endpoint" task structure, "create UI component" template, "add test coverage" pattern, and "refactor for pattern X" format. Templates accelerate planning and improve consistency.
+**Templates accelerate planning and improve consistency.** Here are battle-tested patterns for common task types.
+
+---
+
+**Template 1: API Endpoint**
+
+```markdown
+## Task: [HTTP Method] [Resource] Endpoint
+
+**What:**
+Create [GET/POST/PUT/DELETE] endpoint for [resource] at [path]
+
+**Dependencies:**
+- [ ] [Model/schema] exists
+- [ ] [Database] configured
+- [ ] [Auth middleware] available (if protected)
+
+**Implementation:**
+- Route: [METHOD] /api/v1/[resource]
+- Request: [body/params schema]
+- Response: [response schema]
+- Errors: [error codes and messages]
+- Auth: [required/optional/none]
+
+**Acceptance Criteria:**
+- [ ] Endpoint responds at correct path
+- [ ] Request validation works (reject invalid input)
+- [ ] Success response matches schema
+- [ ] Error responses include helpful messages
+- [ ] [Database operation] succeeds
+- [ ] [Auth] enforced correctly (if applicable)
+- [ ] Manual test with Postman/curl passes
+
+**Time Estimate:** 1-1.5 hours
+```
+
+**Example:**
+```markdown
+## Task: POST Create Project Endpoint
+
+**What:**
+Create POST endpoint for creating new projects
+
+**Dependencies:**
+- [ ] Project model exists
+- [ ] PostgreSQL database configured
+- [ ] Auth middleware available
+
+**Implementation:**
+- Route: POST /api/v1/projects
+- Request: { name: string, description: string, tags: string[] }
+- Response: { id, name, description, tags, created_at, user_id }
+- Errors: 400 (validation), 401 (not authenticated), 500 (server)
+- Auth: Required (JWT)
+
+**Acceptance Criteria:**
+- [ ] Creates project in database
+- [ ] Returns project with generated ID
+- [ ] Rejects request without authentication
+- [ ] Validates name (required, 3-100 chars)
+- [ ] Associates project with authenticated user
+- [ ] Returns 400 for invalid data
+
+**Time Estimate:** 1 hour
+```
+
+---
+
+**Template 2: UI Component**
+
+```markdown
+## Task: Create [Component Name] Component
+
+**What:**
+[1-2 sentence description of component purpose]
+
+**Dependencies:**
+- [ ] [Design system/tokens] available
+- [ ] [Required hooks/utilities] exist
+
+**Props Interface:**
+```typescript
+interface [ComponentName]Props {
+  [prop]: [type];  // [description]
+  [prop]?: [type]; // [description] (optional)
+}
+```
+
+**States:**
+- [ ] Default
+- [ ] [Hover/focus/active]
+- [ ] [Loading]
+- [ ] [Error]
+- [ ] [Disabled]
+
+**Acceptance Criteria:**
+- [ ] Renders correctly in all states
+- [ ] Props work as specified
+- [ ] Responsive (mobile/tablet/desktop)
+- [ ] Accessible (keyboard nav, screen readers)
+- [ ] Matches design (if provided)
+- [ ] Reusable (no hardcoded values)
+
+**Time Estimate:** [time]
+```
+
+**Example:**
+```markdown
+## Task: Create Button Component
+
+**What:**
+Reusable button component with primary/secondary/danger variants
+
+**Dependencies:**
+- [ ] Tailwind CSS configured
+
+**Props Interface:**
+```typescript
+interface ButtonProps {
+  variant: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  loading?: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}
+```
+
+**States:**
+- [ ] Default (each variant)
+- [ ] Hover
+- [ ] Active (pressed)
+- [ ] Disabled
+- [ ] Loading (spinner)
+
+**Acceptance Criteria:**
+- [ ] All 3 variants styled correctly
+- [ ] Size prop changes dimensions
+- [ ] Disabled state prevents clicks
+- [ ] Loading shows spinner, disables interaction
+- [ ] onClick fires on click/enter key
+- [ ] Focus visible for keyboard users
+- [ ] Color contrast meets WCAG AA
+
+**Time Estimate:** 45 min
+```
+
+---
+
+**Template 3: Test Coverage**
+
+```markdown
+## Task: Add Tests for [Feature/Module]
+
+**What:**
+Comprehensive test coverage for [feature]
+
+**Dependencies:**
+- [ ] [Feature] implemented
+- [ ] Test framework configured
+
+**Test Cases:**
+
+**Happy Path:**
+- [ ] [Primary flow works]
+- [ ] [Expected output for valid input]
+
+**Edge Cases:**
+- [ ] [Empty/null input]
+- [ ] [Boundary values]
+- [ ] [Maximum limits]
+
+**Error Cases:**
+- [ ] [Invalid input handled]
+- [ ] [Error messages correct]
+
+**Integration:**
+- [ ] [Works with dependent systems]
+
+**Acceptance Criteria:**
+- [ ] All tests pass
+- [ ] Coverage > [80]%
+- [ ] Tests are independent (can run in any order)
+- [ ] Fast (< [5]s total)
+- [ ] Clear test names (describe behavior)
+
+**Time Estimate:** [time]
+```
+
+---
+
+**Template 4: Refactoring**
+
+```markdown
+## Task: Refactor [Component/Module] to [Pattern]
+
+**Why:**
+[Problem with current implementation]
+
+**What:**
+Refactor [current] to use [new pattern/approach]
+
+**Dependencies:**
+- [ ] [Tests exist] (to ensure no regression)
+
+**Changes:**
+- [ ] [Specific change 1]
+- [ ] [Specific change 2]
+- [ ] [Specific change 3]
+
+**Safety:**
+- Existing tests must still pass
+- No behavior changes (unless explicitly noted)
+- Backwards compatible (if public API)
+
+**Acceptance Criteria:**
+- [ ] Code follows [new pattern]
+- [ ] All existing tests pass
+- [ ] No breaking changes to API
+- [ ] Code is more [maintainable/performant/etc]
+- [ ] Documentation updated if needed
+
+**Time Estimate:** [time]
+```
+
+**Example:**
+```markdown
+## Task: Refactor Auth Components to Use Context
+
+**Why:**
+Currently passing `user` prop through 5 levels of components (prop drilling)
+
+**What:**
+Create AuthContext and useAuth hook, refactor components to use context
+
+**Dependencies:**
+- [ ] Auth components have tests
+
+**Changes:**
+- [ ] Create AuthContext with user/login/logout
+- [ ] Create useAuth hook
+- [ ] Refactor Header to use useAuth
+- [ ] Refactor  Profile to use useAuth
+- [ ] Refactor Settings to use useAuth
+- [ ] Remove user prop from intermediate components
+
+**Safety:**
+- All auth tests must pass
+- No behavior changes
+- Authentication flow unchanged
+
+**Acceptance Criteria:**
+- [ ] AuthContext provides user data
+- [ ] Components use useAuth instead of props
+- [ ] No prop drilling of user data
+- [ ] All tests pass
+- [ ] App behavior identical
+
+**Time Estimate:** 1.5 hours
+```
+
+---
+
+**Template 5: Integration**
+
+```markdown
+## Task: Integrate [External Service/API]
+
+**What:**
+Connect application to [service] for [purpose]
+
+**Dependencies:**
+- [ ] [API keys/credentials] available
+- [ ] [SDK/library] chosen
+
+**Setup:**
+- [ ] Install [library]
+- [ ] Configure [credentials]
+- [ ] Set up [environment variables]
+
+**Implementation:**
+- [ ] Create [service wrapper/client]
+- [ ] Implement [method 1]
+- [ ] Implement [method 2]
+- [ ] Add error handling
+- [ ] Add retry logic (if applicable)
+
+**Testing:**
+- [ ] Test in development
+- [ ] Test error scenarios
+- [ ] Verify [quota/limits] acceptable
+
+**Acceptance Criteria:**
+- [ ] Successfully connects to [service]
+- [ ] [Primary operation] works
+- [ ] Errors handled gracefully
+- [ ] Credentials not exposed in code
+- [ ] Documented environment variables
+
+**Time Estimate:** [time]
+```
+
+---
+
+**Using Templates Effectively:**
+
+**1. Start With Template, Customize:**
+```
+Don't reinvent - use template as starting point
+Remove sections that don't apply
+Add domain-specific details
+```
+
+**2. Build Your Own Template Library:**
+```
+Notice repetitive task patterns in your project
+Extract into template
+Share with team (or AI agents)
+```
+
+**3. Template Prompts for AI:**
+```
+"Create tasks following the API Endpoint template from our docs.
+Endpoint: GET /api/v1/users/:id"
+
+→ AI uses consistent format
+```
+
+**4. Quality Checklist:**
+
+Every task should have:
+- [ ] Clear "What" (objective)
+- [ ] Listed dependencies
+- [ ] Specific acceptance criteria
+- [ ] Time estimate
+- [ ] OPTIONAL: Why (for refactoring/technical decisions)
 
 ### From Tasks to Prompts
 
-Bridge from task planning to execution: translating task descriptions into effective AI prompts, providing necessary context, specifying acceptance criteria, and setting up verification steps.
+**Tasks are plans. Prompts are execution instructions.** Here's how to bridge from planning to implementation.
+
+---
+
+**The Translation Pattern:**
+
+**Task (Planning):**
+```markdown
+## Task 3: Create User Registration Endpoint
+
+**Dependencies:** Database schema, User model exist
+
+**What:** POST /auth/register endpoint
+
+**Acceptance Criteria:**
+- Accepts email + password
+- Validates input
+- Creates user
+- Returns JWT
+```
+
+**Prompt (Execution):**
+```markdown
+**To AI Agent:**
+
+Implement user registration endpoint based on Task 3 from our PRD.
+
+**Context:**
+- Project: Node.js + Express + PostgreSQL
+- Auth strategy: JWT (using jsonwebtoken library)
+- User model: see src/models/User.js
+- Database: Prisma ORM configured
+
+**Requirements:**
+Create POST /auth/register endpoint that:
+1. Accepts { email, password } in request body
+2. Validates:
+   - Email format (regex)
+   - Password length (min 8 chars)
+   - Email not already registered
+3. Hashes password with bcrypt (10 rounds)
+4. Creates user in database
+5. Generates JWT (7-day expiry)
+6. Returns: { user: { id, email }, token: "jwt..." }
+7. Error responses:
+   - 400 for validation failures
+   - 409 if email exists
+   - 500 for server errors
+
+**Files to Modify:**
+- src/routes/auth.js (add route)
+- src/controllers/authController.js (add registerUser function)
+
+**Acceptance:**
+I'll test with:
+```bash
+curl -X POST http://localhost:3000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","password":"password123"}'
+```
+
+Expect 201 response with user + token.
+
+**Constraints:**
+- Use async/await (not callbacks)
+- Use Prisma User.create() for database
+- Don't install new dependencies
+- Follow existing code style
+```
+
+---
+
+**Prompt Engineering Formula:**
+
+```
+Effective Prompt =
+  Context (what exists) +
+  Requirements (what to build) +
+  Constraints (how to build it) +
+  Verification (how I'll test)
+```
+
+**1. Context:**
+
+```markdown
+**Provide:**
+- Tech stack
+- Relevant file paths
+- Existing patterns to follow
+- Related code to reference
+
+**Example:**
+"Our Express app uses:
+- Prisma ORM (see prisma/schema.prisma)
+- JWT auth (see src/utils/jwt.js)
+- Error handling middleware (see src/middleware/errors.js)
+
+Follow pattern in src/controllers/userController.js"
+```
+
+**Why:** AI uses context to match your project's style and architecture.
+
+---
+
+**2. Requirements:**
+
+```markdown
+**Translate acceptance criteria directly:**
+
+Task says: "Validates email format"
+Prompt says: "Validate email format using regex, reject if invalid"
+
+Task says: "Returns JWT"
+Prompt says: "Generate JWT using jose library (see utils/jwt.js),
+              7-day expiry, include user ID in payload"
+```
+
+**Be Specific:**
+```
+❌ "Handle errors"
+✅ "Return 400 with { error: 'Invalid email format' } for bad emails"
+
+❌ "Add validation"
+✅ "Validate: email is valid format, password >= 8 chars,
+   email not already in database"
+```
+
+---
+
+**3. Constraints:**
+
+```markdown
+**Tell AI what NOT to do:**
+
+- "Don't install new dependencies (use existing libraries)"
+- "Don't create new database tables (use existing User model)"
+- "Don't change existing endpoints"
+- "Use our error handling pattern (throw AppError, not res.status)"
+- "Follow our code style (async/await, not callbacks)"
+```
+
+**Why:** Prevents AI from over-engineering or introducing unwanted patterns.
+
+---
+
+**4. Verification:**
+
+```markdown
+**Tell AI how you'll test:**
+
+"I'll verify by:
+1. Running `npm test` (unit tests should pass)
+2. Curling the endpoint with valid data (should return 201)
+3. Trying invalid email (should return 400)
+4. Trying duplicate email (should return 409)
+5. Checking database (user should be created)"
+```
+
+**Why:** AI understands what "done" looks like and can self-check.
+
+---
+
+**Common Prompt Patterns:**
+
+**Pattern 1: Implement From Scratch**
+
+```markdown
+Implement [feature] following [PRD section/task].
+
+Context: [tech stack, file paths]
+Requirements: [specific, numbered list]
+Constraints: [don'ts]
+Acceptance: [test plan]
+```
+
+**Pattern 2: Modify Existing**
+
+```markdown
+Update [file/component] to add [feature].
+
+Current Behavior: [what it does now]
+New Behavior: [what it should do]
+Files: [list files to modify]
+Constraints: [maintain backward compatibility, etc]
+Test: [how to verify nothing broke]
+```
+
+**Pattern 3: Refactor**
+
+```markdown
+Refactor [module] from [old pattern] to [new pattern].
+
+Why: [problem with current approach]
+Approach: [specific refactoring steps]
+Safety: [tests that must still pass]
+Constraints: [no behavior changes]
+```
+
+**Pattern 4: Debug/Fix**
+
+```markdown
+Fix bug in [feature].
+
+Symptom: [what's wrong]
+Expected: [what should happen]
+Current: [what actually happens]
+Error: [error message if any]
+Files: [likely files involved]
+
+Debug: [what you've tried]
+```
+
+---
+
+**Enhancing Prompts with Examples:**
+
+**Instead of:**
+```
+"Return a user object"
+```
+
+**Provide Example:**
+```
+"Return user object shaped like:
+{
+  "id": "usr_abc123",
+  "email": "user@example.com",
+  "name": "John Doe",
+  "created_at": "2026-01-15T10:30:00Z"
+}
+
+Do NOT include: password, password_hash"
+```
+
+---
+
+**Iterative Prompting:**
+
+**First Attempt:**
+```
+AI generates code...
+You test...
+Doesn't quite work...
+```
+
+**Refinement Prompt:**
+```
+"The registration endpoint works, but:
+
+Issue: Password hash isn't being saved correctly
+
+Error: TypeError: bcrypt.hash is not a function
+
+Fix: Import bcrypt correctly (require('bcryptjs') not 'bcrypt')
+and await bcrypt.hash() before saving."
+```
+
+**Specific feedback** > Vague "it doesn't work"
+
+---
+
+**Prompt Checklist:**
+
+Before sending prompt to AI, verify:
+
+- [ ] **Context:** Mentioned tech stack and relevant files
+- [ ] **Clear Goal:** One specific thing to build/fix
+- [ ] **Requirements:** Numbered list of must-haves
+- [ ] **Constraints:** Specified what NOT to do
+- [ ] **Examples:** Provided sample data/code where helpful
+- [ ] **Verification:** Explained how you'll test
+- [ ] **Dependencies:** Mentioned required tasks/files
+- [ ] **Style:** Referenced existing patterns to follow
+
+---
+
+**Prompt Template:**
+
+```markdown
+[Implement|Update|Refactor|Fix] [specific feature/module]
+
+**Context:**
+- Project: [stack]
+- Files: [relevant files]
+- Pattern: [existing code to reference]
+
+**Requirements:**
+1. [Specific requirement]
+2. [Specific requirement]
+3. [Specific requirement]
+
+**Constraints:**
+- [Don't do X]
+- [Use Y approach, not Z]
+- [Maintain backward compatibility]
+
+**Example [Input|Output|Usage]:**
+[Code/data example]
+
+**Acceptance:**
+I'll verify by:
+- [Test 1]
+- [Test 2]
+
+**Files to Modify:**
+- [file path]
+- [file path]
+```
+
+---
+
+**Advanced: Multi-Agent Prompts:**
+
+When running parallel tasks:
+
+```markdown
+**Agent 1 Prompt:**
+"Implement backend API (Task 3)
+[full prompt]
+
+Note: Agent 2 is building frontend simultaneously.
+API interface defined in api-contract.md - follow it exactly."
+
+**Agent 2 Prompt:**
+"Implement frontend form (Task 8)
+[full prompt]
+
+Note: Agent 1 is building API simultaneously.
+Use mock API (see mocks/api.js) for now.
+API interface defined in api-contract.md."
+```
+
+**Key:** Define interface upfront, work in parallel against interface.
+
+---
+
+**Golden Rule:**
+
+> "If you wouldn't give this prompt to a junior developer and expect them to succeed, don't give it to AI."
+
+AI needs the same context, requirements, and constraints a human would need—just structured more explicitly.
 
 ## Resources
 
