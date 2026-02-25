@@ -21,7 +21,11 @@
 - ✓ Basic navigation links connect sections sequentially
 - ✓ Directory structure supports simple GitHub markdown rendering
 
-**Plans:** 1-2 plans (structure setup, README scaffolding)
+**Plans:** 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Foundation setup (directory structure + root README)
+- [ ] 01-02-PLAN.md — Section scaffolding (template-based READMEs for all 6 sections)
 
 ---
 
