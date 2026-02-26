@@ -1,11 +1,3 @@
----
-layout: default
-title: Agentic AI Learning Pathway
-nav_order: 1
-has_children: true
-permalink: /agentic-ai
----
-
 # AI Working Enablement & Skill Pathway
 
 A curated learning resource hub for working effectively with AI tools, agents, and copilots. This pathway takes you from understanding the AI ecosystem to building real projects with AI assistance.
@@ -41,48 +33,31 @@ This pathway is designed for **anyone wanting to work effectively with AI tools*
 - Structuring work for AI execution
 - Becoming an AI-native contributor
 
-## How to Navigate
-
-Each section has been organized into **multiple pages** for easy navigation and comfortable reading:
-
-- **Landing pages** provide section overviews and links to all topics within that section
-- **Topic pages** contain detailed content with breadcrumb navigation showing your current location
-- **Prev/Next links** at the bottom of each page guide you through the learning progression
-- **Section completion markers** celebrate your progress and point you to the next section
-
-**Mobile-Friendly:** All content renders beautifully in GitHub's mobile view with comfortable scroll lengths (no 2000+ line pages!).
-
-**Bookmarkable:** Each topic has its own clean URL (e.g., `/01-ecosystem/assistants/`) you can bookmark or share.
-
-**Start here:** [Section 1: Ecosystem](01-ecosystem/README.md) and follow the path—the  navigation will guide you!
-
 ## Sections
 
 ### 1. Ecosystem
 
-Understand the landscape of AI tools and platforms available to you. This **multi-page section** introduces the three main categories of AI tools: assistants, agents, and copilots, helping you understand what each excels at and when to use them.
+Understand the landscape of AI tools and platforms available to you. This section introduces the three main categories of AI tools: assistants, agents, and copilots, helping you understand what each excels at and when to use them.
 
-**Topics covered across 7 pages:**
-- AI assistants (Claude, ChatGPT, Gemini) with use cases and examples
-- AI agents and autonomous execution patterns
-- AI copilots (GitHub Copilot, Cursor) for real-time coding assistance
-- Comprehensive comparison framework across all 3 categories
-- Chat-based AI vs repository-aware AI with decision matrices
-- Curated resources for deeper learning
+**Topics covered:**
+- What are AI assistants (Claude, ChatGPT, Gemini) and when to use them
+- Understanding AI agents and autonomous execution
+- AI copilots (GitHub Copilot, Claude Code) for real-time coding assistance
+- Chat-based AI vs repository-based AI — comparing interaction models
+- Platform-specific features and capabilities
+- Free resources and getting started guides
 
 [→ Explore Ecosystem](01-ecosystem/README.md)
 
 ### 2. Tools
 
-Hands-on adoption of specific AI tools with practical exercises and prompt engineering basics. This **multi-page section** moves from theory to practice with detailed tool guides, progressive exercises, and mastery-level prompt engineering.
+Hands-on adoption of specific AI tools with practical exercises and prompt engineering basics. Move from theory to practice by setting up and using tools like Anthropic's Claude Code, GitHub Copilot, and more.
 
-**Topics covered across 7 pages:**
-- Cursor - AI-first code editor guide
-- GitHub Copilot - inline suggestions and IDE integration
-- Claude Code - large context window workflows
-- 4 hands-on exercises for real-world proficiency
-- Prompt engineering fundamentals (Beginner → Expert levels)
-- Curated tools and platform resources
+**Topics covered:**
+- Anthropic's Claude Code guide (with Skillshare course link)
+- GitHub Copilot setup and best practices
+- Antigravity tool walkthrough
+- Hands-on exercises for each tool
 - Prompt engineering fundamentals
 - Writing effective prompts that provide context
 
