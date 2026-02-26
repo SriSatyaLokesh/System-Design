@@ -1,17 +1,18 @@
-﻿# Site settings
+# Local development config - use with: bundle exec jekyll serve --config _config_local.yml
+
+# Site settings
 title: "Agentic AI Learning Pathway"
 description: "A curated learning pathway for mastering AI assistants, agents, and copilots"
 baseurl: ""
 url: "http://localhost:4000"
 
-# Theme (using remote theme for GitHub Pages)
-remote_theme: just-the-docs/just-the-docs@v0.8.0
+# Theme (local gem for Windows development)
+theme: just-the-docs
 
-# Plugins
+# Plugins (exclude remote-theme for local)
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-remote-theme
 
 # Markdown
 markdown: kramdown
