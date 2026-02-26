@@ -61,8 +61,10 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Ecosystem content (AI categories, decision matrix, curated resources)
-- [ ] 02-02-PLAN.md — Tools & prompt engineering (tool guides, prompt fundamentals, hands-on exercises)
+- [x] 02-01-PLAN.md — Ecosystem content (AI categories, decision matrix, curated resources)
+- [x] 02-02-PLAN.md — Tools & prompt engineering (tool guides, prompt fundamentals, hands-on exercises)
+
+**Status:** ✅ Complete (2026-02-26)
 
 ---
 
