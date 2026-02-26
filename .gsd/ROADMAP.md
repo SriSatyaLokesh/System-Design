@@ -58,7 +58,11 @@ Plans:
 - ✓ All resource links (5-7 per topic) include context explaining "what, why, when"
 - ✓ Prompt engineering section demonstrates do's and don'ts with real examples
 
-**Plans:** 2 plans (Ecosystem content, Tools content)
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Ecosystem content (AI categories, decision matrix, curated resources)
+- [ ] 02-02-PLAN.md — Tools & prompt engineering (tool guides, prompt fundamentals, hands-on exercises)
 
 ---
 
