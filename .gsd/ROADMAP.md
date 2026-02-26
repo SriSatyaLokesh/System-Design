@@ -45,7 +45,7 @@ Plans:
 - ECO-05: Curated resource links (5-7 max) with context
 
 **Tools Section:**
-- TOOL-01: Antigravity tool guide with setup and workflows
+- TOOL-01: Cursor tool guide with setup and workflows
 - TOOL-02: GitHub Copilot guide with installation and usage patterns
 - TOOL-03: Claude Code guide with Skillshare link and learnings
 - TOOL-04: Hands-on exercises for each tool with outcomes
@@ -58,7 +58,13 @@ Plans:
 - ✓ All resource links (5-7 per topic) include context explaining "what, why, when"
 - ✓ Prompt engineering section demonstrates do's and don'ts with real examples
 
-**Plans:** 2 plans (Ecosystem content, Tools content)
+**Plans:** 2 plans
+
+Plans:
+- [x] 02-01-PLAN.md — Ecosystem content (AI categories, decision matrix, curated resources)
+- [x] 02-02-PLAN.md — Tools & prompt engineering (tool guides, prompt fundamentals, hands-on exercises)
+
+**Status:** ✅ Complete (2026-02-26)
 
 ---
 

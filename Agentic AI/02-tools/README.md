@@ -3,9 +3,10 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Antigravity](#antigravity)
+- [Cursor](#cursor)
 - [GitHub Copilot](#github-copilot)
 - [Claude Code](#claude-code)
+- [Hands-On Exercises](#hands-on-exercises)
 - [Prompt Engineering Fundamentals](#prompt-engineering-fundamentals)
 - [Resources](#resources)
 - [Navigation](#navigation)
@@ -18,379 +19,421 @@ This section provides practical, hands-on exploration of leading AI coding tools
 
 By mastering these platforms, you'll build a versatile AI toolkit that adapts to different project needs—from quick inline suggestions to deep architectural reasoning to agentic task automation.
 
-## Antigravity
+## Cursor
 
-### What is Antigravity
+### What Is It?
 
-> **Note:** "Antigravity" appears to be a placeholder or specific tool reference. If this refers to a particular AI development tool, platform, or internal system, please provide documentation or details. This section can be replaced with another mainstream AI coding tool (like Cursor, Codeium, or Tabnine) if needed.
+Cursor is an artificial intelligence-first code editor built on Visual Studio Code, designed to make AI assistance feel native to your development workflow. Unlike traditional editors with AI plugins, Cursor integrates AI capabilities at its core—understanding your entire codebase, enabling natural-language code editing, and providing context-aware suggestions across multiple files.
 
-### Key Features
+### Key Philosophy
 
-*[Section awaiting tool specification]*
+**Seamless AI Integration:** Cursor treats AI as a first-class feature, not an afterthought. Every interaction is designed to minimize friction between your intent and the code changes you need.
 
-### Getting Started with Antigravity
+**Codebase-Aware Intelligence:** Cursor automatically indexes your entire project, allowing AI to understand relationships between files, follow your coding patterns, and make contextually relevant suggestions.
 
-*[Section awaiting tool specification]*
+**When to Choose Cursor:**
+- You want AI deeply integrated into your editor (not just suggestions)
+- You're working on projects requiring multi-file awareness
+- You prefer conversational interaction ("refactor this component across all files")
+- You want the familiarity of VS Code with enhanced AI capabilities
 
-### Best Practices
+### Getting Started
 
-*[Section awaiting tool specification]*
+**Prerequisites:**
+- **Operating System:** macOS, Windows, or Linux
+- **No Separate API Key Required:** Cursor provides built-in AI models (optional: add your own OpenAI API key for GPT-4 access)
+- **Prior Knowledge:** Basic coding familiarity; if you've used VS Code, you're already ahead
+
+**Installation:**
+
+1. **Download Cursor**
+   - Visit [cursor.sh](https://cursor.sh)
+   - Click "Download" for your operating system
+   - Install like any standard application
+
+2. **Launch and Configure**
+   - Open Cursor (it automatically imports VS Code settings if you have it installed)
+   - You'll see the familiar VS Code interface with AI features enabled
+
+3. **Verify It Works**
+   - Open any coding project (or create a new file)
+   - Press `Cmd+K` (macOS) or `Ctrl+K` (Windows/Linux)
+   - Type a command like "add a hello world function"
+   - If you see AI-generated code suggestions, you're ready!
+
+**Configuration:**
+
+**Basic Setup (works immediately):**
+- Default: Uses Cursor's built-in AI models—no API key needed
+
+**Optional Advanced Setup:**
+- **Add OpenAI API Key** (for GPT-4 access):
+  1. Go to Settings (Cmd+, or Ctrl+,)
+  2. Search for "API Key"
+  3. Enter your OpenAI API key
+  4. Now you can use GPT-4 models for enhanced suggestions
+
+- **Privacy Modes:**
+  - **Cloud Mode:** Sends code to AI models (default, best performance)
+  - **Local Mode:** Uses local models (more private, requires setup)
+  - Configure in Settings → Privacy
+
+### Typical Workflow
+
+**Example Scenario:** You need to refactor a user authentication flow from JWT-based auth to OAuth, affecting multiple files.
+
+**Step 1: Open Your Project**
+```bash
+# Open project folder in Cursor
+cursor /path/to/your/project
+```
+
+**Step 2: Use AI Command Mode (Cmd+K / Ctrl+K)**
+```
+You: "Refactor authentication from JWT to OAuth 2.0"
+```
+
+**Expected Behavior:**
+- Cursor analyzes your codebase
+- Identifies files related to authentication
+- Proposes changes across multiple files (auth middleware, login routes, user model)
+- Shows a diff preview
+
+**Step 3: Review and Apply Changes**
+- Review suggested changes file-by-file
+- Accept all, reject some, or modify inline
+- Cursor maintains consistency across files
+
+**Step 4: Iterate with AI Chat**
+```
+You: "Add refresh token support to this OAuth implementation"
+```
+
+**Cursor responds:**
+- Updates the OAuth flow
+- Adds refresh token endpoints
+- Modifies token storage logic
+
+**Step 5: Autocomplete as You Code**
+- As you manually refine code, Cursor provides inline suggestions
+- Press `Tab` to accept, keep typing to reject
+
+**Key Features to Know:**
+
+- **Cmd+K Command Mode:** Give high-level instructions; Cursor handles multi-file changes
+  - _When to use_: Big refactors, feature additions, structural changes
+  
+- **Codebase Indexing:** Cursor automatically understands your project structure
+  - _When to use_: Always active—enables context-aware suggestions
+
+- **Inline Editing:** See changes in real-time with diff view
+  - _When to use_: Reviewing AI suggestions before accepting
+
+- **Composer Mode:** Coordinate changes across many files simultaneously
+  - _When to use_: Large-scale refactoring, adding features that touch multiple modules
+
+- **Privacy Modes:** Choose between cloud AI or local models
+  - _When to use_: Sensitive codebases requiring data privacy
+
+### Tips & Best Practices
+
+- **Start Small to Learn**: Try Cmd+K with simple requests ("add error handling to this function") before attempting large refactors
+- **Use Command Mode for Big Changes**: Cmd+K is your tool for multi-file operations; Tab autocomplete is for small edits
+- **Review All Changes**: AI is powerful but not perfect—always review diffs before accepting
+- **Check Privacy Settings**: If working with proprietary or sensitive code, configure privacy mode appropriately
+- **Leverage Codebase Awareness**: Cursor already knows your project structure—you don't need to explain it
+
+**Common Pitfall to Avoid:**
+- ❌ **Don't blindly accept multi-file changes**: Always review, especially for security-sensitive code (authentication, data validation, API endpoints)
+
+### Next Steps
+
+- **Try the hands-on exercise:** [Exercise 3: Multi-Tool Workflow](#exercise-3-multi-tool-workflow---build-a-feature)
+- **Official Documentation:** [https://cursor.sh/docs](https://cursor.sh/docs)
+- **Explore settings** to customize AI models, keyboard shortcuts, and privacy options
 
 ## GitHub Copilot
 
-### What is GitHub Copilot
+### What Is It?
 
-GitHub Copilot is the pioneering AI-powered code completion tool that revolutionized how developers write code. Launched in 2021, it was the first mainstream tool to bring AI assistance directly into the coding flow.
+GitHub Copilot is an AI-powered pair programmer that lives directly in your code editor, providing real-time code suggestions as you type. Unlike chat-based AI tools where you describe what you want and copy results, Copilot generates code inline—right where your cursor is—keeping you in flow state.
 
-**How It Works:**
+### Key Philosophy
 
-Copilot is powered by OpenAI's Codex model (based on GPT), trained on billions of lines of public code from GitHub repositories. As you type in your IDE:
+**Stay in Flow:** Copilot minimizes context switching by suggesting code as you type, treating comments as natural-language instructions. No need to leave your editor or break your concentration.
 
-1. **Context Analysis:** Copilot reads your current file, cursor position, surrounding code, and comments
-2. **Pattern Recognition:** It identifies patterns from its training data similar to your context
-3. **Suggestion Generation:** It generates contextually relevant code completions
-4. **Real-Time Delivery:** Suggestions appear in gray text as you type
+**Context from Open Files:** Copilot analyzes your current file and other open files in your workspace to match your project's patterns, understand your coding style, and suggest contextually relevant code.
 
-**Evolution:**
+**When to Choose GitHub Copilot:**
+- You want real-time inline code suggestions as you type
+- You're implementing features where the design is clear
+- You prefer minimal disruption to your coding flow
+- You want AI assistance tightly integrated with your IDE (VS Code, JetBrains, etc.)
 
-- **2021:** Inline code completion (the core feature)
-- **2023:** Copilot Chat (conversational AI within your IDE)
-- **2024:** Copilot Workspace (project-level planning and changes)
-- **2025+:** Multi-file editing, voice integration, and enhanced agent capabilities
+### Getting Started
 
-**The Integration Advantage:**
+**Prerequisites:**
+- **GitHub Account:** Free or paid GitHub account
+- **Supported IDE:** VS Code, JetBrains IDEs, Neovim, or Visual Studio
+- **Prior Knowledge:** Basic coding familiarity
 
-Unlike chat-based AI where you copy-paste code, Copilot lives in your IDE—suggesting code exactly where you're typing. This eliminates context switching and maintains your development flow.
+**Installation:**
 
-### Core Capabilities
+1. **Install the Extension**
+   - Open VS Code (or your supported IDE)
+   - Go to Extensions marketplace
+   - Search for "GitHub Copilot"
+   - Click "Install"
 
-**1. Inline Suggestions**
+2. **Sign In**
+   - After installation, you'll be prompted to sign in with GitHub
+   - Authorize the extension
 
-The foundational feature—code appears as you type:
+3. **Verify It Works**
+   - Create a new file (e.g., `test.js`)
+   - Type a comment: `// function that adds two numbers`
+   - Press Enter and wait 1-2 seconds
+   - If you see a gray suggestion appear, Copilot is working!
 
-```python
-# You type: def calculate_fibonacci(
-# Copilot suggests:
-def calculate_fibonacci(n: int) -> int:
-    """Calculate the nth Fibonacci number using iteration."""
-    if n <= 1:
-        return n
-    a, b = 0, 1
-    for _ in range(2, n + 1):
-        a, b = b, a + b
-    return b
+**Configuration:**
+
+**Default setup works immediately** after installation—no additional configuration required.
+
+**Optional:**
+- **Enable/Disable for Specific Languages:** Settings → Extensions → GitHub Copilot
+- **Manage Suggestions:** Configure when suggestions appear (automatic vs manual trigger)
+
+### Typical Workflow
+
+**Example Scenario:** You need to write a REST API endpoint for user authentication with validation.
+
+**Step 1: Write a Descriptive Comment**
+```javascript
+// POST /auth/login endpoint that validates email and password
+// Returns JWT token on success, error message on failure
 ```
 
-**Accepts:** Press Tab  
-**Reject:** Keep typing  
-**Alternatives:** `Alt+]` (Windows) or `Option+]` (Mac) to cycle through options
-
-**2. Copilot Chat**
-
-Conversational AI assistant inside your IDE:
-
-- **Ask Questions:** "How does this function handle edge cases?"
-- **Request Changes:** "Refactor this to use async/await"
-- **Debug:** "Why is this throwing a null reference error?"
-- **Generate:** "Create unit tests for this class"
-
-**3. Slash Commands**
-
-Quick actions for common tasks:
-
-- `/explain` - Explain selected code in plain English
-- `/fix` - Suggest fixes for errors or bugs
-- `/tests` - Generate test cases
-- `/doc` - Generate documentation comments
-- `/simplify` - Refactor for readability
-- `/optimize` - Suggest performance improvements
-
-**4. Workspace Integration**
-
-Copilot can now understand your entire project:
-
-- **File Awareness:** References other files in suggestions
-- **Project Patterns:** Learns your coding style and conventions
-- **Architecture Understanding:** Knows where different logic belongs
-
-**5. Emerging Capabilities**
-
-- **Multi-File Edits:** Make changes across multiple files simultaneously
-- **PR Summaries:** Auto-generate pull request descriptions
-- **Terminal Integration:** Suggest and explain shell commands
-- **Copilot Workspace:** Plan entire features with AI assistance
-
-### Copilot Chat Deep Dive
-
-**The In-IDE Advantage**
-
-Copilot Chat isn't just ChatGPT in your editor—it's deeply integrated with your development environment.
-
-**Context Awareness:**
-
-✅ **Sees Your Open Files:** Automatically includes relevant code from your workspace  
-✅ **Knows Your Cursor:** Understands which code you're currently working on  
-✅ **Reads Errors:** Can see compiler/runtime errors in your terminal  
-✅ **Understands Selection:** Reference specific code blocks with highlights  
-
-**Example Interaction:**
-
-```
-You: "Why is this function slow?"
-
-Copilot: [Analyzes the selected function]
-"The nested loop creates O(n²) complexity. Consider using a hash map 
-for O(n) lookup instead. Here's a refactored version..."
-
-[Provides optimized code that matches your project's style]
-```
-
-**Conversational Debugging:**
-
-Unlike static documentation, you can have back-and-forth discussions:
-
-1. **You:** "This test is failing"
-2. **Copilot:** "The assertion expects `user.email` but the mock returns `user.mail`"
-3. **You:** "Should I change the mock or the code?"
-4. **Copilot:** "Check your User model. If the field is `email`, update the mock. Here's the fix..."
-
-**vs Standalone Chat Tools:**
-
-| Feature | Standalone (ChatGPT) | Copilot Chat |
-|---------|---------------------|---------------|
-| Copy-paste needed | ✅ Manual | ❌ Automatic context |
-| Knows project structure | ❌ No | ✅ Yes |
-| Code insertion | Manual copy | Direct insertion |
-| File references | None | @filename references |
-| Error visibility | Paste manually | Sees terminal errors |
-| Workflow | Context switch | Stay in flow |
-
-**When to Use:**
-- **Copilot Chat:** Debugging, refactoring, project-specific questions
-- **Standalone Chat:** Learning concepts, general coding questions, research
-
-### Workspace vs Chat Mode
-
-Copilot operates in three distinct modes, each optimized for different development scenarios.
-
-**Inline Completion Mode**
-
-**When:** You're in "flow state"—writing code steadily and know what you want
-
-**How It Works:**
-- Suggestions appear automatically as you type
-- Minimal interruption to your thought process
-- Quick accept/reject decisions
-
-**Best For:**
-- Implementing algorithms you've already designed
-- Writing boilerplate (constructors, getters, common patterns)
-- Converting comments to code
-- Completing obvious next lines
-
-**Example Flow:**
-```typescript
-// You type a comment:
-// Create a function that validates email format
-
-// Copilot immediately suggests:
-function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+**Step 2: Accept Copilot's Suggestion**
+- Copilot generates the function structure:
+```javascript
+async function loginUser(req, res) {
+  const { email, password } = req.body;
+  // validation and logic suggested...
 }
 ```
 
-**Chat Mode**
-
-**When:** You need to think through a problem, explore options, or understand existing code
-
-**How It Works:**
-- Open chat panel (`Ctrl+Shift+I` or `Cmd+Shift+I`)
-- Ask questions in natural language
-- Get detailed explanations and discussions
-
-**Best For:**
-- "How should I structure this feature?"
-- "What's wrong with this approach?"
-- "Explain this complex function to me"
-- "What are alternatives to this pattern?"
-
-**Example Interaction:**
-```
-You: "Should I use REST or GraphQL for this API?"
-
-Copilot: "For your project, REST might be better because:
-1. Simpler setup with Express.js (already in your stack)
-2. Your endpoints are straightforward CRUD operations
-3. No need for GraphQL's flexible querying
-
-GraphQL would be beneficial if you had:
-- Complex, nested data requirements
-- Multiple clients with different data needs
-- Need to minimize over-fetching
-
-Want me to show a REST endpoint example for your User model?"
-```
-
-**Workspace Commands**
-
-**When:** You need changes across multiple files or project-level operations
-
-**How It Works:**
-- Commands like `/new`, `/fix`, or describe project-level changes
-- Copilot considers your entire codebase
-- Suggests coordinated changes across files
-
-**Best For:**
-- "Add authentication to all API endpoints"
-- "Refactor this component and update all imports"
-- "Create a new feature with tests and documentation"
-
-**Decision Framework:**
-
-```
-Are you writing code you've already designed?
-├─ YES → Use Inline Completion Mode
-│         Fast, flow-state coding
-│
-└─ NO → Need to think/explore?
-         ├─ Problem-solving needed?
-         │  └─ YES → Use Chat Mode
-         │            Discussion and exploration
-         │
-         └─ Multi-file changes?
-            └─ YES → Use Workspace Commands
-                     Coordinated codebase updates
-```
-
-**Pro Tip:** Use them together! Chat to explore → Workspace command to plan → Inline completion to implement.
-
-### Practical Tips
-
-**1. Train Copilot with Comments**
-
-Copilot treats comments as instructions. Write clear comments before code:
-
-```python
-# Bad (vague)
-# user function
-
-# Good (specific)
-# Function that validates user credentials against database
-# Returns token if valid, None if invalid
-# Raises DatabaseError if connection fails
-def authenticate_user(email: str, password: str) -> Optional[str]:
-    # Copilot now generates much better code
-```
-
-**2. Accept Partially, Then Modify**
-
-Don't treat suggestions as all-or-nothing:
-
-- Accept the structure, then tweak variable names
-- Take the algorithm, adjust for your edge cases
-- Use the boilerplate, customize the logic
-
-**3. Use Chat for Exploration First**
-
-Before writing code:
-
-1. Chat: "What's the best way to implement rate limiting?"
-2. Review Copilot's suggestions
-3. Ask follow-ups: "How would this handle distributed systems?"
-4. *Then* start coding with informed decisions
-
-**4. Manage Context with File Tabs**
-
-Copilot sees your open files:
-
-✅ **DO:** Open related files before coding (models, interfaces, tests)  
-❌ **DON'T:** Have 20+ unrelated tabs open—confuses context  
-
-**Smart Context Setup:**
-```
-You're implementing UserService:
-- Open: UserModel.ts (for data structure)
-- Open: UserController.ts (for API patterns)
-- Open: UserService.test.ts (for test patterns)
-- Close: Unrelated files
-
-→ Copilot suggestions now match your project patterns perfectly
-```
-
-**5. Essential Keyboard Shortcuts**
-
-| Action | Windows/Linux | Mac |
-|--------|---------------|-----|
-| Accept suggestion | `Tab` | `Tab` |
-| Reject suggestion | `Esc` | `Esc` |
-| Next suggestion | `Alt+]` | `Option+]` |
-| Previous suggestion | `Alt+[` | `Option+[` |
-| Open Copilot Chat | `Ctrl+Shift+I` | `Cmd+Shift+I` |
-| Inline chat | `Ctrl+I` | `Cmd+I` |
-
-**6. Trigger Suggestions Manually**
-
-If Copilot doesn't auto-suggest:
-
-- Press `Alt+\` (Windows) or `Option+\` (Mac)
-- Or: Add a comment describing what you want, then hit Enter
-
-**7. Be Specific in Chat**
-
-```
-❌ Vague: "Fix this"
-✅ Specific: "This function throws TypeError when input is null. 
-             Add validation and return early with error message."
-
-❌ Vague: "Make it better"
-✅ Specific: "Refactor using async/await instead of Promise chains
-             and add error handling for network failures."
-```
-
-**8. Review Generated Code**
-
-Copilot is powerful but not perfect:
-
-- ✅ Check for security issues (SQL injection, XSS)
-- ✅ Verify edge case handling
-- ✅ Ensure generated code matches your patterns
-- ✅ Test thoroughly—don't assume it works
-
-**9. Use Examples for Complex Tasks**
-
-Show Copilot what you want:
-
+**Step 3: Iterate with More Comments**
 ```javascript
-// I want functions like this:
-function getUserById(id) { /* ... */ }
-
-// Generate similar functions:
-// function getUserByEmail(email) {
-// Copilot completes following the pattern
+// Validate email format
+// Check if user exists in database
+// Verify password with bcrypt
+// Generate JWT token with 1-hour expiry
 ```
 
-**10. Iterate When Results Miss the Mark**
+**Expected Behavior:**
+- As you type each comment, Copilot suggests the implementation
+- Press `Tab` to accept, keep typing to reject
+- Copilot learns from your acceptances and refines future suggestions
 
-If the suggestion isn't quite right:
+**Step 4: Cycle Through Alternatives**
+- If the first suggestion isn't what you want:
+  - Press `Alt+]` (Windows) or `Option+]` (Mac) to see alternative suggestions
+  - Keep cycling until you find the right one
 
-1. **Reject and rephrase** your comment with more detail
-2. **Accept and modify** to guide the next suggestion
-3. **Use chat** to discuss the approach before trying again
+**Step 5: Use Copilot Chat for Questions**
+- Open Copilot Chat (`Ctrl+Shift+I` / `Cmd+Shift+I`)
+- Ask: "How should I handle password reset in this authentication flow?"
+- Get explanations and code examples
 
-**Golden Rule:** Copilot is a *co-pilot*, not autopilot. Stay engaged and review all generated code.
+**Key Features to Know:**
+
+- **Inline Completions:** Code suggestions appear as gray text while you type
+  - _When to use_: Writing functions, implementing algorithms, boilerplate code
+
+- **Comment-to-Code:** Write natural language comments; Copilot generates code
+  - _When to use_: Describing what you want before implementing
+
+- **Alternative Suggestions:** Cycle through multiple options with keyboard shortcuts
+  - _When to use_: First suggestion doesn't match your needs
+
+- **Copilot Chat:** Conversational AI assistant within your IDE
+  - _When to use_: Asking questions, debugging, refactoring, generating tests
+
+- **Context Awareness:** Uses currently open files to inform suggestions
+  - _When to use_: Always active—keep related files open for better suggestions
+
+### Tips & Best Practices
+
+- **Write Descriptive Comments:** Be specific about what you want—clearer comments yield better suggestions
+- **Keep Relevant Files Open:** Copilot uses open files for context; close unrelated tabs to improve accuracy
+- **Review Suggestions Carefully:** Don't blindly accept code—check for security issues, edge cases, and correctness
+- **Use Tab for Accept, Esc for Reject:** Learn the keyboard shortcuts for faster workflow
+- **Iterate:** If the suggestion is close but not perfect, accept it and modify—Copilot learns from your edits
+
+**Common Pitfall to Avoid:**
+- ❌ **Accepting without Reading:** Always review generated code for security vulnerabilities (SQL injection, XSS), correctness, and fit with your project
+
+### Next Steps
+
+- **Try the hands-on exercise:** [Exercise 1: GitHub Copilot - Generate a Validated Function](#exercise-1-github-copilot---generate-a-validated-function)
+- **Official Documentation:** [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)
+- **Explore Copilot Chat** for more conversational interactions with AI
 
 ## Claude Code
 
-### What is Claude Code
+### What Is It?
 
-Claude is Anthropic's AI assistant, known for exceptional performance on complex coding tasks. While not a code editor integration like Copilot, Claude excels as a powerful coding *consultant* that can understand and reason about large, complex codebases.
+Claude Code refers to using Anthropic's Claude AI for coding tasks through various interfaces: the web interface at claude.ai, API integrations, or IDE extensions like Continue. Claude is known for its exceptional reasoning abilities, ultra-long context window (200K+ tokens), and thoughtful, security-conscious code suggestions.
 
-**What Makes Claude Special for Coding:**
+### Key Philosophy
 
-**Constitutional AI Training**  
-Claude is trained with "harmless and helpful" principles, making it:
-- More likely to admit uncertainty rather than hallucinate
+**Long-Context Reasoning:** Claude can process entire codebases at once (hundreds of files), understanding complex relationships and architectural patterns that span multiple modules.
+
+**Conversational Refinement:** Unlike inline suggestions, Claude works through iterative conversation—you describe a problem, Claude proposes solutions, you refine, and iterate until you reach the optimal implementation.
+
+**When to Choose Claude Code:**
+- You need to understand or refactor large, complex codebases
+- You're designing system architecture and want to explore tradeoffs
+- You prefer conversational iteration over inline suggestions
+- You want to upload entire files or documentation for context-aware advice
+
+### Getting Started
+
+**Prerequisites:**
+- **Anthropic Account:** Create free account at [claude.ai](https://claude.ai) or get API access from [console.anthropic.com](https://console.anthropic.com)
+- **For IDE Integration:** VS Code + Continue extension (optional but recommended)
+- **Prior Knowledge:** Basic coding familiarity
+
+**Installation:**
+
+**Option 1: Web Interface (Easiest)**
+1. Visit [claude.ai](https://claude.ai)
+2. Sign up or log in
+3. Start a new conversation
+4. Upload code files or paste code directly
+
+**Option 2: IDE Integration (Recommended)**
+1. Install Continue extension in VS Code:
+   - Open VS Code Extensions
+   - Search "Continue"
+   - Click Install
+2. Configure with Claude:
+   - Open Continue settings
+   - Add Anthropic API key (get from console.anthropic.com)
+   - Select Claude as your model
+3. Verify It Works:
+   - Open a project in VS Code
+   - Use Continue panel (usually on left sidebar)
+   - Ask "Explain what this project does"
+   - If Claude responds with codebase-aware answer, you're ready!
+
+**Configuration:**
+
+**Web Interface:**
+- No configuration needed—works immediately after login
+
+**IDE Integration (Continue):**
+- **Add API Key:** Continue → Settings → Add Anthropic API key
+- **Select Model:** Choose claude-3-sonnet (balanced) or claude-3-opus (best reasoning)
+
+### Typical Workflow
+
+**Example Scenario:** You're analyzing a legacy authentication system and need to understand its security vulnerabilities before adding OAuth support.
+
+**Step 1: Provide Context (Upload Files)**
+```
+In claude.ai or Continue panel:
+- Upload: auth.middleware.js
+- Upload: user.controller.js
+- Upload: jwt.service.js
+- Upload: database schema documentation
+```
+
+**Step 2: Ask High-Level Questions**
+```
+You: "Analyze this authentication flow. What security vulnerabilities 
+exist, and how would you refactor it to support OAuth 2.0?"
+```
+
+**Expected Behavior:**
+- Claude reads all uploaded files
+- Identifies security issues (e.g., weak password hashing, no rate limiting)
+- Proposes OAuth integration strategy
+- Explains tradeoffs
+
+**Step 3: Iterate Conversationally**
+```
+You: "Show me how to implement the refresh token flow without breaking existing JWT sessions."
+
+Claude: [Provides implementation with migration strategy]
+
+You: "What database schema changes are needed?"
+
+Claude: [Details schema migrations with backward compatibility]
+```
+
+**Step 4: Request Specific Code**
+```
+You: "Generate the OAuth middleware with error handling and logging."
+
+Claude: [Provides complete, production-ready code]
+```
+
+**Step 5: Copy to Your Editor**
+- Review Claude's suggestions
+- Copy code to your editor
+- Test and refine
+
+**Key Features to Know:**
+
+- **200K+ Token Context Window:** Upload entire codebases (~150,000 words worth of code and documentation)
+  - _When to use_: Understanding large projects, multi-file refactors
+
+- **Multi-File Awareness:** Understands relationships between files
+  - _When to use_: Architectural decisions, cross-module changes
+
+- **Conversational Refinement:** Iterate naturally through chat
+  - _When to use_: Exploring solutions, understanding tradeoffs
+
+- **Artifacts:** Generates complete, formatted code files you can download
+  - _When to use_: Getting full implementations of functions, classes, or configs
+
+- **Security-Conscious:** Tends to suggest secure patterns and warn about vulnerabilities
+  - _When to use_: Authentication, authorization, data validation
+
+### Tips & Best Practices
+
+- **Upload Full Context:** Don't summarize—Claude can handle hundreds of files at once; give it everything relevant
+- **Ask "Why" Questions:** Claude excels at explaining reasoning ("Why use this pattern instead of that one?")
+- **Iterate:** First response is a starting point—refine through conversation ("Now add error handling", "Show alternatives")
+- **Request Alternatives:** Ask "Show me 3 different approaches to this problem" to explore options
+- **Use for Architecture:** Claude is excellent for system design questions before you start coding
+
+**Common Pitfall to Avoid:**
+- ❌ **Treating It Like Inline Suggestions:** Claude is for thoughtful consultation, not real-time autocomplete—use for design decisions, not typing assistance
+
+### Official Learning Resources
+
+**Skillshare Course:**
+- **Search for "Claude AI" on [Skillshare.com](https://skillshare.com)**
+  - Video courses covering Claude workflows and best practices
+  - Recommended **after** completing Exercise 2 (Prompt Engineering Practice)
+  - Cost: ~$15/month (free trial available)
+  - Direct link: Visit skillshare.com and search "Claude AI" or "Anthropic"
+
+**Free Alternatives:**
+- **Anthropic Documentation:** [docs.anthropic.com](https://docs.anthropic.com)
+- **Claude Web Tutorial:** [claude.ai/docs](https://claude.ai/docs)
+- **YouTube:** Search "Claude AI for developers"
+- **Anthropic Prompt Engineering Guide:** [Prompt engineering](https://docs.anthropic.com/claude/docs/prompt-engineering)
+
+### Next Steps
+
+- **Try the hands-on exercise:** [Exercise 2: Claude Code - Refactor for Readability](#exercise-2-claude-code-or-chat-ai---refactor-for-readability)
+- **Official Documentation:** [https://docs.anthropic.com](https://docs.anthropic.com)
+- **Explore Skillshare course** for video-based learning (search "Claude AI" on Skillshare)
+
+
 - Careful about suggesting secure coding practices
 - Thorough in explaining tradeoffs and potential issues
 
@@ -1004,6 +1047,195 @@ Claude + Copilot is a powerful combination:
 - **Copilot:** Your fast typing assistant
 
 Use Claude for *thinking*, Copilot for *doing*.
+
+## Hands-On Exercises
+
+### About These Exercises
+
+These exercises help you practice with each tool and apply prompt engineering principles. Each exercise takes 10-20 minutes and has clear success criteria so you know when you're done.
+
+---
+
+### Exercise 1: GitHub Copilot - Generate a Validated Function
+
+**Scenario:** You need to create a user registration function that validates input data.
+
+**Goal:** Use GitHub Copilot to generate a TypeScript function with validation logic and type safety.
+
+**Prerequisites:**
+- GitHub Copilot installed and active
+- VS Code (or supported IDE) open
+- TypeScript project (or create simple .ts file)
+
+**Steps:**
+
+1. **Create a new file:** `user-registration.ts`
+
+2. **Write a descriptive comment:**
+   ```typescript
+   // Function that validates and registers a new user
+   // - Email must be valid format
+   // - Password must be at least 8 characters
+   // - Username must be 3-20 characters
+   // - Returns success message or error details
+   ```
+
+3. **Start function signature:**
+   ```typescript
+   function registerUser(email: string, password: string, username: string):
+   ```
+
+4. **Accept Copilot suggestions** and iterate:
+   - Review the generated function
+   - If validation is incomplete, add comments for missing checks
+   - Accept or modify suggestions
+
+5. **Test the function** with sample inputs
+
+**Success Criteria:**
+✅ Function has TypeScript types  
+✅ All three validation rules implemented  
+✅ Returns clear success/error messages  
+✅ Code is readable and commented  
+
+**Reflection Questions:**
+- How did the comment quality affect suggestions?
+- Did you need to iterate? What did you refine?
+- How would you improve the prompt for better initial results?
+
+---
+
+### Exercise 2: Claude Code (or Chat AI) - Refactor for Readability
+
+**Scenario:** You have a complex function that works but is hard to read. Use AI to refactor it.
+
+**Goal:** Practice iterative prompting to improve code quality.
+
+**Sample Code to Refactor:**
+```javascript
+function p(d){let r=[];for(let i=0;i<d.length;i++){if(d[i].a&&d[i].s>100){r.push({n:d[i].n,v:d[i].p*d[i].q})}}return r.sort((a,b)=>b.v-a.v)}
+```
+
+**Steps:**
+
+1. **Initial prompt (Level 1 - Basic):**
+   "Refactor this function for readability"
+   [Paste code]
+
+2. **Refined prompt (Level 2 - With Context):**
+   "Refactor this JavaScript function for readability:
+   - Use descriptive variable names
+   - Add comments explaining logic
+   - Separate concerns (filter, map, sort)
+   - Use modern ES6+ features"
+   [Paste code]
+
+3. **Iteration (Level 3):**
+   After receiving refactored code, ask:
+   "Can you explain what this function does and suggest performance improvements?"
+
+4. **Final iteration (Level 4):**
+   "Add TypeScript types to this function and unit test examples"
+
+**Success Criteria:**
+✅ Function is readable with clear variable names  
+✅ Logic is separated and commented  
+✅ You understand what the function does  
+✅ (Optional) TypeScript types and tests added  
+
+**Reflection Questions:**
+- How did prompt specificity change the outcome?
+- What did you learn from the iteration process?
+- Which prompt level gave you the most value?
+
+---
+
+### Exercise 3: Multi-Tool Workflow - Build a Feature
+
+**Scenario:** Build a complete feature using multiple AI tools strategically.
+
+**Goal:** Understand when to use Chat AI vs Copilot/Code AI.
+
+**Task:** Create a "Task List" component with add/delete functionality
+
+**Workflow:**
+
+1. **Planning (Chat AI - ChatGPT/Claude):**
+   Prompt: "I'm building a task list component in React. What state management approach would you recommend for add/delete functionality? Keep it simple for a learning project."
+   - Get conceptual guidance
+   - Understand patterns
+
+2. **Implementation (GitHub Copilot or Cursor):**
+   - Create `TaskList.tsx` file
+   - Use Copilot to generate component structure
+   - Write comments describing needed functions
+   - Accept/iterate on suggestions
+
+3. **Debugging (Context-dependent):**
+   - If single-function issue: Either tool works
+   - If multi-component issue: Prefer Repo AI (Cursor/Claude Code)
+
+4. **Learning (Chat AI):**
+   Prompt: "Explain why we use useState for local component state vs useContext for global state"
+
+**Success Criteria:**
+✅ Task list component works (can add/delete tasks)  
+✅ You used Chat AI for concepts, Repo AI for implementation  
+✅ You can explain when you switched tools and why  
+✅ Component is functional and readable  
+
+**Reflection Questions:**
+- When did you switch between tools? What triggered the switch?
+- Which tool felt more natural for which type of work?
+- How would you apply this workflow to your next project?
+
+---
+
+### Exercise 4: Prompt Engineering Practice
+
+**Goal:** Apply prompt engineering levels to real tasks.
+
+**Task:** For each scenario, write prompts at different levels and compare results.
+
+**Scenarios:**
+
+1. **Scenario A:** "Explain how promises work in JavaScript"
+   - Write a Level 1 prompt (basic request)
+   - Write a Level 2 prompt (with context: "I understand callbacks but struggle with promise chaining")
+   - Try both, note differences
+
+2. **Scenario B:** "Create a form validation function"
+   - Write a vague prompt (anti-pattern)
+   - Write a specific prompt (Level 4 strategic)
+   - Compare outputs
+
+3. **Scenario C:** Pick your own coding challenge
+   - Start vague, then iterate 3 times
+   - Document your iteration process
+   - Reflect on how outcomes improved
+
+**Success Criteria:**
+✅ Completed at least 2 scenarios  
+✅ Documented prompts and responses  
+✅ Identified which prompt techniques worked best  
+✅ Can articulate why specific prompts produced better results  
+
+**Reflection:**
+- Which skill level felt most useful?
+- What prompt patterns will you use regularly?
+- What anti-patterns did you catch yourself doing?
+
+---
+
+### Next Steps After Exercises
+
+Once you've completed these exercises:
+- ✅ Move to Section 3: GSD Framework for structured AI workflows
+- ✅ Explore tool-specific documentation
+- ✅ Apply these skills to your own projects
+- ✅ Experiment with advanced features
+
+**Remember:** Tool proficiency comes with practice. Revisit these exercises as you learn.
 
 ## Prompt Engineering Fundamentals
 
