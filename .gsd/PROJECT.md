@@ -94,7 +94,7 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 - [ ] **ECO-05**: Resources for each platform
 
 **2. Tools Section**
-- [ ] **TOOL-01**: Antigravity tool guide
+- [ ] **TOOL-01**: Cursor tool guide
 - [ ] **TOOL-02**: GitHub Copilot guide
 - [ ] **TOOL-03**: Claude Code guide (with Skillshare link)
 - [ ] **TOOL-04**: Hands-on exercises for each tool

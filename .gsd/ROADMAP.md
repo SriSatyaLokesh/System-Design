@@ -45,7 +45,7 @@ Plans:
 - ECO-05: Curated resource links (5-7 max) with context
 
 **Tools Section:**
-- TOOL-01: Antigravity tool guide with setup and workflows
+- TOOL-01: Cursor tool guide with setup and workflows
 - TOOL-02: GitHub Copilot guide with installation and usage patterns
 - TOOL-03: Claude Code guide with Skillshare link and learnings
 - TOOL-04: Hands-on exercises for each tool with outcomes
