@@ -1,1562 +1,1185 @@
-# 5. Skills & Packages
+# 5. AI Skills & Capabilities
+
+[← Previous: Agents](../04-agents/README.md) | [Next: Capstone →](../06-capstone/README.md)
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Skills Overview](#skills-overview)
-- [Skill Packaging](#skill-packaging)
-- [Claude Skills Repo](#claude-skills-repo)
-- [Awesome AI Skills](#awesome-ai-skills)
-- [Platform Comparison](#platform-comparison)
+- [Understanding AI Skills](#understanding-ai-skills)
+  - [Definition](#definition)
+  - [Anatomy of a Skill](#anatomy-of-a-skill)
+  - [Concrete Skill Examples](#concrete-skill-examples)
+  - [Skill Categories](#skill-categories)
+- [Skill Packaging & Integration](#skill-packaging--integration)
+  - [Standard Skill Format](#standard-skill-format)
+  - [Integration Patterns](#integration-patterns)
+  - [Code Examples for Skill Loading](#code-examples-for-skill-loading)
+- [Platform Skill Formats](#platform-skill-formats)
+  - [Platform Comparison Table](#platform-comparison-table)
+  - [Format Deep Dive](#format-deep-dive)
+- [Skill Repositories & Discovery](#skill-repositories--discovery)
+  - [Claude Skills Repository](#claude-skills-repository)
+  - [Awesome AI Skills Repository](#awesome-ai-skills-repository)
+  - [This Repository's Skills](#this-repositorys-skills)
+- [Creating Your Own Skills](#creating-your-own-skills)
+  - [Skill Design Workflow](#skill-design-workflow)
+  - [Testing and Iteration](#testing-and-iteration)
+- [Best Practices](#best-practices)
+- [Common Pitfalls](#common-pitfalls)
+- [Hands-On Exercises](#hands-on-exercises)
 - [Resources](#resources)
 - [Navigation](#navigation)
 
+---
+
 ## Overview
 
-Skills represent reusable units of agent capability that can be shared, composed, and deployed across different contexts. They're transforming AI development from one-off prompts to an ecosystem of packaged, tested, and documented agent behaviors.
+### What Are AI Skills?
 
-This section explores the emerging world of AI skills: what they are, how to create them, where to find high-quality skills, and how to integrate skills into your development workflow. Skills are to agents what packages are to programming—standardized building blocks that accelerate development.
+Think of AI skills as **reusable capability packages**—pre-written instructions that teach an AI assistant or agent how to perform a specific task consistently and effectively.
 
-By understanding skills, you'll tap into a growing ecosystem of pre-built agent capabilities, learn to package your own agent patterns for reuse, and gain the ability to compose complex agent behaviors from modular components.
+Just as software developers rely on libraries instead of writing every function from scratch, people working with AI can leverage **skills** to standardize how their AI assistant handles recurring tasks like code reviews, data analysis, or documentation generation.
 
-## Skills Overview
-
-### What are AI Skills
-
-AI skills are **packaged, reusable units of agent capability** that can be shared, versioned, and composed like software libraries—but instead of code, they're primarily instruction-based.
-
-**Think of Skills as:**
-```
-Software Library = Code + API + Documentation
-AI Skill = Instructions + Tools + Examples + Documentation
-```
-
-**Core Components:**
-
-**1. Instruction Set (The "Code")**
-```markdown
-Skill: Code Reviewer
-
-Instructions:
-"When reviewing code:
-1. Check for security vulnerabilities
-2. Verify error handling
-3. Assess performance implications
-4. Evaluate readability and maintainability
-5. Suggest specific improvements with examples
-6. Highlight good patterns worth keeping
-
-Format feedback as:
-- ✅ Strengths: [list]
-- ⚠️ Issues: [list with severity]
-- 💡 Suggestions: [list with code examples]"
-```
-
-**2. Tools/Integrations**
-```markdown
-Required Tools:
-- file_read: Read code files
-- search: Find similar patterns in codebase
-- lint_check: Run static analysis
-
-Optional Tools:
-- git_diff: See recent changes
-- test_coverage: Check coverage metrics
-```
-
-**3. Input/Output Contracts**
-```markdown
-Input: File path or code snippet
-Output: Structured review with categories
-
-Example:
-Input: "src/auth/login.ts"
-Output: 
-  Strengths: [3 items]
-  Issues: [2 items]
-  Suggestions: [4 items]
-```
-
-**4. Example Usage**
-```
-User: "Review my authentication code in src/auth/"
-
-Skill activates:
-[Reads files, applies review framework, generates structured feedback]
-
-Output: Comprehensive code review following instruction set
-```
-
-**5. Metadata**
-```yaml
-skill:
-  name: code-reviewer
-  version: 1.2.0
-  author: community
-  category: development
-  dependencies:
-    - file-reader
-    - linter
-  platforms:
-    - claude
-    - chatgpt
-```
-
-**How Skills Differ from Plugins:**
-
-| Aspect | Traditional Plugins | AI Skills |
-|--------|---------------------|------------|
-| **Primary Component** | Executable code | Natural language instructions |
-| **Execution** | Compiled/interpreted | Interpreted by LLM |
-| **Distribution** | Binary packages | Text files / prompts |
-| **Customization** | Requires coding | Edit instructions |
-| **Platform** | Platform-specific API | Model-agnostic (mostly) |
-| **Learning Curve** | Programming required | Prompt engineering |
-
-**Example: Email Summarizer Skill**
-
-```markdown
-# Email Summarizer Skill
-
-## Instructions
-When given email content:
-1. Extract key points (max 3)
-2. Identify action items (if any)
-3. Detect urgency level (Low/Medium/High)
-4. Suggest one-line response (if appropriate)
-
-## Input Format
-Raw email text or thread
-
-## Output Format
-**Summary:** [2-3 sentences]
-**Action Items:**
-- [ ] [Item with owner if mentioned]
-**Urgency:** [Low/Medium/High]
-**Suggested Response:** [Optional]
-
-## Examples
-[Include 2-3 example emails with expected outputs]
-```
-
-**Why Skills Matter:**
-
-✅ **Reusability:** Write once, use across projects
-✅ **Consistency:** Same behavior every time
-✅ **Shareability:** Team members use same patterns
-✅ **Discoverability:** Find pre-built solutions
-✅ **Composability:** Combine multiple skills
-
-**Skills in Action:**
+**The Library Analogy:**
 
 ```
-Without Skills:
-You: "Can you review this code?"
-AI: [Generic, inconsistent feedback]
+Traditional Software          AI Workflow
+─────────────────────        ─────────────────────
 
-With Code Review Skill:
-You: "@code-reviewer check src/auth/login.ts"
-AI: [Structured, thorough review following framework]
+📦 Libraries (reusable)   →   📄 Skills (reusable)
+├─ axios (HTTP calls)         ├─ Code Review Skill
+├─ lodash (utilities)         ├─ Task Decomposition Skill  
+└─ moment (dates)             └─ Documentation Gen Skill
+
+import { axios }          →   Load skill into AI context
+axios.get('api')          →   AI applies skill to input
 ```
-
-**The analogy:**
-
-> npm packages are to JavaScript  
-> what Skills are to AI agents
-
-Packaged capabilities you can install and use.
 
 ### Why Skills Matter
 
-**The Problem Without Skills:**
-
+**Without Skills (Ad-hoc Prompting):**
 ```
-Project 1: Write custom prompt for code review
-Project 2: Write similar prompt again (from memory)
-Project 3: Writeyet another variation
-
-Result:
-- Reinventing the wheel repeatedly
-- Inconsistent quality
-- Lost patterns that worked well
-- No benefit from community improvements
+You: "Review this code"
+AI: *Generic surface-level feedback*
+You: "Check for security issues too"
+AI: *Improved but inconsistent*
+You: "What about error handling?"
+AI: *Keeps adapting but no pattern*
 ```
 
-**The Solution With Skills:**
+Every code review requires the same tedious back-and-forth. Quality depends on how thoroughly you prompt each time.
 
+**With Skills (Packaged Capability):**
 ```
-Step 1: Install "code-review" skill (or use community version)
-Step 2: Use in any project
-Step 3: Consistent, tested reviews every time
-Step 4: Skills improve over time (updates)
-```
-
-**Value Proposition:**
-
-**1. Avoid Reinventing Common Patterns**
-
-```
-Common Tasks:
-- Code review
-- Documentation generation
-- Test case creation
-- Bug analysis
-- API design
-- Database modeling
-
-Without Skills: Custom prompt each time
-With Skills: Proven patterns ready to use
+You: "Review this code using Code Review Skill"
+AI: *Applies comprehensive checklist:*
+    ✅ Security vulnerabilities (OWASP Top 10)
+    ✅ Error handling patterns
+    ✅ Maintainability metrics
+    ✅ Test coverage gaps
+    ✅ Performance concerns
 ```
 
-**2. Benefit from Community Testing**
+The skill encodes **institutional knowledge**—consistent, repeatable, improvable.
 
+### Skill vs Prompt
+
+| Aspect | One-off Prompt | AI Skill |
+|--------|----------------|----------|
+| **Reusability** | Write each time | Write once, use forever |
+| **Consistency** | Varies per person | Standardized execution |
+| **Maintenance** | N/A (lost after use) | Version controlled |
+| **Shareability** | Copy-paste text | Packaged file |
+| **Composability** | Hard to combine | Can chain skills |
+| **Evolution** | Reinvent patterns | Iteratively improve |
+
+**Example Evolution:**
 ```
-Your Prompt:
-"Review this code for issues"
+1. Raw Prompt (ephemeral):
+   "Can you review my Python code?"
 
-Community Skill (refined by 1000s of users):
-- Checks 15 common security issues
-- Verifies performance patterns
-- Catches edge cases
-- Provides actionable feedback
-- Includes examples
+2. Template (copy-paste):
+   "Review code for: security, errors, readability"
 
-→ Skills get better over time through use
-```
+3. Skill (reusable markdown):
+   # Code Review Skill
+   - OWASP security checks
+   - Error handling patterns
+   - Cyclomatic complexity < 15
+   - Test coverage > 80%
+   [Detailed instructions...]
 
-**3. Accelerate Development Through Composition**
-
-```
-Build complex capability by combining skills:
-
-@api-designer: Design REST endpoints
-  ↓
-@code-generator: Implement endpoints
-  ↓
-@test- generator: Create test suite
-  ↓
-@documenter: Generate API docs
-
-→ Each skill does one thing well
-→ Combine for complex workflows
-```
-
-**4. Establish Standards**
-
-```
-Team Level:
-"Everyone use the @code-review skill for PRs"
-→ Consistent review quality
-→ Shared understanding of standards
-→ New team members get instant best practices
-
-Organization Level:
-"All AI agents use @security-checker skill"
-→ Consistent security standards
-→ Compliance requirements met
-→ Auditable processes
+4. Skill Library (organizational asset):
+   .github/skills/code-review/SKILL.md
+   Used by: 50 developers, 200 PRs/month
 ```
 
-**ROI Example:**
+### The Evolution Pathway
 
 ```
-Without Skills:
-Time to craft good prompt: 15-30 min
-Quality: Varies
-Reusability: Copy-paste, needs tweaking
-× 50 projects = 12-25 hours
-
-With Skills:
-Time to find/install skill: 5 min
-Quality: Community-tested
-Reusability: Import and use
-× 50 projects = 4 hours
-
-Savings: 8-21 hours + better quality
+┌────────────────┐
+│  Raw Prompts   │  "Fix this bug"
+│   (Day 1)      │   Every time is different
+└────────┬───────┘
+         │
+         ▼
+┌────────────────┐
+│ Prompt Library │  "Fix bug using template #7"
+│  (Week 1-2)    │   Copy-paste common prompts
+└────────┬───────┘
+         │
+         ▼
+┌────────────────┐
+│  AI Skills     │  Load "Debug Skill" into AI
+│  (Month 1-3)   │   Packaged, versioned, shareable
+└────────┬───────┘
+         │
+         ▼
+┌────────────────┐
+│ Skill Ecosystem│  Organization-wide skill library
+│  (Ongoing)     │   Curated, maintained, governed
+└────────────────┘
 ```
 
-**Network Effects:**
+**Key Insight:** Skills transform AI from "helpful assistant you instruct" to "specialized colleague with expertise."
 
-```
-More users → More feedback → Better skills
-Better skills → More adoption → More contributors
-More contributors → More skills → Richer ecosystem
+---
 
-→ Like npm, PyPI, or any package ecosystem
-```
+## Understanding AI Skills
 
-**The Transformation:**
+### Definition
 
-**Before Skills:**
-```
-Developer workflow:
-1. Think "I need AI to help with X"
-2. Craft custom prompt
-3. Iterate until it works
-4. Forget exact wording
-5. Repeat next time
-```
+**AI Skill:** A structured document (typically Markdown or plain text) containing detailed instructions that enable an AI assistant or agent to perform a specific capability reliably.
 
-**After Skills:**
-```
-Developer workflow:
-1. Think "I need AI to help with X"
-2. Search skills catalog
-3. Install & use
-4. Consistent results
-5. Contribute improvements if needed
-```
+Skills are human-readable but AI-optimized—written in natural language but structured for consistent interpretation by language models.
 
-**Real-World Impact:**
+### Anatomy of a Skill
 
-```
-Scenario: Code documentation
+A well-designed skill contains five essential components:
 
-Ad-hoc approach:
-You: "Document this function"
-AI: [Basic docstring]
+```markdown
+# 1. Metadata
+name: skill-identifier
+version: 1.2.0
+author: creator-name
+tags: [category, domain, use-case]
 
-Skill-based approach:
-You: "@documenter document this function"
-AI: [Following skill's comprehensive template]
-  - Purpose
-  - Parameters with types and constraints
-  - Return value
-  - Examples
-  - Edge cases
-  - Related functions
+# 2. Objective
+What capability does this skill provide?
+What problem does it solve?
 
-→ 10x better output from better instructions
+# 3. Instructions
+Step-by-step execution logic
+Decision trees for edge cases
+Output format specifications
+
+# 4. Examples
+2-3 demonstration cases showing:
+- Input format
+- Execution trace
+- Expected output
+
+# 5. Constraints
+What NOT to do
+Boundary conditions
+Error handling
 ```
 
-**Bottom Line:**
+### Concrete Skill Examples
 
-> Skills transform AI assistance from ad-hoc prompting to  
-> a robust, shareable, improving ecosystem.
+#### Example 1: Code Review Skill
 
-Just like you wouldn't code without libraries,  
-you shouldn't work with AI without skills.
+```markdown
+---
+name: code-review
+version: 2.1.0
+tags: [coding, quality, security]
+---
 
-### Skill Anatomy
+# Code Review Skill
 
-Break down the typical structure of a skill: instruction set (the "code"), required tools/context, input/output contracts, example usage, and metadata (version, author, dependencies). Show how skills encapsulate both what and how.
+## Objective
+Systematically review code for security vulnerabilities, quality issues, 
+maintainability concerns, and test coverage gaps. Produce actionable feedback 
+with severity ratings.
 
-### Skills vs Plugins
+## Instructions
 
-Distinguish skills from traditional plugins: skills are primarily instruction-based rather than code-based, designed for LLM consumption, and focused on guiding agent behavior through natural language patterns.
+Execute review in this order:
 
-## Skill Packaging
+**1. Security Analysis**
+- Check OWASP Top 10 vulnerabilities:
+  - SQL Injection (parameterized queries?)
+  - XSS (input sanitization?)
+  - Authentication issues (secure session management?)
+  - Sensitive data exposure (encryption at rest/transit?)
+- Flag: ❌ Critical, ⚠️  High, 💡 Moderate
 
-### Designing Effective Skills
+**2. Error Handling**
+- Validate input at boundaries
+- Proper try-catch usage (specific exceptions)
+- Graceful degradation (fallback strategies)
+- Logging for debugging (no sensitive data in logs)
 
-Teach principles of good skill design: single responsibility, clear interfaces, composability with other skills, robustness to different contexts, and comprehensive documentation for both humans and LLMs.
+**3. Maintainability**
+- Function length < 50 lines (exception: <100 if inherently complex)
+- Cyclomatic complexity < 15
+- Meaningful variable names (no \x\, \	mp\, \data2\)
+- Comments for "why", not "what"
 
-### Documenting Skills
+**4. Test Coverage**
+- Unit tests for business logic
+- Edge case coverage (null, empty, boundary values)
+- Integration tests for external dependencies
+- Fail test to verify it catches issues
 
-Explain how to document skills effectively: clear description of what the skill does, required prerequisites, expected inputs and outputs, example interactions, and edge cases or limitations to be aware of.
+**5. Code Smells**
+- Duplicated logic (DRY violations)
+- God classes/functions (SRP violations)
+- Tight coupling (dependency injection opportunities)
 
-### Versioning and Maintenance
+## Output Format
 
-Discuss skill lifecycle management: versioning strategies, when to update vs create new skills, maintaining backward compatibility, and deprecation approaches when skills become obsolete.
+\\\
+Code Review Summary
+===================
 
-### Sharing and Distribution
+✅ **Security**: [Summary of findings or "No issues"]  
+⚠️  **Error Handling**: [Issues found]  
+💡 **Maintainability**: [Suggestions]  
+📊 **Test Coverage**: [Assessment]  
 
-Explore mechanisms for sharing skills: public repositories, package registries, embedding in tools, and community platforms. How to make skills discoverable and encourage adoption.
+Priority Fixes:
+1. [Critical issue]
+2. [High priority issue]
 
-## Claude Skills Repo
+Recommendations:
+- [Improvement 1]
+- [Improvement 2]
+\\\
 
-### Overview of Claude Skills
+## Example Execution
 
-Introduce Anthropic's skills ecosystem for Claude: official skills repository, community contributions, and how skills enhance Claude's capabilities in specific domains (coding, research, analysis, etc.).
+**Input:**
+\\\python
+def login(username, password):
+    result = db.execute(f"SELECT * FROM users WHERE name='{username}'")
+    if result[0]['password'] == password:
+        return True
+    return False
+\\\
 
-### Featured Skills
+**Output:**
+\\\
+Code Review Summary
+===================
 
-Survey notable skills in the Claude ecosystem: data analysis skills, code review skills, research synthesis skills, and others. Practical examples of how these skills augment Claude's base capabilities.
+❌ **Security**: CRITICAL - SQL Injection vulnerability
+   - Line 2: Unparameterized query allows SQL injection
+   - Line 3: Plain text password comparison (no hashing)
 
-### Using Claude Skills
+⚠️  **Error Handling**: No error handling
+   - No validation for null/empty inputs
+   - No try-catch for database errors
+   - Assumes result[0] exists (IndexError risk)
 
-Provide practical guide to using Claude skills: how to activate skills in conversation, combining multiple skills, customizing skill behavior, and troubleshooting when skills don't work as expected.
+💡 **Maintainability**: Acceptable structure but missing types
+   - Consider type hints: \def login(username: str, password: str) -> bool\
 
-### Contributing to Claude Skills
+📊 **Test Coverage**: No tests found
+   - Add test for SQL injection attempt
+   - Add test for wrong password
+   - Add test for non-existent user
 
-Explain how to contribute skills to the Claude ecosystem: submission process, quality standards, documentation requirements, and community review mechanisms.
+Priority Fixes:
+1. CRITICAL: Use parameterized queries
+2. CRITICAL: Hash passwords (use bcrypt/argon2)
+3. HIGH: Add input validation
+4. MEDIUM: Implement error handling
 
-## Awesome AI Skills
+Recommendation:
+\\\python
+def login(username: str, password: str) -> bool:
+    if not username or not password:
+        raise ValueError("Username and password required")
+    
+    try:
+        result = db.execute(
+            "SELECT * FROM users WHERE name = ?", 
+            (username,)
+        )
+        if result and bcrypt.checkpw(password, result[0]['password_hash']):
+            return True
+    except DatabaseError as e:
+        logger.error(f"Login failed: {e}")
+        raise
+    
+    return False
+\\\
+\\\
+```
 
-### Community Skill Collections
+## Anti-Patterns
+- ❌ Generic feedback: "Code looks good" (not actionable)
+- ❌ Overwhelming detail: Don't list 50 minor style issues
+- ❌ False positives: Flagging intentional design choices
+- ❌ Missing context: Ignoring project-specific patterns
 
-Introduce community-curated collections of AI skills across platforms: Awesome lists, GitHub repos, platform-specific marketplaces, and independent skill registries.
+## Success Criteria
+- All 5 review categories addressed
+- Clear severity ratings (Critical/High/Medium/Low)
+- Concrete code examples for fixes
+- Execution time < 2 minutes for 100-line function
+```
 
-### Curated Skill Lists
+---
 
-Survey major curated collections: skills for coding, writing, analysis, automation, and domain-specific applications. Highlight quality indicators to look for when evaluating skills.
+#### Example 2: Task Decomposition Skill
 
-### Evaluating Skill Quality
+This is one of the core skills used by the GSD framework in this repository.
 
-Teach how to assess skill quality: checking documentation completeness, reviewing example outputs, understanding maintenance status, reading user feedback, and testing in your own context.
+**What:** Break complex project goals into executable, dependency-ordered tasks
 
-### Cross-Platform Skills
+**How:** Analyze requirements, identify dependencies, assign wave numbers for parallelization
 
-Explore skills that work across multiple AI platforms: portable prompt patterns, platform-agnostic instruction sets, and strategies for adapting platform-specific skills to your preferred tool.
+**Used By:** GSD planner agent when creating PLAN.md files
 
-## Platform Comparison
+**Reference in This Repo:** [.github/skills/plan-phase/SKILL.md](../../.github/skills/plan-phase/SKILL.md)
 
-### GitHub Copilot Extensions
+**Key Patterns:**
+```markdown
+## Task Decomposition Process
 
-**GitHub Copilot Extensions** bring additional capabilities to Copilot through integrations with external services and tools.
+1. **Goal Analysis**
+   - What is the end state?
+   - What artifacts must exist?
+   - What behavior must work?
 
-**What They Are:**
+2. **Dependency Mapping**
+   - Task A requires Task B → B before A
+   - Tasks C, D, E independent → Same wave
+
+3. **Wave Assignment**
+   Wave 1: Foundation tasks (no dependencies)
+   Wave 2: Tasks depending on Wave 1
+   Wave 3: Integration tasks
+   
+4. **Task Granularity**
+   - Each task: 15-45 minutes
+   - If > 45 min → decompose further
+   - If < 15 min → combine related tasks
+
+5. **Output Format**
+   XML structure with wave numbers:
+   <task wave="1">Create database schema</task>
+   <task wave="2" depends="schema">Seed test data</task>
+```
+
+**Example Usage:**
+```
+Input: "Build user authentication system"
+
+Output Tasks:
+Wave 1:
+- Create User model (database schema)
+- Set up JWT library dependencies
+
+Wave 2:
+- Implement registration endpoint (POST /auth/register)
+- Implement login endpoint (POST /auth/login)
+- Create password hashing utility
+
+Wave 3:
+- Add authentication middleware
+- Protect routes requiring auth
+- Add refresh token rotation
+
+Wave 4:
+- Write integration tests
+- Document API endpoints
+```
+
+---
+
+#### Example 3: Verification Skill (Goal-Backward Analysis)
+
+**What:** Verify that implementation actually achieves stated goals (not just that tasks were completed)
+
+**How:** Three-level artifact check—Existence → Substantive → Wired
+
+**Used By:** GSD verifier agent after phase completion
+
+**Reference in This Repo:** [.github/skills/verify-phase/SKILL.md](../../.github/skills/verify-phase/SKILL.md)
+
+**Three-Level Verification:**
+
+```markdown
+Level 1: Existence Check
+- Does the artifact exist on disk?
+- Is it committed to version control?
+
+Level 2: Substantive Check  
+- Is it a real implementation or just a stub?
+- Does it contain actual logic/content?
+- Does it meet minimum quality bar?
+
+Level 3: Wired Check
+- Is the artifact integrated into the system?
+- Does it execute/run/render as expected?
+- Can end user access the functionality?
+```
+
+**Example Application:**
 
 ```
-Copilot Extension = Integration that adds new capabilities to Copilot
+Goal: "User can register and log in"
+
+Verification:
+
+✅ Level 1: Existence
+- ✅ File: src/auth/register.ts exists (347 lines)
+- ✅ File: src/auth/login.ts exists (289 lines)
+- ✅ Route: POST /auth/register registered
+- ✅ Route: POST /auth/login registered
+
+✅ Level 2: Substantive
+- ✅ Password hashing: bcrypt with salt rounds = 10
+- ✅ Validation: Email format + password strength
+- ✅ Database: User table schema includes required fields
+- ✅ JWT: Tokens contain user ID + 1hr expiry
+
+⚠️  Level 3: Wired (Issue Found)
+- ✅ Routes respond to HTTP requests
+- ✅ Database writes persist
+- ❌ CORS not configured: Frontend can't call API
+- ❌ Rate limiting missing: Brute force vulnerability
+
+Gap: Routes exist but CORS prevents browser access.
+Fix Required: Add CORS middleware for frontend origin.
+```
+
+**Truth Verification Principle:**
+
+Don't just check that code exists—verify that **learner/user can achieve stated outcome**.
+
+---
+
+### Skill Categories
+
+Skills can be grouped by function:
+
+| Category | Purpose | Examples |
+|----------|---------|----------|
+| **Planning** | Break down complex work | Task decomposition, Roadmap generation |
+| **Execution** | Perform development tasks | Code generation, API client creation |
+| **Verification** | Validate quality/correctness | Code review, UAT testing, Goal-backward analysis |
+| **Analysis** | Extract insights from data | Log analysis, Performance profiling |
+| **Generation** | Create artifacts | Documentation, README, API specs |
+| **Transformation** | Convert formats | Markdown to HTML, JSON to CSV |
+| **Orchestration** | Coordinate multi-step workflows | CI/CD pipeline, Multi-agent coordination |
+
+---
+ Awesome AI Skills Repository
+
+**Community Collection:** Search GitHub for "awesome-ai-skills", "prompt-engineering", or browse curated skill lists
+
+**Structure of Awesome Lists:**
+
+```markdown
+# Awesome AI Skills
+
+A curated list of high-quality AI skills/prompts organized by category.
+
+## Planning & Strategy
+- [Task Decomposition](skills/task-decomposition.md) - Break goals into executable tasks ⭐ 1.2k
+- [Roadmap Generation](skills/roadmap-gen.md) - Create project roadmaps ⭐ 800
+- [Decision Matrix](skills/decision-matrix.md) - Multi-criteria analysis ⭐ 650
+
+## Coding & Development
+- [Code Review](skills/code-review.md) - Comprehensive reviews (security + quality) ⭐ 2.1k
+- [Test Generation](skills/test-gen.md) - Unit tests with edge cases ⭐ 1.5k
+- [API Documentation](skills/api-docs.md) - Generate OpenAPI specs ⭐ 900
+- [Refactoring Advisor](skills/refactor.md) - Suggest code improvements ⭐ 750
+
+## Analysis & Data
+- [Data Profiling](skills/data-profile.md) - Statistical dataset summaries ⭐ 600
+- [Log Analysis](skills/log-analysis.md) - Parse and analyze application logs ⭐ 450
+- [Performance Audit](skills/perf-audit.md) - Identify bottlenecks ⭐ 550
+
+## Writing & Documentation
+- [Technical Writer](skills/tech-writer.md) - Clear technical documentation ⭐ 1.1k
+- [Meeting Notes](skills/meeting-notes.md) - Structured summaries from transcripts ⭐ 800
+- [README Generator](skills/readme-gen.md) - Comprehensive README from codebase ⭐ 950
+```
+
+**Curated Highlights (Cross-Platform):**
+
+**1. Code Review Skill**
+- **Capability:** OWASP security + code quality analysis
+- **Platforms:** Claude, ChatGPT, Copilot
+- **Use Case:** Automate pull request reviews
+- **Why Notable:** Comprehensive checklist, actionable output
+- **Find:** Search "ai-code-review-skill" on GitHub
+
+**2. Test Generation Skill**
+- **Capability:** Generate unit tests with edge case coverage
+- **Platforms:** GitHub Copilot, LangChain, Claude
+- **Use Case:** TDD workflows, coverage improvement
+- **Why Notable:** Framework-agnostic, mocking strategies included
+- **Find:** GitHub Copilot Marketplace or awesome-lists
+
+**3. API Documentation Generator**
+- **Capability:** Create OpenAPI specs from code annotations
+- **Platforms:** Claude, ChatGPT
+- **Use Case:** Keep docs synchronized with code
+- **Why Notable:** Reduces manual documentation burden
+- **Find:** Search "openapi-generator-skill"
+
+**4. Data Profiling Skill**
+- **Capability:** Statistical summary + quality assessment of datasets
+- **Platforms:** Claude (with Code Interpreter), ChatGPT Advanced Data Analysis
+- **Use Case:** Exploratory data analysis
+- **Why Notable:** Detects missing data, outliers, distributions
+- **Find:** Data analysis skill collections
+
+**5. Meeting Notes Transformer**
+- **Capability:** Convert meeting transcripts to structured summaries
+- **Platforms:** Claude, ChatGPT
+- **Use Case:** Post-meeting documentation
+- **Why Notable:** Extracts action items, decisions, attendees
+- **Find:** Search "meeting-notes-skill" or "transcript-summarizer"
+
+**6. Decision Matrix Builder**
+- **Capability:** Multi-criteria decision analysis with weighted scoring
+- **Platforms:** Claude, ChatGPT
+- **Use Case:** Strategic planning, vendor selection
+- **Why Notable:** Structured approach to complex decisions
+- **Find:** Business analysis skill collections
+
+**7. Slide Deck Outliner**
+- **Capability:** Generate presentation structure from topic
+- **Platforms:** Claude, ChatGPT
+- **Use Case:** Rapid prototyping of talks/pitches
+- **Why Notable:** Saves hours of outline creation
+- **Find:** Search "presentation-skill" or "slide-outliner"
+
+**Quality Evaluation Checklist:**
+
+When browsing community skills, assess:
+
+- ✅ **Clear Objective:** Does it explain what problem it solves?
+- ✅ **Detailed Instructions:** Step-by-step, not just high-level
+- ✅ **Examples Included:** 2+ demonstrations with inputs/outputs
+- ✅ **Recent Updates:** Maintained within last 6 months
+- ✅ **User Feedback:** Stars, issues, testimonials
+
+---
+
+### This Repository's Skills
+
+**Live Examples in .github/skills/**
+
+This repository uses the GSD framework, which is skill-based. You can study these skills to understand production patterns:
+
+**Available Skills:**
+
+1. **[execute-plan](../../.github/skills/execute-plan/SKILL.md)**
+   - **Purpose:** Execute a PLAN.md and create outcome SUMMARY.md
+   - **Pattern:** Task execution with git integration
+   - **Lines:** ~1,884 (comprehensive)
+
+2. **[verify-phase](../../.github/skills/verify-phase/SKILL.md)**
+   - **Purpose:** Goal-backward verification (did we achieve phase goal?)
+   - **Pattern:** Existence → Substantive → Wired checks
+   - **Lines:** ~800
+
+3. **[discovery-phase](../../.github/skills/discovery-phase/SKILL.md)**
+   - **Purpose:** Research before planning (depth-configurable)
+   - **Pattern:** Quick verify / Standard / Deep dive
+   - **Lines:** ~600
+
+4. **[transition](../../.github/skills/transition/SKILL.md)**
+   - **Purpose:** Mark phase complete and advance to next
+   - **Pattern:** Progress tracking, PROJECT.md evolution
+   - **Lines:** ~500
+
+**How to Explore:**
+
+```bash
+# Navigate to skills directory
+cd .github/skills/
+
+# List available skills
+ls
+
+# Read a skill
+cat execute-plan/SKILL.md
+
+# Study the pattern:
+# 1. Frontmatter with metadata
+# 2. <purpose> section
+# 3. <required_reading> dependencies
+# 4. <process> with <step> elements
+# 5. Examples and edge cases
+```
+
+**Learning Exercise:**
+
+Pick one skill (e.g., erify-phase) and trace how it's used:
+
+1. Find where skill is invoked (search codebase for erify-phase)
+2. See what inputs it receives
+3. Observe what outputs it produces
+4. Understand why it's structured this way
+
+**Best For:** Understanding real-world skill architecture used in production
+
+---
+
+## Creating Your Own Skills
+
+### Skill Design Workflow
+
+**Step 1: Identify Capability Gap**
+
+Ask: "What task do I repeat often that could be standardized?"
 
 Examples:
-- Access to external APIs (databases, cloud services)
-- Additional context sources (documentation, wikis)
-- Specialized tools (testing, deployment, monitoring)
-- Domain-specific knowledge (frameworks, libraries)
+- "I keep asking for code reviews in the same format"
+- "I manually check PRs for the same security issues"
+- "I write similar API documentation templates"
+
+**Step 2: Define Objective**
+
+Write 2-3 sentences:
+- **What** capability does this skill provide?
+- **What problem** does it solve?
+- **What outcome** should it produce?
+
+Example:
+```
+Skill: PR Quality Gate
+
+Objective: Automatically check pull requests for merge readiness.
+Evaluates: tests passing, code coverage > 80%, no security vulnerabilities,
+PR description complete, CI/CD success. Outputs: Pass/Fail + blockers list.
 ```
 
-**Agents vs Extensions:**
+**Step 3: Write Instructions**
 
-| Aspect | Copilot Core | Extensions |
-|--------|--------------|------------|
-| **Built-in** | Yes, always available | Install when needed |
-| **Capabilities** | Code generation, chat | Adds new data/tool access |
-| **Context** | Workspace files | External services |
-| **Use Case** | General coding | Specialized tasks |
+Break capability into steps:
 
-**Extensions are not agents themselves**—they extend what Copilot (the agent) can do.
+```markdown
+## Instructions
+
+1. **Analyze PR Context**
+   - Read PR title and description
+   - Check linked issue/ticket
+   - Review file changes (count, types)
+
+2. **Run Automated Checks**
+   - Verify CI/CD status (all checks green?)
+   - Check test coverage report (> 80%?)
+   - Run security scan (0 Critical/High?)
+
+3. **Assess PR Description**
+   - Contains "What" (changes made)
+   - Contains "Why" (motivation/context)
+   - Lists testing performed
+
+4. **Generate Gate Decision**
+   - If all pass → "✅ Ready to Merge"
+   - If any fail → "❌ Blocked" + list blockers
+```
+
+**Step 4: Add 2-3 Examples**
+
+Show the skill in action:
+
+```markdown
+## Example 1: PR Passes Gate
+
+**Input:**
+- PR #142: "Add user authentication"
+- Description: [Complete with what/why/testing]
+- CI Status: ✅ All checks passed
+- Coverage: 87%
+- Security Scan: 0 issues
+
+**Output:**
+\\\
+✅ PR Ready to Merge
+
+All quality gates passed:
+- ✅ CI/CD: All checks green
+- ✅ Coverage: 87% (target: 80%)
+- ✅ Security: No vulnerabilities
+- ✅ Description: Complete
+
+Approved for merge.
+\\\
+
+## Example 2: PR Blocked
+
+**Input:**
+- PR #143: "Update payment logic"
+- Description: "Fixed bug" (minimal)
+- CI Status: ⚠️  1 test failing
+- Coverage: 65%
+- Security Scan: 1 High severity issue
+
+**Output:**
+\\\
+❌ PR Blocked - Cannot Merge
+
+Blockers:
+1. ❌ CI/CD: Test failing (test/payment.test.ts:42)
+2. ❌ Coverage: 65% (target: 80%, need +15%)
+3. ❌ Security: SQL Injection vulnerability (src/payment.ts:28)
+4. ⚠️  Description: Missing "Why" and testing details
+
+Required Actions:
+- Fix failing test
+- Add tests to reach 80% coverage
+- Address SQL Injection (use parameterized query)
+- Expand PR description
+
+Re-run gate after fixing.
+\\\
+```
+
+**Step 5: Document Anti-Patterns**
+
+What NOT to do:
+
+```markdown
+## Anti-Patterns
+
+- ❌ **Ignoring Context:** Blocking PR because coverage dipped 1% due to refactoring
+  (Check: Did overall coverage improve elsewhere?)
+
+- ❌ **False Positives:** Flagging intentional design patterns as security issues
+  (Verify: Is this actually a vulnerability in context?)
+
+- ❌ **Over-Automation:** Auto-blocking without explanation
+  (Always: Provide clear, actionable feedback)
+```
+
+**Step 6: Define Success Criteria**
+
+How to verify skill worked correctly:
+
+```markdown
+## Success Criteria
+
+- [ ] Decision reached within 30 seconds
+- [ ] All 4 gate criteria evaluated
+- [ ] Clear pass/fail with specific blockers
+- [ ] No false positives (flagging non-issues)
+- [ ] Actionable feedback (tell developer what to fix)
+```
 
 ---
 
-**How Extensions Work:**
+### Testing and Iteration
 
-1. **You install extension** (from GitHub Marketplace)
-2. **Extension registers capabilities** with Copilot
-3. **Copilot detects when to use** extension
-4. **Extension provides data/actions** to Copilot
-5. **Copilot incorporates** in responses
+**Test with Real Inputs:**
 
-**Example Flow:**
+```bash
+# Create test cases
+test-cases/
+├── happy-path/       # Should pass
+├── blocked-coverage/ # Should fail (coverage)
+├── blocked-ci/       # Should fail (CI)
+└── edge-cases/       # Unusual scenarios
 ```
-You: "@github check the latest deployment status"
-  ↓
-Copilot recognizes GitHub extension is needed
-  ↓
-Extension fetches deployment data from GitHub API
-  ↓
-Copilot presents results: "Last deploy: 2h ago, status: success"
+
+**Refine Based on Results:**
+
+1. Run skill on 10 diverse test cases
+2. Check output quality:
+   - Are decisions correct?
+   - Is feedback actionable?
+   - Any false positives/negatives?
+3. Update instructions to handle gaps
+4. Add new examples for edge cases
+5. Repeat until consistent quality
+
+**Version Your Skill:**
+
+```markdown
+---
+name: pr-quality-gate
+version: 1.0.0 → 1.1.0 (after refinements)
+updated: 2026-02-27
+changelog:
+  - 1.1.0: Added edge case handling for monorepo coverage
+  - 1.0.1: Fixed false positive for intentional assertions
+  - 1.0.0: Initial release
+---
 ```
 
 ---
 
-**Notable Extensions:**
+## Best Practices
 
-**1. Docker** 
-- Query container status
-- Generate Dockerfiles
-- Troubleshoot container issues
+### Principle 1: Single Responsibility
 
-**2. Azure**
-- Deploy to Azure directly from VS Code
-- Query Azure resources
-- Monitor cloud services
-
-**3. Sentry**
-- Pull error reports into Copilot chat
-- Analyze stack traces
-- Suggest fixes based on errors
-
-**4. Stripe**
-- Query payment data
-- Generate integration code
-- Debug webhook issues
-
-**5. GitHub Models**
-- Access multiple AI models
-- Compare model outputs
-- Switch between providers
-
----
-
-**Building Your Own Extension:**
-
-**Requirements:**
-- GitHub App with Copilot extension permissions
-- Endpoint that responds to Copilot requests
-- Manifest defining capabilities
-
-**Basic Structure:**
-```typescript
-// Extension manifest
-{
-  "api_version": "v1",
-  "capabilities": {
-    "slash_commands": [
-      {
-        "name": "mydata",
-        "description": "Fetch custom data",
-        "parameters": [...]
-      }
-    ]
-  },
-  "endpoint": "https://myextension.com/api/copilot"
-}
+**Do:** One skill, one capability
+```
+✅ "Code Review Skill" - Reviews code
+✅ "Test Generation Skill" - Generates tests
 ```
 
-**When Copilot calls your extension:**
-```json
-POST /api/copilot
-{
-  "command": "mydata",
-  "parameters": {"query": "..." },
-  "context": {"workspace": "...", "files": [...]}
-}
+**Don't:** God skills that do everything
+```
+❌ "Ultimate Dev Skill" - Reviews, tests, docs, deploys, makes coffee
 ```
 
-**Your extension responds:**
-```json
-{
-  "content": "Here's the data you requested...",
-  "resources": [
-    {"url": "https://...", "title": "..."}
-  ]
-}
+### Principle 2: Clear Instructions
+
+**Do:** Step-by-step, no ambiguity
+```
+✅ "Check for SQL injection: Look for string concatenation in queries"
+```
+
+**Don't:** Vague guidance
+```
+❌ "Make sure code is secure"
+```
+
+### Principle 3: Examples-Driven
+
+**Do:** Show, don't just tell (2-3 examples minimum)
+```
+✅ Include input → execution trace → output for each example
+```
+
+**Don't:** Abstract instructions without demonstrations
+```
+❌ Just instructions, no examples
+```
+
+### Principle 4: Version Control
+
+**Do:** Track changes, maintain compatibility
+```markdown
+version: 2.1.0
+changelog:
+  - 2.1.0: Added edge case handling
+  - 2.0.0: Breaking change - new output format
+  - 1.0.0: Initial release
+```
+
+**Don't:** Silent updates that break dependencies
+```
+❌ Modify skill without version bump
+```
+
+### Principle 5: Testable
+
+**Do:** Define success criteria, validate outputs
+```markdown
+## Success Criteria
+- [ ] Completes in < 60 seconds
+- [ ] Output matches format specification
+- [ ] No false positives in test suite (100 cases)
+```
+
+**Don't:** "Looks good" without verification
+```
+❌ No way to measure skill quality
 ```
 
 ---
 
-**Getting Started:**
+## Common Pitfalls
 
-1. **Browse Marketplace:**
-   - Visit [GitHub Marketplace](https://github.com/marketplace?type=apps&copilot_app=true)
-   - Filter by "Copilot Extensions"
-   - Read reviews and documentation
+### ❌ Pitfall 1: Vague Skill
 
-2. **Install Extension:**
-   - Click "Set up a plan" (many are free)
-   - Grant required permissions
-   - Access in VS Code via `@extension-name`
+**Problem:** "Be helpful and thorough"  
+**Why it fails:** No actionable instructions for AI  
+**Fix:** Specific steps with decision criteria
 
-3. **Use in Chat:**
+### ❌ Pitfall 2: God Skill
+
+**Problem:** Skill tries to do 10 different things  
+**Why it fails:** Maintenance nightmare, hard to debug, inconsistent quality  
+**Fix:** Break into focused sub-skills
+
+### ❌ Pitfall 3: Example-Free
+
+**Problem:** Abstract instructions without demonstrations  
+**Why it fails:** AI can't infer intent, produces inconsistent results  
+**Fix:** Add 2-3 concrete examples with inputs/outputs
+
+### ❌ Pitfall 4: Stale Skill
+
+**Problem:** Created once, never updated  
+**Why it fails:** Breaks silently as context changes  
+**Fix:** Version control, regular reviews, changelog
+
+### ❌ Pitfall 5: No Constraints
+
+**Problem:** Doesn't specify what NOT to do  
+**Why it fails:** AI explores unintended behaviors  
+**Fix:** Explicit anti-patterns section
+
+---
+
+## Hands-On Exercises
+
+### Exercise 1: Analyze a GSD Skill (15 minutes)
+
+**Scenario:** Study a production skill in this repository
+
+**Steps:**
+1. Read [.github/skills/execute-plan/SKILL.md](../../.github/skills/execute-plan/SKILL.md)
+2. Identify these components:
+   - Metadata (name, description)
+   - Objective/Purpose
+   - Instructions (how many steps?)
+   - Examples (present?)
+   - Success criteria
+3. Answer:
+   - What makes this skill effective?
+   - What patterns can you reuse?
+   - How is it structured differently than a prompt?
+
+**Success Criteria:**
+- Can list 3 design patterns used in the skill
+- Can explain why it's 1,884 lines (comprehensive instructions)
+- Understands when to use this skill vs simpler approach
+
+---
+
+### Exercise 2: Create a Simple Skill (25 minutes)
+
+**Scenario:** Design a "Bug Report Analyzer" skill
+
+**Goal:** Extract structured information from bug reports
+
+**Steps:**
+
+1. **Define Objective** (5 min)
    ```
-   @docker show running containers
-   @azure deploy to production
-   @sentry latest errors
+   What: Extract title, reproduction steps, expected/actual behavior
+   Why: Standardize bug report intake for triage
+   Output: Structured JSON with severity assessment
    ```
 
-4. **Build Your Own:**
-   - Read [Copilot Extensions Guide](https://docs.github.com/en/copilot/building-copilot-extensions)
-   - Start with simple data queries
-   - Test locally with GitHub App
-   - Publish to marketplace
-
----
-
-**Best Practices:**
-
-✅ **Use extensions for:**
-- Accessing your proprietary data
-- Integration with your tools/services
-- Domain-specific knowledge retrieval
-
-❌ **Don't build extensions for:**
-- Things Copilot already does well
-- Public information (Copilot already has it)
-- Single-use tasks (just use code)
-
-### ChatGPT Plugins vs GPTs
-
-**OpenAI offers two extensibility mechanisms:**
-
-| Feature | GPTs | Plugins (Actions) |
-|---------|------|------------------|
-| **What it is** | Custom instructions + knowledge | External API integrations |
-| **Code required** | No | Yes (API backend) |
-| **Access** | ChatGPT Plus/Team/Enterprise | ChatGPT Plus+ |
-| **Distribution** | GPT Store | Via GPTs (actions) |
-| **Skill type** | Instruction-based | Tool-calling |
-
----
-
-**GPTs: Custom Instruction Sets**
-
-**What They Are:**
-
-GPTs are ChatGPT instances with:
-- **Custom instructions** (specialized behavior)
-- **Knowledge files** (uploaded documents, data)
-- **Tools** (web browsing, DALL-E, code interpreter)
-- **Actions** (optional API integrations)
-
-**Think of GPT as:**
-```
-GPT = ChatGPT + Custom Personality + Private Knowledge + Optional Tools
-```
-
-**Creating a GPT:**
-
-1. **Click "Explore GPTs" → "Create"**
-2. **Conversational Builder:**
-   ```
-   You: "Create a Python tutor GPT"
-   Builder: [Generates instructions, name, icon]
-   You: "Make it focus on beginners"
-   Builder: [Refines instructions]
-   ```
-
-3. **Or Configure Manually:**
+2. **Write Instructions** (10 min)
    ```markdown
-   Name: Python Tutor
+   ##Instructions
    
-   Instructions:
-   "You are a patient Python tutor for beginners.
-   
-   - Explain concepts with simple analogies
-   - Provide code examples with comments
-   - Ask clarifying questions
-   - Warn about common mistakes
-   - Encourage experimentation
-   - Never give full solutions, guide to discovery"
-   
-   Knowledge: [Upload Python cheat sheet, common errors guide]
-   
-   Capabilities:
-   ☑ Code Interpreter (for running Python)
-   ☐ Web Browsing
-   ☐ DALL-E
-   ```
-
-4. **Publish:**
-   - Private (only you)
-   - Anyone with link
-   - Public (GPT Store)
-
----
-
-**GPT Examples:**
-
-**Domain Expert:**
-```
-Name: React Senior Dev
-Instructions: "Expert in React 18+, hooks, performance..."
-Knowledge: React docs, common patterns
-Use case: Code reviews, architecture advice
-```
-
-**Custom Analyst:**
-```
-Name: Sales Data Analyzer  
-Instructions: "Analyze sales data, identify trends..."
-Knowledge: Your company's sales methodology, KPIs
-Tools: Code Interpreter (for data analysis)
-Use case: Upload CSV, get insights
-```
-
-**Writing Assistant:**
-```
-Name: Technical Writer
-Instructions: "Write clear technical docs..."
-Knowledge: Your company's style guide, templates
-Use case: Draft documentation following brand voice
-```
-
----
-
-**Plugins/Actions: External Tool Integration**
-
-**What They Are:**
-
-Actions let GPTs call external APIs:
-
-```
-GPT Action = OpenAPI spec + Authentication + Instructions
-
-GPT can:
-1. Call your API
-2. Get data/perform action
-3. Incorporate in response
-```
-
-**How It Works:**
-
-1. **You build API:**
-   ```
-   GET /api/calendar/events → Returns user's events
-   POST /api/email/send → Sends email
-   ```
-
-2. **Define OpenAPI schema:**
-   ```yaml
-   openapi: 3.0.0
-   paths:
-     /calendar/events:
-       get:
-         summary: Get calendar events
-         parameters:
-           - name: date
-             schema:
-               type: string
-   ```
-
-3. **Add action to GPT:**
-   - Paste OpenAPI spec
-   - Configure auth (API key, OAuth)
-   - Write instructions for when/how to use
-
-4. **GPT calls API autonomously:**
-   ```
-   User: "What's on my calendar tomorrow?"
-     ↓
-   GPT: [Calls GET /calendar/events?date=tomorrow]
-     ↓
-   GPT: "You have 3 meetings tomorrow:
-         - 9am: Standup
-         - 2pm: Product review
-         - 4pm: 1:1 with Sarah"
-   ```
-
----
-
-**When to Use What:**
-
-**Use GPT (Instructions + Knowledge) when:**
-
-✅ You need specialized behavior
-✅ You have proprietary documents/knowledge
-✅ Behavior is instruction-based (no external data needed)
-✅ Want quick setup (no coding)
-
-**Examples:**
-- Internal wiki Q&A
-- Brand voice enforcement
-- Domain expert simulation
-- Custom tutoring
-
----
-
-**Use Actions (API Integration) when:**
-
-✅ Need live data from external systems
-✅ Want GPT to perform actions (send email, update CRM)
-✅ Data changes frequently
-✅ Already have an API
-
-**Examples:**
-- Calendar management
-- Database queries
-- Order status lookup
-- Automated workflows
-
----
-
-**Use BOTH when:**
-
-✅ Complex skills needing instructions + external data
-
-**Example: Customer Support GPT**
-```
-Instructions:
-"You're a customer support agent for [Company].
-- Be empathetic and solution-oriented
-- Check order status before responding
-- Escalate refunds to humans"
-
-Knowledge:
-- FAQ documents
-- Product manuals
-- Return policy
-
-Actions:
-- GET /orders/{id} → Fetch order details
-- POST /tickets → Create support ticket
-
-Result: GPT that understands your company's
-        policies AND can access live order data
-```
-
----
-
-**GPT Store Distribution:**
-
-**Publishing:**
-1. Build GPT
-2. Set to "Public"
-3. Verify profile (name, domain)
-4. GPT appears in GPT Store
-
-**Discovery:**
-- Browse by category (Writing, Productivity, etc.)
-- Search by keywords
-- Sorted by usage/ratings
-
-**Monetization:**
-- Coming soon: revenue sharing
-- Currently: all GPTs free
-
----
-
-**Comparison to Other Platforms:**
-
-| Aspect | ChatGPT GPTs | GitHub Copilot Ext | Claude MCP |
-|--------|--------------|-------------------|------------|
-| **Ease of Creation** | Easiest (no code) | Medium (GitHub App) | Hardest (protocol impl) |
-| **Distribution** | GPT Store (built-in) | Marketplace | Manual setup |
-| **Knowledge Upload** | Yes (files) | No | No (use MCP server) |
-| **API Integration** | Yes (Actions) | Yes | Yes (MCP tools) |
-| **Audience** | ChatGPT users (B2C focus) | Developers only | Claude users (Pro/API) |
-
----
-
-**Getting Started:**
-
-**1. Browse GPT Store:**
-- Click "Explore GPTs" in ChatGPT
-- Try popular GPTs in your domain
-- Analyze what makes them effective
-
-**2. Create Your First GPT:**
-- Start simple (instructions only)
-- Add knowledge files
-- Test thoroughly
-- Iterate based on usage
-
-**3. Add Actions (Advanced):**
-- Build simple API first
-- Test with Postman/curl
-- Define OpenAPI spec
-- Connect to GPT
-- Test integration
-
-**4. Publish:**
-- Make public if helpful to others
-- Or keep private for personal/team use
-
-### Claude MCP Servers
-
-**Model Context Protocol (MCP)** is Anthropic's open-standard approach to extending Claude's capabilities.
-
-**What is MCP:**
-
-```
-MCP = Standard protocol for AI ↔ Tool communication
-
-MCP Server exposes:
-- Tools (functions AI can call)
-- Resources (data AI can access)
-- Prompts (reusable templates)
-
-Claude Desktop/API connects to MCP servers
-→ Gains access to tools/resources
-```
-
-**Why MCP Matters:**
-
-✅ **Open Standard:** Not proprietary to Anthropic
-✅ **Universal:** Works across AI systems (not just Claude)
-✅ **Composable:** Multiple servers, multiple tools
-✅ **Local-First:** Can run entirely on your machine
-✅ **Secure:** You control what data AI accesses
-
----
-
-**MCP Architecture:**
-
-```
-Claude Desktop/API
-      |
-      | (connects to)
-      |
-      v
-MCP Client (in Claude)
-      |
-      | (MCP Protocol)
-      |
-      v
-MCP Server (your code)
-      |
-      | (implements)
-      |
-      v
-[Tools] [Resources] [Prompts]
-```
-
----
-
-**MCP Components:**
-
-**1. Tools** (Functions Claude can call)
-
-```typescript
-// Example: Calculator tool
-tools: [
-  {
-    name: "calculate",
-    description: "Perform mathematical calculation",
-    inputSchema: {
-      type: "object",
-      properties: {
-        expression: { type: "string" }
+   1. Parse bug report text
+   2. Extract:
+      - Title/Summary
+      - Steps to reproduce
+      - Expected behavior
+      - Actual behavior
+      - Environment (OS, version)
+   3. Assess severity:
+      - CRITICAL: Data loss, security breach
+      - HIGH: Core functionality broken
+      - MEDIUM: Feature impaired
+      - LOW: Cosmetic issue
+   4. Output JSON format:
+      {
+        "title": "...",
+        "reproduction_steps": ["step1", "step2"],
+        "expected": "...",
+        "actual": "...",
+        "severity": "HIGH",
+        "missing_info": ["Screenshot needed"]
       }
-    }
-  }
-]
+   ```
 
-// Claude can call:
-calculate({ expression: "(25 + 15) * 2" })
-// Returns: 80
-```
+3. **Add 2 Examples** (8 min)
+   - Example 1: Well-formed bug report → complete JSON
+   - Example 2: Incomplete bug report → JSON with missing_info
 
-**2. Resources** (Data Claude can read)
+4. **Document Anti-Patterns** (2 min)
+   - ❌ Guessing missing information (should flag as missing)
+   - ❌ Over-/under-estimating severity
 
-```typescript
-// Example: File system resource
-resources: [
-  {
-    uri: "file:///project/README.md",
-    name: "Project README",
-    mimeType: "text/markdown"
-  }
-]
-
-// Claude can read content when needed
-```
-
-**3. Prompts** (Reusable templates)
-
-```typescript
-// Example: Code review prompt
-prompts: [
-  {
-    name: "code-review",
-    description: "Review code for issues",
-    arguments: [
-      { name: "file", description: "File to review" }
-    ]
-  }
-]
-```
+**Success Criteria:**
+- Skill produces consistent structured output
+- Identifies missing information
+- Severity assessment matches guidelines
 
 ---
 
-**Setting Up MCP Server:**
+### Exercise 3: Compose Multiple Skills (30 minutes)
 
-**Option 1: Use Pre-built Servers**
+**Scenario:** Build "Code Quality Workflow" from sub-skills
 
-Anthropic provides official servers:
+**Goal:** Combine Code Review + Test Generation skills
 
-```bash
-# Install filesystem server
-npm install -g @modelcontextprotocol/server-filesystem
+**Steps:**
 
-# Install Brave search server
-npm install -g @modelcontextprotocol/server-brave-search
+1. **Design Workflow** (10 min)
+   ```
+   Parent Skill: Code Quality Workflow
+   
+   Step 1: Apply Code Review Skill → identify gaps
+   Step 2: Apply Test Generation Skill → cover gaps
+   Step 3: Aggregate results → unified report
+   ```
 
-# Install Git server
-npm install -g @modelcontextprotocol/server-git
-```
+2. **Write Orchestration Instructions** (15 min)
+   ```markdown
+   ## Instructions
 
-**Configure in Claude Desktop:**
+   1. **Security & Quality Review**
+      - Load: code-review-skill.md
+      - Execute on: [target files]
+      - Collect: security_issues, quality_issues
 
-```json
-// ~/Library/Application Support/Claude/claude_desktop_config.json (Mac)
-// %APPDATA%\Claude\claude_desktop_config.json (Windows)
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/Users/you/projects"
-      ]
-    },
-    "git": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-git"
-      ]
-    }
-  }
-}
-```
+   2. **Generate Tests for Gaps**
+      - Load: test-generation-skill.md
+      - Input: code + security_issues (prioritize vulnerable areas)
+      - Generate: test_suite covering edge cases
 
-**Restart Claude Desktop** → Tools available in chat
+   3. **Aggregate Report**
+      - Combine findings:
+        - Security: [Critical/High only]
+        - Quality: [Top 5 issues]
+        - Tests: [Coverage metrics]
+      - Output: Quality dashboard
+   ```
 
----
+3. **Test Workflow** (5 min)
+   - Run on sample codebase
+   - Verify both sub-skills execute
+   - Check aggregated output quality
 
-**Using MCP Tools in Claude:**
-
-```
-You: "Read the README.md file in my project"
-  ↓
-Claude: [Calls filesystem MCP server]
-  ↓
-Server: [Returns file:///project/README.md contents]
-  ↓
-Claude: "Your README describes a Python CLI tool for..."
+**Success Criteria:**
+- Workflow executes sub-skills in order
+- Results from skill 1 inform skill 2
+- Unified report combines both outputs
+- More comprehensive than either skill alone
 
 ---
 
-You: "Check the git status"
-  ↓
-Claude: [Calls git MCP server]
-  ↓
-Server: [Returns git status output]
-  ↓
-Claude: "You have 3 uncommitted changes in src/..."
-```
+### Exercise 4: Integrate Skill into Claude Project (20 minutes)
+
+**Scenario:** Add custom skill to Claude for persistent use
+
+**Goal:** Skill consistently applied across conversations
+
+**Steps:**
+
+1. **Create Claude Project** (5 min)
+   - Open Claude
+   - Create new Project: "Code Review Assistant"
+
+2. **Upload Skill** (5 min)
+   - Write skill markdown (use Exercise 2 or real skill)
+   - Add to Project Knowledge
+
+3. **Write System Instructions** (5 min)
+   ```
+   You have access to the Bug Report Analyzer skill.
+   
+   When user provides a bug report:
+   1. Apply the skill from Project Knowledge
+   2. Extract structured information
+   3. Present findings in JSON format
+   
+   Proactively suggest using the skill when you detect unstructured bug reports.
+   ```
+
+4. **Test** (5 min)
+   - Paste a bug report
+   - Verify Claude applies skill
+   - Check output matches expected format
+
+**Success Criteria:**
+- Claude recognizes when to apply skill
+- Output follows skill instructions consistently
+- Skill persists across conversations in that Project
 
 ---
-
-**Building Custom MCP Server:**
-
-**Simple Example: Weather Tool**
-
-```typescript
-// weather-mcp-server.ts
-import { McpServer } from "@modelcontextprotocol/sdk";
-
-const server = new McpServer({
-  name: "weather-server",
-  version: "1.0.0"
-});
-
-// Define tool
-server.addTool({
-  name: "get_weather",
-  description: "Get current weather for a city",
-  inputSchema: {
-    type: "object",
-    properties: {
-      city: {
-        type: "string",
-        description: "City name"
-      }
-    },
-    required: ["city"]
-  },
-  handler: async ({ city }) => {
-    // Call weather API
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}`
-    );
-    const data = await response.json();
-    
-    return {
-      temperature: data.main.temp,
-      conditions: data.weather[0].description,
-      humidity: data.main.humidity
-    };
-  }
-});
-
-server.start();
-```
-
-**Configure:**
-
-```json
-{
-  "mcpServers": {
-    "weather": {
-      "command": "node",
-      "args": ["path/to/weather-mcp-server.js"],
-      "env": {
-        "WEATHER_API_KEY": "your-key"
-      }
-    }
-  }
-}
-```
-
-**Use:**
-
-```
-You: "What's the weather in San Francisco?"
-  ↓
-Claude: [Calls get_weather tool]
-  ↓
-Claude: "It's currently 62°F and partly cloudy in San Francisco,
-         with 65% humidity."
-```
-
----
-
-**Advanced: Resource Provider**
-
-```typescript
-// Database MCP server
-server.addResourceProvider({
-  name: "database",
-  listResources: async () => {
-    // List available database tables
-    const tables = await db.query("SHOW TABLES");
-    return tables.map(t => ({
-      uri: `db:///${t.name}`,
-      name: `Table: ${t.name}`,
-      mimeType: "application/sql"
-    }));
-  },
-  readResource: async (uri) => {
-    // Return table data
-    const table = uri.replace("db:///", "");
-    const rows = await db.query(`SELECT * FROM ${table} LIMIT 100`);
-    return JSON.stringify(rows, null, 2);
-  }
-});
-```
-
-**Claude can now:**
-- List your database tables
-- Read table data
-- Answer questions about your data
-
----
-
-**MCP vs Other Platforms:**
-
-| Aspect | Claude MCP | ChatGPT Actions | Copilot Extensions |
-|--------|-----------|-----------------|--------------------|
-| **Protocol** | Open standard | OpenAI-specific | GitHub-specific |
-| **Setup** | Local config file | Web UI | GitHub App |
-| **Security** | Local-first option | Cloud-based | Cloud-based |
-| **Flexibility** | Full control | API limits | API limits |
-| **Distribution** | Manual (currently) | GPT Store | Marketplace |
-| **Best For** | Power users, privacy | General users | GitHub users |
-
----
-
-**MCP Server Examples:**
-
-**Official Servers:**
-- **Filesystem:** Read/write local files
-- **Git:** Repository operations
-- **Brave Search:** Web search
-- **PostgreSQL:** Database queries
-- **Slack:** Channel/message access
-- **Google Drive:** File management
-
-**Community Servers:**
-- **Notion:** Read/write Notion data
-- **GitHub:** Issues, PRs, repos
-- **Jira:** Task management
-- **Docker:** Container management
-- **Kubernetes:** Cluster operations
-
-**Browse:**
-- [MCP Servers Registry](https://github.com/modelcontextprotocol/servers)
-- [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers)
-
----
-
-**Getting Started:**
-
-**1. Install Claude Desktop:**
-- Download from Anthropic website
-- Requires Claude Pro or API access
-
-**2. Add Official Servers:**
-```bash
-npx -y @modelcontextprotocol/installer install filesystem
-npx -y @modelcontextprotocol/installer install git
-```
-
-**3. Test:**
-```
-Claude: "List files in my current directory"
-→ Should use filesystem server
-```
-
-**4. Build Custom Server:**
-- Follow [MCP SDK docs](https://modelcontextprotocol.io/)
-- Start with simple tool
-- Test locally
-- Add to config
-
-**5. Contribute:**
-- MCP is open source
-- Publish your servers to npm
-- Share in community registry
-
-### Platform Ecosystems
-
-**Comprehensive comparison** to help you choose where to build and use AI skills.
-
----
-
-**Ecosystem Maturity Matrix:**
-
-| Factor | GitHub Copilot | ChatGPT GPTs | Claude MCP |
-|--------|---------------|--------------|------------|
-| **Launch Date** | 2021 (Extensions 2024) | GPTs: Nov 2023 | Nov 2024 |
-| **Maturity** | Mature (coding), New (extensions) | Growing fast | Very new |
-| **# of Skills** | ~100 extensions | 3M+ GPTs | ~50 servers |
-| **Quality Curation** | High (reviewed) | Variable | High (small community) |
-| **Discovery** | GitHub Marketplace | GPT Store (built-in) | GitHub search |
-| **Monetization** | No (yet) | Coming soon | No |
-| **Audience Size** | Millions (developers) | 100M+ (general) | Thousands (early adopters) |
-
----
-
-**Ease of Use:**
-
-**Creating Skills:**
-
-```
-Easiest ←────────────────────────→ Hardest
-
-ChatGPT GPTs    Copilot Extensions    Claude MCP
-     |                  |                  |
-  No-code          GitHub App      Protocol impl
-  Web UI           + API endpoint   + SDK knowledge
-  Upload files     OAuth/webhooks    Local setup
-  
-  Time: 15 min     Time: 2-4 hours   Time: 3-6 hours
-```
-
-**Using Skills:**
-
-```
-Easiest ←────────────────────────→ Hardest
-
-ChatGPT GPTs    Copilot Extensions    Claude MCP
-     |                  |                  |
-  Browse store       Install from      Edit config
-  Click to use     Marketplace +        file +
-                   @mention in chat   Restart app
-  
-  Time: 1 min      Time: 2 min       Time: 5-10 min
-```
-
----
-
-**Availability & Quality:**
-
-**ChatGPT GPTs (3M+)**
-
-**Pros:**
-- Massive selection
-- Easy browsing/discovery
-- Instant access
-- Many free
-
-**Cons:**
-- Quality very inconsistent
-- Many are just prompt templates
-- Hard to find gems
-- No code review process
-
-**Quality Indicators:**
-✅ High usage/ratings
-✅ Verified creator
-✅ Detailed description
-✅ Recent updates
-
----
-
-**GitHub Copilot Extensions (~100)**
-
-**Pros:**
-- Curated (GitHub reviews)
-- High quality bar
-- Developer-focused
-- Well-documented
-
-**Cons:**
-- Limited quantity
-- New ecosystem
-- Developer-only use cases
-- No general-purpose skills
-
-**Quality Indicators:**
-✅ Official badge (GitHub verified)
-✅ Active maintenance
-✅ Clear use case
-✅ Good documentation
-
----
-
-**Claude MCP Servers (~50)**
-
-**Pros:**
-- High quality (technical users)
-- Open source
-- Privacy-focused
-- Full control
-
-**Cons:**
-- Very small ecosystem
-- Manual setup required
-- No centralized marketplace (yet)
-- Documentation varies
-
-**Quality Indicators:**
-✅ Official Anthropic server
-✅ Active GitHub repo
-✅ TypeScript implementation
-✅ Clear README
-
----
-
-**Community Size & Activity:**
-
-**ChatGPT/GPTs:**
-```
-Users: 100M+ (largest)
-Creators: Millions
-Growth: Exponential
-Community:
-- r/ChatGPT (3M+ members)
-- GPT builder communities
-- YouTube tutorials abundant
-```
-
-**GitHub Copilot:**
-```
-Users: Millions (developers only)
-Extension Developers: Hundreds
-Growth: Steady
-Community:
-- GitHub Discussions
-- VS Code community
-- Developer-focused
-```
-
-**Claude MCP:**
-```
-Users: Thousands (early adopters)
-Server Developers: Dozens
-Growth: Rapid (very new)
-Community:
-- Discord (Anthropic)
-- GitHub (modelcontextprotocol org)
-- Technical/power users
-```
-
----
-
-**Platform Selection Guide:**
-
-**Choose ChatGPT GPTs if:**
-
-✅ Building for general audience (non-developers)
-✅ Want quick creation (no coding)
-✅ Need easy distribution (GPT Store)
-✅ Instruction-based skill (no complex tools)
-✅ Want to upload knowledge files
-
-**Use Cases:**
-- Content creation assistants
-- Educational tutors
-- Brand voice enforcement
-- Document analysis
-- Customer support
-
----
-
-**Choose GitHub Copilot Extensions if:**
-
-✅ Building developer tools
-✅ Integrating with dev services (CI/CD, cloud, monitoring)
-✅ Want integrated coding experience
-✅ Need GitHub Marketplace distribution
-✅ Target is VS Code users
-
-**Use Cases:**
-- Cloud service integration
-- Database query assistance
-- Deployment automation
-- Error monitoring
-- Code review tools
-
----
-
-**Choose Claude MCP if:**
-
-✅ Need maximum control/privacy
-✅ Want local-first approach
-✅ Building complex tool integrations
-✅ Open standard matters to you
-✅ Target is power users
-✅ Want to access local resources
-
-**Use Cases:**
-- Filesystem/database access
-- Internal tool integration
-- Privacy-sensitive data
-- Custom workflows
-- Research/experimentation
-
----
-
-**Multi-Platform Strategy:**
-
-**Consider building for multiple platforms:**
-
-**Example: Code Review Assistant**
-
-```
-ChatGPT GPT:
-- General code review instructions
-- Upload style guide
-- For non-technical reviewers
-
-Copilot Extension:
-- Integrate with GitHub PRs
-- Real-time inline suggestions
-- For developers in IDE
-
-Claude MCP:
-- Access local codebase
-- Deep analysis of project
-- For individual deep dives
-```
-
-**Each serves different user/context:**
-- GPT: Accessible, quick reviews
-- Copilot: Workflow-integrated
-- MCP: Powerful, private
-
----
-
-**Future Outlook:**
-
-**Near Term (6-12 months):**
-
-**ChatGPT:**
-- Monetization launches
-- Quality curation improves
-- Enterprise features
-
-**Copilot:**
-- Extension ecosystem grows
-- More official integrations
-- Agent capabilities expand
-
-**MCP:**
-- Marketplace/registry
-- More official servers
-- Wider AI model adoption
-
-**Long Term (1-3 years):**
-
-- **Convergence:** Standards emerge
-- **Interop:** Skills work across platforms
-- **Specialization:** Each platform finds niche
-- **Consolidation:** Some platforms merge/integrate
-
----
-
-**Decision Framework:**
-
-**Ask yourself:**
-
-1. **Who's my audience?**
-   - General users → GPTs
-   - Developers → Copilot
-   - Power users → MCP
-
-2. **What's my timeline?**
-   - Quick (hours) → GPTs
-   - Medium (days) → Copilot
-   - Flexible → MCP
-
-3. **What's my technical level?**
-   - No coding → GPTs only
-   - Some coding → GPTs or Copilot
-   - Experienced → All three
-
-4. **What data do I need?**
-   - Public knowledge → Any platform
-   - Your documents → GPTs (upload) or MCP
-   - Live APIs → All three (Actions/Extensions/MCP tools)
-   - Local files → MCP best
-
-5. **How important is distribution?**
-   - Critical → GPTs (largest reach)
-   - Moderate → Copilot (marketplace)
-   - Not important → MCP (manual)
-
-6. **Privacy concerns?**
-   - Low → Any platform
-   - Medium → Copilot or MCP
-   - High → MCP (local-first)
-
----
-
-**Recommendation:**
-
-**For Learning (this pathway):**
-
-1. **Start with ChatGPT GPTs**
-   - Easiest to create
-   - Immediate results
-   - Understand skill concepts
-
-2. **Explore Copilot Extensions**
-   - Install a few
-   - See developer-focused patterns
-   - Consider building if relevant
-
-3. **Experiment with MCP**
-   - Set up official servers
-   - Understand protocol
-   - Build simple custom server
-
-**For Production Use:**
-
-- Choose based on your specific use case
-- Don't be afraid to use multiple
-- Start simple, add complexity as needed
-- Monitor ecosystem evolution
 
 ## Resources
 
 ### Anthropic Model Context Protocol (MCP) Documentation
 - **Type:** Official Documentation
-- **Duration/Length:** 45 min read
+- **Duration:** 45 min read
 - **Level:** Intermediate to Advanced
-- **Why this matters:** Complete technical guide to building MCP servers that extend Claude's capabilities with custom tools
+- **What:** Complete technical guide to building MCP servers that extend Claude's capabilities
+- **Why:** Learn to create production-grade skills with external integrations
+- **Best for:** Developers building Claude-integrated tools
+- **Free:** Yes
 - **Link:** [Anthropic MCP Docs](https://www.anthropic.com/news/model-context-protocol)
 
 ### GitHub Copilot Extensions Marketplace
 - **Type:** Platform / Marketplace
-- **Duration/Length:** 30 min exploration
+- **Duration:** 30 min exploration
 - **Level:** Beginner to Intermediate
-- **Why this matters:** Browse available extensions/skills for Copilot, see what's possible and evaluate quality
+- **What:** Browse available extensions/skills for GitHub Copilot
+- **Why:** See what's possible, evaluate quality patterns, find reusable skills
+- **Best for:** Developers using GitHub Copilot
+- **Free:** Yes (extensions may vary)
 - **Link:** [Copilot Extensions](https://github.com/marketplace?type=apps&copilot_app=true)
 
 ### OpenAI GPTs Store
 - **Type:** Platform / Marketplace
-- **Duration/Length:** 20 min exploration
+- **Duration:** 20 min exploration
 - **Level:** Beginner
-- **Why this matters:** Explore thousands of custom GPTs (skills) to understand capabilities, patterns, and quality indicators
+- **What:** Explore thousands of custom GPTs (packaged skills)
+- **Why:** Understand capabilities, interaction patterns, quality indicators
+- **Best for:** Anyone using ChatGPT
+- **Free:** Yes (requires ChatGPT Plus for some GPTs)
 - **Link:** [GPTs Store](https://chat.openai.com/gpts)
 
-### "Building Custom Skills for AI Assistants" Tutorial
-- **Type:** Tutorial Article
-- **Duration/Length:** 35 min read + exercises
+### Prompt Engineering Guide - Skill Patterns
+- **Type:** Documentation / Tutorial
+- **Duration:** 35 min read + exercises
 - **Level:** Intermediate
-- **Why this matters:** Step-by-step guide to creating reusable AI skills with prompts, validation, and documentation
-- **Link:** Platform-specific documentation (Anthropic, OpenAI, etc.)
+- **What:** Design patterns for creating reusable AI capabilities
+- **Why:** Learn theoretical foundations of skill design
+- **Best for:** Understanding architecture principles
+- **Free:** Yes
+- **Link:** [Prompt Engineering Guide](https://www.promptingguide.ai/)
 
 ### Awesome AI Skills - GitHub Collection
 - **Type:** Curated List
-- **Duration/Length:** 1-2 hours browsing
+- **Duration:** 1-2 hours browsing
 - **Level:** Beginner to Advanced
-- **Why this matters:** Community-curated collection of high-quality AI skills across platforms with examples and ratings
-- **Link:** Search GitHub for "awesome-ai-skills" or similar collections
+- **What:** Community-curated collection of high-quality AI skills with examples and ratings
+- **Why:** Discover what exists, avoid reinventing, learn from quality examples
+- **Best for:** Finding reusable skills across platforms
+- **Free:** Yes
+- **Link:** Search GitHub for "awesome-ai-skills" or "awesome-prompts"
 
 ### LangChain Tools Documentation
 - **Type:** Documentation
-- **Duration/Length:** 30 min read
-- **Level:** Intermediate
-- **Why this matters:** Comprehensive catalog of pre-built tools/skills for LangChain agents with integration examples
+- **Duration:** 30 min read
+- **Level:** Intermediate (Python knowledge helpful)
+- **What:** Comprehensive catalog of pre-built tools/skills for LangChain agents
+- **Why:** See code-based skill implementations, integration patterns
+- **Best for:** Python developers building AI agents
+- **Free:** Yes
 - **Link:** [LangChain Tools](https://python.langchain.com/docs/integrations/tools/)
+
+### This Repository's .github/skills/
+- **Type:** Live Code Examples
+- **Duration:** 1-2 hours studying
+- **Level:** Intermediate to Advanced
+- **What:** Production skills used by GSD framework (execute-plan, verify-phase, etc.)
+- **Why:** Real-world skill architecture, patterns you can copy
+- **Best for:** Understanding how skills work in practice
+- **Free:** Yes (this repo)
+- **Link:** [.github/skills/](../../.github/skills/)
+
+---
 
 ## Navigation
 
 **[← Previous: Agents in Depth](../04-agents/README.md)** | **[Next: Capstone Project →](../06-capstone/README.md)**
+
+---
+
+*This section is part of the AI Working Enablement & Skill Pathway. For the full learning path, see the [main README](../README.md).*
