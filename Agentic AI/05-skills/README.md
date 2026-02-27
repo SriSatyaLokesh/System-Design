@@ -10,7 +10,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Understanding AI Skills](#understanding-ai-skills)
+- [Understanding AI Skills](#understanding-ai-skills--beginner)
   - [Definition](#definition)
   - [Anatomy of a Skill](#anatomy-of-a-skill)
   - [Concrete Skill Examples](#concrete-skill-examples)
@@ -26,7 +26,7 @@
   - [Claude Skills Repository](#claude-skills-repository)
   - [Awesome AI Skills Repository](#awesome-ai-skills-repository)
   - [This Repository's Skills](#this-repositorys-skills)
-- [Creating Your Own Skills](#creating-your-own-skills)
+- [Creating Your Own Skills](#creating-your-own-skills--advanced)
   - [Skill Design Workflow](#skill-design-workflow)
   - [Testing and Iteration](#testing-and-iteration)
 - [Best Practices](#best-practices)

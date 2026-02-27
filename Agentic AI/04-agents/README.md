@@ -10,11 +10,11 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Agents vs Assistants - Deep Dive](#agents-vs-assistants---deep-dive)
-- [Agent Architecture Patterns](#agent-architecture-patterns)
-- [Delegation Patterns](#delegation-patterns)
-- [Multi-Agent Orchestration](#multi-agent-orchestration)
-- [Platform-Specific Agents](#platform-specific-agents)
+- [Agents vs Assistants - Deep Dive](#agents-vs-assistants---deep-dive--beginner)
+- [Agent Architecture Patterns](#agent-architecture-patterns--intermediate)
+- [Delegation Patterns](#delegation-patterns--intermediate)
+- [Multi-Agent Orchestration](#multi-agent-orchestration--advanced)
+- [Platform-Specific Agents](#platform-specific-agents--intermediate)
 - [Best Practices](#best-practices)
 - [Common Pitfalls](#common-pitfalls)
 - [Hands-On Exercises](#hands-on-exercises)

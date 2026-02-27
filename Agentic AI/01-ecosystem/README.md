@@ -10,12 +10,12 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [AI Assistants](#ai-assistants)
-- [AI Agents](#ai-agents)
-- [AI Copilots](#ai-copilots)
-- [Chat vs Repo AI](#chat-vs-repo-ai)
+- [AI Assistants](#ai-assistants--beginner)
+- [AI Agents](#ai-agents--intermediate)
+- [AI Copilots](#ai-copilots--beginner)
+- [Chat vs Repo AI](#chat-vs-repo-ai--intermediate)
 - [Resources](#resources)
-- [Navigation](#navigation)
+- [What's Next?](#whats-next)
 
 ## Overview
 

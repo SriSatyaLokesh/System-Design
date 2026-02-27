@@ -16,7 +16,7 @@
 - [Step-by-Step Guide](#step-by-step-guide)
 - [PRD Template](#prd-template)
 - [Resources](#resources)
-- [Navigation](#navigation)
+- [What's Next?](#whats-next)
 
 ## Overview
 

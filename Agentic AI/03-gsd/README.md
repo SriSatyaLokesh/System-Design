@@ -11,9 +11,9 @@
 
 - [Overview](#overview)
 - [The Context Rot Problem](#the-context-rot-problem)
-- [Installation & Setup](#installation--setup)
-- [Goal → Spec → Deliver Flow](#goal--spec--deliver-flow)
-- [GSD Architecture](#gsd-architecture)
+- [Installation & Setup](#installation--setup--beginner)
+- [Goal → Spec → Deliver Flow](#goal--spec--deliver-flow--intermediate)
+- [GSD Architecture](#gsd-architecture--advanced)
 - [Getting Started](#getting-started)
 - [Core Workflow](#core-workflow)
 - [Commands Reference](#commands-reference)
@@ -22,6 +22,7 @@
 - [Live Example: This Repository](#live-example-this-repository)
 - [Hands-On Exercises](#hands-on-exercises)
 - [Resources](#resources)
+- [What's Next?](#whats-next)
 
 ---
 

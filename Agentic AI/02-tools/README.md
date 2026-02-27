@@ -10,13 +10,13 @@
 ## Table of Contents
 
 - [Overview](#overview)
-- [Cursor](#cursor)
-- [GitHub Copilot](#github-copilot)
-- [Claude Code](#claude-code)
+- [Cursor](#cursor--intermediate)
+- [GitHub Copilot](#github-copilot--beginner)
+- [Claude Code](#claude-code--intermediate)
 - [Hands-On Exercises](#hands-on-exercises)
-- [Prompt Engineering Fundamentals](#prompt-engineering-fundamentals)
+- [Prompt Engineering Fundamentals](#prompt-engineering-fundamentals--beginner)
 - [Resources](#resources)
-- [Navigation](#navigation)
+- [What's Next?](#whats-next)
 
 ## Overview
 
