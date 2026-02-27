@@ -1,8 +1,7 @@
-**📍 Location:** Learning Pathway Home
-
-**📊 Total Pathway:** 6 Sections | ⏱️ Estimated time: 4-5 hours
-
-**Start here if:** You want to learn AI-assisted development from scratch
+> [!NOTE]
+> **📍 Location:** Learning Pathway Home  
+> **📊 Total Pathway:** 6 Sections | ⏱️ Estimated time: 4-5 hours  
+> **Start here if:** You want to learn AI-assisted development from scratch
 
 ---
 
@@ -17,10 +16,12 @@ By the end of this pathway, you'll be able to:
 - **Distinguish between AI tools** — Understand the differences between AI assistants (Claude, ChatGPT), AI agents (autonomous execution), and AI copilots (GitHub Copilot, Claude Code)
 - **Choose the right AI tool for your task** — Know when to use chat interfaces vs repository-based AI vs agent frameworks
 - **Delegate work to AI effectively** — Structure tasks and prompts that enable AI to deliver quality outcomes
-- **Apply the GSD Framework** — Use Goal → Spec → Deliver workflow to break down projects into AI-executable plans
+- **Apply the GSD Framework** — Use GSD (Get Shit Done) framework's Goal → Spec → Deliver workflow to break down projects into AI-executable plans
 - **Integrate AI skills and capabilities** — Leverage pre-built AI skills and understand skill packaging formats
 - **Build projects with AI assistance** — Complete a hands-on portfolio project using AI tools from start to finish
 - **Prompt engineer with purpose** — Write effective prompts that provide context and guide AI toward desired outcomes
+
+> **💡 Note:** GSD is a CLI tool that stands for "Get Shit Done" (or "Get Stuff Done"). It uses a Goal → Spec → Deliver workflow to maintain consistent AI quality across complex projects.
 
 ## Who This Is For
 
@@ -73,11 +74,11 @@ Hands-on adoption of specific AI tools with practical exercises and prompt engin
 
 ### 3. GSD Framework
 
-Learn the Goal → Spec → Deliver framework for structuring work that AI can execute. Understand how to break down projects into phases, create executable plans, and delegate tasks to AI agents with confidence.
+Learn the GSD (Get Shit Done) framework for structuring work that AI can execute. Understand how to break down projects into phases using GSD's Goal → Spec → Deliver workflow, create executable plans, and delegate tasks to AI agents with confidence.
 
 **Topics covered:**
 - GSD Framework overview (with GitHub repo link)
-- Understanding Goal → Spec → Deliver workflow
+- Understanding the Goal → Spec → Deliver workflow
 - PRD (Product Requirements Document) driven execution
 - Task decomposition strategies
 - Planning for AI execution

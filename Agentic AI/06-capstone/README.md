@@ -1,8 +1,7 @@
-**📍 Current Location:** [Pathway Home](../README.md) → 6. Capstone
-
-**📊 Progress:** Section 6 of 6 (Final Section!) | ⏱️ Estimated time: 45 minutes planning + 12-28 hours execution
-
-**Prerequisites:** All previous sections — This integrates ecosystem knowledge, tool proficiency, GSD methodology, agent delegation, and skill utilization
+> [!NOTE]
+> **📍 Current Location:** [Pathway Home](../README.md) → 6. Capstone  
+> **📊 Progress:** Section 6 of 6 (Final Section!) | ⏱️ Estimated time: 45 minutes planning + 12-28 hours execution  
+> **Prerequisites:** All previous sections — This integrates ecosystem knowledge, tool proficiency, GSD methodology, agent delegation, and skill utilization
 
 ---
 

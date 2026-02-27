@@ -1,8 +1,7 @@
-**📍 Current Location:** [Pathway Home](../README.md) → 2. Tools
-
-**📊 Progress:** Section 2 of 6 | ⏱️ Estimated time: 45 minutes
-
-**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md) — Understanding AI tool categories
+> [!NOTE]
+> **📍 Current Location:** [Pathway Home](../README.md) → 2. Tools  
+> **📊 Progress:** Section 2 of 6 | ⏱️ Estimated time: 45 minutes  
+> **Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md) — Understanding AI tool categories
 
 ---
 

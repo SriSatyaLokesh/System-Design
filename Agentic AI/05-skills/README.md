@@ -1,8 +1,7 @@
-**📍 Current Location:** [Pathway Home](../README.md) → 5. Skills
-
-**📊 Progress:** Section 5 of 6 | ⏱️ Estimated time: 25 minutes
-
-**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [4. Agents](../04-agents/README.md) — Understanding AI tools and agent patterns
+> [!NOTE]
+> **📍 Current Location:** [Pathway Home](../README.md) → 5. Skills  
+> **📊 Progress:** Section 5 of 6 | ⏱️ Estimated time: 25 minutes  
+> **Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [4. Agents](../04-agents/README.md) — Understanding AI tools and agent patterns
 
 ---
 

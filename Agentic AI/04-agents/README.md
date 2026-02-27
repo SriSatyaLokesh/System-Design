@@ -1,8 +1,7 @@
-**📍 Current Location:** [Pathway Home](../README.md) → 4. Agents
-
-**📊 Progress:** Section 4 of 6 | ⏱️ Estimated time: 35 minutes
-
-**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [3. GSD Framework](../03-gsd/README.md) — Understanding AI categories and structured workflows
+> [!NOTE]
+> **📍 Current Location:** [Pathway Home](../README.md) → 4. Agents  
+> **📊 Progress:** Section 4 of 6 | ⏱️ Estimated time: 35 minutes  
+> **Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [3. GSD Framework](../03-gsd/README.md) — Understanding AI categories and structured workflows
 
 ---
 

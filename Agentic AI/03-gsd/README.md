@@ -1,8 +1,7 @@
-**📍 Current Location:** [Pathway Home](../README.md) → 3. GSD Framework
-
-**📊 Progress:** Section 3 of 6 | ⏱️ Estimated time: 60 minutes
-
-**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [2. Tools](../02-tools/README.md) — Understanding AI tools and basic prompt engineering
+> [!NOTE]
+> **📍 Current Location:** [Pathway Home](../README.md) → 3. GSD Framework  
+> **📊 Progress:** Section 3 of 6 | ⏱️ Estimated time: 60 minutes  
+> **Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [2. Tools](../02-tools/README.md) — Understanding AI tools and basic prompt engineering
 
 ---
 

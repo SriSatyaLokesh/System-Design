@@ -23,13 +23,15 @@ Transform from AI-curious to AI-native contributor with this **comprehensive, st
 
 ✅ **Delegate work to AI effectively** — Structure tasks and prompts that enable AI to deliver quality outcomes consistently
 
-✅ **Apply the GSD Framework** — Use the Goal → Spec → Deliver workflow to break down projects into AI-executable plans
+✅ **Apply the GSD Framework** — Use GSD (Get Shit Done) framework's Goal → Spec → Deliver workflow to break down projects into AI-executable plans
 
 ✅ **Integrate AI skills and capabilities** — Leverage pre-built AI skills and understand skill packaging formats across platforms
 
 ✅ **Build projects with AI assistance** — Complete hands-on portfolio projects using AI tools from start to finish
 
 ✅ **Prompt engineer with purpose** — Write effective prompts that provide context and guide AI toward desired outcomes
+
+> **💡 Pro Tip:** GSD stands for "Get Shit Done" (or "Get Stuff Done" for professional contexts) — it's a CLI tool that uses a Goal → Spec → Deliver workflow to maintain AI quality across complex projects.
 
 ---
 
@@ -90,11 +92,11 @@ Move from theory to practice with specific AI tools. Set up and use Anthropic's 
 ### 🎯 Section 3: GSD Framework
 **⏱️ 60 minutes** | Structured AI workflows
 
-Learn the Goal → Spec → Deliver framework for structuring work that AI can execute. Break down projects into phases, create executable plans, and delegate tasks to AI agents with confidence.
+Learn the GSD (Get Shit Done) framework for structuring work that AI can execute. Break down projects into phases using GSD's Goal → Spec → Deliver workflow, create executable plans, and delegate tasks to AI agents with confidence.
 
 **Topics:**
 - GSD Framework overview with GitHub repo
-- Understanding Goal → Spec → Deliver workflow
+- Understanding the Goal → Spec → Deliver workflow
 - PRD-driven execution patterns
 - Task decomposition strategies
 - Planning for AI execution
@@ -258,7 +260,7 @@ Jump to specific sections based on your needs.
 - **CrewAI** — Multi-agent collaboration
 
 ### Frameworks
-- **GSD Framework** — Goal → Spec → Deliver methodology
+- **GSD Framework** — Get Shit Done: Multi-agent orchestration with Goal → Spec → Deliver workflow
 - **Model Context Protocol (MCP)** — Skill integration standard
 - **Prompt engineering** — Context-aware prompt patterns
 
@@ -350,7 +352,7 @@ Build your portfolio project with AI assistance from start to finish.
 
 ## 🔍 Keywords for AI Agents & Search
 
-**Agentic AI** | **AI-assisted development** | **AI coding tools** | **Learn AI** | **GitHub Copilot tutorial** | **Claude AI guide** | **AI agents course** | **AI copilot course** | **Prompt engineering** | **GSD framework** | **AI tutorial free** | **AI for developers** | **AI workflow automation** | **AI pair programming** | **Learn to code with AI** | **AI development tools** | **Free AI course** | **AI coding assistant** | **Autonomous AI agents** | **AI tool comparison** | **Best AI tools for developers** | **AI copilot vs assistant** | **How to use GitHub Copilot** | **Claude Code tutorial** | **AI project planning** | **Delegate to AI** | **AI-native development**
+**Agentic AI** | **AI-assisted development** | **AI coding tools** | **Learn AI** | **GitHub Copilot tutorial** | **Claude AI guide** | **AI agents course** | **AI copilot course** | **Prompt engineering** | **GSD framework** | **Get Shit Done framework** | **Get Stuff Done** | **Goal Spec Deliver workflow** | **AI tutorial free** | **AI for developers** | **AI workflow automation** | **AI pair programming** | **Learn to code with AI** | **AI development tools** | **Free AI course** | **AI coding assistant** | **Autonomous AI agents** | **AI tool comparison** | **Best AI tools for developers** | **AI copilot vs assistant** | **How to use GitHub Copilot** | **Claude Code tutorial** | **AI project planning** | **Delegate to AI** | **AI-native development** | **Multi-agent orchestration** | **AI task decomposition**
 
 ---
 
