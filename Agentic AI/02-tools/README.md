@@ -28,7 +28,7 @@ This section provides practical, hands-on exploration of leading AI coding tools
 
 By mastering these platforms, you'll build a versatile AI toolkit that adapts to different project needs—from quick inline suggestions to deep architectural reasoning to agentic task automation.
 
-## Cursor
+## Cursor 🟡 Intermediate
 
 ### What Is It?
 
@@ -161,7 +161,7 @@ You: "Add refresh token support to this OAuth implementation"
 - **Official Documentation:** [https://cursor.sh/docs](https://cursor.sh/docs)
 - **Explore settings** to customize AI models, keyboard shortcuts, and privacy options
 
-## GitHub Copilot
+## GitHub Copilot 🟢 Beginner
 
 ### What Is It?
 
@@ -288,7 +288,7 @@ async function loginUser(req, res) {
 - **Official Documentation:** [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)
 - **Explore Copilot Chat** for more conversational interactions with AI
 
-## Claude Code
+## Claude Code 🟡 Intermediate
 
 ### What Is It?
 
@@ -1246,7 +1246,7 @@ Once you've completed these exercises:
 
 **Remember:** Tool proficiency comes with practice. Revisit these exercises as you learn.
 
-## Prompt Engineering Fundamentals
+## Prompt Engineering Fundamentals 🟢 Beginner
 
 ### What is Prompt Engineering
 
@@ -2337,6 +2337,7 @@ AI can help you identify what's missing from your prompt!
 - **Duration/Length:** 20 min exploration
 - **Level:** Intermediate
 - **Why this matters:** Collection of Cursor rules and prompts showing advanced AI-assisted coding patterns
+- **When to explore:** After completing Exercise 1 with Cursor, looking for advanced patterns and community best practices
 - **Link:** [Cursor Directory](https://cursor.directory/)
 
 ### "Copilot Patterns" by GitHub
@@ -2344,6 +2345,7 @@ AI can help you identify what's missing from your prompt!
 - **Duration/Length:** 20 min read
 - **Level:** Beginner
 - **Why this matters:** Real-world usage patterns and tips from GitHub's team on getting the most out of Copilot
+- **Best for:** Developers using Copilot for 2+ weeks, wanting to level up from basic autocomplete to advanced patterns
 - **Link:** [GitHub Blog - Copilot](https://github.blog/tag/github-copilot/)
 
 ### "A Complete Guide to LLM Prompt Engineering" by Anthropic
