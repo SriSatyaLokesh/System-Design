@@ -110,15 +110,25 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 - ✓ **SKILL-04**: Link to Awesome AI Skills repo — Phase 3
 - ✓ **SKILL-05**: Platform skill format comparison table — Phase 3
 
-### Active
+**Phase 4: Capstone & Polish** (Completed 2026-02-27)
+- ✓ **CAP-01**: Project brief for AI-built portfolio — Phase 4
+- ✓ **CAP-02**: Your portfolio as live example — Phase 4
+- ✓ **CAP-03**: Prompts you used with strategy explanations — Phase 4
+- ✓ **CAP-04**: Step-by-step guide for learners to build portfolio — Phase 4
+- ✓ **CAP-05**: PRD template prefilled with example — Phase 4
+- ✓ **CAP-06**: Technical requirements checklist (HTML/CSS/JS, responsive, deployment) — Phase 4
+- ✓ **NAV-01**: Breadcrumbs showing current location in path — Phase 4
+- ✓ **NAV-02**: Previous/Next navigation links between sections — Phase 4
+- ✓ **NAV-03**: Mobile-responsive markdown rendering (GitHub native) — Phase 4
+- ✓ **NAV-04**: Clear progression markers (1 of 6, prerequisites noted) — Phase 4
+- ✓ **NAV-05**: Skip links for experienced users (optional paths) — Phase 4
+- ✓ **QUAL-01**: Strict curation criteria (5-7 resources max per topic) — Phase 4
+- ✓ **QUAL-02**: Each resource link includes context (what, why, when) — Phase 4
+- ✓ **QUAL-03**: Difficulty markers on content (beginner/intermediate/advanced) — Phase 4
+- ✓ **QUAL-04**: Prerequisite chains documented for each section — Phase 4
+- ✓ **QUAL-05**: "What's next" guidance at end of each section — Phase 4
 
-**6. Capstone Section**
-- [ ] **CAP-01**: Project brief (AI-built portfolio)
-- [ ] **CAP-02**: Your portfolio as live example
-- [ ] **CAP-03**: Prompts you used (with explanations)
-- [ ] **CAP-04**: Step-by-step guide for learners
-- [ ] **CAP-05**: PRD template for portfolio project
-- [ ] **CAP-06**: Technical requirements checklist
+### Active
 
 **Future Enhancements**
 - [ ] **FUTURE-01**: Jekyll theme integration
@@ -152,6 +162,10 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 | Exactly 7 curated resources | Research-backed 5-7 rule prevents link dump perception while ensuring comprehensive coverage | ✓ Implemented Phase 2 |
 | ASCII diagrams for workflows | Visual clarity without image dependencies maintains accessibility | ✓ Implemented Phase 3 |
 | Complete command reference | 32 GSD commands documented with examples enables practical adoption | ✓ Implemented Phase 3 |
+| Real portfolio example | Used SriSatyaLokesh portfolio as authentic reference (not hypothetical) with transparency about AI contributions | ✓ Implemented Phase 4 |
+| 13 actual prompts shown | Documented real prompts from development (not "example: ask for...") showing planning→implementation→polish sequence | ✓ Implemented Phase 4 |
+| Consistent navigation | Breadcrumbs, prev/next links, progression markers using GitHub-native markdown for mobile compatibility | ✓ Implemented Phase 4 |
+| 100% quality compliance | 5-7 resources per section, contextual annotations, difficulty markers, prerequisites documented | ✓ Implemented Phase 4 |
 
 ## Context
 
@@ -161,4 +175,4 @@ Target audience: Anyone wanting to work effectively with AI tools, especially de
 
 ---
 
-_Last updated: February 27, 2026 after Phase 3_
+_Last updated: February 27, 2026 after v1.0 milestone completion_
