@@ -101,7 +101,14 @@ Plans:
 - ✓ Skills section clearly distinguishes skills from tools with platform comparisons
 - ✓ All external repos (GSD, Claude Skills, Awesome AI Skills) linked with context
 
-**Plans:** 3 plans (GSD content, Agents content, Skills content)
+**Plans:** 3 plans
+
+Plans:
+- [x] 03-01-PLAN.md — GSD Framework content (Goal→Spec→Deliver, PRD-driven execution, task decomposition)
+- [x] 03-02-PLAN.md — AI Agents & Orchestration content (delegation patterns, multi-agent orchestration, platform implementations)
+- [ ] 03-03-PLAN.md — Skills & Packages content (AI skills explanation, packaging patterns, platform comparisons)
+
+**Status:** 🔄 In Progress (2/3 plans complete)
 
 ---
 
@@ -144,60 +151,19 @@ Plans:
 
 ---
 
-## Phase 5: Content Restructuring - Multi-Page Sections
-
-**Goal:** Restructure existing single-file content into multi-page folder structures with proper navigation for improved GitHub Pages experience.
-
-**Depends on:** Phase 2 (content must exist to restructure)
-
-**Requirements:** TBD (to be defined during planning)
-
-**Success Criteria:**
-- ✓ Each section (01-ecosystem through 06-capstone) has content split into logical multi-page structure
-- ✓ Each subfolder has its own README.md serving as landing page
-- ✓ GitHub Pages URLs are clean (e.g., `/01-ecosystem/assistants/` instead of monolithic README)
-- ✓ Navigation components added: within-section prev/next links between pages
-- ✓ Cross-section navigation: last page in section links to next section
-- ✓ All internal cross-references updated to new page structure
-- ✓ Mobile-responsive navigation works seamlessly in GitHub markdown rendering
-
-**Plans:** 0 plans
-
-Plans:
-- [ ] TBD (run planning workflow to break down restructuring approach)
-
-**Details:**
-
-This phase addresses the need to improve content navigability and URL structure for GitHub Pages deployment. Currently, each section has a monolithic README.md (1000-2300 lines). This phase will:
-
-1. **Analyze content structure** - Identify natural break points in existing content (e.g., Ecosystem: Assistants, Agents, Copilots, Decision Matrix as separate pages)
-2. **Design folder hierarchy** - Create subfolder structure that produces clean URLs while maintaining logical flow
-3. **Split content files** - Distribute existing content into new page files without losing information
-4. **Implement navigation** - Add prev/next links within sections, section exit navigation to next phase
-5. **Update cross-references** - Fix all internal links to point to new page locations
-6. **Verify accessibility** - Ensure navigation works on GitHub mobile rendering
-
-**Note:** Advanced skills content (Phase 6+) should be planned after this restructuring is complete.
-
----
-
 ## Coverage Summary
 
 | Phase | Requirements | Plans (est) |
 |-------|-------------|-------------|
-| Phase 1: Foundation & Structure | 3 | 1-2 |
-| Phase 2: Foundational Learning Content | 10 | 2 |
-| Phase 3: Advanced Concepts & Frameworks | 14 | 3 |
-| Phase 4: Capstone & Polish | 16 | 2-3 |
-| Phase 5: Content Restructuring - Multi-Page Sections | TBD | 2-3 |
-| **Total** | **43+** | **10-13** |
+| Phase 1: Foundation & Structure | 3 | 2/2 ✅ |
+| Phase 2: Foundational Learning Content | 10 | 2/2 ✅ |
+| Phase 3: Advanced Concepts & Frameworks | 14 | 2/3 🔄 |
+| Phase 4: Capstone & Polish | 16 | 0/3 ⬜ |
+| **Total** | **43** | **6/10** |
 
-**Current Phase:** 2 of 5 (Foundational Learning Content - Complete)  
-**Next Action:** Transition to Phase 3 or plan Phase 5 restructuring
+**Current Phase:** 3 of 4 (Advanced Concepts & Frameworks - In Progress)  
+**Next Action:** Execute 03-03-PLAN.md (Skills & Packages content)
 
 ---
 
-_Quick depth: 5 phases, 10-13 plans total_  
-_Parallelization enabled for content creation tasks_  
-_v1 scope: All requirements listed above + content restructuring_  
-_v2 scope: Jekyll integration, GitHub Pages, search, progress tracking (see REQUIREMENTS.md)_
+_Quick depth: 4 phases, 10 plans total_
