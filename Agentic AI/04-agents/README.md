@@ -1,6 +1,13 @@
-# 4. AI Agents & Orchestration
+---
+**📍 Current Location:** [Pathway Home](../README.md) → 4. Agents
 
-[← Previous: GSD Framework](../03-gsd/README.md) | [Next: Skills →](../05-skills/README.md)
+**📊 Progress:** Section 4 of 6 | ⏱️ Estimated time: 35 minutes
+
+**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [3. GSD Framework](../03-gsd/README.md) — Understanding AI categories and structured workflows
+
+---
+
+# 4. AI Agents & Orchestration
 
 ## Table of Contents
 
@@ -1863,4 +1870,24 @@ print(result)
 
 ---
 
-**[← Previous: GSD Framework](../03-gsd/README.md)** | **[Next: Skills & Packages →](../05-skills/README.md)**
+## What's Next?
+
+**✅ You've completed: AI Agents & Orchestration**
+
+You now understand:
+- Agents vs assistants (core differences and capabilities)
+- Delegation patterns for autonomous work
+- Multi-agent orchestration strategies
+- Platform-specific agent examples
+
+**▶️ Next up:** [5. Skills →](../05-skills/README.md) — Learn about pre-built AI capabilities and skill integration
+
+**Navigation:**
+- [← Previous: 3. GSD Framework](../03-gsd/README.md)
+- [Home: Learning Pathway](../README.md)
+- [Next: 5. Skills →](../05-skills/README.md)
+
+**Skip ahead** (if experienced):
+- [Capstone →](../06-capstone/README.md) — Build your portfolio project
+
+---

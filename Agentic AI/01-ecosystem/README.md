@@ -1,4 +1,13 @@
-﻿# 1. Ecosystem
+﻿---
+**📍 Current Location:** [Pathway Home](../README.md) → 1. Ecosystem
+
+**📊 Progress:** Section 1 of 6 | ⏱️ Estimated time: 25 minutes
+
+**Prerequisites:** None (start here!)
+
+---
+
+# 1. Ecosystem
 
 ## Table of Contents
 
@@ -997,6 +1006,24 @@ These communities provide real-world experiences, troubleshooting help, and upda
 
 ---
 
-## Navigation
+## What's Next?
 
-**[Next: Tools & Platforms →](../02-tools/README.md)**
+**✅ You've completed: Ecosystem Fundamentals**
+
+You now understand:
+- The three categories of AI tools (assistants, agents, copilots)
+- When to use chat-based vs repository-based AI
+- Key platforms and their strengths
+
+**▶️ Next up:** [2. Tools →](../02-tools/README.md) — Hands-on tool adoption with Cursor, GitHub Copilot, and Claude Code
+
+**Navigation:**
+- [Home: Learning Pathway](../README.md)
+- [Next: 2. Tools →](../02-tools/README.md)
+
+**Skip ahead** (if experienced):
+- [GSD Framework →](../03-gsd/README.md) — Structured AI workflows
+- [Agents →](../04-agents/README.md) — Autonomous execution patterns
+- [Capstone →](../06-capstone/README.md) — Build your portfolio
+
+---

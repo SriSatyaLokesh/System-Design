@@ -1,3 +1,12 @@
+---
+**📍 Current Location:** [Pathway Home](../README.md) → 2. Tools
+
+**📊 Progress:** Section 2 of 6 | ⏱️ Estimated time: 45 minutes
+
+**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md) — Understanding AI tool categories
+
+---
+
 # 2. Tools & Platforms
 
 ## Table of Contents
@@ -2351,6 +2360,27 @@ AI can help you identify what's missing from your prompt!
 - **Why this matters:** Free, comprehensive course on prompt engineering with interactive exercises and real examples
 - **Link:** [Learn Prompting](https://learnprompting.org/)
 
-## Navigation
+---
 
-**[← Previous: Ecosystem](../01-ecosystem/README.md)** | **[Next: GSD Framework →](../03-gsd/README.md)**
+## What's Next?
+
+**✅ You've completed: Tools & Platforms**
+
+You now have:
+- Hands-on experience with Cursor, GitHub Copilot, and Claude Code
+- Prompt engineering fundamentals
+- Practical exercises demonstrating each tool's strengths
+
+**▶️ Next up:** [3. GSD Framework →](../03-gsd/README.md) — Learn structured AI workflows for complex projects
+
+**Navigation:**
+- [← Previous: 1. Ecosystem](../01-ecosystem/README.md)
+- [Home: Learning Pathway](../README.md)
+- [Next: 3. GSD Framework →](../03-gsd/README.md)
+
+**Skip ahead** (if experienced):
+- [Agents →](../04-agents/README.md) — Autonomous execution patterns
+- [Skills →](../05-skills/README.md) — Pre-built AI capabilities
+- [Capstone →](../06-capstone/README.md) — Build your portfolio
+
+---

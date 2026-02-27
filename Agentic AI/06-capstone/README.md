@@ -1,3 +1,12 @@
+---
+**📍 Current Location:** [Pathway Home](../README.md) → 6. Capstone
+
+**📊 Progress:** Section 6 of 6 (Final Section!) | ⏱️ Estimated time: 45 minutes planning + 12-28 hours execution
+
+**Prerequisites:** All previous sections — This integrates ecosystem knowledge, tool proficiency, GSD methodology, agent delegation, and skill utilization
+
+---
+
 # 6. Capstone Project
 
 ## Table of Contents
@@ -2528,6 +2537,32 @@ Provide a checklist for validating your PRD before implementation: completeness 
 - **Why this matters:** See how other developers present their portfolio projects - learn from great examples
 - **Link:** [Dev.to #showdev tag](https://dev.to/t/showdev)
 
-## Navigation
+---
 
-**[← Previous: Skills & Packages](../05-skills/README.md)**
+## Pathway Complete! 🎉
+
+**✅ You've completed all 6 sections of the AI Working Enablement & Skill Pathway**
+
+You now have:
+- **Ecosystem understanding** — Know when to use assistants, agents, and copilots
+- **Tool proficiency** — Hands-on experience with Cursor, GitHub Copilot, Claude Code
+- **GSD methodology** — Structured workflows for complex AI-assisted projects
+- **Agent delegation skills** — Patterns for autonomous execution and orchestration
+- **Skill utilization** — Understand capability packaging and integration
+- **Portfolio project** — Real deliverable demonstrating your AI-native workflow
+
+**What's Next?**
+
+1. **Complete your capstone** — Build the portfolio project using tools and patterns from this pathway
+2. **Share your work** — Post to Dev.to, LinkedIn, or your personal site
+3. **Keep learning** — Revisit sections as you encounter new use cases
+4. **Contribute back** — Share your learnings with the community
+
+**Navigation:**
+- [← Previous: 5. Skills](../05-skills/README.md)
+- [Home: Learning Pathway](../README.md)
+- [Start Over: 1. Ecosystem](../01-ecosystem/README.md)
+
+---
+
+*Congratulations on completing the AI Working Enablement & Skill Pathway! You're now equipped to build with AI as a force multiplier.*

@@ -1,3 +1,12 @@
+---
+**📍 Location:** Learning Pathway Home
+
+**📊 Total Pathway:** 6 Sections | ⏱️ Estimated time: 4-5 hours
+
+**Start here if:** You want to learn AI-assisted development from scratch
+
+---
+
 # AI Working Enablement & Skill Pathway
 
 A curated learning resource hub for working effectively with AI tools, agents, and copilots. This pathway takes you from understanding the AI ecosystem to building real projects with AI assistance.
@@ -136,4 +145,30 @@ Most sections include exercises, examples, or reference implementations. You'll 
 
 ---
 
-**Ready to begin?** Start with [1. Ecosystem](01-ecosystem/README.md) to understand the AI landscape.
+## Pathway Overview
+
+**Total Time:** ~4-5 hours across 6 sections  
+**Approach:** Sequential learning (each section builds on previous)  
+**Outcome:** Complete portfolio project demonstrating AI-assisted development
+
+| Section | Topic | Time | Prerequisites |
+|---------|-------|------|---------------|
+| 1 | [Ecosystem](01-ecosystem/README.md) | 25 min | None |
+| 2 | [Tools](02-tools/README.md) | 45 min | Section 1 |
+| 3 | [GSD Framework](03-gsd/README.md) | 60 min | Sections 1-2 |
+| 4 | [Agents](04-agents/README.md) | 35 min | Sections 1-3 |
+| 5 | [Skills](05-skills/README.md) | 25 min | Sections 1-4 |
+| 6 | [Capstone](06-capstone/README.md) | 45 min | All previous |
+
+---
+
+## What's Next?
+
+**▶️ Start learning:** [1. Ecosystem →](01-ecosystem/README.md) — Understanding the AI landscape
+
+**Skip ahead** (if experienced):
+- [Tools →](02-tools/README.md) — Hands-on tool adoption
+- [GSD Framework →](03-gsd/README.md) — Structured AI workflows
+- [Capstone →](06-capstone/README.md) — Build your portfolio
+
+---

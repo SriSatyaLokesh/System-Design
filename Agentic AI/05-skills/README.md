@@ -1,6 +1,13 @@
-# 5. AI Skills & Capabilities
+---
+**📍 Current Location:** [Pathway Home](../README.md) → 5. Skills
 
-[← Previous: Agents](../04-agents/README.md) | [Next: Capstone →](../06-capstone/README.md)
+**📊 Progress:** Section 5 of 6 | ⏱️ Estimated time: 25 minutes
+
+**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [4. Agents](../04-agents/README.md) — Understanding AI tools and agent patterns
+
+---
+
+# 5. AI Skills & Capabilities
 
 ## Table of Contents
 
@@ -1176,9 +1183,22 @@ changelog:
 
 ---
 
-## Navigation
+## What's Next?
 
-**[← Previous: Agents in Depth](../04-agents/README.md)** | **[Next: Capstone Project →](../06-capstone/README.md)**
+**✅ You've completed: AI Skills & Capabilities**
+
+You now understand:
+- What AI skills are and how they work
+- Skill packaging formats and integration patterns
+- Platform-specific skill implementations
+- How to create and test your own skills
+
+**▶️ Next up:** [6. Capstone →](../06-capstone/README.md) — Build a complete portfolio project demonstrating everything you've learned
+
+**Navigation:**
+- [← Previous: 4. Agents](../04-agents/README.md)
+- [Home: Learning Pathway](../README.md)
+- [Next: 6. Capstone →](../06-capstone/README.md)
 
 ---
 

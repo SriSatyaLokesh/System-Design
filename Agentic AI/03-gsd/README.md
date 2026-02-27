@@ -1,6 +1,13 @@
-# 3. GSD Framework
+---
+**📍 Current Location:** [Pathway Home](../README.md) → 3. GSD Framework
 
-[← Previous: Tools](../02-tools/README.md) | [Next: Agents →](../04-agents/README.md)
+**📊 Progress:** Section 3 of 6 | ⏱️ Estimated time: 60 minutes
+
+**Prerequisites:** [1. Ecosystem](../01-ecosystem/README.md), [2. Tools](../02-tools/README.md) — Understanding AI tools and basic prompt engineering
+
+---
+
+# 3. GSD Framework
 
 ## Table of Contents
 
@@ -3437,25 +3444,30 @@ git log --oneline --grep="docs("
 
 ---
 
-**📍 You are here:** Section 3 of 6
+---
 
-**Progress:** 3/6 complete (50%)
+## What's Next?
 
-**What you learned:**
-- ✓ What GSD is (multi-agent CLI orchestrator)
-- ✓ Context rot problem and solution
-- ✓ Goal → Spec → Deliver workflow
-- ✓ Installation and setup
-- ✓ All 32 commands
-- ✓ Hands-on project creation
+**✅ You've completed: GSD Framework**
 
-**What''s next:**
-- Section 4: AI Agents (delegation patterns, multi-agent orchestration)
-- Section 5: AI Skills (capabilities, packaging, integration)
-- Section 6: Capstone (build your portfolio with AI)
+You now understand:
+- Context rot problem and GSD's solution
+- Goal → Spec → Deliver workflow
+- Multi-agent orchestration patterns
+- 32 GSD commands and when to use them
+- How to port GSD to GitHub Copilot
 
-**Ready to continue?** [Explore Agents →](../04-agents/README.md)
+**▶️ Next up:** [4. Agents →](../04-agents/README.md) — Deep dive into AI agent delegation and orchestration patterns
+
+**Navigation:**
+- [← Previous: 2. Tools](../02-tools/README.md)
+- [Home: Learning Pathway](../README.md)
+- [Next: 4. Agents →](../04-agents/README.md)
+
+**Skip ahead** (if experienced):
+- [Skills →](../05-skills/README.md) — Pre-built AI capabilities
+- [Capstone →](../06-capstone/README.md) — Build your portfolio
 
 ---
 
-*This content is part of the AI Working Enablement & Skill Pathway—a curated learning resource for working effectively with AI tools.*
+*This section is part of the AI Working Enablement & Skill Pathway. For the full learning path, see the [main README](../README.md).*
