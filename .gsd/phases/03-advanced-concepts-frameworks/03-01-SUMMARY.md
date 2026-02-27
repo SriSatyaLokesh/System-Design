@@ -18,12 +18,19 @@ duration: 45 minutes
 
 ## Content Statistics
 
+### Initial Delivery (Original GSD Framework)
 - **Lines:** 1,796 (target: 1500-2000 ✓)
 - **Sections:** 13 major sections
 - **Commands documented:** 32 (complete reference)
 - **Exercises:** 4 progressive hands-on exercises
 - **Resources:** 7 curated resources with context
 - **Diagrams:** 6 ASCII diagrams (context windows, agent orchestration, wave execution)
+
+### Supplemental Addition (GSD for GitHub Copilot)
+- **Lines Added:** 1,077 (commit 8955f3e)
+- **Total File Size:** 3,461 lines
+- **New Major Section:** "GSD for GitHub Copilot" (between Advanced Features and Live Example)
+- **Content:** Installation, 27 prompts, 11 agents, 12 skills, 9 instructions, workflow examples, troubleshooting
 
 ## Requirements Satisfied
 
@@ -187,6 +194,78 @@ Referenced this repo''s .gsd/ folder throughout:
    - Update STATE.md progress
    - Verify all Phase 3 requirements satisfied
 
+## Supplemental Work: GSD for GitHub Copilot Section
+
+**Added:** 2026-02-27 (after initial plan completion)
+**Commit:** 8955f3e
+**Lines:** +1,077 (total file now 3,461 lines)
+
+### Content Added
+
+Comprehensive section on the GitHub Copilot port of GSD Framework:
+
+1. **Overview & Installation** (250 lines)
+   - Port lineage (Original → Kilo Code → GitHub Copilot)
+   - PowerShell & Bash setup scripts
+   - VS Code configuration
+   - Project structure with 58 files explained
+
+2. **Prompt Files** (150 lines)
+   - 27 prompt files documented
+   - Usage with `#file:` syntax
+   - Core workflow, discovery, planning, utility prompts
+
+3. **Custom Agents** (140 lines)
+   - 11 specialized agents (mapper, debugger, executor, planner, verifier, etc.)
+   - Agent structure and anatomy
+   - When each agent is used
+
+4. **Agent Skills** (180 lines)
+   - 12 skills explained with anatomy
+   - 3 integration patterns with examples
+   - Creating custom skills guide
+
+5. **Instruction Files** (100 lines)
+   - 9 instruction files documented
+   - How instructions apply automatically
+   - Git integration example
+
+6. **Copilot-Specific Tools** (120 lines)
+   - Codebase exploration (codebase, usages, textSearch)
+   - MCP server integration (Context7, HumanAgent, Exa, Brave)
+
+7. **Complete Workflow Example** (170 lines)
+   - Task Management API end-to-end
+   - 6 steps from init to transition
+
+8. **Marketplace & Extensions** (90 lines)
+   - Compatible GitHub marketplace agents
+   - Installing and creating custom agents
+
+9. **Custom Skills Guide** (110 lines)
+   - Creating domain-specific skills
+   - Security skill example
+   - 3 integration patterns
+
+10. **Tool Mapping Reference** (60 lines)
+    - Complete Original → Copilot translation table
+
+11. **Best Practices & Troubleshooting** (190 lines)
+    - 5 best practices with examples
+    - 6 common issues with fixes
+
+12. **Resources & Comparison** (50 lines)
+    - 5 key resources
+    - When to use each GSD version
+
+### Rationale for Addition
+
+User requested comprehensive coverage of GSD for GitHub Copilot after initial plan completion. This port is significant because:
+- Many learners use VS Code with GitHub Copilot (not Claude Code)
+- Different integration mechanism (prompt files, agents, skills)
+- Growing community around the Copilot port
+- Demonstrates how GSD methodology adapts across platforms
+
 ## Lessons Learned
 
 ### What Worked Well
@@ -195,12 +274,14 @@ Referenced this repo''s .gsd/ folder throughout:
 - **ASCII diagrams:** Text-based visuals work well for context windows, agent orchestration
 - **Complete rewrite:** Starting fresh was faster than trying to salvage generic philosophy
 - **Progressive exercises:** Building from install → create → execute → understand git workflow
+- **Supplemental additions:** Adding GSD for Copilot after initial plan showed flexibility to enhance content based on user feedback
 
 ### Challenges
 
 - **Balancing depth vs breadth:** 32 commands to document required concise but complete descriptions
 - **Avoiding repetition:** GSD concepts appear in multiple sections (architecture, workflow, examples)
 - **Live example integration:** Ensuring actual file paths and content matched repo structure
+- **Multi-version coverage:** Documenting both original GSD and GitHub Copilot port without confusion
 
 ### Reusable Patterns
 
@@ -208,3 +289,4 @@ Referenced this repo''s .gsd/ folder throughout:
 - Exercise structure (Goal → Steps → Success Criteria → Reflection)
 - Resource annotation format (What, Why, Best for, Time, Free status)
 - Before/after comparison boxes for workflow improvements
+- Tool mapping tables for platform comparisons

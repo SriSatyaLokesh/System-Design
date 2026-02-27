@@ -77,28 +77,24 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 
 ### Validated
 
-(None yet — new content hub)
+**Phase 1: Foundation & Structure** (Completed 2026-02-25)
+- ✓ **STRUCT-01**: Six numbered sections (1. Ecosystem → 6. Capstone) — Phase 1
+- ✓ **STRUCT-02**: README.md in Agentic AI/ root with pathway overview — Phase 1
+- ✓ **STRUCT-03**: Each section has its own README.md with resources — Phase 1
+
+**Phase 2: Foundational Learning Content** (Completed 2026-02-26)
+- ✓ **ECO-01**: Explain AI assistants (Claude, ChatGPT) with use cases — Phase 2
+- ✓ **ECO-02**: Explain AI agents (autonomous execution) with examples — Phase 2
+- ✓ **ECO-03**: Explain AI copilots (GitHub Copilot, Claude Code) with integration patterns — Phase 2
+- ✓ **ECO-04**: Compare chat vs repo AI with decision matrix — Phase 2
+- ✓ **ECO-05**: Curated resource links (5-7 max) with context — Phase 2
+- ✓ **TOOL-01**: Cursor tool guide with setup and workflows — Phase 2
+- ✓ **TOOL-02**: GitHub Copilot guide with installation and usage patterns — Phase 2
+- ✓ **TOOL-03**: Claude Code guide with Skillshare link and learnings — Phase 2
+- ✓ **TOOL-04**: Hands-on exercises for each tool with outcomes — Phase 2
+- ✓ **TOOL-05**: Prompt engineering basics with examples and anti-patterns — Phase 2
 
 ### Active
-
-**Content Structure**
-- [ ] **STRUCT-01**: Six numbered sections (1. Ecosystem → 6. Capstone)
-- [ ] **STRUCT-02**: README.md in Agentic AI/ root with pathway overview
-- [ ] **STRUCT-03**: Each section has its own README.md with resources
-
-**1. Ecosystem Section**
-- [ ] **ECO-01**: Explain AI assistants (Claude, ChatGPT)
-- [ ] **ECO-02**: Explain AI agents (autonomous execution)
-- [ ] **ECO-03**: Explain AI copilots (GitHub Copilot, Claude Code)
-- [ ] **ECO-04**: Compare chat vs repo AI
-- [ ] **ECO-05**: Resources for each platform
-
-**2. Tools Section**
-- [ ] **TOOL-01**: Cursor tool guide
-- [ ] **TOOL-02**: GitHub Copilot guide
-- [ ] **TOOL-03**: Claude Code guide (with Skillshare link)
-- [ ] **TOOL-04**: Hands-on exercises for each tool
-- [ ] **TOOL-05**: Prompt engineering basics
 
 **3. GSD Framework Section**
 - [ ] **GSD-01**: Link to GSD Framework GitHub repo
@@ -155,6 +151,9 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 | Jekyll theme later | Start simple, enhance when content is stable | — Pending |
 | Capstone = portfolio builder | Practical project with your example as reference | ✓ Approved |
 | Feature branch workflow | Protect main branch, enable PR reviews | ✓ Approved |
+| Unified comparison framework | 6 consistent dimensions (Autonomy, Integration, Interaction, Persistence, Best For, Workflow) provide cognitive clarity | ✓ Implemented Phase 2 |
+| Text-based ASCII diagrams | Maintains accessibility and GitHub mobile compatibility without image dependencies | ✓ Implemented Phase 2 |
+| Exactly 7 curated resources | Research-backed 5-7 rule prevents link dump perception while ensuring comprehensive coverage | ✓ Implemented Phase 2 |
 
 ## Context
 
@@ -164,4 +163,4 @@ Target audience: Anyone wanting to work effectively with AI tools, especially de
 
 ---
 
-_Last updated: February 25, 2026 after initialization_
+_Last updated: February 27, 2026 after Phase 2_
