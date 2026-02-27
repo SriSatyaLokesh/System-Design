@@ -48,6 +48,16 @@ None
 
 ---
 
+## Accumulated Context
+
+### Pending Todos
+
+**Count:** 3 todos in `.gsd/todos/pending/`
+
+Run `/check-todos.md` to view all pending items.
+
+---
+
 ## Notes
 
 Phase 3 verified complete: GSD Framework (3,461 lines with Copilot port), Agents (1,866 lines), and Skills (912 lines) sections all implemented with comprehensive content, concrete examples, exercises, and resources. All 14 requirements verified satisfied.
