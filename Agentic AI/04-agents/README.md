@@ -75,7 +75,7 @@ Answer    Respond to   Proactive  Multi-step   Unsupervised
 
 ---
 
-## Agents vs Assistants - Deep Dive
+## Agents vs Assistants - Deep Dive 🟢 Beginner
 
 ### Capability Comparison
 
@@ -335,7 +335,7 @@ Assistant requires you to orchestrate. Agent orchestrates itself.
 
 ---
 
-## Agent Architecture Patterns
+## Agent Architecture Patterns 🟡 Intermediate
 
 ### Core Components
 
@@ -597,7 +597,7 @@ Agent attempts:
 
 ---
 
-## Delegation Patterns
+## Delegation Patterns 🟡 Intermediate
 
 ### Task Decomposition Pattern
 
@@ -981,7 +981,7 @@ Format:
 
 ---
 
-## Multi-Agent Orchestration
+## Multi-Agent Orchestration 🔴 Advanced
 
 ### Why Multiple Agents?
 
@@ -1203,7 +1203,7 @@ User: "Execute phase 1"
 
 ---
 
-## Platform-Specific Agents
+## Platform-Specific Agents 🟡 Intermediate
 
 ### Claude Projects
 
