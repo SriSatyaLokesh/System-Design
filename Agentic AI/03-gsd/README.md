@@ -244,7 +244,7 @@ GSD uses **multi-agent orchestration** with fresh contexts:
 
 ---
 
-## Installation & Setup
+## Installation & Setup 🟢 Beginner
 
 ### Prerequisites
 
@@ -347,7 +347,7 @@ GSD behavior is controlled by `.gsd/config.json`:
 
 ---
 
-## Goal → Spec → Deliver Flow
+## Goal → Spec → Deliver Flow 🟡 Intermediate
 
 The GSD Framework follows a three-stage workflow that mirrors professional software development practices:
 
@@ -625,7 +625,7 @@ Output: Complete auth system with tests (60 minutes)
 
 ---
 
-## GSD Architecture
+## GSD Architecture 🔴 Advanced
 
 ### Multi-Agent System Design
 
@@ -1303,7 +1303,7 @@ Ready to continue to Phase 3? [yes/no/pause]:
 
 ---
 
-## Commands Reference
+## Commands Reference 🟢 Beginner
 
 GSD provides 32 commands organized by workflow stage:
 
@@ -1727,7 +1727,7 @@ Model Profile: balanced
 
 ---
 
-## GSD for GitHub Copilot
+## GSD for GitHub Copilot 🟡 Intermediate
 
 ### Overview
 
