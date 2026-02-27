@@ -94,27 +94,23 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 - ✓ **TOOL-04**: Hands-on exercises for each tool with outcomes — Phase 2
 - ✓ **TOOL-05**: Prompt engineering basics with examples and anti-patterns — Phase 2
 
+**Phase 3: Advanced Concepts & Frameworks** (Completed 2026-02-27)
+- ✓ **GSD-01**: Link to GSD Framework GitHub repo — Phase 3
+- ✓ **GSD-02**: Embed/link GSD explainer video — Phase 3
+- ✓ **GSD-03**: Explain Goal → Spec → Deliver flow — Phase 3
+- ✓ **GSD-04**: PRD-driven execution examples — Phase 3
+- ✓ **GSD-05**: Task decomposition guide — Phase 3
+- ✓ **AGENT-01**: What are AI agents vs assistants — Phase 3
+- ✓ **AGENT-02**: Agent delegation patterns — Phase 3
+- ✓ **AGENT-03**: Multi-agent orchestration concepts — Phase 3
+- ✓ **AGENT-04**: Platform-specific agent examples — Phase 3
+- ✓ **SKILL-01**: Explain AI skills/capabilities — Phase 3
+- ✓ **SKILL-02**: Skill packaging and integration — Phase 3
+- ✓ **SKILL-03**: Link to Claude Skills repo — Phase 3
+- ✓ **SKILL-04**: Link to Awesome AI Skills repo — Phase 3
+- ✓ **SKILL-05**: Platform skill format comparison table — Phase 3
+
 ### Active
-
-**3. GSD Framework Section**
-- [ ] **GSD-01**: Link to GSD Framework GitHub repo
-- [ ] **GSD-02**: Embed/link GSD explainer video
-- [ ] **GSD-03**: Explain Goal → Spec → Deliver flow
-- [ ] **GSD-04**: PRD-driven execution examples
-- [ ] **GSD-05**: Task decomposition guide
-
-**4. Agents Section**
-- [ ] **AGENT-01**: What are AI agents vs assistants
-- [ ] **AGENT-02**: Agent delegation patterns
-- [ ] **AGENT-03**: Multi-agent orchestration concepts
-- [ ] **AGENT-04**: Platform-specific agent examples
-
-**5. Skills Section**
-- [ ] **SKILL-01**: Explain AI skills/capabilities
-- [ ] **SKILL-02**: Skill packaging and integration
-- [ ] **SKILL-03**: Link to Claude Skills repo
-- [ ] **SKILL-04**: Link to Awesome AI Skills repo
-- [ ] **SKILL-05**: Platform skill format comparison table
 
 **6. Capstone Section**
 - [ ] **CAP-01**: Project brief (AI-built portfolio)
@@ -154,6 +150,8 @@ Quality bar: Clear enough that someone new to AI tools can follow the path indep
 | Unified comparison framework | 6 consistent dimensions (Autonomy, Integration, Interaction, Persistence, Best For, Workflow) provide cognitive clarity | ✓ Implemented Phase 2 |
 | Text-based ASCII diagrams | Maintains accessibility and GitHub mobile compatibility without image dependencies | ✓ Implemented Phase 2 |
 | Exactly 7 curated resources | Research-backed 5-7 rule prevents link dump perception while ensuring comprehensive coverage | ✓ Implemented Phase 2 |
+| ASCII diagrams for workflows | Visual clarity without image dependencies maintains accessibility | ✓ Implemented Phase 3 |
+| Complete command reference | 32 GSD commands documented with examples enables practical adoption | ✓ Implemented Phase 3 |
 
 ## Context
 
@@ -163,4 +161,4 @@ Target audience: Anyone wanting to work effectively with AI tools, especially de
 
 ---
 
-_Last updated: February 27, 2026 after Phase 2_
+_Last updated: February 27, 2026 after Phase 3_
