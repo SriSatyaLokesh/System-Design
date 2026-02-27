@@ -13,6 +13,7 @@
 - [Core Workflow](#core-workflow)
 - [Commands Reference](#commands-reference)
 - [Advanced Features](#advanced-features)
+- [GSD for GitHub Copilot](#gsd-for-github-copilot)
 - [Live Example: This Repository](#live-example-this-repository)
 - [Hands-On Exercises](#hands-on-exercises)
 - [Resources](#resources)
@@ -1716,6 +1717,1082 @@ Model Profile: balanced
 - `require_verification`: Force manual checks
 - `auto_retry_failed_tasks`: Retry on errors
 - `checkpoint_frequency`: per_wave | per_plan | per_task
+
+---
+
+## GSD for GitHub Copilot
+
+### Overview
+
+**GSD for GitHub Copilot** is a complete port of the GSD framework that brings the same powerful context engineering and multi-agent orchestration to **VS Code with GitHub Copilot**.
+
+🔗 **Repository:** [github.com/Punal100/get-stuff-done-for-github-copilot](https://github.com/Punal100/get-stuff-done-for-github-copilot)
+
+**Port Lineage:**
+```
+Original GSD (Claude Code) by glittercowboy
+    ↓
+GSD for Kilo Code by punal100
+    ↓
+GSD for GitHub Copilot by punal100
+```
+
+Instead of slash commands (`/gsd:new-project`) used in Claude Code, this port uses:
+- **Prompt Files** (`.github/prompts/*.prompt.md`)
+- **Custom Agents** (`.github/agents/*.agent.md`)
+- **Agent Skills** (`.github/skills/*/SKILL.md`)
+- **Instructions** (`.github/instructions/*.instructions.md`)
+
+All the core GSD methodology remains the same—only the integration mechanism changes.
+
+### Why GitHub Copilot Version?
+
+**Use GSD for GitHub Copilot if you:**
+- Work primarily in VS Code
+- Have GitHub Copilot subscription
+- Want GSD workflow without CLI tools
+- Prefer native IDE integration
+- Use Copilot for code generation
+
+**Use Original GSD if you:**
+- Use Claude Code, OpenCode, or Gemini CLI
+- Want the most mature version
+- Prefer command-line workflow
+- Need the latest features first
+
+### Installation & Setup
+
+#### Prerequisites
+
+- **VS Code** with GitHub Copilot extension
+- **GitHub Copilot** subscription (Individual, Business, or Enterprise)
+- **Git** for version control
+
+#### Quick Setup (PowerShell/Windows)
+
+```powershell
+# Navigate to your project
+cd your-project
+
+# Clone the GSD template
+git clone https://github.com/Punal100/get-stuff-done-for-github-copilot.git gsd-template
+
+# Copy to your project
+Copy-Item -Recurse gsd-template\.github .\
+Copy-Item -Recurse gsd-template\.gsd .\
+
+# Clean up
+Remove-Item -Recurse -Force gsd-template
+
+# Reload VS Code
+code .
+```
+
+#### Quick Setup (Bash/Linux/Mac)
+
+```bash
+# Navigate to your project
+cd your-project
+
+# Clone the GSD template
+git clone https://github.com/Punal100/get-stuff-done-for-github-copilot.git gsd-template
+
+# Copy to your project
+cp -r gsd-template/.github ./
+cp -r gsd-template/.gsd ./
+
+# Clean up
+rm -rf gsd-template
+
+# Reload VS Code
+code .
+```
+
+#### VS Code Configuration
+
+Enable GitHub Copilot customization features in your VS Code settings:
+
+```json
+{
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.promptFilesLocations": [".github/prompts"],
+  "chat.instructionsFilesLocations": [".github/instructions"]
+}
+```
+
+**To configure:**
+1. Open Settings (Ctrl+, or Cmd+,)
+2. Search for "copilot chat"
+3. Enable "Code Generation: Use Instruction Files"
+4. Or edit `settings.json` directly
+
+### Project Structure
+
+After installation, your project will have:
+
+```
+your-project/
+├── .github/
+│   ├── agents/                    # 11 Custom Agents
+│   │   ├── gsd-executor.agent.md
+│   │   ├── gsd-planner.agent.md
+│   │   ├── gsd-verifier.agent.md
+│   │   ├── gsd-debugger.agent.md
+│   │   ├── gsd-codebase-mapper.agent.md
+│   │   ├── gsd-integration-checker.agent.md
+│   │   ├── gsd-phase-researcher.agent.md
+│   │   ├── gsd-plan-checker.agent.md
+│   │   ├── gsd-project-researcher.agent.md
+│   │   ├── gsd-research-synthesizer.agent.md
+│   │   └── gsd-roadmapper.agent.md
+│   │
+│   ├── prompts/                   # 27 Prompt Files
+│   │   ├── new-project.prompt.md
+│   │   ├── plan-phase.prompt.md
+│   │   ├── execute-phase.prompt.md
+│   │   ├── verify-work.prompt.md
+│   │   ├── debug.prompt.md
+│   │   ├── quick.prompt.md
+│   │   ├── progress.prompt.md
+│   │   ├── add-phase.prompt.md
+│   │   ├── add-todo.prompt.md
+│   │   ├── audit-milestone.prompt.md
+│   │   ├── check-todos.prompt.md
+│   │   ├── complete-milestone.prompt.md
+│   │   ├── discuss-phase.prompt.md
+│   │   ├── insert-phase.prompt.md
+│   │   ├── map-codebase.prompt.md
+│   │   ├── next.prompt.md
+│   │   ├── plan-brownfield.prompt.md
+│   │   ├── plan-greenfield.prompt.md
+│   │   ├── recover.prompt.md
+│   │   ├── research-domain.prompt.md
+│   │   ├── roadmap-brownfield.prompt.md
+│   │   ├── roadmap-greenfield.prompt.md
+│   │   ├── set-mode.prompt.md
+│   │   ├── settings.prompt.md
+│   │   ├── surface-assumptions.prompt.md
+│   │   ├── transition.prompt.md
+│   │   └── verify-phase.prompt.md
+│   │
+│   ├── skills/                    # 12 Agent Skills
+│   │   ├── complete-milestone/SKILL.md
+│   │   ├── diagnose-issues/SKILL.md
+│   │   ├── discovery-phase/SKILL.md
+│   │   ├── discuss-phase/SKILL.md
+│   │   ├── execute-phase/SKILL.md
+│   │   ├── execute-plan/SKILL.md
+│   │   ├── list-phase-assumptions/SKILL.md
+│   │   ├── map-codebase/SKILL.md
+│   │   ├── resume-project/SKILL.md
+│   │   ├── transition/SKILL.md
+│   │   ├── verify-phase/SKILL.md
+│   │   └── verify-work/SKILL.md
+│   │
+│   ├── instructions/              # 9 Instruction Files
+│   │   ├── checkpoints.instructions.md
+│   │   ├── continuation-format.instructions.md
+│   │   ├── git-integration.instructions.md
+│   │   ├── model-profiles.instructions.md
+│   │   ├── planning-config.instructions.md
+│   │   ├── questioning.instructions.md
+│   │   ├── tdd.instructions.md
+│   │   ├── ui-brand.instructions.md
+│   │   └── verification-patterns.instructions.md
+│   │
+│   └── copilot-instructions.md    # Optional global instructions
+│
+└── .gsd/                          # GSD metadata (created per-project)
+    ├── PROJECT.md                 # Project vision
+    ├── REQUIREMENTS.md            # Scoped requirements
+    ├── ROADMAP.md                 # Phase structure
+    ├── STATE.md                   # Current position
+    ├── config.json                # GSD settings
+    ├── phases/                    # Phase-specific files
+    ├── codebase/                  # Codebase analysis
+    ├── research/                  # Domain research
+    ├── milestones/                # Archived milestones
+    ├── debug/                     # Debug sessions
+    ├── quick/                     # Quick mode tasks
+    └── todos/                     # Captured ideas
+```
+
+### Using Prompt Files
+
+**Prompt Files** replace slash commands. Instead of typing `/gsd:new-project`, you use:
+
+```
+#file:new-project.prompt.md
+```
+
+**Core Workflow Prompts:**
+
+| Prompt File | Purpose | When to Use |
+|-------------|---------|-------------|
+| `#file:new-project.prompt.md` | Initialize project | Starting new project |
+| `#file:plan-phase.prompt.md` | Create phase plans | Break down phase into executable tasks |
+| `#file:execute-phase.prompt.md` | Execute phase plans | Run all plans in a phase |
+| `#file:verify-phase.prompt.md` | Verify phase goals | Check work matches requirements |
+| `#file:verify-work.prompt.md` | User acceptance testing | Conversational testing |
+| `#file:debug.prompt.md` | Debug systematically | When tests fail |
+| `#file:transition.prompt.md` | Move to next phase | Complete current phase |
+
+**Usage Example:**
+
+```
+User: #file:new-project.prompt.md
+      
+      I want to build a task management API with user authentication,
+      task CRUD, and deadline notifications.
+
+Copilot: [Runs new-project prompt, creates PROJECT.md, ROADMAP.md, etc.]
+```
+
+**Discovery & Planning Prompts:**
+
+| Prompt | Purpose |
+|--------|---------|
+| `#file:roadmap-greenfield.prompt.md` | Create roadmap for new project |
+| `#file:roadmap-brownfield.prompt.md` | Create roadmap for existing codebase |
+| `#file:research-domain.prompt.md` | Research domain/ecosystem |
+| `#file:map-codebase.prompt.md` | Analyze existing codebase |
+| `#file:discuss-phase.prompt.md` | Clarify implementation preferences |
+| `#file:surface-assumptions.prompt.md` | Surface AI assumptions before planning |
+
+**Utility Prompts:**
+
+| Prompt | Purpose |
+|--------|---------|
+| `#file:progress.prompt.md` | Check project status |
+| `#file:next.prompt.md` | What should I do next? |
+| `#file:quick.prompt.md` | Quick task with GSD guarantees |
+| `#file:add-phase.prompt.md` | Add new phase to roadmap |
+| `#file:insert-phase.prompt.md` | Insert phase mid-roadmap |
+| `#file:add-todo.prompt.md` | Capture idea for later |
+| `#file:check-todos.prompt.md` | Review captured todos |
+| `#file:settings.prompt.md` | View GSD configuration |
+| `#file:set-mode.prompt.md` | Change GSD mode |
+| `#file:audit-milestone.prompt.md` | Review milestone before completion |
+| `#file:complete-milestone.prompt.md` | Ship milestone, tag release |
+| `#file:recover.prompt.md` | Recover from interrupted work |
+
+### Using Custom Agents
+
+**Custom Agents** are specialized AI personas that execute specific GSD workflows.
+
+**11 Available Agents:**
+
+| Agent | Purpose | Trigger |
+|-------|---------|---------|
+| 🗺️ **gsd-codebase-mapper** | Analyze codebase structure | `@gsd-codebase-mapper` |
+| 🐛 **gsd-debugger** | Scientific debugging | `@gsd-debugger` |
+| ⚡ **gsd-executor** | Execute PLAN.md atomically | `@gsd-executor` |
+| 🔗 **gsd-integration-checker** | Verify cross-phase integration | `@gsd-integration-checker` |
+| 🔬 **gsd-phase-researcher** | Research phase implementation | `@gsd-phase-researcher` |
+| ✅ **gsd-plan-checker** | Verify plans before execution | `@gsd-plan-checker` |
+| 📋 **gsd-planner** | Create executable plans | `@gsd-planner` |
+| 🌐 **gsd-project-researcher** | Research domain ecosystem | `@gsd-project-researcher` |
+| 📊 **gsd-research-synthesizer** | Synthesize research outputs | `@gsd-research-synthesizer` |
+| 🛤️ **gsd-roadmapper** | Create project roadmaps | `@gsd-roadmapper` |
+| 🔍 **gsd-verifier** | Goal-backward verification | `@gsd-verifier` |
+
+**Agent Structure:**
+
+Each agent is defined in a `.agent.md` file with:
+
+```markdown
+---
+name: "⚡ GSD Executor"
+description: "Executes GSD plans with atomic commits"
+tools: ["readFile", "editFiles", "runInTerminal", "codebase"]
+---
+
+<role>
+You are a GSD plan executor...
+</role>
+
+<execution_flow>
+[Detailed step-by-step instructions]
+</execution_flow>
+```
+
+**Usage Example:**
+
+```
+User: @gsd-planner
+      
+      Plan Phase 2 (User Authentication)
+
+Copilot: [Loads gsd-planner agent]
+         [Reads .gsd/ROADMAP.md, researches implementation]
+         [Creates detailed PLAN.md with tasks]
+```
+
+**When Agents Are Used:**
+
+- **Prompt files spawn agents automatically** (e.g., `execute-phase.prompt.md` spawns `@gsd-executor`)
+- **You can invoke agents directly** for specific workflows
+- **Agents spawn sub-agents** (e.g., executor spawns verifier)
+
+### Agent Skills Deep Dive
+
+**Agent Skills** are reusable instruction packages that agents reference. They're stored in `.github/skills/*/SKILL.md`.
+
+**12 Available Skills:**
+
+| Skill | Purpose | Used By |
+|-------|---------|---------|
+| `complete-milestone` | Ship milestone, tag release | complete-milestone prompt |
+| `diagnose-issues` | Debug failed tests | gsd-debugger agent |
+| `discovery-phase` | Research before planning | Multiple agents |
+| `discuss-phase` | Extract implementation decisions | discuss-phase prompt |
+| `execute-phase` | Wave-based parallel execution | execute-phase prompt |
+| `execute-plan` | Execute single PLAN.md | gsd-executor agent |
+| `list-phase-assumptions` | Surface AI assumptions | surface-assumptions prompt |
+| `map-codebase` | Analyze existing code | gsd-codebase-mapper |
+| `resume-project` | Restore context after break | next prompt |
+| `transition` | Complete phase, advance | transition prompt |
+| `verify-phase` | Goal-backward verification | gsd-verifier agent |
+| `verify-work` | User acceptance testing | verify-work prompt |
+
+**Skill Anatomy:**
+
+```markdown
+# skills/execute-plan/SKILL.md
+
+<objective>
+Execute a phase prompt (PLAN.md) and create the outcome summary (SUMMARY.md).
+Handles task execution with proper git integration.
+</objective>
+
+<execution_context>
+@.gsd/PROJECT.md
+@.gsd/STATE.md
+@{plan-file}
+</execution_context>
+
+<process>
+<step name="load_plan">
+[Detailed instructions]
+</step>
+
+<step name="execute_tasks">
+[Detailed instructions]
+</step>
+
+<step name="create_summary">
+[Detailed instructions]
+</step>
+</process>
+
+<success_criteria>
+- [ ] All tasks executed
+- [ ] Per-task commits created
+- [ ] SUMMARY.md written
+- [ ] STATE.md updated
+</success_criteria>
+```
+
+**How Skills Work:**
+
+1. **Agent references skill** in its definition
+2. **GitHub Copilot loads skill** when agent activates
+3. **Agent follows skill instructions** step-by-step
+4. **Skills compose** (one skill can call another)
+
+**Creating Custom Skills:**
+
+```markdown
+# .github/skills/my-custom-skill/SKILL.md
+
+<objective>
+What this skill accomplishes
+</objective>
+
+<process>
+<step name="step1">
+Detailed instructions for step 1
+</step>
+
+<step name="step2">
+Detailed instructions for step 2
+</step>
+</process>
+
+<success_criteria>
+- [ ] Criteria for completion
+</success_criteria>
+```
+
+**Reference the skill in your agents:**
+
+```markdown
+---
+name: "My Custom Agent"
+description: "Does something specific"
+tools: ["readFile", "editFiles"]
+---
+
+<role>
+You execute my-custom-skill.
+</role>
+
+<execution>
+Follow the instructions in @.github/skills/my-custom-skill/SKILL.md
+</execution>
+```
+
+### Instruction Files
+
+**Instruction Files** provide reusable guidelines that apply across agents and skills.
+
+**9 Instruction Files:**
+
+| Instruction | Purpose | Applied To |
+|-------------|---------|------------|
+| `checkpoints.instructions.md` | When to pause for human verification | All execution |
+| `continuation-format.instructions.md` | How to present next steps | All outputs |
+| `git-integration.instructions.md` | Commit strategy (atomic, per-task) | Executors |
+| `model-profiles.instructions.md` | Quality vs cost balancing | Config |
+| `planning-config.instructions.md` | Planning behavior settings | Planners |
+| `questioning.instructions.md` | How to ask clarifying questions | Researchers |
+| `tdd.instructions.md` | Test-driven development patterns | Executors |
+| `ui-brand.instructions.md` | Visual formatting standards | All outputs |
+| `verification-patterns.instructions.md` | Goal-backward checking | Verifiers |
+
+**How Instructions Work:**
+
+Instructions are automatically loaded based on:
+1. **File patterns** (`applyTo` in instruction metadata)
+2. **Working context** (VS Code auto-loads from configured directories)
+3. **Agent references** (agents can explicitly @-mention instructions)
+
+**Example: Git Integration Instructions**
+
+```markdown
+# .github/instructions/git-integration.instructions.md
+
+---
+description: "Git integration guidelines - atomic commits per task"
+applyTo: "**/*"
+---
+
+<core_principle>
+Commit outcomes, not process. Each task = 1 commit.
+</core_principle>
+
+<commit_format>
+{type}({phase}-{plan}): {task-name}
+
+- [Key change 1]
+- [Key change 2]
+```
+
+**Every agent** working with files sees these rules and follows them.
+
+### Workflow Comparison: Original vs Copilot
+
+| Action | Original GSD (Claude Code) | GSD for Copilot |
+|--------|---------------------------|-----------------|
+| **Initialize Project** | `/gsd:new-project` | `#file:new-project.prompt.md` |
+| **Plan Phase** | `/gsd:plan-phase 2` | `#file:plan-phase.prompt.md` with phase number |
+| **Execute Phase** | `/gsd:execute-phase 2` | `#file:execute-phase.prompt.md` with phase number |
+| **Verify Work** | `/gsd:verify-work` | `#file:verify-work.prompt.md` |
+| **Debug** | `/gsd:debug` | `#file:debug.prompt.md` |
+| **Check Progress** | `/gsd:progress` | `#file:progress.prompt.md` |
+| **Quick Task** | `/gsd:quick "Add logging"` | `#file:quick.prompt.md` with task description |
+| **Invoke Agent** | Automatic (spawned by commands) | `@gsd-planner`, `@gsd-executor`, etc. |
+| **Read Instructions** | Automatic (.github/ folder) | Automatic (.github/instructions/) |
+
+**Key Differences:**
+
+1. **No CLI tool needed** — All integrated in VS Code
+2. **Prompt files instead of slash commands** — `#file:...` syntax
+3. **Explicit agent invocation available** — `@agent-name` when needed
+4. **VS Code tools** — Uses `readFile`, `editFiles`, `runInTerminal` instead of Bash, Write, Edit
+5. **MCP server support** — Can use Context7, HumanAgent, etc.
+
+### GitHub Copilot-Specific Tools
+
+GSD for Copilot leverages GitHub Copilot's specialized tools:
+
+#### Codebase Exploration Tools
+
+| Tool | Purpose | When to Use |
+|------|---------|-------------|
+| `codebase` | Semantic code search | Find related code by concept |
+| `usages` | Find symbol references | See how functions are used |
+| `textSearch` | Regex/text search | Exact pattern matching |
+| `fileSearch` | Find files by name/pattern | Locate specific files |
+
+**How Agents Use Codebase Tools:**
+
+- **gsd-codebase-mapper** — Primary usage to map architecture
+- **gsd-executor** — Find similar implementations before coding
+- **gsd-verifier** — Locate implementations to verify
+- **gsd-debugger** — Find related code when investigating bugs
+
+**Example:**
+
+```
+@gsd-codebase-mapper
+
+[Uses codebase tool to find:]
+- All authentication-related files
+- Database connection patterns
+- Error handling approaches
+- Testing conventions
+
+[Creates:]
+.gsd/codebase/ARCHITECTURE.md
+.gsd/codebase/CONVENTIONS.md
+.gsd/codebase/STRUCTURE.md
+```
+
+#### MCP Server Integration
+
+**Model Context Protocol (MCP)** servers extend Copilot's capabilities:
+
+| MCP Server | Tools | Use Case |
+|------------|-------|----------|
+| **Context7** | `resolve-library-id`, `query-docs` | Library documentation (most accurate) |
+| **HumanAgent** | `HumanAgent_Chat` | Get user input mid-workflow |
+| **Exa** | `web_search_exa`, `get_code_context_exa` | Code search, deep research |
+| **Brave Search** | `brave_web_search` | General web search, news |
+
+**Built-in Copilot Tools (No MCP needed):**
+
+- **fetch** — Web search and URL fetching
+- **openSimpleBrowser** — Open URLs in VS Code
+
+**Priority for Research:**
+
+1. **Context7 MCP** — For library/framework docs (most accurate)
+2. **Copilot fetch** — For web search and URLs (no MCP needed)
+3. **Exa/Brave MCP** — For deep research (optional)
+4. **HumanAgent MCP** — For user input mid-workflow
+
+**Configuring MCP Servers:**
+
+Add to VS Code `settings.json`:
+
+```json
+{
+  "github.copilot.chat.mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"]
+    },
+    "human-agent": {
+      "command": "npx",
+      "args": ["-y", "human-agent-mcp-server"]
+    }
+  }
+}
+```
+
+Or reference in agent frontmatter:
+
+```markdown
+---
+name: "My Agent"
+mcpServers: ["context7", "human-agent"]
+---
+```
+
+### Complete Workflow Example
+
+**Scenario:** Build a task management API using GSD for GitHub Copilot
+
+#### Step 1: Initialize Project
+
+```
+User: #file:new-project.prompt.md
+
+      Task Management API with user authentication,
+      task CRUD operations, and deadline notifications.
+
+Copilot: [Creates .gsd/ folder structure]
+         [Creates PROJECT.md with vision]
+         [Spawns @gsd-roadmapper]
+         [Creates ROADMAP.md with 4 phases]
+         
+         ✅ Project initialized!
+         📁 .gsd/PROJECT.md created
+         🛤️ .gsd/ROADMAP.md created (4 phases)
+         
+         Next: #file:plan-phase.prompt.md 1
+```
+
+#### Step 2: Plan First Phase
+
+```
+User: #file:plan-phase.prompt.md 1
+
+Copilot: [Spawns @gsd-phase-researcher]
+         [Researches authentication patterns]
+         [Spawns @gsd-planner]
+         [Creates 01-01-PLAN.md: Auth setup]
+         [Creates 01-02-PLAN.md: User registration]
+         
+         ✅ Phase 1 planned (2 plans, 12 tasks)
+         📋 Plans ready for execution
+         
+         Next: #file:execute-phase.prompt.md 1
+```
+
+#### Step 3: Execute Phase
+
+```
+User: #file:execute-phase.prompt.md 1
+
+Copilot: [Spawns @gsd-executor for each plan]
+         [Executes tasks with atomic commits]
+         [Creates SUMMARY.md files]
+         
+         ✅ Phase 1 complete (12/12 tasks)
+         🎯 All requirements satisfied
+         💾 12 git commits created
+         
+         Next: #file:verify-phase.prompt.md 1
+```
+
+#### Step 4: Verify Work
+
+```
+User: #file:verify-phase.prompt.md 1
+
+Copilot: [Spawns @gsd-verifier]
+         [Checks codebase against goals]
+         [Creates VERIFICATION.md]
+         
+         ✅ Phase 1 verified
+         ✓ JWT authentication implemented
+         ✓ User model with validation
+         ✓ Registration endpoint working
+         ⚠️ Missing: Password reset flow
+         
+         Continue or address gaps?
+```
+
+#### Step 5: Debug Issues (if needed)
+
+```
+User: #file:debug.prompt.md
+
+      Registration endpoint returns 500 error
+
+Copilot: [Spawns @gsd-debugger]
+         [Uses codebase tool to find related code]
+         [Identifies: Missing email validation]
+         [Creates fix plan]
+         [Executes fix]
+         [Verifies]
+         
+         ✅ Bug fixed
+         🐛 Issue: Email regex pattern incomplete
+         🔧 Fix: Updated validation with RFC 5322 pattern
+         ✅ Tests pass
+```
+
+#### Step 6: Continue to Next Phase
+
+```
+User: #file:transition.prompt.md
+
+Copilot: [Marks Phase 1 complete]
+         [Updates STATE.md, ROADMAP.md]
+         [Updates PROJECT.md]
+         
+         ✅ Phase 1 → Phase 2
+         📊 Progress: 1/4 phases (25%)
+         
+         Next: #file:plan-phase.prompt.md 2
+```
+
+### Marketplace & Extension Ecosystem
+
+#### GitHub Marketplace Agents
+
+You can combine GSD with **other GitHub Copilot agents** from the marketplace:
+
+**Popular Compatible Agents:**
+
+- **@workspace** — Understand entire codebase
+- **@terminal** — Explain terminal commands
+- **@vscode** — VS Code settings and features
+
+**Usage Example:**
+
+```
+User: @workspace What authentication patterns exist in this codebase?
+
+     [Then use results to inform GSD planning]
+     
+     #file:plan-phase.prompt.md 2
+```
+
+**GSD + Marketplace Pattern:**
+
+1. Use **marketplace agents** for exploration
+2. Use **GSD agents** for structured delivery
+3. Reference marketplace research in GSD plans
+
+#### Installing Additional Agents
+
+**From GitHub Marketplace:**
+
+1. Open VS Code
+2. Go to Extensions (Ctrl+Shift+X)
+3. Search "GitHub Copilot Agent"
+4. Install desired agents
+5. Reload VS Code
+
+**Custom Agents in Your Project:**
+
+Create `.github/agents/your-agent.agent.md`:
+
+```markdown
+---
+name: "Your Custom Agent"
+description: "Does something specific"
+tools: ["readFile", "editFiles", "codebase"]
+---
+
+<role>
+You are a specialized agent for [purpose]
+</role>
+
+<process>
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+</process>
+```
+
+Then use: `@your-custom-agent`
+
+### Adding Custom Skills to GSD
+
+You can **extend GSD** with your own domain-specific skills:
+
+#### Creating a Custom Skill
+
+**Example: Code Review Skill**
+
+```markdown
+# .github/skills/code-review-security/SKILL.md
+
+<objective>
+Perform security-focused code review on changed files
+</objective>
+
+<execution_context>
+@.gsd/PROJECT.md
+@.gsd/REQUIREMENTS.md
+</execution_context>
+
+<process>
+
+<step name="identify_changes">
+Use git diff to find changed files since last commit
+</step>
+
+<step name="security_scan">
+Check for:
+- SQL injection vulnerabilities
+- XSS attack vectors
+- Authentication bypasses
+- Hardcoded secrets
+- Insecure dependencies
+</step>
+
+<step name="report">
+Create .gsd/reviews/SECURITY-REVIEW.md with findings
+</step>
+
+</process>
+
+<success_criteria>
+- [ ] All changed files reviewed
+- [ ] Security report created
+- [ ] Critical issues flagged
+</success_criteria>
+```
+
+#### Integrating Custom Skill
+
+**Option 1: Reference in Agent**
+
+```markdown
+# .github/agents/gsd-security-reviewer.agent.md
+
+---
+name: "🔒 Security Reviewer"
+description: "Security-focused code review"
+tools: ["readFile", "textSearch", "codebase", "editFiles"]
+---
+
+<role>
+You perform security reviews using the code-review-security skill
+</role>
+
+<execution>
+Execute the process defined in @.github/skills/code-review-security/SKILL.md
+</execution>
+```
+
+**Option 2: Reference in Plan**
+
+```markdown
+# .gsd/phases/03-security/03-01-PLAN.md
+
+---
+phase: 3
+plan: 1
+skills_used: ["code-review-security"]
+---
+
+<objective>
+Harden application security
+</objective>
+
+<tasks>
+- [ ] Run @gsd-security-reviewer on all auth code
+- [ ] Fix critical vulnerabilities
+- [ ] Add security tests
+</tasks>
+```
+
+**Option 3: Standalone Prompt**
+
+```markdown
+# .github/prompts/security-review.prompt.md
+
+Use @gsd-security-reviewer to review security of recent changes.
+
+Execute: @.github/skills/code-review-security/SKILL.md
+```
+
+Usage: `#file:security-review.prompt.md`
+
+### Tool Mapping Reference
+
+**Complete tool translation:**
+
+| Original (Claude Code) | Kilo Code | GitHub Copilot |
+|------------------------|-----------|----------------|
+| `Read` | `read_file` | `readFile` |
+| `Write` | `write_to_file` | `createFile`, `editFiles` |
+| `Edit` | `apply_diff` | `editFiles` |
+| `Bash` | `execute_command` | `runInTerminal` |
+| `Grep` | `search_files` | `textSearch` |
+| `Glob` | `list_files` | `listDirectory`, `fileSearch` |
+| `Task` | `new_task` | `runSubagent` |
+| `AskUserQuestion` | `ask_followup_question` | `HumanAgent_Chat` (MCP) |
+| `TodoWrite` | `update_todo_list` | `todos` |
+| `WebSearch` | `browser_action` | `fetch` |
+| N/A | `codebase_search` | `codebase`, `usages` |
+
+### Configuration Comparison
+
+| Setting | Original GSD | GSD for Copilot |
+|---------|-------------|-----------------|
+| **Mode** | `config.json` → mode | Same |
+| **Depth** | `config.json` → depth | Same |
+| **Parallelization** | `config.json` → parallelization | Same |
+| **Commit Strategy** | `.github/instructions/git-integration.instructions.md` | Same file |
+| **Checkpoints** | `.github/instructions/checkpoints.instructions.md` | Same file |
+| **Model Profile** | `config.json` → model_profile | N/A (Copilot model fixed) |
+| **MCP Servers** | N/A (Claude Code native) | VS Code `settings.json` |
+
+**Note:** Model profile setting exists in GSD for Copilot but doesn't affect actual model (GitHub controls that). It documents *intended* quality level.
+
+### Best Practices for GitHub Copilot Integration
+
+#### 1. Use Prompt Files for Consistent Workflow
+
+**✅ Good:**
+```
+#file:execute-phase.prompt.md 2
+```
+
+**❌ Avoid:**
+```
+"Hey Copilot, execute phase 2 using GSD"
+```
+
+Prompt files ensure **consistent behavior** across sessions.
+
+#### 2. Let Agents Spawn Sub-Agents
+
+**✅ Good:**
+```
+#file:execute-phase.prompt.md 2
+
+[Orchestrator spawns @gsd-executor per plan]
+[Executor spawns @gsd-verifier for checks]
+```
+
+**❌ Avoid:**
+```
+@gsd-executor execute plan 1
+@gsd-executor execute plan 2
+@gsd-executor execute plan 3
+```
+
+Let **orchestration agents** manage workflow.
+
+#### 3. Combine Marketplace Agents with GSD
+
+**✅ Example:**
+```
+# Explore with marketplace agent
+@workspace What are our API routes?
+
+# Then plan with GSD
+#file:plan-phase.prompt.md 3
+
+# Reference exploration in plan
+"Based on @workspace analysis of existing routes..."
+```
+
+#### 4. Use Codebase Tools Before Planning
+
+**✅ Pattern:**
+```
+#file:map-codebase.prompt.md
+
+[gsd-codebase-mapper uses codebase tool]
+[Creates architecture docs]
+
+#file:plan-phase.prompt.md 2
+
+[Planner references architecture docs]
+```
+
+#### 5. Create Project-Specific Skills
+
+**✅ When:**
+- Repeatable workflows in your domain
+- Company-specific patterns
+- Custom quality checks
+
+**Example:**
+```
+.github/skills/
+├── deploy-to-aws/SKILL.md        # Your deployment process
+├── pr-quality-gate/SKILL.md      # Your review standards
+└── monitoring-integration/SKILL.md  # Your observability
+```
+
+### Troubleshooting
+
+#### Prompt Files Not Found
+
+**Symptom:** `#file:new-project.prompt.md` doesn't work
+
+**Fix:**
+```json
+// settings.json
+{
+  "chat.promptFilesLocations": [".github/prompts"]
+}
+```
+
+Then reload VS Code.
+
+#### Agents Not Loading
+
+**Symptom:** `@gsd-planner` not recognized
+
+**Fix:**
+1. Check `.github/agents/gsd-planner.agent.md` exists
+2. Reload VS Code (Ctrl+Shift+P → "Reload Window")
+3. Verify GitHub Copilot extension is active
+
+#### Instructions Not Applied
+
+**Symptom:** Atomic git commits not happening
+
+**Fix:**
+```json
+// settings.json
+{
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "chat.instructionsFilesLocations": [".github/instructions"]
+}
+```
+
+#### Codebase Tool Not Working
+
+**Symptom:** `codebase` tool returns "not indexed"
+
+**Fix:**
+1. Wait for initial indexing (happens automatically)
+2. Large repos take 5-10 minutes
+3. Check VS Code status bar for indexing progress
+
+#### MCP Server Errors
+
+**Symptom:** Context7 or HumanAgent not working
+
+**Fix:**
+```bash
+# Test MCP server manually
+npx -y @context7/mcp-server
+
+# If works, add to settings.json
+{
+  "github.copilot.chat.mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@context7/mcp-server"]
+    }
+  }
+}
+```
+
+### Resources for GSD with GitHub Copilot
+
+1. **GSD for Copilot Repository**  
+   Link: [github.com/Punal100/get-stuff-done-for-github-copilot](https://github.com/Punal100/get-stuff-done-for-github-copilot)  
+   Everything you need to get started
+
+2. **Original GSD Documentation**  
+   Link: [github.com/gsd-build/get-shit-done](https://github.com/gsd-build/get-shit-done)  
+   Core methodology (applicable to all versions)
+
+3. **GitHub Copilot Docs**  
+   Link: [code.visualstudio.com/docs/copilot](https://code.visualstudio.com/docs/copilot)  
+   VS Code Copilot features and tools
+
+4. **GitHub Copilot Chat Tools Reference**  
+   Link: [code.visualstudio.com/docs/copilot/reference/copilot-vscode-features#_chat-tools](https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features#_chat-tools)  
+   Tool documentation (readFile, editFiles, codebase, etc.)
+
+5. **GSD Community Discord**  
+   Link: [discord.gg/5JJgD5svVS](https://discord.gg/5JJgD5svVS)  
+   Get help, share workflows, discuss all GSD versions
+
+### When to Use Each Version
+
+| Factor | Original GSD | GSD for Copilot |
+|--------|-------------|-----------------|
+| **IDE** | Claude Code, OpenCode, Gemini CLI | VS Code with GitHub Copilot |
+| **Command Style** | Slash commands (`/gsd:command`) | Prompt files (`#file:prompt.md`) |
+| **Agent Invocation** | Automatic | Automatic + Manual (`@agent`) |
+| **Setup** | `npx get-shit-done-cc` | Copy `.github/` folder |
+| **Maturity** | Most mature | Newer (active development) |
+| **Community** | Largest | Growing |
+| **Cost** | Claude subscription | GitHub Copilot subscription |
+| **Extensibility** | npm packages | VS Code extensions + MCP |
+
+**Recommendation:**
+- **Claude Code users** → Original GSD (most features, best support)
+- **VS Code + Copilot users** → GSD for Copilot (native integration)
+- **Kilo Code users** → GSD for Kilo Code fork
+- **Mixed teams** → Original GSD (works with multiple AI assistants)
 
 ---
 
