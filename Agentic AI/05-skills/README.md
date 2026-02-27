@@ -152,7 +152,7 @@ The skill encodes **institutional knowledge**—consistent, repeatable, improvab
 
 ---
 
-## Understanding AI Skills
+## Understanding AI Skills 🟢 Beginner
 
 ### Definition
 
@@ -643,7 +643,7 @@ Pick one skill (e.g., erify-phase) and trace how it's used:
 
 ---
 
-## Creating Your Own Skills
+## Creating Your Own Skills 🔴 Advanced
 
 ### Skill Design Workflow
 
@@ -1138,6 +1138,7 @@ changelog:
 - **What:** Explore thousands of custom GPTs (packaged skills)
 - **Why:** Understand capabilities, interaction patterns, quality indicators
 - **Best for:** Anyone using ChatGPT
+- **When to browse:** Looking for pre-built skills before creating your own, exploring what's possible
 - **Free:** Yes (requires ChatGPT Plus for some GPTs)
 - **Link:** [GPTs Store](https://chat.openai.com/gpts)
 
@@ -1157,7 +1158,7 @@ changelog:
 - **Level:** Beginner to Advanced
 - **What:** Community-curated collection of high-quality AI skills with examples and ratings
 - **Why:** Discover what exists, avoid reinventing, learn from quality examples
-- **Best for:** Finding reusable skills across platforms
+- **Best for:** Discovering reusable patterns and avoiding reinventing the wheel, finding skills across platforms
 - **Free:** Yes
 - **Link:** Search GitHub for "awesome-ai-skills" or "awesome-prompts"
 
@@ -1178,6 +1179,7 @@ changelog:
 - **What:** Production skills used by GSD framework (execute-plan, verify-phase, etc.)
 - **Why:** Real-world skill architecture, patterns you can copy
 - **Best for:** Understanding how skills work in practice
+- **When to study:** After completing Section 3 (GSD Framework), want to see real-world skill examples
 - **Free:** Yes (this repo)
 - **Link:** [.github/skills/](../../.github/skills/)
 
