@@ -27,7 +27,7 @@ This section explores the landscape of AI-powered development tools, from simple
 
 By mastering the ecosystem fundamentals, you'll develop an intuitive understanding of which AI approach fits different scenarios—whether you need quick answers, collaborative coding assistance, or autonomous task execution.
 
-## AI Assistants
+## AI Assistants 🟢 Beginner
 
 ### What are AI Assistants
 
@@ -38,6 +38,8 @@ The key characteristic of assistants is their **request-response pattern**: you 
 Unlike autonomous AI agents (which we'll cover next), assistants keep **humans in the loop** at every step. They augment your decision-making by providing information, generating ideas, or explaining complex concepts—but you remain in control of what actually happens.
 
 Think of it this way: An assistant is like having a smart intern who can answer questions and draft responses, but always waits for your approval before taking action.
+
+## AI Assistants 🟢 Beginner
 
 ### Key Characteristics
 
@@ -113,7 +115,7 @@ When you're facing a specific issue and need a fresh perspective or debugging he
 | Gemini | ~100K tokens | Multimodal tasks | Google integration |
 | Copilot Chat | Code-aware | In-IDE coding help | Repository context |
 
-## AI Agents
+## AI Agents 🟡 Intermediate
 
 ### What are AI Agents
 
@@ -237,7 +239,7 @@ Agents can work through large tasks methodically.
 - **High-stakes decisions** requiring human judgment at each step
 - **Undefined goals** where the objective isn't clear yet
 
-## AI Copilots
+## AI Copilots 🟢 Beginner
 
 ### What are AI Copilots
 
@@ -462,9 +464,9 @@ The best developers know when to use each tool type—and when to combine them.
 
 ---
 
-## Chat vs Repo AI
+## Chat vs Repo AI 🟡 Intermediate
 
-### Chat-Based AI Tools
+### The Fundamental Divide
 
 Chat-based AI tools (like ChatGPT, Claude web interface, Gemini) interact through conversation windows where you paste code snippets and ask questions.
 
@@ -939,6 +941,7 @@ This curated list provides high-quality resources for understanding the AI ecosy
 - **What:** In-depth exploration of the copilot paradigm, repository-aware AI, and how AI assistants integrated into development workflows represent a fundamental shift
 - **Why included:** Provides the "why" behind context-aware AI tools and helps developers understand the value proposition beyond feature lists
 - **Best for:** Developers evaluating AI tools and wanting to understand the strategic differences between chat AI, IDE copilots, and repo-aware assistants
+- **When to read:** Evaluating AI tools for team adoption or deciding between chat-based and repo-aware assistants
 - **Time:** 12-15 minutes
 - **Free:** Yes (publicly available blog)
 
@@ -963,6 +966,7 @@ This curated list provides high-quality resources for understanding the AI ecosy
 - **What:** Research-backed explanation of agent capabilities, limitations, and the distinction between assistants (conversational) and agents (autonomous task execution)
 - **Why included:** Grounds practical tool usage in research fundamentals; helps developers understand not just how to use agents but when they're appropriate
 - **Best for:** Intermediate learners wanting deeper understanding of agent architectures and decision-making patterns
+- **When to read:** After completing this section, want theoretical grounding before building agents in Section 4
 - **Time:** 8-12 minutes
 - **Free:** Yes (publicly available research)
 
