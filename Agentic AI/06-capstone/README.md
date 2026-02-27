@@ -1,4 +1,3 @@
----
 **📍 Current Location:** [Pathway Home](../README.md) → 6. Capstone
 
 **📊 Progress:** Section 6 of 6 (Final Section!) | ⏱️ Estimated time: 45 minutes planning + 12-28 hours execution

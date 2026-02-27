@@ -1,4 +1,3 @@
----
 **📍 Current Location:** [Pathway Home](../README.md) → 3. GSD Framework
 
 **📊 Progress:** Section 3 of 6 | ⏱️ Estimated time: 60 minutes

@@ -1,4 +1,3 @@
----
 **📍 Current Location:** [Pathway Home](../README.md) → 2. Tools
 
 **📊 Progress:** Section 2 of 6 | ⏱️ Estimated time: 45 minutes

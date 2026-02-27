@@ -1,5 +1,4 @@
-﻿---
-**📍 Current Location:** [Pathway Home](../README.md) → 1. Ecosystem
+﻿**📍 Current Location:** [Pathway Home](../README.md) → 1. Ecosystem
 
 **📊 Progress:** Section 1 of 6 | ⏱️ Estimated time: 25 minutes
 

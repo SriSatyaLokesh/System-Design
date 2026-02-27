@@ -1,4 +1,3 @@
----
 **📍 Current Location:** [Pathway Home](../README.md) → 4. Agents
 
 **📊 Progress:** Section 4 of 6 | ⏱️ Estimated time: 35 minutes

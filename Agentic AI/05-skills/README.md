@@ -1,4 +1,3 @@
----
 **📍 Current Location:** [Pathway Home](../README.md) → 5. Skills
 
 **📊 Progress:** Section 5 of 6 | ⏱️ Estimated time: 25 minutes

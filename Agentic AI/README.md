@@ -1,4 +1,3 @@
----
 **📍 Location:** Learning Pathway Home
 
 **📊 Total Pathway:** 6 Sections | ⏱️ Estimated time: 4-5 hours
