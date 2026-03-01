@@ -7,7 +7,7 @@ _A complete, practical course for beginners through agent workflow architects._
 
 ## Overview
 
-Prompt engineering is the practice of designing structured inputs that guide large language models (LLMs) and generative AI systems to produce predictable, useful outputs. This guide combines practical templates, category-specific examples (development, email, social, project management, research), and agent workflow design — grounded in best practices documented by LangChain, OpenAI, Google (Gemini), and Anthropic (Claude). citeturn0search0turn0search1turn0search6turn0search3
+Prompt engineering is the practice of designing structured inputs that guide large language models (LLMs) and generative AI systems to produce predictable, useful outputs. This guide combines practical templates, category-specific examples (development, email, social, project management, research), and agent workflow design — grounded in best practices documented by LangChain, OpenAI, Google (Gemini), and Anthropic (Claude).
 
 You will learn:
 - The 4 core components of effective prompts (Persona, Task, Context, Format)  
