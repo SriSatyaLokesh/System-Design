@@ -1,5 +1,5 @@
 {
-  "mode": "yolo",
+  "mode": "interactive",
   "depth": "quick",
   "parallelization": true,
   "commit_docs": true,
@@ -8,5 +8,9 @@
     "research": true,
     "plan_check": true,
     "verifier": true
+  },
+  "git": {
+    "branching_strategy": "phase",
+    "phase_branch_template": "gsd/phase-{phase}-{slug}"
   }
 }

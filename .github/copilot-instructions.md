@@ -1,248 +1,161 @@
-# GitHub Copilot Instructions
-
+﻿# System Design Repository - GitHub Copilot Instructions
 ## Project Overview
-
-This is a **GSD Framework** (Goal → Spec → Deliver) repository containing educational content about AI tools and workflows. The primary deliverable is a curated learning pathway in `Agentic AI/` teaching users to work effectively with AI assistants, agents, and copilots.
-
-**Key Principle:** This project uses the GSD methodology for structured planning and execution. All work follows a phase-based approach with explicit requirements, plans, and verification steps.
-
+Educational content repository teaching AI-native development workflows. Built using the GSD (Goal ΓåÆ Spec ΓåÆ Deliver) framework for structured content creation and project management.
+**Purpose:** Enable learners to become AI-native contributors through curated learning pathways.
 ## Repository Structure
-
 ```
 System-Design/
-├── .gsd/                          # GSD Framework metadata (DO NOT edit directly without reading STATE.md first)
-│   ├── PROJECT.md                 # Project brief and scope
-│   ├── ROADMAP.md                 # Phase-based roadmap with requirements
-│   ├── STATE.md                   # Current status - ALWAYS READ THIS FIRST
-│   ├── REQUIREMENTS.md            # All requirements with traceability
-│   ├── config.json                # Planning behavior (mode, depth, parallelization)
-│   ├── phases/                    # Phase-specific plans, research, summaries
-│   │   └── XX-phase-name/
-│   │       ├── XX-YY-PLAN.md      # Executable plan with tasks
-│   │       ├── XX-YY-SUMMARY.md   # Outcome summary post-execution
-│   │       ├── XX-RESEARCH.md     # Discovery/research findings
-│   │       └── XX-VERIFICATION.md # Goal-backward verification report
-│   └── templates/                 # Document templates
-├── .github/
-│   ├── instructions/              # Reusable instruction files (checkpoints, git, TDD, etc.)
-│   └── skills/                    # Specialized agent skills (execute-plan, verify-phase, etc.)
-└── Agentic AI/                    # Learning content (numbered sections 01-06)
+Γö£ΓöÇΓöÇ .gsd/                    # GSD Framework metadata (planning artifacts)
+Γöé   Γö£ΓöÇΓöÇ PROJECT.md          # Project scope and goals
+Γöé   Γö£ΓöÇΓöÇ ROADMAP.md          # Phase-based roadmap
+Γöé   Γö£ΓöÇΓöÇ STATE.md            # Current status and decisions
+Γöé   ΓööΓöÇΓöÇ phases/             # Phase-specific plans and summaries
+Γö£ΓöÇΓöÇ .github/
+Γöé   Γö£ΓöÇΓöÇ copilot-instructions.md  # This file
+Γöé   Γö£ΓöÇΓöÇ instructions/       # Feature-specific guidelines
+Γöé   Γö£ΓöÇΓöÇ skills/             # GSD workflow orchestration
+Γöé   ΓööΓöÇΓöÇ agents/             # Specialized AI agents
+Γö£ΓöÇΓöÇ Agentic AI/             # Learning content (main deliverable)
+Γöé   Γö£ΓöÇΓöÇ 01-ecosystem/       # AI tools taxonomy
+Γöé   Γö£ΓöÇΓöÇ 02-tools/           # Hands-on tool guides
+Γöé   Γö£ΓöÇΓöÇ 03-gsd/             # GSD framework education
+Γöé   Γö£ΓöÇΓöÇ 04-agents/          # Agent building
+Γöé   Γö£ΓöÇΓöÇ 05-skills/          # Advanced patterns
+Γöé   ΓööΓöÇΓöÇ 06-capstone/        # Portfolio project
+ΓööΓöÇΓöÇ [other System-Design sections]
 ```
-
-## Critical Workflows
-
-### 1. Starting Any Work - READ STATE.md FIRST
-
-**ALWAYS** read `.gsd/STATE.md` before making any changes:
-
-```bash
-# Check current phase, progress, blockers
-cat .gsd/STATE.md
-```
-
-This tells you:
-- Current phase and plan
-- What's been completed
-- Active blockers
-- Next steps
-
-### 2. Git Commit Strategy - Atomic Task Commits
-
-**Core Principle:** Commit outcomes, not process. Each task gets its own commit immediately after completion.
-
-**Commit Format:**
-```
-{type}({phase}-{plan}): {task-name}
-
-- [Key change 1]
-- [Key change 2]
-- [Key change 3]
-```
-
-**Commit Types:**
-- `feat` - New feature/functionality
-- `fix` - Bug fix
-- `docs` - Documentation/content creation
-- `test` - Test-only changes
-- `refactor` - Code cleanup
-- `chore` - Dependencies, config, tooling
-
-**Example:**
-```bash
-# Task completion commit
-git add "Agentic AI/01-ecosystem/README.md"
-git commit -m "docs(02-01): create AI ecosystem taxonomy
-
-- Added AI assistants, agents, copilots definitions with examples
-- Created comparison framework with 6 dimensions
-- Added decision matrix for chat vs repo AI"
-
-# Plan completion metadata commit (after all tasks done)
-git add .gsd/phases/02-foundational-learning-content/02-01-SUMMARY.md .gsd/STATE.md .gsd/ROADMAP.md
-git commit -m "docs(02-01): complete ecosystem content plan
-
-Tasks completed: 3/3
-- Create unified AI taxonomy
-- Build comparison framework 
-- Curate resources with context
-
-SUMMARY: .gsd/phases/02-foundational-learning-content/02-01-SUMMARY.md"
-```
-
-**What NOT to commit:**
-- Intermediate PLAN.md creation (commit with plan completion)
-- RESEARCH.md during creation (commit with plan)
-- Minor planning tweaks
-- "Fixed typo" without task context
-
-See [.github/instructions/git-integration.instructions.md](.github/instructions/git-integration.instructions.md) for full details.
-
-### 3. Content Creation Pattern
-
-When creating educational content in `Agentic AI/`:
-
-1. **Structure:** Use hierarchical headings (##, ###, ####) with clear section markers
-2. **Length:** Content is typically substantial (500-2000 lines per section)
-3. **Format:** Markdown with:
-   - Code blocks with language specifiers
-   - Comparison tables
-   - Bulleted lists for clarity
-   - Emoji sparingly for visual markers (✅, ⚠️, 💡)
-4. **Curation:** 5-7 resources maximum per topic with context (what, why, when)
-5. **Examples:** Always include concrete examples (specific tools, real commands, actual workflows)
-
-Example pattern from existing content:
+## Team Collaboration Model
+### Workflow
+1. **Planning:** Tech lead uses GSD to create phases and plans in `.gsd/`
+2. **Assignment:** Use `.gsd/team/ASSIGNMENTS.md` for task ownership
+3. **Development:** Developers work in feature branches following these instructions
+4. **Review:** CODEOWNERS automatically assigns reviewers based on affected areas
+### Branch Strategy
+- **Main branch:** Production-ready content
+- **Feature branches:** `feature/<area>-<description>` or `gsd/phase-<XX>-<name>`
+- **Commit format:** `<type>(<phase>-<plan>): <description>` (see Git Integration below)
+## Coding Standards for Educational Content
+### Content Structure
+- **Hierarchical headings:** Use ##, ###, #### (never single #)
+- **Progressive complexity:** Beginner ΓåÆ Intermediate ΓåÆ Advanced
+- **Concrete examples:** Always include specific tool names, commands, or code
+- **Comparison tables:** Use markdown tables for comparing options
+### Content Quality Rules
+1. **Curation over comprehensiveness:** 5-7 resources maximum per topic
+2. **Context required:** Every link needs "What, Why included, Best for, Time estimate"
+3. **Difficulty markers:** Use ≡ƒƒó Beginner, ≡ƒƒí Intermediate, ≡ƒö┤ Advanced
+4. **No stub content:** Every section must be substantive (200+ lines minimum)
+5. **Mobile-friendly:** GitHub-native markdown (no complex HTML)
+### Markdown Conventions
 ```markdown
-## Tool Category
-
-**What:** [Definition in 1-2 sentences]
-
+## Section Title
+**What:** [1-2 sentence definition]
 **Key Characteristics:**
 - Point 1
 - Point 2
 - Point 3
-
 **Examples:**
-- **Product A** - [Specific use case]
-- **Product B** - [Specific use case]
-
+- **Tool A** - Specific use case
+- **Tool B** - Specific use case
 **When to Use:**
 [Scenario-based guidance]
-
-**Comparison Table:**
-| Dimension | Option 1 | Option 2 |
-|-----------|----------|----------|
-| ...       | ...      | ...      |
+### Comparison Framework
+| Dimension | Option 1 | Option 2 | Option 3 |
+|-----------|----------|----------|----------|
+| ...       | ...      | ...      | ...      |
+### Resources
+**≡ƒôÜ Resource Name** - [Link](url)
+- **What:** Brief description
+- **Why included:** Value proposition
+- **Best for:** Target audience/use case
+- **Time:** Estimated reading/watching time
+- **Free:** Yes/No
 ```
-
-### 4. Phase Execution Workflow
-
-Phases follow this lifecycle:
-
-1. **Research** → Creates `XX-RESEARCH.md` with discovery findings
-2. **Planning** → Creates `XX-YY-PLAN.md` with executable tasks
-3. **Execution** → Execute tasks, commit per task
-4. **Summary** → Create `XX-YY-SUMMARY.md` after plan completion
-5. **Verification** → Create `XX-VERIFICATION.md` checking goal achievement
-
-**Plan Structure (`PLAN.md`):**
-- Frontmatter with metadata (phase, plan, wave, dependencies, must_haves)
-- `<objective>` - What and why
-- `<context>` - Files to reference
-- `<tasks>` - Executable task list with clear actions
-
-**Verification Pattern:**
-- Goal-backward analysis (does codebase achieve phase goal?)
-- 3-level artifact check: Existence → Substantive → Wired
-- Truth verification (can learner achieve stated outcomes?)
-- Gap identification (what's missing or incorrect)
-
-See [.github/skills/execute-plan/SKILL.md](.github/skills/execute-plan/SKILL.md) and [.github/skills/verify-phase/SKILL.md](.github/skills/verify-phase/SKILL.md).
-
-## Configuration
-
-### Mode Settings (`.gsd/config.json`)
-
-```json
-{
-  "mode": "yolo",              // brave | yolo | safe
-  "depth": "quick",            // quick | standard | deep
-  "parallelization": true,     // Execute plans in parallel waves
-  "commit_docs": true,         // Commit docs files
-  "model_profile": "balanced"  // quality | balanced | budget
-}
+### Anti-Patterns
+- Γ¥î Link dumps without context
+- Γ¥î Generic advice without specific examples
+- Γ¥î Stub sections with "Coming soon"
+- Γ¥î More than 7 resources per topic
+- Γ¥î Comparison tables with inconsistent dimensions
+## Git Integration
+### Commit Message Format
+Follow GSD's atomic task commit pattern:
 ```
-
-**Current Project:** yolo mode + quick depth = fast iteration with minimal checkpoints
-
-## Project-Specific Conventions
-
-### Content Quality Standards
-
-- **Curation over comprehensiveness:** 5-7 resources max per topic (avoid "everything trap")
-- **Context required:** Every resource link needs "what, why, when" annotation
-- **Concrete over abstract:** Real product names, specific commands, actual file paths
-- **Progressive complexity:** Beginner-friendly explanations first, advanced concepts later
-- **Mobile-friendly:** Markdown-native formatting (renders on GitHub mobile)
-
-### File Naming
-
-- Phases: `XX-descriptive-name/` (01-foundation-structure)
-- Plans: `XX-YY-PLAN.md` (phase-plan numbering)
-- Summaries: `XX-YY-SUMMARY.md`
-- Phase-level docs: `XX-RESEARCH.md`, `XX-VERIFICATION.md`
-
-### Cross-References
-
-Use relative paths for internal links:
-```markdown
-[→ Explore Tools](02-tools/README.md)
-[@.gsd/PROJECT.md](.gsd/PROJECT.md)
+<type>(<phase>-<plan>): <task-description>
+- [Key change 1]
+- [Key change 2]
+- [Key change 3]
 ```
-
-## Common Anti-Patterns to Avoid
-
-- ❌ Editing `.gsd/STATE.md` without reading it first
-- ❌ Creating stub content (always provide substantive implementation)
-- ❌ Generic advice without specific examples
-- ❌ Resource dumps (30+ links with no context)
-- ❌ Committing "WIP" or intermediate planning docs
-- ❌ Batch committing multiple completed tasks (1 task = 1 commit)
-- ❌ Changing requirements without updating ROADMAP.md
-
-## Key Files to Reference
-
-**Before any work:**
-- [.gsd/STATE.md](.gsd/STATE.md) - Current status and blockers
-- [.gsd/PROJECT.md](.gsd/PROJECT.md) - Project scope and constraints
-
-**For implementation patterns:**
-- [Agentic AI/01-ecosystem/README.md](Agentic AI/01-ecosystem/README.md) - Example of comparison framework
-- [Agentic AI/02-tools/README.md](Agentic AI/02-tools/README.md) - Example of tool guides with exercises
-
-**For process guidance:**
-- [.github/instructions/git-integration.instructions.md](.github/instructions/git-integration.instructions.md) - Commit strategy
-- [.github/instructions/verification-patterns.instructions.md](.github/instructions/verification-patterns.instructions.md) - Quality checks
-- [.github/skills/execute-plan/SKILL.md](.github/skills/execute-plan/SKILL.md) - Plan execution workflow
-
-## Quick Reference
-
-**Check project status:**
+**Types:**
+- `feat` - New feature/content
+- `docs` - Documentation updates
+- `fix` - Bug fix
+- `refactor` - Code cleanup
+- `chore` - Dependencies, config
+**Examples:**
 ```bash
-cat .gsd/STATE.md
+# Content creation
+git commit -m "docs(02-01): create AI ecosystem taxonomy
+- Added assistants, agents, copilots definitions
+- Created 3-way comparison table with 6 dimensions
+- Curated 7 resources with contextual annotations"
+# Planning completion
+git commit -m "docs(02-01): complete ecosystem content plan
+Tasks completed: 3/3
+SUMMARY: .gsd/phases/02-01-SUMMARY.md"
 ```
-
-**See current phase requirements:**
-```bash
-cat .gsd/ROADMAP.md
-```
-
-**Find active plan:**
-```bash
-ls .gsd/phases/XX-current-phase/
-```
-
-**Verify content quality:**
-```bash
-wc -l "Agentic AI/XX-section/README.md"  # Should be substantial (500+ lines)
-```
+### Files to Always Commit
+- Content files (`Agentic AI/**`)
+- Planning artifacts (`.gsd/phases/**`)
+- Metadata updates (`.gsd/STATE.md`, `.gsd/ROADMAP.md`)
+- Configuration (`.gsd/config.json` if changed)
+## GSD Framework Integration
+When working with GSD artifacts:
+### Reading Context
+- **Before starting:** Read `.gsd/STATE.md` for current project status
+- **For your phase:** Read `.gsd/phases/XX-name/XX-YY-PLAN.md` for task details
+- **For decisions:** Check `key-decisions` in SUMMARY.md files
+### Creating Content
+- **Follow the plan:** Task descriptions in PLAN.md are prescriptive
+- **Document decisions:** Update SUMMARY.md with choices made during implementation
+- **Track patterns:** Note reusable patterns in `patterns-established` section
+### Quality Verification
+- **Line count:** Content sections should be 500+ lines (substantive, not stub)
+- **Resource count:** Exactly 5-7 curated resources per topic
+- **Difficulty markers:** Every resource should have ≡ƒƒó/≡ƒƒí/≡ƒö┤
+- **Navigation:** Each README.md should have breadcrumbs and next/previous links
+## Feature-Specific Guidelines
+When working on specific areas, also read:
+- **Content Creation:** @.github/instructions/content-quality.instructions.md
+- **GSD Workflow:** @.github/instructions/gsd-workflow.instructions.md
+- **Verification:** @.github/instructions/verification-patterns.instructions.md
+## Common Tasks
+### Adding New Content Section
+1. Read `.gsd/phases/XX-name/XX-YY-PLAN.md` for structure
+2. Create substantive content following quality rules above
+3. Add 5-7 curated resources with annotations
+4. Add difficulty markers (≡ƒƒó≡ƒƒí≡ƒö┤)
+5. Integrate navigation (breadcrumbs, prev/next)
+6. Commit per task: `docs(XX-YY): <task-name>`
+### Reviewing PRs
+1. Check PLAN.md to understand intent
+2. Verify SUMMARY.md documents decisions
+3. Confirm content quality (no stubs, proper curation)
+4. Verify commit format follows GSD patterns
+5. Check navigation integration
+### Updating Existing Content
+1. Check `.gsd/STATE.md` for context
+2. Read SUMMARY.md for original decisions
+3. Make changes preserving established patterns
+4. Update STATE.md if decisions change
+5. Commit: `docs: update <section> - <reason>`
+## Key Principles
+1. **Codebase as documentation:** README files are learning materials, not just reference
+2. **Outcomes over process:** Commit completed work, not intermediate planning
+3. **Context preservation:** SUMMARY.md files capture "why" for future developers
+4. **Quality over quantity:** 5-7 excellent resources beats 30 mediocre links
+5. **AI-native workflow:** Use GitHub Copilot + GSD for all development
+## Questions?
+- **GSD Framework:** See `Agentic AI/03-gsd/README.md`
+- **Contributing:** See `CONTRIBUTING.md` (if exists)
+- **Issues:** Check `.gsd/STATE.md` for known blockers

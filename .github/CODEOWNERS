@@ -1,0 +1,25 @@
+﻿# CODEOWNERS - Automatic code review assignment
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# Default owners for everything (tech leads review all changes)
+* @SriSatyaLokesh
+# GSD Framework & Planning
+/.gsd/** @SriSatyaLokesh
+/.github/skills/** @SriSatyaLokesh
+/.github/agents/** @SriSatyaLokesh
+# Learning Content - Agentic AI
+/Agentic\ AI/01-ecosystem/** @SriSatyaLokesh
+/Agentic\ AI/02-tools/** @SriSatyaLokesh
+/Agentic\ AI/03-gsd/** @SriSatyaLokesh
+/Agentic\ AI/04-agents/** @SriSatyaLokesh
+/Agentic\ AI/05-skills/** @SriSatyaLokesh
+/Agentic\ AI/06-capstone/** @SriSatyaLokesh
+# Team Assignments (Update with actual GitHub usernames)
+# Example for multi-developer teams:
+# /Agentic\ AI/01-ecosystem/** @developer-a @developer-b
+# /Agentic\ AI/02-tools/** @developer-c
+# /Agentic\ AI/03-gsd/** @developer-d @developer-e
+# Critical Files - Require all leads
+/.gsd/PROJECT.md @SriSatyaLokesh
+/.gsd/ROADMAP.md @SriSatyaLokesh
+/.gsd/config.json @SriSatyaLokesh
+/.github/copilot-instructions.md @SriSatyaLokesh
