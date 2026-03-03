@@ -13,7 +13,7 @@ Welcome to your definitive guide for mastering AI without spending a dime. Our g
 
 Before diving into broad certifications, master the specific tools and frameworks we use in this Agentic AI repository.
 
-### 1. Entropic Skills (Anthropic)
+### 1. Anthropic Skills
 **Start with this.** To build effective agents, you must master the art of prompt engineering and understand how Large Language Models (LLMs) think. Anthropic, the creators of Claude, offer the best interactive course for this.
 
 *   **Course:** [Anthropic Prompt Engineering Interactive Tutorial](https://github.com/anthropics/courses)
@@ -24,7 +24,7 @@ Before diving into broad certifications, master the specific tools and framework
 ### 2. This Repository (SriSatyaLokesh/Agentic AI)
 Once you understand the basics of prompting from Anthropic, return here. This repository is designed as a complete practical curriculum for building **Agentic Systems**.
 
-*   **Action:** Go through the [Agentic AI README](../README.md) and follow the modules sequentially (01-Ecosystem to 06-Capstone).
+*   **Action:** Go through the [Agentic AI README](../) and follow the modules sequentially (01-Ecosystem to 06-Capstone).
 *   **Focus:** Practical application, coding agents, and system design patterns.
 *   **Differentiation:** While others teach theory, we teach you how to *build*.
 
@@ -77,7 +77,7 @@ If your goal is to earn a recognized certificate to boost your LinkedIn profile 
 
 **Navigation:**
 - [← Previous: 6. Capstone](../06-capstone/README.md)
-- [Home: Learning Pathway](../README.md)
+- [Home: Learning Pathway](../)
 
 ---
 
