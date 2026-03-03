@@ -1,6 +1,6 @@
 > [!NOTE]
 > **📍 Location:** Learning Pathway Home  
-> **📊 Total Pathway:** 6 Sections | ⏱️ Estimated time: 4-5 hours  
+> **📊 Total Pathway:** 7 Sections | ⏱️ Estimated time: 4-5 hours  
 > **Start here if:** You want to learn AI-assisted development from scratch
 
 ---
@@ -147,9 +147,9 @@ Most sections include exercises, examples, or reference implementations. You'll 
 
 ## Pathway Overview
 
-**Total Time:** ~4-5 hours across 6 sections  
+**Total Time:** ~5.5 hours across 7 sections  
 **Approach:** Sequential learning (each section builds on previous)  
-**Outcome:** Complete portfolio project demonstrating AI-assisted development
+**Outcome:** Complete portfolio project and clear certification path
 
 | Section | Topic | Time | Prerequisites |
 |---------|-------|------|---------------|
@@ -159,6 +159,7 @@ Most sections include exercises, examples, or reference implementations. You'll 
 | 4 | [Agents](04-agents/README.md) | 35 min | Sections 1-3 |
 | 5 | [Skills](05-skills/README.md) | 25 min | Sections 1-4 |
 | 6 | [Capstone](06-capstone/README.md) | 45 min | All previous |
+| 7 | [Free Certifications](free-certifications/README.md) | 15 min | Ecosystem |
 
 ---
 
@@ -170,5 +171,7 @@ Most sections include exercises, examples, or reference implementations. You'll 
 - [Tools →](02-tools/README.md) — Hands-on tool adoption
 - [GSD Framework →](03-gsd/README.md) — Structured AI workflows
 - [Capstone →](06-capstone/README.md) — Build your portfolio
+- [Free Certifications →](free-certifications/README.md) — Get certified for free
+
 
 ---

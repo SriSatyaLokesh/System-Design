@@ -4654,14 +4654,15 @@ You now have:
 **What's Next?**
 
 1. **Complete your capstone** — Build the portfolio project using tools and patterns from this pathway
-2. **Share your work** — Post to Dev.to, LinkedIn, or your personal site
-3. **Keep learning** — Revisit sections as you encounter new use cases
-4. **Contribute back** — Share your learnings with the community
+2. **Get Certified** — Utilize [free certifications](../free-certifications/README.md) to validate your skills
+3. **Share your work** — Post to Dev.to, LinkedIn, or your personal site
+4. **Keep learning** — Revisit sections as you encounter new use cases
+5. **Contribute back** — Share your learnings with the community
 
 **Navigation:**
 - [← Previous: 5. Skills](../05-skills/README.md)
+- [Next: 7. Free Certifications](../free-certifications/README.md)
 - [Home: Learning Pathway](../README.md)
-- [Start Over: 1. Ecosystem](../01-ecosystem/README.md)
 
 ---
 
