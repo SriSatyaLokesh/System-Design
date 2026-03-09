@@ -241,28 +241,36 @@ Agents can work through large tasks methodically.
 
 ### What are AI Copilots
 
-AI Copilots represent a **middle ground between assistants and agents**—they're proactive like agents but keep humans in the driver's seat like assistants.
+AI Copilots originally represented a **middle ground between assistants and agents**—proactive, but with humans in the driver's seat. However, modern copilots (especially GitHub Copilot) are rapidly evolving to include **agentic capabilities**:
 
-The copilot paradigm is based on **real-time collaboration**: as you work, the copilot watches your context and offers relevant suggestions at exactly the right moment. You decide whether to accept, modify, or ignore each suggestion.
+- **Multi-step planning and execution** (e.g., Copilot Workspace can plan, edit, and commit code changes across your repo)
+- **Tool use and automation** (e.g., running tests, refactoring, or even deploying code)
+- **Autonomous workflows** (initiating and completing tasks with minimal human intervention)
 
-**The "Pilot + Co-Pilot" Model:**
-- **You (Pilot):** Make all final decisions, maintain control, own the work
-- **AI (Co-Pilot):** Monitors context, suggests next steps, fills in tedious details, catches mistakes
+**The "Pilot + Co-Pilot" Model (Evolving):**
+- **You (Pilot):** Make final decisions, maintain control, own the work
+- **AI (Co-Pilot):** Monitors context, suggests next steps, and increasingly, can act on your behalf
 
 **Key Characteristics:**
 
-🎯 **Contextually Aware:** Copilots understand what you're working on *right now*—your current file, cursor position, recent edits  
-⚡ **Real-Time:** Suggestions appear as you type, not after you ask  
-✋ **Non-Intrusive:** Suggestions are easy to accept or dismiss with a keystroke  
-🔄 **Iterative:** They learn from your accept/reject patterns to improve suggestions  
+🎯 **Contextually Aware:** Understands your current file, project, and even repo-wide context  
+⚡ **Real-Time:** Suggestions and actions as you work  
+🤖 **Agentic Actions:** Can now plan, edit, and execute multi-step changes  
+🔄 **Iterative:** Learns from your accept/reject patterns to improve suggestions  
 
 **Difference from Assistants:**
 - Assistants: You ask, they respond
-- Copilots: They proactively suggest based on your current context
+- Copilots: Proactively suggest and (increasingly) act based on your context
 
 **Difference from Agents:**
-- Agents: Autonomously complete tasks
-- Copilots: Suggest actions but you make every decision
+- Agents: Fully autonomous, own the task end-to-end
+- Copilots: Traditionally suggest actions, but now can execute agentic workflows (especially in repo-aware modes)
+
+> **Agentic Copilots in Practice:**
+> - **GitHub Copilot (2024+)**: With Copilot Workspace and deep repo integration, Copilot can now plan, edit, and commit code, acting as a true agent for many developer workflows.
+> - **GitHub CLI (gh):** When orchestrated by AI or scripts, the GitHub CLI enables agent-based automation for repo management, CI/CD, and more—blurring the line between copilots and agents.
+
+**Key Insight:** The boundaries between copilots and agents are fading. Modern copilots are becoming agentic, capable of autonomous, multi-step development tasks, especially when combined with tools like GitHub CLI.
 
 ### Copilot Integration Patterns
 
