@@ -14,6 +14,7 @@
 
 ## System Architecture Foundations
 
+- [AI Engineering](https://github.com/SriSatyaLokesh/System-Design/blob/main/AI/README.md): Foundation model lifecycle, RAG architectures, evaluation frameworks, and production guardrails.
 - [System Design Bibles](https://github.com/SriSatyaLokesh/System-Design/blob/main/System%20Design%20bibles/README.md): Scalability principles, data-intensive architecture (DDIA), and Clean Architecture fundamentals.
 - [Distributed Caching](https://github.com/SriSatyaLokesh/System-Design/blob/main/Caching/README.md): Redis caching patterns, cache-aside, write-through, TTL strategies, and high-throughput cache topologies.
 - [Notification Systems](https://github.com/SriSatyaLokesh/System-Design/blob/main/Notification%20Systems/notes.md): Real-time distributed notification engines, fanout queues, idempotency, rate limiting, and delivery retries.

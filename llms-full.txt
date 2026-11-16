@@ -69,6 +69,11 @@ This repository delivers a unified open-source pathway designed to transform sof
 
 ## 3. System Design & Architectural Foundations
 
+### AI Engineering & Foundation Model Systems
+- **Core Focus**: Translating research models into reliable production applications through prompt evals, RAG pipelines, inference optimization, and guardrails.
+- **RAG Architecture**: Advanced chunking, hybrid search (BM25 + dense vector embeddings), and re-ranking for enterprise grounding.
+- **Evals & Safety**: Automated evaluation suites (faithfulness, context recall) and runtime defenses against prompt injection.
+
 ### Distributed Caching Architecture
 - **Patterns**:
   - *Cache-Aside (Lazy Loading)*: Application reads from cache; on miss, reads from database and populates cache. Best for read-heavy workloads with tolerable staleness.
