@@ -1,177 +1,158 @@
+[🏠 Home (System-Design)](../README.md) > **Agentic AI Curriculum Hub**
+
 > [!NOTE]
-> **📍 Location:** Learning Pathway Home  
-> **📊 Total Pathway:** 7 Sections | ⏱️ Estimated time: 4-5 hours  
-> **Start here if:** You want to learn AI-assisted development from scratch
+> **📍 Location:** Agentic AI Curriculum Hub  
+> **📊 Total Pathway:** 7 Modules (6 Core + 1 Certifications) | ⏱️ Estimated time: 4–5 hours  
+> **Machine-Readable Index:** [llms.txt](../llms.txt) | **License:** [MIT License](../LICENSE)
 
 ---
 
-# AI Working Enablement & Skill Pathway
+# 🤖 Agentic AI Learning Pathway Hub
 
-A curated learning resource hub for working effectively with AI tools, agents, and copilots. This pathway takes you from understanding the AI ecosystem to building real projects with AI assistance.
+### What is the Agentic AI Learning Pathway?
+The Agentic AI Learning Pathway is a structured, six-module curriculum designed to transition developers from conversational prompting to production-grade agent orchestration. Covering tools like Claude Code and GitHub Copilot alongside the GSD framework and MCP skills, it equips engineers to ship reliable software with autonomous AI.
 
-## Learning Objectives
+---
 
-By the end of this pathway, you'll be able to:
+## 🎯 Learning Objectives
 
-- **Distinguish between AI tools** — Understand the differences between AI assistants (Claude, ChatGPT), AI agents (autonomous execution), and AI copilots (GitHub Copilot, Claude Code)
-- **Choose the right AI tool for your task** — Know when to use chat interfaces vs repository-based AI vs agent frameworks
-- **Delegate work to AI effectively** — Structure tasks and prompts that enable AI to deliver quality outcomes
-- **Apply the GSD Framework** — Use GSD (Get Shit Done) framework's Goal → Spec → Deliver workflow to break down projects into AI-executable plans
-- **Integrate AI skills and capabilities** — Leverage pre-built AI skills and understand skill packaging formats
-- **Build projects with AI assistance** — Complete a hands-on portfolio project using AI tools from start to finish
-- **Prompt engineer with purpose** — Write effective prompts that provide context and guide AI toward desired outcomes
+By the end of this pathway, you will be able to:
 
-> **💡 Note:** GSD is a CLI tool that stands for "Get Shit Done" (or "Get Stuff Done"). It uses a Goal → Spec → Deliver workflow to maintain consistent AI quality across complex projects.
+- **Distinguish between AI tools** — Master the technical boundaries between conversational assistants (Claude, ChatGPT), autonomous agents, and IDE copilots (GitHub Copilot, Cursor).
+- **Choose the right AI for every task** — Navigate decision matrices for chat vs. repository-aware AI vs. autonomous CLI execution.
+- **Delegate work effectively** — Structure prompts and task boundaries that enable AI to deliver consistent, verifiable results.
+- **Apply the GSD Framework** — Use the Goal → Spec → Deliver workflow to decompose complex features into atomic, test-verified units.
+- **Integrate AI skills & MCP** — Package standardized capabilities and connect agents to tools using the Model Context Protocol.
+- **Build portfolio capstone projects** — Ship real projects with step-by-step guidance and 13 real-world prompts.
+- **Master prompt engineering** — Craft context-rich system prompts and eradicate hallucination anti-patterns.
 
-## Who This Is For
+---
 
-This pathway is designed for **anyone wanting to work effectively with AI tools** — whether you're a developer, product manager, designer, analyst, or simply AI-curious. 
+## 👥 Who This Is For
+
+This pathway is built for **anyone seeking to work effectively as an AI-native contributor** — software engineers, engineering leads, product managers, designers, and career switchers.
 
 **Prerequisites:**
-- None required! Start from zero AI experience
-- Helpful but not necessary: Basic programming concepts, familiarity with version control (git)
+- Zero prior machine learning, Python, or data science knowledge required.
+- Helpful: Familiarity with basic coding concepts and terminal environments.
 
-**What this is NOT about:**
-- Building AI models or ML engineering
-- Neural networks or deep learning
-- Training models from scratch
+**What This IS:**
+- Practical AI-assisted software delivery and accelerated engineering.
+- Autonomous agent delegation, repository traversal, and TDD verification.
+- Production system architecture patterns (distributed caching, event queues).
 
-**What this IS about:**
-- Using AI to accelerate your delivery
-- Delegating to agents and working with copilots
-- Structuring work for AI execution
-- Becoming an AI-native contributor
-
-## Sections
-
-### 1. Ecosystem
-
-Understand the landscape of AI tools and platforms available to you. This section introduces the three main categories of AI tools: assistants, agents, and copilots, helping you understand what each excels at and when to use them.
-
-**Topics covered:**
-- What are AI assistants (Claude, ChatGPT, Gemini) and when to use them
-- Understanding AI agents and autonomous execution
-- AI copilots (GitHub Copilot, Claude Code) for real-time coding assistance
-- Chat-based AI vs repository-based AI — comparing interaction models
-- Platform-specific features and capabilities
-- Free resources and getting started guides
-
-[→ Explore Ecosystem](01-ecosystem/README.md)
-
-### 2. Tools
-
-Hands-on adoption of specific AI tools with practical exercises and prompt engineering basics. Move from theory to practice by setting up and using tools like Anthropic's Claude Code, GitHub Copilot, and more.
-
-**Topics covered:**
-- Anthropic's Claude Code guide (with Skillshare course link)
-- GitHub Copilot setup and best practices
-- Antigravity tool walkthrough
-- Hands-on exercises for each tool
-- Prompt engineering fundamentals
-- Writing effective prompts that provide context
-
-[→ Explore Tools](02-tools/README.md)
-
-### 3. GSD Framework
-
-Learn the GSD (Get Shit Done) framework for structuring work that AI can execute. Understand how to break down projects into phases using GSD's Goal → Spec → Deliver workflow, create executable plans, and delegate tasks to AI agents with confidence.
-
-**Topics covered:**
-- GSD Framework overview (with GitHub repo link)
-- Understanding the Goal → Spec → Deliver workflow
-- PRD (Product Requirements Document) driven execution
-- Task decomposition strategies
-- Planning for AI execution
-- GSD explainer video walkthrough
-
-[→ Explore GSD Framework](03-gsd/README.md)
-
-### 4. Agents
-
-Deep dive into AI agents — what makes them different from assistants, how to delegate work to autonomous agents, and patterns for multi-agent orchestration. Learn when agents are the right tool and how to use them effectively.
-
-**Topics covered:**
-- AI agents vs AI assistants — key differences
-- Agent delegation patterns and best practices
-- Multi-agent orchestration concepts
-- Platform-specific agent examples (AutoGPT, LangChain, CrewAI)
-- When to use agents vs copilots
-- Prompt engineering for agent delegation
-
-[→ Explore Agents](04-agents/README.md)
-
-### 5. Skills
-
-Explore AI skills and capabilities — pre-built functions and integrations that extend what AI can do. Learn about skill packaging, integration patterns, and how different platforms handle skills.
-
-**Topics covered:**
-- What are AI skills and capabilities
-- Skill packaging formats and standards
-- Claude Skills repository tour
-- Awesome AI Skills curated collection
-- Platform skill format comparison (Claude MCP, OpenAI functions, LangChain tools)
-- How to integrate skills into your workflows
-
-[→ Explore Skills](05-skills/README.md)
-
-### 6. Capstone
-
-Put everything together by building a real project with AI assistance. Use the GSD framework, AI agents, and copilots to create your own portfolio site, guided by a reference implementation and step-by-step instructions.
-
-**Topics covered:**
-- Capstone project brief — AI-built portfolio
-- Live reference example (my portfolio as case study)
-- Prompts used with explanations and rationale
-- Step-by-step guide for building your portfolio
-- PRD template for portfolio projects
-- Technical requirements checklist
-- Deployment and polish
-
-[→ Start Capstone](06-capstone/README.md)
-
-## How to Use This Pathway
-
-**Recommended approach:**
-Start with Section 1 (Ecosystem) and work sequentially through all six sections. Each builds on concepts from the previous ones.
-
-**Jump around:**
-If you already know the basics, feel free to skip to sections that interest you. Each section README includes context on what it assumes you know from prior sections.
-
-**Self-paced:**
-There are no time estimates or deadlines. Move at your own pace and revisit sections as needed.
-
-**Hands-on learning:**
-Most sections include exercises, examples, or reference implementations. You'll get the most value by trying things out rather than just reading.
+**What This is NOT:**
+- Training foundation models or neural network mathematics.
+- Data science pipelines or academic machine learning research.
 
 ---
 
-## Pathway Overview
+## 📚 Complete Curriculum Modules
 
-**Total Time:** ~5.5 hours across 7 sections  
-**Approach:** Sequential learning (each section builds on previous)  
-**Outcome:** Complete portfolio project and clear certification path
+### 📍 1. AI Ecosystem
+**⏱️ 25 minutes** | *Understand the AI Tool Landscape*
 
-| Section | Topic | Time | Prerequisites |
-|---------|-------|------|---------------|
-| 1 | [Ecosystem](01-ecosystem/README.md) | 25 min | None |
-| 2 | [Tools](02-tools/README.md) | 45 min | Section 1 |
-| 3 | [GSD Framework](03-gsd/README.md) | 60 min | Sections 1-2 |
-| 4 | [Agents](04-agents/README.md) | 35 min | Sections 1-3 |
-| 5 | [Skills](05-skills/README.md) | 25 min | Sections 1-4 |
-| 6 | [Capstone](06-capstone/README.md) | 45 min | All previous |
-| 7 | [Free Certifications](free-certifications/README.md) | 15 min | Ecosystem |
+Learn the three main categories of AI tools: assistants, agents, and copilots. Establish mental models for when to use each platform.
+- AI assistants (Claude, ChatGPT, Gemini) and their core strengths.
+- Autonomous execution agents vs. inline IDE copilots.
+- Chat-based AI vs. repository-based AI decision matrix.
+
+[→ Explore Section 1: Ecosystem](01-ecosystem/README.md)
 
 ---
 
-## What's Next?
+### 🛠️ 2. AI Coding Tools & Prompting
+**⏱️ 45 minutes** | *Hands-On Tool Adoption & Context Engineering*
 
-**▶️ Start learning:** [1. Ecosystem →](01-ecosystem/README.md) — Understanding the AI landscape
+Move from theory to practice with hands-on setup and practical exercises for modern developer tools.
+- Anthropic's **Claude Code** CLI agent setup and repository workflows.
+- **GitHub Copilot** best practices and workspace indexing.
+- Prompt engineering fundamentals: Context injection, negative constraints, and anti-patterns.
 
-**Skip ahead** (if experienced):
-- [Tools →](02-tools/README.md) — Hands-on tool adoption
-- [GSD Framework →](03-gsd/README.md) — Structured AI workflows
-- [Capstone →](06-capstone/README.md) — Build your portfolio
-- [Free Certifications →](free-certifications/README.md) — Get certified for free
-
+[→ Explore Section 2: Tools](02-tools/README.md)
 
 ---
+
+### 🎯 3. The GSD Framework
+**⏱️ 60 minutes** | *Structured Workflows for AI Execution*
+
+Learn the **GSD (Get Shit Done)** framework to eliminate AI context drift and hallucination.
+- The three-stage **Goal → Spec → Deliver** lifecycle.
+- PRD-driven development: Writing unambiguous technical specifications.
+- Breaking projects into atomic 2–5 minute test-verified tasks.
+
+[→ Explore Section 3: GSD Framework](03-gsd/README.md)
+
+---
+
+### 🤖 4. Autonomous AI Agents
+**⏱️ 35 minutes** | *Multi-Agent Architecture & Delegation*
+
+Deep dive into how autonomous agents operate, plan, and evaluate their own work.
+- Key differences between AI agents and conversational assistants.
+- Agent delegation patterns and multi-agent orchestration (hierarchical swarms).
+- Platform examples: AutoGPT, LangChain, CrewAI, and terminal CLI agents.
+
+[→ Explore Section 4: Agents](04-agents/README.md)
+
+---
+
+### ⚡ 5. AI Skills & Model Context Protocol (MCP)
+**⏱️ 25 minutes** | *Extending AI Capabilities with Standardized Tools*
+
+Explore pre-built capabilities and open standards that connect AI agents to external environments.
+- What are AI skills and packaging standards.
+- Anthropic's **Model Context Protocol (MCP)** specification.
+- Integrating external tools, APIs, and databases into agent workflows.
+
+[→ Explore Section 5: Skills](05-skills/README.md)
+
+---
+
+### 🎓 6. Capstone Project
+**⏱️ 45 minutes** | *Build and Ship with AI Assistance*
+
+Synthesize everything by building and deploying a real portfolio project.
+- Real-world case study: [Sri Satya Lokesh Portfolio](https://srisatyalokesh.github.io).
+- 13 actual prompts with rationale and sequence.
+- Downloadable, prefilled PRD template structured for AI execution.
+
+[→ Explore Section 6: Capstone](06-capstone/README.md)
+
+---
+
+### 🏆 7. Free Certifications & Resources
+**⏱️ 15 minutes** | *Validated Credentials & Ongoing Learning*
+
+Validate your skills with recognized free credentials and industry documentation.
+- Anthropic prompt engineering tutorials.
+- Andrew Ng's DeepLearning.AI short courses.
+- Official tool documentation and learning roadmaps.
+
+[→ Explore Section 7: Free Certifications](free-certifications/README.md)
+
+---
+
+## 📊 Pathway Overview Table
+
+| Section | Topic | Estimated Time | Prerequisites | Primary Deliverable |
+|---|---|---|---|---|
+| **1** | [Ecosystem](01-ecosystem/README.md) | 25 min | None | AI Tool Decision Matrix |
+| **2** | [Tools](02-tools/README.md) | 45 min | Section 1 | Claude Code & Copilot Environment |
+| **3** | [GSD Framework](03-gsd/README.md) | 60 min | Sections 1–2 | Executable PRD Specification |
+| **4** | [Agents](04-agents/README.md) | 35 min | Sections 1–3 | Multi-Agent Delegation Plan |
+| **5** | [Skills & MCP](05-skills/README.md) | 25 min | Sections 1–4 | Custom MCP Tool Integration |
+| **6** | [Capstone](06-capstone/README.md) | 45 min | Sections 1–5 | Live Portfolio Deployment |
+| **7** | [Certifications](free-certifications/README.md) | 15 min | Section 1 | Validated Course Certifications |
+
+---
+
+## 🚀 Getting Started
+
+**▶️ Begin here:** [Section 1: AI Ecosystem →](01-ecosystem/README.md)
+
+**Skip ahead (Experienced developers):**
+- [Tools →](02-tools/README.md)
+- [GSD Framework →](03-gsd/README.md)
+- [Capstone Project →](06-capstone/README.md)
+- [System Design Foundations →](../README.md#-system-design--distributed-architecture-foundations)
