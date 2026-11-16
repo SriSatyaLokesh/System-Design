@@ -4,33 +4,24 @@
 
 ## Core Learning Pathway
 
-- [Pathway Overview](Agentic%20AI/README.md): Complete curriculum guide taking engineers from AI tool beginners to AI-native builders in 4–5 hours.
-- [01 - AI Ecosystem](Agentic%20AI/01-ecosystem/README.md): Distinguish AI assistants (Claude, ChatGPT), autonomous agents, and AI copilots; includes platform comparison and chat vs. repository AI decision matrices.
-- [02 - Tools & Prompt Engineering](Agentic%20AI/02-tools/README.md): Hands-on adoption guide for Claude Code, GitHub Copilot, and Cursor with prompt anti-patterns and context-engineering exercises.
-- [03 - GSD Framework](Agentic%20AI/03-gsd/README.md): Structured Goal → Spec → Deliver workflow to decompose complex software tasks and eliminate AI hallucinations.
-- [04 - Autonomous AI Agents](Agentic%20AI/04-agents/README.md): Multi-agent orchestration, delegation patterns, AutoGPT, LangChain, and CrewAI frameworks.
-- [05 - AI Skills & Model Context Protocol](Agentic%20AI/05-skills/README.md): MCP standard, skill packaging, Anthropic tools, and runtime capability extension.
-- [06 - Capstone Portfolio Project](Agentic%20AI/06-capstone/README.md): Build and deploy a production portfolio site with AI assistance using 13 real-world prompts and prefilled PRD templates.
+- [Pathway Overview](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/README.md): Complete curriculum guide taking engineers from AI tool beginners to AI-native builders in 4–5 hours.
+- [01 - AI Ecosystem](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/01-ecosystem/README.md): Distinguish AI assistants (Claude, ChatGPT), autonomous agents, and AI copilots; includes platform comparison and chat vs. repository AI decision matrices.
+- [02 - Tools & Prompt Engineering](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/02-tools/README.md): Hands-on adoption guide for Claude Code, GitHub Copilot, and Cursor with prompt anti-patterns and context-engineering exercises.
+- [03 - GSD Framework](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/03-gsd/README.md): Structured Goal → Spec → Deliver workflow to decompose complex software tasks and eliminate AI hallucinations.
+- [04 - Autonomous AI Agents](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/04-agents/README.md): Multi-agent orchestration, delegation patterns, AutoGPT, LangChain, and CrewAI frameworks.
+- [05 - AI Skills & Model Context Protocol](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/05-skills/README.md): MCP standard, skill packaging, Anthropic tools, and runtime capability extension.
+- [06 - Capstone Portfolio Project](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/06-capstone/README.md): Build and deploy a production portfolio site with AI assistance using 13 real-world prompts and prefilled PRD templates.
 
 ## System Architecture Foundations
 
-- [System Design Bibles](System%20Design%20bibles/): Scalability principles, data-intensive architecture (DDIA), and Clean Architecture fundamentals.
-- [Distributed Caching](Caching/): Redis caching patterns, cache-aside, write-through, TTL strategies, and high-throughput cache topologies.
-- [Notification Systems](Notification%20Systems/notes.md): Real-time distributed notification engines, fanout queues, idempotency, rate limiting, and delivery retries.
-- [Node.js Enterprise Architecture](Node%20JS/): Event-driven microservices, high-throughput I/O, concurrency patterns, and backend performance tuning.
-- [Prompt Engineering Handbook](Prompt-Engineering/prompt-engineering-beginner-to-pro-guide.md): Structured prompting frameworks, system instructions, few-shot patterns, and chain-of-thought elicitation.
+- [System Design Bibles](https://github.com/SriSatyaLokesh/System-Design/blob/main/System%20Design%20bibles/README.md): Scalability principles, data-intensive architecture (DDIA), and Clean Architecture fundamentals.
+- [Distributed Caching](https://github.com/SriSatyaLokesh/System-Design/blob/main/Caching/README.md): Redis caching patterns, cache-aside, write-through, TTL strategies, and high-throughput cache topologies.
+- [Notification Systems](https://github.com/SriSatyaLokesh/System-Design/blob/main/Notification%20Systems/notes.md): Real-time distributed notification engines, fanout queues, idempotency, rate limiting, and delivery retries.
+- [Node.js Enterprise Architecture](https://github.com/SriSatyaLokesh/System-Design/blob/main/Node%20JS/README.md): Event-driven microservices, high-throughput I/O, concurrency patterns, and backend performance tuning.
 
-## Key Concepts & Quotations
+## Optional
 
-- **Agentic AI Definition**: AI systems capable of autonomous multi-step reasoning, environment observation, tool invocation, and self-directed goal execution with minimal human intervention.
-- **GSD Framework Definition**: A structured AI execution methodology using a three-phase "Goal → Spec → Deliver" pipeline to anchor agent behavior to explicit requirements and verifiable acceptance criteria.
-- **Model Context Protocol (MCP)**: An open standard that enables AI assistants and agents to securely access external tools, APIs, and data sources via standardized client-server interfaces.
-- **Architectural Synergy**: Modern engineering blends classic distributed system patterns (caching, event streaming, idempotency) with autonomous agent orchestration to build reliable AI-native applications.
-
-## Project Details
-
-- Author: Sri Satya Lokesh
-- GitHub: https://github.com/SriSatyaLokesh/System-Design
-- Portfolio: https://srisatyalokesh.github.io
-- License: MIT License (Free for personal and commercial educational use)
-- Last Updated: November 2026
+- [Free AI Certifications](https://github.com/SriSatyaLokesh/System-Design/blob/main/Agentic%20AI/free-certifications/README.md): Free industry certifications and interactive courses from Anthropic and DeepLearning.AI.
+- [Prompt Engineering Handbook](https://github.com/SriSatyaLokesh/System-Design/blob/main/Prompt-Engineering/prompt-engineering-beginner-to-pro-guide.md): Structured prompting frameworks, system instructions, few-shot patterns, and chain-of-thought elicitation.
+- [GitHub Repository Metadata & SEO Guide](https://github.com/SriSatyaLokesh/System-Design/blob/main/docs/seo/github-repository-metadata.md): Configuration settings, topic tags, and Open Graph banner guidelines for repository maintainers.
+- [Full Aggregated Knowledge Base](https://github.com/SriSatyaLokesh/System-Design/blob/main/llms-full.txt): Complete standalone text digest for deep reasoning and single-context AI ingestion.

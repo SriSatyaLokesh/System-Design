@@ -15,27 +15,28 @@
 
 ## 📑 Table of Contents
 
-- [🎯 What You'll Learn](#-what-youll-learn)
-- [💡 Direct Answers & Core Definitions](#-direct-answers--core-definitions)
-- [🌟 Why This Pathway?](#-why-this-pathway)
-- [📚 Complete Course Curriculum](#-complete-course-curriculum)
-  - [Section 1: AI Ecosystem](#-section-1-ecosystem)
-  - [Section 2: AI Coding Tools & Prompting](#-section-2-tools)
-  - [Section 3: The GSD Framework](#-section-3-gsd-framework)
-  - [Section 4: Autonomous AI Agents](#-section-4-agents)
-  - [Section 5: AI Skills & MCP](#-section-5-skills)
-  - [Section 6: Capstone Project](#-section-6-capstone-project)
-- [🏛️ System Design & Distributed Architecture Foundations](#-system-design--distributed-architecture-foundations)
-- [🚀 Quick Start Guide](#-quick-start-guide)
-- [👥 Who Is This For?](#-who-is-this-for)
-- [🛠️ Tool Comparison Matrix](#-tool-comparison-matrix)
-- [❓ Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
-- [📖 Semantic Topic Index & Glossary](#-semantic-topic-index--glossary)
-- [🤝 Contributing & Community](#-contributing)
-- [📝 License & Author Information](#-license--author-information)
+- [🎯 What You'll Learn](#what-youll-learn)
+- [💡 Direct Answers & Core Definitions](#direct-answers--core-definitions)
+- [🌟 Why This Pathway?](#why-this-pathway)
+- [📚 Complete Course Curriculum](#complete-course-curriculum)
+  - [Section 1: AI Ecosystem](#section-1-ecosystem)
+  - [Section 2: AI Coding Tools & Prompting](#section-2-tools)
+  - [Section 3: The GSD Framework](#section-3-gsd-framework)
+  - [Section 4: Autonomous AI Agents](#section-4-agents)
+  - [Section 5: AI Skills & MCP](#section-5-skills)
+  - [Section 6: Capstone Project](#section-6-capstone-project)
+- [🏛️ System Design & Distributed Architecture Foundations](#system-design--distributed-architecture-foundations)
+- [🚀 Quick Start Guide](#quick-start-guide)
+- [👥 Who Is This For?](#who-is-this-for)
+- [🛠️ Tool Comparison Matrix](#tool-comparison-matrix)
+- [❓ Frequently Asked Questions (FAQ)](#frequently-asked-questions-faq)
+- [📖 Semantic Topic Index & Glossary](#semantic-topic-index--glossary)
+- [🤝 Contributing & Community](#contributing)
+- [📝 License & Author Information](#license--author-information)
 
 ---
 
+<a id="what-youll-learn"></a>
 ## 🎯 What You'll Learn
 
 Transform from AI-curious to an **AI-native software engineer**. This curriculum bridges the gap between everyday prompt chatting and professional software engineering with AI agents, copilots, and scalable system design.
@@ -56,6 +57,7 @@ Transform from AI-curious to an **AI-native software engineer**. This curriculum
 
 ---
 
+<a id="direct-answers--core-definitions"></a>
 ## 💡 Direct Answers & Core Definitions
 
 ### What is Agentic AI?
@@ -69,6 +71,7 @@ AI-assisted development shifts the engineer's role from manual syntax authoring 
 
 ---
 
+<a id="why-this-pathway"></a>
 ## 🌟 Why This Pathway?
 
 ### For Beginners & Career Switchers
@@ -88,20 +91,26 @@ AI-assisted development shifts the engineer's role from manual syntax authoring 
 
 ---
 
+<a id="complete-course-curriculum"></a>
 ## 📚 Complete Course Curriculum
 
 ```
 System-Design/
 ├── Agentic AI/
-│   ├── 01-ecosystem/       ⏱️ 25 min  │ AI Assistants vs Copilots vs Agents
-│   ├── 02-tools/           ⏱️ 45 min  │ Claude Code, Copilot, Cursor & Prompting
-│   ├── 03-gsd/             ⏱️ 60 min  │ Goal → Spec → Deliver AI Workflow
-│   ├── 04-agents/          ⏱️ 35 min  │ Multi-Agent Delegation & Orchestration
-│   ├── 05-skills/          ⏱️ 25 min  │ Model Context Protocol (MCP) & Skills
-│   └── 06-capstone/        ⏱️ 45 min  │ Production Portfolio Build & 13 Prompts
-└── System Design/          🏛️ Core    │ Caching, Notifications, Architecture
+│   ├── 01-ecosystem/          ⏱️ 25 min  │ AI Assistants vs Copilots vs Agents
+│   ├── 02-tools/              ⏱️ 45 min  │ Claude Code, Copilot, Cursor & Prompting
+│   ├── 03-gsd/                ⏱️ 60 min  │ Goal → Spec → Deliver AI Workflow
+│   ├── 04-agents/             ⏱️ 35 min  │ Multi-Agent Delegation & Orchestration
+│   ├── 05-skills/             ⏱️ 25 min  │ Model Context Protocol (MCP) & Skills
+│   ├── 06-capstone/           ⏱️ 45 min  │ Production Portfolio Build & 13 Prompts
+│   └── free-certifications/   ⏱️ 15 min  │ Anthropic & DeepLearning.AI Credentials
+├── Caching/                   🏛️ Core    │ Distributed Caching, Redis Topologies
+├── Node JS/                   🏛️ Core    │ Microservices, Event Loop Architecture
+├── Notification Systems/      🏛️ Core    │ Event-Driven Messaging & Idempotency
+└── System Design bibles/      🏛️ Core    │ DDIA & Clean Architecture Masterworks
 ```
 
+<a id="section-1-ecosystem"></a>
 ### 📍 Section 1: AI Ecosystem
 **⏱️ 25 minutes** | *Understand the AI Tool Landscape*
 
@@ -114,6 +123,7 @@ Learn the three primary classifications of AI development tools and establish a 
 
 ---
 
+<a id="section-2-tools"></a>
 ### 🛠️ Section 2: AI Coding Tools & Prompting
 **⏱️ 45 minutes** | *Hands-On Tool Adoption & Context Engineering*
 
@@ -126,6 +136,7 @@ Transition from theoretical concepts to practical, day-to-day command-line and I
 
 ---
 
+<a id="section-3-gsd-framework"></a>
 ### 🎯 Section 3: The GSD Framework
 **⏱️ 60 minutes** | *Structured Workflows for AI Execution*
 
@@ -139,6 +150,7 @@ Master the **GSD (Get Shit Done)** framework to systematically manage AI agents 
 
 ---
 
+<a id="section-4-agents"></a>
 ### 🤖 Section 4: Autonomous AI Agents
 **⏱️ 35 minutes** | *Multi-Agent Architecture & Delegation*
 
@@ -151,6 +163,7 @@ Deep-dive into how autonomous agents plan, execute, and evaluate their own work 
 
 ---
 
+<a id="section-5-skills"></a>
 ### ⚡ Section 5: AI Skills & Model Context Protocol (MCP)
 **⏱️ 25 minutes** | *Extending AI Capabilities with Standardized Tools*
 
@@ -163,6 +176,7 @@ Discover how to connect AI agents securely to your private tools, databases, API
 
 ---
 
+<a id="section-6-capstone-project"></a>
 ### 🎓 Section 6: Capstone Project
 **⏱️ 45 minutes** | *Build and Ship with AI Assistance*
 
@@ -175,20 +189,22 @@ Synthesize everything you have learned by building, polishing, and deploying a p
 
 ---
 
+<a id="system-design--distributed-architecture-foundations"></a>
 ## 🏛️ System Design & Distributed Architecture Foundations
 
 Modern AI applications require reliable, resilient distributed infrastructure. This repository provides foundational architecture resources covering large-scale software design:
 
 | Topic | Focus Area | Key Architectural Patterns | Link |
 |---|---|---|---|
-| **Distributed Caching** | High-Throughput Data | Cache-Aside, Write-Through, Redis Topologies, Cache Stampede (XFetch) | [Explore Caching](Caching/) |
+| **Distributed Caching** | High-Throughput Data | Cache-Aside, Write-Through, Redis Topologies, Cache Stampede (XFetch) | [Explore Caching](Caching/README.md) |
 | **Notification Systems** | Event-Driven Messaging | Fanout Queues, Idempotency Keys, Rate Limiting, Dead-Letter Queues | [Explore Notifications](Notification%20Systems/notes.md) |
-| **Node.js Architecture** | Scalable Microservices | Event Loop Optimization, Non-blocking I/O, Clean Architecture | [Explore Node.js](Node%20JS/) |
-| **System Design Bibles** | Foundational Literature | *Designing Data-Intensive Applications* (DDIA) & *Clean Architecture* | [Explore Bibles](System%20Design%20bibles/) |
+| **Node.js Architecture** | Scalable Microservices | Event Loop Optimization, Non-blocking I/O, Clean Architecture | [Explore Node.js](Node%20JS/README.md) |
+| **System Design Bibles** | Foundational Literature | *Designing Data-Intensive Applications* (DDIA) & *Clean Architecture* | [Explore Bibles](System%20Design%20bibles/README.md) |
 | **Prompt Engineering** | In-Context Learning | Chain-of-Thought, Context Windows, Dynamic Few-Shot Injection | [Explore Prompts](Prompt-Engineering/prompt-engineering-beginner-to-pro-guide.md) |
 
 ---
 
+<a id="quick-start-guide"></a>
 ## 🚀 Quick Start Guide
 
 ### Pathway 1: Complete Curriculum (Recommended for All Developers)
@@ -204,10 +220,11 @@ Modern AI applications require reliable, resilient distributed infrastructure. T
 - **Need CLI Agent Mastery?** → Jump directly to [Claude Code in Section 2](Agentic%20AI/02-tools/README.md).
 - **Struggling with Agent Context Drift?** → Implement the [GSD Workflow in Section 3](Agentic%20AI/03-gsd/README.md).
 - **Building MCP Servers?** → Study [Model Context Protocol in Section 5](Agentic%20AI/05-skills/README.md).
-- **Distributed Backend Needs?** → Review [Distributed Caching](Caching/) and [Notification Systems](Notification%20Systems/notes.md).
+- **Distributed Backend Needs?** → Review [Distributed Caching](Caching/README.md) and [Notification Systems](Notification%20Systems/notes.md).
 
 ---
 
+<a id="who-is-this-for"></a>
 ## 👥 Who Is This For?
 
 | Role | Primary Benefit from this Repository |
@@ -219,6 +236,7 @@ Modern AI applications require reliable, resilient distributed infrastructure. T
 
 ---
 
+<a id="tool-comparison-matrix"></a>
 ## 🛠️ Tool Comparison Matrix
 
 | Dimension | AI Assistants (Claude / ChatGPT) | AI Copilots (Copilot / Cursor) | Autonomous Agents (Claude Code / CrewAI) |
@@ -231,6 +249,7 @@ Modern AI applications require reliable, resilient distributed infrastructure. T
 
 ---
 
+<a id="frequently-asked-questions-faq"></a>
 ## ❓ Frequently Asked Questions (FAQ)
 
 ### What prerequisites are required to start this course?
@@ -255,10 +274,11 @@ Yes. Section 6 provides a step-by-step blueprint to build and deploy an AI-engin
 The complete learning pathway takes approximately 4 to 5 hours of focused, self-paced learning. Each section is modular, with time allocations ranging from 25 to 60 minutes, allowing you to complete the curriculum in one intensive afternoon or spread across several days.
 
 ### Is this learning pathway free and open source?
-Yes, this repository is 100% free and licensed under the permissive MIT License. There are no paywalls, gating mechanisms, or paid upsells. You are welcome to study, fork, share, and adapt all materials for personal and educational use.
+Yes, this repository is 100% free and licensed under the permissive MIT License. There are no paywalls, gating mechanisms, or paid upsells. You are completely free to study, fork, share, and adapt all materials for both personal learning and commercial engineering use.
 
 ---
 
+<a id="semantic-topic-index--glossary"></a>
 ## 📖 Semantic Topic Index & Glossary
 
 | Keyword / Entity | Definition | Primary Resource Link |
@@ -270,12 +290,13 @@ Yes, this repository is 100% free and licensed under the permissive MIT License.
 | **GSD Framework** | Goal → Spec → Deliver structured workflow for reliable AI task decomposition. | [Section 3: GSD Framework](Agentic%20AI/03-gsd/README.md) |
 | **Multi-Agent Orchestration** | Coordinating multiple specialized AI agents in supervisor-worker or parallel topologies. | [Section 4: Agents](Agentic%20AI/04-agents/README.md) |
 | **Model Context Protocol (MCP)** | Open standard protocol connecting AI models to external tools and data sources. | [Section 5: Skills](Agentic%20AI/05-skills/README.md) |
-| **Distributed Caching** | High-speed data caching across clusters using Redis to reduce database and API latency. | [Caching Guide](Caching/) |
+| **Distributed Caching** | High-speed data caching across clusters using Redis to reduce database and API latency. | [Caching Guide](Caching/README.md) |
 | **Idempotency** | Architectural guarantee ensuring duplicate requests or retries produce identical results. | [Notification Systems](Notification%20Systems/notes.md) |
 | **Prompt Engineering** | Structuring instructions, personas, few-shot examples, and constraints for optimal LLM outputs. | [Prompt Engineering Guide](Prompt-Engineering/prompt-engineering-beginner-to-pro-guide.md) |
 
 ---
 
+<a id="contributing"></a>
 ## 🤝 Contributing
 
 Contributions from the developer community are warmly welcome! Whether you are updating tool guides, adding new prompt templates, or refining system design architectures:
@@ -288,12 +309,13 @@ Contributions from the developer community are warmly welcome! Whether you are u
 
 ---
 
+<a id="license--author-information"></a>
 ## 📝 License & Author Information
 
-- **Author:** [Sri Satya Lokesh](https://github.com/SriSatyaLokesh)
+- **Author:** [Sri Satya Lokesh](https://github.com/SriSatyaLokesh) — *Full-Stack Engineer & Distributed Systems Practitioner*
 - **Portfolio & Projects:** [srisatyalokesh.github.io](https://srisatyalokesh.github.io)
 - **Repository:** [SriSatyaLokesh/System-Design](https://github.com/SriSatyaLokesh/System-Design)
-- **License:** Licensed under the [MIT License](LICENSE) — free to use, modify, and distribute.
+- **License:** Licensed under the [MIT License](LICENSE) — free to use, modify, and distribute for personal and commercial applications.
 - **Machine-Readable AI Index:** [llms.txt](llms.txt) | [llms-full.txt](llms-full.txt)
 
 ---
