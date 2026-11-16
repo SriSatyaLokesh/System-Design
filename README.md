@@ -104,6 +104,7 @@ System-Design/
 │   ├── 05-skills/             ⏱️ 25 min  │ Model Context Protocol (MCP) & Skills
 │   ├── 06-capstone/           ⏱️ 45 min  │ Production Portfolio Build & 13 Prompts
 │   └── free-certifications/   ⏱️ 15 min  │ Anthropic & DeepLearning.AI Credentials
+├── AI/                        🧠 Core    │ AI Engineering & Foundation Model Systems
 ├── Caching/                   🏛️ Core    │ Distributed Caching, Redis Topologies
 ├── Node JS/                   🏛️ Core    │ Microservices, Event Loop Architecture
 ├── Notification Systems/      🏛️ Core    │ Event-Driven Messaging & Idempotency
@@ -196,6 +197,7 @@ Modern AI applications require reliable, resilient distributed infrastructure. T
 
 | Topic | Focus Area | Key Architectural Patterns | Link |
 |---|---|---|---|
+| **AI Engineering** | Applied LLM Systems | RAG Architecture, Evals, Guardrails, Foundation Model Lifecycle | [Explore AI Engineering](AI/README.md) |
 | **Distributed Caching** | High-Throughput Data | Cache-Aside, Write-Through, Redis Topologies, Cache Stampede (XFetch) | [Explore Caching](Caching/README.md) |
 | **Notification Systems** | Event-Driven Messaging | Fanout Queues, Idempotency Keys, Rate Limiting, Dead-Letter Queues | [Explore Notifications](Notification%20Systems/notes.md) |
 | **Node.js Architecture** | Scalable Microservices | Event Loop Optimization, Non-blocking I/O, Clean Architecture | [Explore Node.js](Node%20JS/README.md) |
