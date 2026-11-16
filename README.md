@@ -1,371 +1,307 @@
-# 🤖 Agentic AI Learning Pathway
+# 🤖 Agentic AI & Modern System Design Pathway
 
-## The Complete Free Course for AI-Assisted Development
+## The Complete Open-Source Curriculum for AI-Assisted Engineering, Autonomous Agents, and Scalable Architecture
 
 [![GitHub Stars](https://img.shields.io/github/stars/SriSatyaLokesh/System-Design?style=social)](https://github.com/SriSatyaLokesh/System-Design)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![Last Updated](https://img.shields.io/badge/updated-February%202026-blue)]()
+[![Course Duration](https://img.shields.io/badge/Duration-4--5%20Hours-orange)]()
+[![Last Updated](https://img.shields.io/badge/Updated-November%202026-blue)]()
+[![Machine Readable](https://img.shields.io/badge/AI%20Index-llms.txt%20Ready-success)](llms.txt)
 
-> **Master AI-assisted development in 4-5 hours** | Zero prerequisites | Hands-on projects | Free forever
+> **Master AI-assisted development, autonomous agents, and production system architecture in 4–5 hours.** Free and open-source hands-on curriculum with zero prerequisites, 13 real-world prompts, reference capstone projects, and distributed system architectures.
+
+---
+
+## 📑 Table of Contents
+
+- [🎯 What You'll Learn](#-what-youll-learn)
+- [💡 Direct Answers & Core Definitions](#-direct-answers--core-definitions)
+- [🌟 Why This Pathway?](#-why-this-pathway)
+- [📚 Complete Course Curriculum](#-complete-course-curriculum)
+  - [Section 1: AI Ecosystem](#-section-1-ecosystem)
+  - [Section 2: AI Coding Tools & Prompting](#-section-2-tools)
+  - [Section 3: The GSD Framework](#-section-3-gsd-framework)
+  - [Section 4: Autonomous AI Agents](#-section-4-agents)
+  - [Section 5: AI Skills & MCP](#-section-5-skills)
+  - [Section 6: Capstone Project](#-section-6-capstone-project)
+- [🏛️ System Design & Distributed Architecture Foundations](#-system-design--distributed-architecture-foundations)
+- [🚀 Quick Start Guide](#-quick-start-guide)
+- [👥 Who Is This For?](#-who-is-this-for)
+- [🛠️ Tool Comparison Matrix](#-tool-comparison-matrix)
+- [❓ Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
+- [📖 Semantic Topic Index & Glossary](#-semantic-topic-index--glossary)
+- [🤝 Contributing & Community](#-contributing)
+- [📝 License & Author Information](#-license--author-information)
 
 ---
 
 ## 🎯 What You'll Learn
 
-Transform from AI-curious to AI-native contributor with this **comprehensive, structured learning pathway** that takes you from understanding the AI ecosystem to building production-ready projects with AI assistance.
+Transform from AI-curious to an **AI-native software engineer**. This curriculum bridges the gap between everyday prompt chatting and professional software engineering with AI agents, copilots, and scalable system design.
 
 ### Core Competencies
 
-✅ **Distinguish between AI tools** — Master the differences between AI assistants (Claude, ChatGPT), AI agents (autonomous execution), and AI copilots (GitHub Copilot, Claude Code)
+✅ **Distinguish AI tool categories** — Master the technical boundaries separating conversational AI assistants (Claude, ChatGPT), inline IDE copilots (GitHub Copilot, Cursor), and autonomous execution agents (Claude Code, CrewAI).
 
-✅ **Choose the right AI for your task** — Know when to use chat interfaces vs repository-based AI vs agent frameworks based on your specific needs
+✅ **Prevent AI hallucination with GSD** — Apply the **GSD (Get Shit Done)** framework's Goal → Spec → Deliver methodology to break ambiguous ideas into atomic, test-verified software tasks.
 
-✅ **Delegate work to AI effectively** — Structure tasks and prompts that enable AI to deliver quality outcomes consistently
+✅ **Master repository-aware coding tools** — Integrate Anthropic's Claude Code, GitHub Copilot Workspace, and Cursor into active engineering workflows with practical context-management skills.
 
-✅ **Apply the GSD Framework** — Use GSD (Get Shit Done) framework's Goal → Spec → Deliver workflow to break down projects into AI-executable plans
+✅ **Extend capabilities via Model Context Protocol (MCP)** — Understand open MCP architecture, packaging standardized skills, and granting AI agents secure access to local tools and APIs.
 
-✅ **Integrate AI skills and capabilities** — Leverage pre-built AI skills and understand skill packaging formats across platforms
+✅ **Architect production-ready systems** — Connect modern AI agents to battle-tested distributed architectures: Redis distributed caching, event-driven notification pipelines, and high-performance microservices.
 
-✅ **Build projects with AI assistance** — Complete hands-on portfolio projects using AI tools from start to finish
-
-✅ **Prompt engineer with purpose** — Write effective prompts that provide context and guide AI toward desired outcomes
-
-> **💡 Pro Tip:** GSD stands for "Get Shit Done" (or "Get Stuff Done" for professional contexts) — it's a CLI tool that uses a Goal → Spec → Deliver workflow to maintain AI quality across complex projects.
+✅ **Ship a real portfolio capstone** — Build and deploy an AI-engineered portfolio project using 13 real-world prompts and verifiable PRD templates.
 
 ---
 
-## 🌟 Why This Course?
+## 💡 Direct Answers & Core Definitions
 
-### For Beginners
-- **Zero prerequisites** — Start with no AI experience required
-- **Clear progression** — Each section builds naturally on the previous
-- **Hands-on exercises** — Learn by doing, not just reading
-- **Real-world examples** — See actual prompts and workflows in action
+### What is Agentic AI?
+Agentic AI refers to artificial intelligence systems engineered to autonomously pursue multi-step goals across digital environments. Rather than simply responding to static prompts, agentic models observe state, decompose tasks, execute command-line or API tools, handle errors, and iterate until verifiable requirements are satisfied with minimal human intervention.
 
-### For Experienced Developers
-- **Skip to advanced topics** — Modular structure lets you jump ahead
-- **Framework-agnostic** — Concepts apply across all AI tools
-- **Production-ready patterns** — Tested workflows from real projects
-- **Reference implementations** — Live examples you can adapt
+### What is the GSD Framework?
+The GSD (Get Shit Done) framework is a lightweight development methodology designed for human-AI collaboration. It structures work through an explicit Goal → Spec → Deliver cycle, breaking complex objectives into atomic specifications and test-driven tasks to eliminate AI context drift, circular hallucination loops, and unverified assumptions.
+
+### How Does AI-Assisted Development Differ from Traditional Software Engineering?
+AI-assisted development shifts the engineer's role from manual syntax authoring to strategic problem decomposition, architectural specification, and automated verification. Developers leverage copilots for inline coding and autonomous agents for multi-file workflows, drastically accelerating delivery while enforcing rigorous quality gates through test-driven development.
+
+---
+
+## 🌟 Why This Pathway?
+
+### For Beginners & Career Switchers
+- **Zero prerequisites** — No prior Python, machine learning, or data science knowledge needed.
+- **Clear progressive structure** — Concepts build naturally from terminology to multi-agent deployment.
+- **Hands-on exercises** — Real terminal commands, configuration files, and prompt templates.
+
+### For Experienced Software Engineers
+- **Modular and framework-agnostic** — Jump straight to advanced agent delegation and MCP skill building.
+- **Production-grade patterns** — Enterprise prompt templates, TDD integration, and context window optimization.
+- **System design integration** — Direct guidance on how distributed caching, event queues, and idempotency power AI systems.
 
 ### For Everyone
-- **Free and open source** — No paywalls, no sign-ups, no upsells
-- **Self-paced learning** — Complete at your own speed
-- **Mobile-friendly** — Learn anywhere on any device
-- **Always up-to-date** — Maintained with latest AI tool developments
+- **100% Free and open source** — No paywalls, paid subscriptions, or gated content.
+- **Machine-readable for AI crawlers** — Includes official [llms.txt](llms.txt) for immediate consumption by AI search engines.
+- **Always maintained** — Regularly updated with the latest advancements in autonomous coding agents.
 
 ---
 
 ## 📚 Complete Course Curriculum
 
-### 📍 Section 1: Ecosystem
-**⏱️ 25 minutes** | Understand the AI landscape
+```
+System-Design/
+├── Agentic AI/
+│   ├── 01-ecosystem/       ⏱️ 25 min  │ AI Assistants vs Copilots vs Agents
+│   ├── 02-tools/           ⏱️ 45 min  │ Claude Code, Copilot, Cursor & Prompting
+│   ├── 03-gsd/             ⏱️ 60 min  │ Goal → Spec → Deliver AI Workflow
+│   ├── 04-agents/          ⏱️ 35 min  │ Multi-Agent Delegation & Orchestration
+│   ├── 05-skills/          ⏱️ 25 min  │ Model Context Protocol (MCP) & Skills
+│   └── 06-capstone/        ⏱️ 45 min  │ Production Portfolio Build & 13 Prompts
+└── System Design/          🏛️ Core    │ Caching, Notifications, Architecture
+```
 
-Learn the three main categories of AI tools and when to use each. Explore AI assistants (Claude, ChatGPT, Gemini), AI agents (autonomous execution), and AI copilots (GitHub Copilot, Claude Code).
+### 📍 Section 1: AI Ecosystem
+**⏱️ 25 minutes** | *Understand the AI Tool Landscape*
 
-**Topics:**
-- Chat-based AI vs repository-based AI
-- Platform comparison and decision matrix
-- Free resources and getting started guides
+Learn the three primary classifications of AI development tools and establish a framework for selecting the right model for every task.
+- Distinguishing chat-based AI from repository-aware execution agents.
+- Comprehensive platform comparison: Claude, ChatGPT, Gemini, Copilot, Cursor, and Claude Code.
+- Decision matrix: When to chat, when to pair-program, and when to delegate.
 
-[→ Start Section 1: Ecosystem](Agentic%20AI/01-ecosystem/README.md)
-
----
-
-### 🛠️ Section 2: Tools
-**⏱️ 45 minutes** | Hands-on tool adoption
-
-Move from theory to practice with specific AI tools. Set up and use Anthropic's Claude Code, GitHub Copilot, and more with practical exercises and prompt engineering fundamentals.
-
-**Topics:**
-- GitHub Copilot setup and best practices
-- Claude Code guide (with Skillshare course link)
-- Hands-on exercises for each tool
-- Prompt engineering basics with anti-patterns
-- Writing context-rich effective prompts
-
-[→ Start Section 2: Tools](Agentic%20AI/02-tools/README.md)
+[→ Explore Section 1: AI Ecosystem](Agentic%20AI/01-ecosystem/README.md)
 
 ---
 
-### 🎯 Section 3: GSD Framework
-**⏱️ 60 minutes** | Structured AI workflows
+### 🛠️ Section 2: AI Coding Tools & Prompting
+**⏱️ 45 minutes** | *Hands-On Tool Adoption & Context Engineering*
 
-Learn the GSD (Get Shit Done) framework for structuring work that AI can execute. Break down projects into phases using GSD's Goal → Spec → Deliver workflow, create executable plans, and delegate tasks to AI agents with confidence.
+Transition from theoretical concepts to practical, day-to-day command-line and IDE workflows.
+- Step-by-step setup and best practices for **Claude Code**, **GitHub Copilot**, and **Cursor**.
+- Prompt engineering for software developers: Persona, context injection, negative constraints, and few-shot examples.
+- Common prompt anti-patterns that induce hallucination and how to fix them.
 
-**Topics:**
-- GSD Framework overview with GitHub repo
-- Understanding the Goal → Spec → Deliver workflow
-- PRD-driven execution patterns
-- Task decomposition strategies
-- Planning for AI execution
-- Video walkthrough and examples
-
-[→ Start Section 3: GSD Framework](Agentic%20AI/03-gsd/README.md)
+[→ Explore Section 2: AI Coding Tools](Agentic%20AI/02-tools/README.md)
 
 ---
 
-### 🤖 Section 4: Agents
-**⏱️ 35 minutes** | AI agents deep dive
+### 🎯 Section 3: The GSD Framework
+**⏱️ 60 minutes** | *Structured Workflows for AI Execution*
 
-Master the difference between AI agents and assistants. Learn delegation patterns, multi-agent orchestration, and when agents are the right tool for your workflow.
+Master the **GSD (Get Shit Done)** framework to systematically manage AI agents on complex codebases.
+- The three-stage **Goal → Spec → Deliver** lifecycle.
+- PRD-driven development: Writing unambiguous specifications AI models can implement without drifting.
+- Breaking large features into 2–5 minute atomic tasks backed by automated tests.
+- Practical video walkthrough and reference implementation repositories.
 
-**Topics:**
-- AI agents vs AI assistants — key differences
-- Agent delegation patterns and best practices
-- Multi-agent orchestration concepts
-- Platform examples (AutoGPT, LangChain, CrewAI)
-- Prompt engineering for agent delegation
-
-[→ Start Section 4: Agents](Agentic%20AI/04-agents/README.md)
+[→ Explore Section 3: GSD Framework](Agentic%20AI/03-gsd/README.md)
 
 ---
 
-### ⚡ Section 5: Skills
-**⏱️ 25 minutes** | AI skills and capabilities
+### 🤖 Section 4: Autonomous AI Agents
+**⏱️ 35 minutes** | *Multi-Agent Architecture & Delegation*
 
-Explore pre-built AI skills and integrations that extend what AI can do. Learn about skill packaging, integration patterns, and how different platforms handle capabilities.
+Deep-dive into how autonomous agents plan, execute, and evaluate their own work across repositories.
+- Agent loop anatomy: Perception, reasoning, tool invocation, and error recovery.
+- Multi-agent orchestration architectures: Hierarchical supervisor-worker swarms and parallel pipelines.
+- Overview of modern agent frameworks: AutoGPT, LangChain, CrewAI, and native CLI agents.
 
-**Topics:**
-- What are AI skills and capabilities
-- Skill packaging formats and standards
-- Claude Skills repository tour
-- Platform skill comparison (Claude MCP, OpenAI functions, LangChain tools)
-- Integrating skills into workflows
+[→ Explore Section 4: Autonomous AI Agents](Agentic%20AI/04-agents/README.md)
 
-[→ Start Section 5: Skills](Agentic%20AI/05-skills/README.md)
+---
+
+### ⚡ Section 5: AI Skills & Model Context Protocol (MCP)
+**⏱️ 25 minutes** | *Extending AI Capabilities with Standardized Tools*
+
+Discover how to connect AI agents securely to your private tools, databases, APIs, and file systems.
+- The **Model Context Protocol (MCP)** specification: Clients, servers, and standard tool calling.
+- Skill packaging standards: Creating reusable skill bundles with schemas and tests.
+- Tour of Anthropic skill repositories and integrating custom skills into developer workflows.
+
+[→ Explore Section 5: AI Skills & MCP](Agentic%20AI/05-skills/README.md)
 
 ---
 
 ### 🎓 Section 6: Capstone Project
-**⏱️ 45 minutes** | Build with AI
+**⏱️ 45 minutes** | *Build and Ship with AI Assistance*
 
-Put everything together by building a real project with AI assistance. Use the GSD framework, AI agents, and copilots to create your own portfolio site with step-by-step guidance.
+Synthesize everything you have learned by building, polishing, and deploying a production developer portfolio.
+- Real-world reference build: [Sri Satya Lokesh Portfolio](https://srisatyalokesh.github.io).
+- 13 actual prompt sequences demonstrating the iterative workflow from PRD to deployment.
+- Downloadable, prefilled PRD template structured for AI agent execution.
 
-**Topics:**
-- Capstone project brief — AI-built portfolio
-- Live reference implementation
-- Prompts used with explanations
-- Step-by-step build guide
-- PRD template for portfolio projects
-- Deployment and polish
+[→ Explore Section 6: Capstone Project](Agentic%20AI/06-capstone/README.md)
 
-[→ Start Section 6: Capstone](Agentic%20AI/06-capstone/README.md)
+---
+
+## 🏛️ System Design & Distributed Architecture Foundations
+
+Modern AI applications require reliable, resilient distributed infrastructure. This repository provides foundational architecture resources covering large-scale software design:
+
+| Topic | Focus Area | Key Architectural Patterns | Link |
+|---|---|---|---|
+| **Distributed Caching** | High-Throughput Data | Cache-Aside, Write-Through, Redis Topologies, Cache Stampede (XFetch) | [Explore Caching](Caching/) |
+| **Notification Systems** | Event-Driven Messaging | Fanout Queues, Idempotency Keys, Rate Limiting, Dead-Letter Queues | [Explore Notifications](Notification%20Systems/notes.md) |
+| **Node.js Architecture** | Scalable Microservices | Event Loop Optimization, Non-blocking I/O, Clean Architecture | [Explore Node.js](Node%20JS/) |
+| **System Design Bibles** | Foundational Literature | *Designing Data-Intensive Applications* (DDIA) & *Clean Architecture* | [Explore Bibles](System%20Design%20bibles/) |
+| **Prompt Engineering** | In-Context Learning | Chain-of-Thought, Context Windows, Dynamic Few-Shot Injection | [Explore Prompts](Prompt-Engineering/prompt-engineering-beginner-to-pro-guide.md) |
 
 ---
 
 ## 🚀 Quick Start Guide
 
-### Option 1: Complete Pathway (Recommended)
-Perfect for beginners and those wanting comprehensive understanding.
+### Pathway 1: Complete Curriculum (Recommended for All Developers)
+1. Complete [Section 1: AI Ecosystem](Agentic%20AI/01-ecosystem/README.md) to build mental models.
+2. Configure your environment in [Section 2: Tools](Agentic%20AI/02-tools/README.md).
+3. Apply structured planning in [Section 3: GSD Framework](Agentic%20AI/03-gsd/README.md).
+4. Master agent delegation in [Sections 4 & 5](Agentic%20AI/04-agents/README.md).
+5. Build and deploy your capstone portfolio in [Section 6](Agentic%20AI/06-capstone/README.md).
 
-```bash
-1. Start with Section 1: Ecosystem
-2. Progress sequentially through Sections 2-6
-3. Complete hands-on exercises in each section
-4. Build your capstone project in Section 6
-```
+*Total investment: 4–5 hours | Outcome: Production portfolio + AI-native engineering capability.*
 
-**Time:** 4-5 hours total  
-**Outcome:** Complete portfolio project + AI working skills
-
----
-
-### Option 2: Fast Track (Experienced Developers)
-Jump to specific sections based on your needs.
-
-**Need tool setup?** → [Section 2: Tools](Agentic%20AI/02-tools/README.md)  
-**Want structured workflows?** → [Section 3: GSD Framework](Agentic%20AI/03-gsd/README.md)  
-**Ready to build?** → [Section 6: Capstone](Agentic%20AI/06-capstone/README.md)
+### Pathway 2: Accelerated Track (Experienced Engineers)
+- **Need CLI Agent Mastery?** → Jump directly to [Claude Code in Section 2](Agentic%20AI/02-tools/README.md).
+- **Struggling with Agent Context Drift?** → Implement the [GSD Workflow in Section 3](Agentic%20AI/03-gsd/README.md).
+- **Building MCP Servers?** → Study [Model Context Protocol in Section 5](Agentic%20AI/05-skills/README.md).
+- **Distributed Backend Needs?** → Review [Distributed Caching](Caching/) and [Notification Systems](Notification%20Systems/notes.md).
 
 ---
 
 ## 👥 Who Is This For?
 
-### Ideal For:
-- ✅ **Developers** wanting to accelerate development with AI
-- ✅ **Product Managers** learning to delegate to AI agents
-- ✅ **Designers** exploring AI-assisted workflows
-- ✅ **Analysts** automating tasks with AI tools
-- ✅ **Students** preparing for AI-native careers
-- ✅ **Tech Enthusiasts** curious about practical AI applications
-- ✅ **Complete Beginners** with zero AI experience
-
-### What This IS:
-- Using AI to accelerate your delivery
-- Delegating to agents and working with copilots
-- Structuring work for AI execution
-- Becoming an AI-native contributor
-
-### What This is NOT:
-- Building AI models or ML engineering
-- Neural networks or deep learning theory
-- Training models from scratch
-- Data science or statistics
+| Role | Primary Benefit from this Repository |
+|---|---|
+| **Software Engineers** | Accelerate delivery, automate repetitive boilerplate, and master CLI agents without losing control over quality. |
+| **Engineering Leads & Architects** | Standardize team workflows with the GSD framework and integrate distributed system patterns with AI tooling. |
+| **Product Managers & Founders** | Write PRDs that autonomous agents can reliably execute to prototype and launch MVPs in days. |
+| **Students & New Developers** | Gain a modern competitive edge by learning AI-assisted pair programming and software architecture simultaneously. |
 
 ---
 
-## 📊 Learning Pathway Overview
+## 🛠️ Tool Comparison Matrix
 
-| Section | Topic | Time | Prerequisites | Outcome |
-|---------|-------|------|---------------|---------|
-| **1** | [Ecosystem](Agentic%20AI/01-ecosystem/README.md) | 25 min | None | Understand AI tool categories |
-| **2** | [Tools](Agentic%20AI/02-tools/README.md) | 45 min | Section 1 | Set up and use AI copilots |
-| **3** | [GSD Framework](Agentic%20AI/03-gsd/README.md) | 60 min | Sections 1-2 | Structure work for AI execution |
-| **4** | [Agents](Agentic%20AI/04-agents/README.md) | 35 min | Sections 1-3 | Delegate to autonomous agents |
-| **5** | [Skills](Agentic%20AI/05-skills/README.md) | 25 min | Sections 1-4 | Integrate pre-built AI capabilities |
-| **6** | [Capstone](Agentic%20AI/06-capstone/README.md) | 45 min | All previous | Build portfolio with AI |
-
-**Total Time:** ~4-5 hours  
-**Format:** Self-paced, sequential learning  
-**Cost:** Free forever  
-**Support:** Open issues for questions
+| Dimension | AI Assistants (Claude / ChatGPT) | AI Copilots (Copilot / Cursor) | Autonomous Agents (Claude Code / CrewAI) |
+|---|---|---|---|
+| **Interface** | Web Browser / Mobile Chat | IDE Inline Autocomplete & Sidecar | Command Line / Terminal / Scripts |
+| **Repository Context** | Manual copy-paste or single file | Active editor tabs & local embeddings | Full workspace traversal & git history |
+| **Action Execution** | Read-only text output | In-editor diff suggestion & apply | Shell execution, file editing, test running |
+| **Error Handling** | Human must reprompt error | Human reviews inline squiggles | Agent reads stderr, modifies code, re-runs tests |
+| **Best Used For** | Brainstorming, design, logic checks | Flow-state coding, quick refactoring | Multi-file features, migrations, test fixing |
 
 ---
 
-## 🎓 Course Format
+## ❓ Frequently Asked Questions (FAQ)
 
-### Content Structure
-- **Curated resources** — Quality over quantity (5-7 resources per topic maximum)
-- **Brief explanations** — What, why, when to use each concept
-- **Example prompts** — Real prompts with rationale explained
-- **Hands-on exercises** — Practical tasks with clear outcomes
-- **Progressive flow** — Each section builds on previous concepts
+### What prerequisites are required to start this course?
+Zero formal prerequisites are required. You do not need experience in machine learning, mathematics, or Python data science. Familiarity with basic coding concepts and command-line terminals will help you move faster, but every concept is explained step-by-step from foundational principles.
 
-### Learning Approach
-- **Self-paced** — No deadlines or time limits
-- **Modular** — Jump between sections as needed
-- **Hands-on** — Learn by doing, not just reading
-- **Reference implementation** — See working examples
-- **No prerequisites** — Start with zero experience
+### How does Claude Code compare with GitHub Copilot and Cursor?
+GitHub Copilot and Cursor are IDE-integrated copilots designed for real-time autocomplete and inline code edits while you write. Claude Code is an autonomous CLI agent developed by Anthropic that operates directly inside your terminal; it can independently read whole repositories, run shell commands, execute test suites, debug syntax errors, and commit git changes without manual intervention.
 
----
+### What is the GSD (Get Shit Done) framework and why is it used?
+The GSD framework is a disciplined methodology engineered to prevent AI context drift and hallucination. When given open-ended tasks, AI agents often attempt too much at once, leading to broken code. GSD breaks every project into a Goal (business intent), Spec (unambiguous technical requirements), and Deliver (atomic 2–5 minute test-verified tasks), ensuring continuous alignment and quality.
 
-## 🛠️ Tools Covered
+### What is the Model Context Protocol (MCP)?
+The Model Context Protocol (MCP) is an open standard created by Anthropic that standardizes how AI applications connect to external tools, databases, and third-party APIs. Instead of building custom integration glue for every tool, MCP allows developers to expose tools via standard client-server protocols that any compatible AI model can invoke securely.
 
-### AI Copilots
-- **GitHub Copilot** — Code completion and AI pair programming
-- **Claude Code** — Repository-aware AI assistance
-- **Cursor** — AI-first code editor
+### Why is traditional system design essential for AI-native applications?
+AI systems do not replace backend infrastructure; they place higher demands on it. Production AI agents require streaming HTTP responses, distributed caching to avoid expensive LLM re-computations, rate-limiting algorithms to respect model provider quotas, and idempotent messaging queues to guarantee reliable event processing during retries.
 
-### AI Assistants
-- **Claude (Anthropic)** — Long context, reasoning, tool use
-- **ChatGPT (OpenAI)** — General purpose, web browsing, DALL-E
-- **Gemini (Google)** — Multimodal, Google integration
+### Can I use the capstone project for my job search portfolio?
+Yes. Section 6 provides a step-by-step blueprint to build and deploy an AI-engineered portfolio showcasing your work, including 13 actual prompts, PRD templates, and architecture breakdowns. It serves as tangible evidence of your ability to ship software using modern AI development practices.
 
-### AI Agents
-- **AutoGPT** — Autonomous goal-oriented agent
-- **LangChain** — Agent orchestration framework
-- **CrewAI** — Multi-agent collaboration
+### How long does it take to complete the entire pathway?
+The complete learning pathway takes approximately 4 to 5 hours of focused, self-paced learning. Each section is modular, with time allocations ranging from 25 to 60 minutes, allowing you to complete the curriculum in one intensive afternoon or spread across several days.
 
-### Frameworks
-- **GSD Framework** — Get Shit Done: Multi-agent orchestration with Goal → Spec → Deliver workflow
-- **Model Context Protocol (MCP)** — Skill integration standard
-- **Prompt engineering** — Context-aware prompt patterns
+### Is this learning pathway free and open source?
+Yes, this repository is 100% free and licensed under the permissive MIT License. There are no paywalls, gating mechanisms, or paid upsells. You are welcome to study, fork, share, and adapt all materials for personal and educational use.
 
 ---
 
-## 🌐 Additional Resources
+## 📖 Semantic Topic Index & Glossary
 
-### Included in This Repository
-- **System Design** — Architecture patterns and design principles
-- **Caching** — Distributed caching strategies
-- **Code Bibles** — Language-specific best practices
-- **Node.js** — Backend development patterns
-- **Notification Systems** — Real-time messaging architectures
-
-### External Links
-- [GSD Framework GitHub](https://github.com/SriSatyaLokesh/gsd-framework) — Structured AI workflow methodology
-- [Claude Skills Repository](https://github.com/anthropics/anthropic-quickstarts) — Pre-built AI capabilities
-- [GitHub Copilot Docs](https://docs.github.com/en/copilot) — Official documentation
+| Keyword / Entity | Definition | Primary Resource Link |
+|---|---|---|
+| **Agentic AI** | AI systems capable of autonomous planning, tool execution, and iterative goal pursuit. | [Section 1: Ecosystem](Agentic%20AI/01-ecosystem/README.md) |
+| **Claude Code** | Anthropic's terminal-based autonomous CLI agent for repo-aware development. | [Section 2: Tools](Agentic%20AI/02-tools/README.md) |
+| **GitHub Copilot** | AI pair programmer for IDE inline completions and code suggestions. | [Section 2: Tools](Agentic%20AI/02-tools/README.md) |
+| **Cursor IDE** | AI-first code editor with whole-repo semantic indexing and multi-file editing. | [Section 2: Tools](Agentic%20AI/02-tools/README.md) |
+| **GSD Framework** | Goal → Spec → Deliver structured workflow for reliable AI task decomposition. | [Section 3: GSD Framework](Agentic%20AI/03-gsd/README.md) |
+| **Multi-Agent Orchestration** | Coordinating multiple specialized AI agents in supervisor-worker or parallel topologies. | [Section 4: Agents](Agentic%20AI/04-agents/README.md) |
+| **Model Context Protocol (MCP)** | Open standard protocol connecting AI models to external tools and data sources. | [Section 5: Skills](Agentic%20AI/05-skills/README.md) |
+| **Distributed Caching** | High-speed data caching across clusters using Redis to reduce database and API latency. | [Caching Guide](Caching/) |
+| **Idempotency** | Architectural guarantee ensuring duplicate requests or retries produce identical results. | [Notification Systems](Notification%20Systems/notes.md) |
+| **Prompt Engineering** | Structuring instructions, personas, few-shot examples, and constraints for optimal LLM outputs. | [Prompt Engineering Guide](Prompt-Engineering/prompt-engineering-beginner-to-pro-guide.md) |
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Whether you're fixing typos, adding examples, or suggesting new sections, all improvements help the community.
+Contributions from the developer community are warmly welcome! Whether you are updating tool guides, adding new prompt templates, or refining system design architectures:
 
-### How to Contribute
-1. Fork this repository
-2. Create a feature branch (`git checkout -b feature/amazing-addition`)
-3. Commit your changes (`git commit -m 'Add amazing addition'`)
-4. Push to the branch (`git push origin feature/amazing-addition`)
-5. Open a Pull Request
-
-### Contribution Ideas
-- Add more hands-on exercises
-- Create video walkthroughs
-- Translate content to other languages
-- Add examples for additional AI tools
-- Improve explanations and clarity
-- Fix broken links or outdated content
+1. Fork this repository: `https://github.com/SriSatyaLokesh/System-Design`
+2. Create a feature branch: `git checkout -b feature/amazing-improvement`
+3. Commit your changes: `git commit -m 'feat: add Claude 3.7 Sonnet prompt guide'`
+4. Push to your branch: `git push origin feature/amazing-improvement`
+5. Open a Pull Request with a clear description of your additions.
 
 ---
 
-## 📝 License
+## 📝 License & Author Information
 
-This project is licensed under the MIT License - see the LICENSE file for details. Free to use, modify, and distribute.
-
----
-
-## 📬 Contact & Support
-
-- **Issues:** [GitHub Issues](https://github.com/SriSatyaLokesh/System-Design/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/SriSatyaLokesh/System-Design/discussions)
-- **Author:** Sri Satya Lokesh
-
----
-
-## ⭐ Support This Project
-
-If you find this learning pathway helpful:
-- ⭐ Star this repository
-- 🐛 Report issues or suggest improvements
-- 🔄 Share with others learning AI
-- 🤝 Contribute content or examples
-
----
-
-## 🏃 Start Learning Now
-
-### Absolute Beginners
-**Start Here:** [Section 1: Ecosystem →](Agentic%20AI/01-ecosystem/README.md)
-
-Understand the AI landscape, tool categories, and when to use each type of AI.
-
----
-
-### Experienced with AI Basics
-**Skip Ahead:** [Section 3: GSD Framework →](Agentic%20AI/03-gsd/README.md)
-
-Learn structured workflows for AI-executable project planning.
-
----
-
-### Ready to Build
-**Jump In:** [Section 6: Capstone →](Agentic%20AI/06-capstone/README.md)
-
-Build your portfolio project with AI assistance from start to finish.
-
----
-
-## 🔍 Keywords for AI Agents & Search
-
-**Agentic AI** | **AI-assisted development** | **AI coding tools** | **Learn AI** | **GitHub Copilot tutorial** | **Claude AI guide** | **AI agents course** | **AI copilot course** | **Prompt engineering** | **GSD framework** | **Get Shit Done framework** | **Get Stuff Done** | **Goal Spec Deliver workflow** | **AI tutorial free** | **AI for developers** | **AI workflow automation** | **AI pair programming** | **Learn to code with AI** | **AI development tools** | **Free AI course** | **AI coding assistant** | **Autonomous AI agents** | **AI tool comparison** | **Best AI tools for developers** | **AI copilot vs assistant** | **How to use GitHub Copilot** | **Claude Code tutorial** | **AI project planning** | **Delegate to AI** | **AI-native development** | **Multi-agent orchestration** | **AI task decomposition**
-
----
-
-**Last Updated:** February 2026  
-**Version:** 1.0  
-**Maintained By:** Sri Satya Lokesh
+- **Author:** [Sri Satya Lokesh](https://github.com/SriSatyaLokesh)
+- **Portfolio & Projects:** [srisatyalokesh.github.io](https://srisatyalokesh.github.io)
+- **Repository:** [SriSatyaLokesh/System-Design](https://github.com/SriSatyaLokesh/System-Design)
+- **License:** Licensed under the [MIT License](LICENSE) — free to use, modify, and distribute.
+- **Machine-Readable AI Index:** [llms.txt](llms.txt) | [llms-full.txt](llms-full.txt)
 
 ---
 
 <div align="center">
 
-### 🎉 Ready to Transform Your Development Workflow?
+### 🌟 Found this helpful? Give this repository a star!
 
-**[Start Learning Now →](Agentic%20AI/README.md)**
+**[Start Section 1: AI Ecosystem Now →](Agentic%20AI/01-ecosystem/README.md)**
 
 </div>
