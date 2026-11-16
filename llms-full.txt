@@ -1,0 +1,125 @@
+# Agentic AI & Modern System Design: Comprehensive Knowledge Base (llms-full.txt)
+
+> Repository: https://github.com/SriSatyaLokesh/System-Design
+> Author: Sri Satya Lokesh (https://srisatyalokesh.github.io)
+> License: MIT | Updated: November 2026
+
+---
+
+## 1. Executive Summary & Core Value Proposition
+
+This repository delivers a unified open-source pathway designed to transform software engineers into AI-native contributors. It addresses two interdependent disciplines:
+1. **Agentic AI & AI-Assisted Engineering**: How to collaborate with copilots, instruct repository-aware CLI agents (like Claude Code), and orchestrate autonomous multi-agent pipelines using the GSD (Goal → Spec → Deliver) framework.
+2. **Modern System Design & Architecture**: The distributed system foundations (distributed caching, pub/sub notifications, microservice event loops, and clean architecture) required to support and host AI-native applications in production.
+
+---
+
+## 2. Agentic AI Learning Pathway Curriculum
+
+### Section 1: AI Ecosystem
+- **Core Distinction**:
+  - *AI Assistants* (Claude, ChatGPT, Gemini): Conversational models designed for exploratory reasoning, code generation, summarization, and direct prompt-response workflows. Stateless by default across repository contexts.
+  - *AI Copilots* (GitHub Copilot, Cursor): Inline pair-programming tools operating inside IDEs, leveraging active files, neighboring tabs, and repository context vectors for autocomplete, refactoring, and code explanation.
+  - *Autonomous AI Agents* (Claude Code, AutoGPT, CrewAI): Goal-directed systems capable of running command-line instructions, inspecting code trees, executing tests, self-debugging on failure, and maintaining execution ledgers until acceptance criteria are satisfied.
+- **Decision Matrix (Chat vs. Repository AI)**:
+  - Use Chat/Web AI when exploring greenfield ideas, designing architectures, debugging isolated snippets, or learning conceptual theory.
+  - Use Repository-aware AI when modifying multi-file projects, refactoring shared types, running TDD cycles, or performing cross-file migrations.
+
+### Section 2: AI Coding Tools & Practical Adoption
+- **Claude Code**: Terminal-based, agentic coding assistant from Anthropic that reads repositories, executes shell commands, runs test suites, and iterates autonomously on codebases.
+- **GitHub Copilot**: Enterprise-standard pair-programmer with Workspace indexing, inline completions, and PR synthesis.
+- **Cursor**: Forked VS Code editor built natively around language models with whole-repo indexing and semantic codebases searches.
+- **Prompt Engineering Fundamentals**:
+  - Provide explicit persona, role, and context before stating tasks.
+  - Structure instructions with explicit constraints (e.g., "Do not install new dependencies; use standard library").
+  - Provide few-shot examples illustrating expected input and output formats.
+  - Anti-patterns to avoid: Vague instructions ("make this better"), massive monolithic prompts without decomposition, and omitting failure criteria.
+
+### Section 3: GSD (Get Shit Done) Framework
+- **Philosophy**: Prevents AI hallucination, context drift, and circular coding loops by enforcing a strict three-phase lifecycle:
+  1. **Goal**: Define the objective, business outcome, non-goals, and measurable success criteria before generating code.
+  2. **Spec**: Break down the goal into atomic technical specifications, interface contracts, and expected test outputs (2–5 minute task units).
+  3. **Deliver**: Execute the specification task-by-task under strict verification gates (TDD, red-green verification, and automated linting).
+- **Milestones & State Ledgers**:
+  - Maintain persistent state files (`PROJECT.md`, `STATE.md`, `ROADMAP.md`) in the repository so agents and humans share a single source of truth that survives session compaction.
+
+### Section 4: Autonomous AI Agents & Multi-Agent Orchestration
+- **Agent Architecture**:
+  - *Perception*: Reading files, terminal outputs, error logs, and API payloads.
+  - *Reasoning*: Chain-of-thought analysis, planning, and task decomposition.
+  - *Action*: Editing code, executing shell commands, invoking APIs.
+  - *Evaluation*: Inspecting exit codes, diffs, and test assertions.
+- **Delegation Patterns**:
+  - Single-agent linear execution for sequential deterministic tasks.
+  - Controller-worker (hierarchical) patterns where a supervisor decomposes tasks and delegates to specialized subagents (researcher, executor, verifier).
+  - Parallel agent swarms for independent horizontal tasks with zero shared mutable state.
+
+### Section 5: AI Skills & Model Context Protocol (MCP)
+- **Model Context Protocol (MCP)**:
+  - An open standard developed by Anthropic allowing AI models to interact with local tools, databases, and third-party SaaS services via JSON-RPC.
+  - Replaces fragile custom API wrappers with standardized tool contracts (`tools/list`, `tools/call`, `resources/read`).
+- **Skill Packaging**:
+  - Self-contained bundles comprising markdown instructions (`SKILL.md`), executable scripts, validation schemas, and usage examples.
+
+### Section 6: Capstone Project & Reference Build
+- **Real-World Implementation**: Building an AI-assisted personal portfolio and developer hub (reference: SriSatyaLokesh portfolio).
+- **Execution Blueprint**: Includes 13 actual prompt sequences spanning requirements drafting, component scaffolding, responsive styling, and automated GitHub Pages deployment.
+
+---
+
+## 3. System Design & Architectural Foundations
+
+### Distributed Caching Architecture
+- **Patterns**:
+  - *Cache-Aside (Lazy Loading)*: Application reads from cache; on miss, reads from database and populates cache. Best for read-heavy workloads with tolerable staleness.
+  - *Write-Through*: Application writes to cache; cache immediately synchronously writes to database. Eliminates cache-DB drift at the cost of write latency.
+  - *Write-Behind (Write-Back)*: Application writes to cache; cache asynchronously writes batches to database. Maximum write throughput; risk of data loss on cache crash.
+- **Eviction Policies**: LRU (Least Recently Used), LFU (Least Frequently Used), and TTL (Time-To-Live) expiration strategies.
+- **Cache Pitfalls**:
+  - *Cache Stampede / Thundering Herd*: Multiple concurrent misses for an expired hot key overwhelm the database. Mitigate with mutual exclusion mutexes (locks) or probabilistic early expiration (XFetch).
+  - *Cache Penetration*: Requests for non-existent keys bypass cache and hit DB. Mitigate with Bloom filters or caching null results.
+
+### Real-Time Notification & Messaging Systems
+- **Architecture**:
+  - Event producers emit domain events to message brokers (Kafka, RabbitMQ, Redis Streams).
+  - Consumer workers handle fanout, templating, localization, and carrier delivery (Push, SMS, Email, In-app).
+- **Core Requirements**:
+  - *Idempotency*: Enforce unique deduplication keys (`idempotency_key`) across consumers to prevent duplicate notifications during retries.
+  - *Rate Limiting*: Token bucket or sliding window algorithms to adhere to third-party SMS/Email vendor quotas and user preference limits.
+  - *Dead Letter Queues (DLQ)*: Unprocessable messages route to DLQ after exponential backoff retries with jitter.
+
+### High-Throughput Node.js Backend Architecture
+- **Event Loop Mechanics**:
+  - Libuv thread pool handling asynchronous I/O; non-blocking single-threaded execution for business logic.
+  - Avoid CPU-intensive operations on the main thread (crypto hashing, heavy JSON serialization); offload to worker threads or microservices.
+- **Clean Architecture & Domain-Driven Design (DDD)**:
+  - Separation of concerns: Entities (core domain logic) → Use Cases (application rules) → Interface Adapters (controllers, presenters) → Frameworks & Drivers (database, web server).
+  - Dependency rule: Dependencies point inward towards high-level policies.
+
+---
+
+## 4. Prompt Engineering & In-Context Learning Guide
+
+1. **System Prompt Design**:
+   - Establish strict operational persona and tone.
+   - Declare explicit negative constraints ("Never generate fake URLs", "Never modify package.json unless instructed").
+2. **Chain-of-Thought (CoT) Prompting**:
+   - Elicit step-by-step reasoning before outputting final answers to improve accuracy on algorithmic and architectural tasks.
+3. **Structured Output Enforcement**:
+   - Mandate JSON schemas or exact markdown tables for deterministic parsing by downstream agents.
+
+---
+
+## 5. Frequently Asked Questions (Structured Q&A)
+
+### What is Agentic AI?
+Agentic AI refers to artificial intelligence systems engineered with agency: the capacity to autonomously pursue complex, multi-step goals across environments. Rather than generating single text responses, an agentic AI perceives state, plans sequences of actions, executes tools (such as file editors or command-line terminals), analyzes feedback from errors or test suites, and iterates until the objective is accomplished.
+
+### What is the GSD Framework?
+The GSD (Get Shit Done) framework is a lightweight, structured software development methodology optimized for AI agents and human developers. It enforces a sequential Goal → Spec → Deliver cycle that decomposes projects into clear boundaries, verifiable acceptance criteria, and atomic tasks to prevent context drift and hallucination.
+
+### How do AI assistants, copilots, and autonomous agents compare?
+AI assistants (ChatGPT, Claude) operate primarily via interactive conversational chat for broad brainstorming and reasoning. AI copilots (GitHub Copilot, Cursor) integrate directly into code editors for real-time autocomplete and localized refactoring. Autonomous agents (Claude Code, CrewAI) operate over entire repositories and terminal environments to execute multi-file tasks independently.
+
+### How does modern System Design intersect with AI engineering?
+Production AI applications rely heavily on proven distributed systems patterns. Large Language Models require high-throughput streaming architectures, distributed vector caching, pub/sub queues for background agent workloads, idempotency guards on tool executions, and rate limiters to manage API costs and vendor throttles.
